@@ -6,4 +6,4 @@
 - Install "dein.vim"
 
 ## Install dein
-See dein.vim[https://github.com/Shougo/dein.vim]
+See [dein.vim](https://github.com/Shougo/dein.vim)

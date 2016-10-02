@@ -1,0 +1,85 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+# Unites
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'osyo-manga/unite-quickfix.git'
+
+# Colorschemes
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'kana/vim-smartinput'
+
+[[plugins]]
+repo = 'cohama/vim-smartinput-endwise'
+depends = 'vim-smartinput'
+hook_add = 'call plugins#vim_smartinput_endwise#hook_add()'
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+
+[[plugins]] # Japanese doc
+repo = 'vim-jp/vimdoc-ja'
+on_ft = 'help'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = 'call plugins#gitgutter#hook_add()'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_source = 'call plugins#lightline#hook_source()'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_source = 'call plugins#vim_quickrun#hook_source()'
+
+[[plugins]]
+repo = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-watchdogs'
+hook_source = 'call plugins#watchdogs#hook_source()'
+hook_post_source = 'call plugins#watchdogs#hook_post_source()'
+
+[[plugins]]
+repo = 'jceb/vim-hier'
+
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
+
+[[plugins]]
+repo = 'KabbAmine/vCoolor.vim'

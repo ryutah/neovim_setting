@@ -29,8 +29,8 @@ function! keymap#init() abort
   nnoremap <silent> [split]o <C-w>=
   nnoremap <silent> [split]> 10<C-w>>
   nnoremap <silent> [split]< 10<C-w><
-  nnoremap <silent> [split]+ 10<C-w>+
-  nnoremap <silent> [split]- 10<C-u>-
+  nnoremap <silent> [split]+ 5<C-w>+
+  nnoremap <silent> [split]- 5<C-u>-
 
   " Unite key mapping
   nnoremap <Space><Space> :<C-u>Unite -start-insert file_rec/async<CR>
@@ -56,9 +56,6 @@ function! keymap#init() abort
   vmap \c <Plug>(caw:zeropos:toggle)
   nmap <C-_> <Plug>(caw:zeropos:toggle)
   vmap <C-_> <Plug>(caw:zeropos:toggle)
-  " \c でコメントアウトの解除
-  " nmap \C <Plug>(caw:I:uncomment)
-  " vmap \C <Plug>(caw:I:uncomment)
 
   " vim-quickrun
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"

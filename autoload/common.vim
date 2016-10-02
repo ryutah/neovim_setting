@@ -21,11 +21,23 @@ function! common#init() abort
   set list
   set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
   " File encoding list
-  set fileencodings+=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,euc-jp,cp932
+  set encoding=utf-8
+  set fileencodings=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,euc-jp,cp932
+  set fileformats=unix,dos,mac
 
   " Theme
   set background=dark
   " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
   " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
   au MyAutoCmd VimEnter * nested colorscheme hybrid
+
+  " Remove traing white space and lise white line
+  autocmd BufWritePre * call s:remove_last_white_space_and_line_in_last()
+endfunction
+
+function! s:remove_last_white_space_and_line_in_last() abort
+  if getline('$') == ""
+     $delete _
+  endif
+  :%s/\s\+$//ge
 endfunction

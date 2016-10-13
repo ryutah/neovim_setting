@@ -3,6 +3,7 @@ function! plugins#vim_quickrun#hook_source() abort
         \   "_" : {
         \       "hook/close_unite_quickfix/enable_hook_loaded" : 1,
         \       "hook/unite_quickfix/enable_failure" : 1,
+        \       "hook/unite_quickfix/enable_exit" : 1,
         \       "hook/close_quickfix/enable_exit" : 1,
         \       "hook/close_buffer/enable_failure" : 1,
         \       "outputter" : "multi:buffer:quickfix",
@@ -14,11 +15,16 @@ function! plugins#vim_quickrun#hook_source() abort
         \       "runner" : "vimproc",
         \       "runner/vimproc/updatetime" : 40,
         \   },
-        \   "ruby/watchdogs_checker" : {
-        \     "type" : "watchdogs_checker/rubocop",
-        \   },
-        \   "javascript.jsx/watchdogs_checker" : {
-        \     "type" : "eslint",
-        \   },
         \}
+  let g:quickrun_config["ruby/watchdogs_checker"] = {
+        \ "type" : "watchdogs_checker/rubocop",
+        \ }
+  if executable("eslint")
+    let g:quickrun_config["javascript/watchdogs_checker"] = {
+          \ "type" : "watchdogs_checker/eslint",
+          \ }
+    let g:quickrun_config["javascript.jsx/watchdogs_checker"] = {
+          \ "type" : "eslint",
+          \ }
+  endif
 endfunction

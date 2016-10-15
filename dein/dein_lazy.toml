@@ -20,12 +20,16 @@ on_ft = 'javascript'
 hook_add = 'call plugins#yajs#hook_add()'
 
 [[plugins]]
-repo = 'MaxMEllon/vim-jsx-pretty'
+repo = 'mxw/vim-jsx'
+on_ft = 'javascript'
+hook_add = 'let g:jsx_ext_required = 0'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
 on_ft = 'javascript'
 
 [[plugins]] # ruby
 repo = 'vim-ruby/vim-ruby'
-# on_f = '.rb'
 on_ft = 'ruby'
 
 [[plugins]] # Toml

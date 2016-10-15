@@ -83,3 +83,6 @@ repo = 'Shougo/vimshell.vim'
 
 [[plugins]]
 repo = 'KabbAmine/vCoolor.vim'
+
+[[plugins]]
+repo = 'thinca/vim-editvar'

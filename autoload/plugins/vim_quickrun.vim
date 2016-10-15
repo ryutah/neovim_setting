@@ -16,6 +16,7 @@ function! plugins#vim_quickrun#hook_source() abort
         \       "runner/vimproc/updatetime" : 40,
         \   },
         \}
+
   let g:quickrun_config["ruby/watchdogs_checker"] = {
         \ "type" : "watchdogs_checker/rubocop",
         \ }
@@ -24,7 +25,7 @@ function! plugins#vim_quickrun#hook_source() abort
           \ "type" : "watchdogs_checker/eslint",
           \ }
     let g:quickrun_config["javascript.jsx/watchdogs_checker"] = {
-          \ "type" : "eslint",
+          \ "type" : "watchdogs_checker/eslint",
           \ }
   endif
 endfunction

@@ -25,6 +25,10 @@ function! common#init() abort
   set fileencodings=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,euc-jp,cp932
   set fileformats=unix,dos,mac
 
+  " ファイルオープン時に自動でカレントディレクトリを切り替え
+  " Note: 動作に問題が発生する場合はオフにすること
+  set autochdir
+
   " Theme
   set background=dark
   " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。

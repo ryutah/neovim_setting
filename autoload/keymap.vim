@@ -10,6 +10,8 @@ function! keymap#init() abort
   noremap <S-h> ^
   noremap <S-l> $
 
+  nnoremap <Space>cd :lcd %:p:h<CR>
+
   " Tab controll
   nnoremap <silent> tn :tabnew<CR>
   nnoremap <silent> tl :tabnext<CR>

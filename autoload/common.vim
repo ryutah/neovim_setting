@@ -27,7 +27,7 @@ function! common#init() abort
 
   " ファイルオープン時に自動でカレントディレクトリを切り替え
   " Note: 動作に問題が発生する場合はオフにすること
-  set autochdir
+  " set autochdir
 
   " Theme
   set background=dark

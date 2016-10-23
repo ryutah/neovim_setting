@@ -86,3 +86,10 @@ repo = 'KabbAmine/vCoolor.vim'
 
 [[plugins]]
 repo = 'thinca/vim-editvar'
+
+[[plugins]]
+repo = 'airblade/vim-rooter'
+hook_add = '''
+let g:rooter_use_lcd = 1
+autocmd BufEnter * :Rooter
+'''

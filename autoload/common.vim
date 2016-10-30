@@ -37,6 +37,10 @@ function! common#init() abort
 
   " Remove traing white space and lise white line
   autocmd BufWritePre * call s:remove_last_white_space_and_line_in_last()
+
+  " use undo file
+  set undofile
+  set undodir=~/.config/nvim/undo
 endfunction
 
 function! s:remove_last_white_space_and_line_in_last() abort

@@ -3,4 +3,5 @@ dein/repos/
 dein/rollbacks/
 dein/merged
 dein/.dein/
+undo/
 *.swp

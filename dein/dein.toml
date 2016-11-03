@@ -93,3 +93,9 @@ hook_add = '''
 let g:rooter_use_lcd = 1
 autocmd BufEnter * :Rooter
 '''
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'

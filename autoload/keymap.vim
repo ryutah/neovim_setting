@@ -61,4 +61,8 @@ function! keymap#init() abort
 
   " vim-quickrun
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+  " easy-align
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
 endfunction

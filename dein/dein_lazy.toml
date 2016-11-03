@@ -69,3 +69,36 @@ on_i = 1
 repo = 'osyo-manga/vim-monster'
 on_ft = 'ruby'
 on_i = 1
+
+[[plugins]]
+repo = 'neovimhaskell/haskell-vim'
+on_ft = 'haskell'
+hook_add = '''
+let g:haskell_enable_quantification = 1
+let g:haskell_enable_recursivedo = 1
+let g:haskell_enable_arrowsyntax = 1
+let g:haskell_enable_pattern_synonyms = 1
+let g:haskell_enable_typeroles = 1
+let g:haskell_enable_static_pointers = 1
+'''
+
+[[plugins]]
+repo = 'eagletmt/neco-ghc'
+on_ft = 'haskell'
+
+[[plugins]]
+repo = 'eagletmt/ghcmod-vim'
+on_ft = 'haskell'
+
+# Replace haskell operator to unicode characters
+# [[plugins]]
+# repo = 'enomsg/vim-haskellConcealPlus'
+# on_ft = 'haskell'
+
+[[plugins]]
+repo = 'ujihisa/ref-hoogle'
+on_ft = 'haskell'
+
+[[plugins]]
+repo = 'ujihisa/unite-haskellimport'
+on_ft = 'haskell'

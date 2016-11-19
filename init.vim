@@ -41,3 +41,5 @@ call common#init()
 call keymap#init()
 " ruby settings
 call langages#ruby#init()
+" go settings
+call langages#go#init()

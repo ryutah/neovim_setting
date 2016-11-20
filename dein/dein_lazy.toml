@@ -8,7 +8,7 @@ hook_source = 'call plugins#deoplete#hook_source()'
 repo = 'zchee/deoplete-go'
 on_i = 1
 build = 'make'
-hook_source = 'call plugins#deoplete_go#hook_add()'
+hook_source = 'call plugins#deoplete_go#hook_source()'
 
 [[plugins]] # Codic
 repo = 'koron/codic-vim'
@@ -111,3 +111,4 @@ on_ft = 'haskell'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
+hook_source = 'call plugins#vim_go#hook_source()'

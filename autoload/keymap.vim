@@ -43,7 +43,7 @@ function! keymap#init() abort
   nnoremap <silent> [unite]t  :Unite -start-insert tab<CR>
   nnoremap <silent> [unite]m  :Unite -start-insert file_mru<CR>
   nnoremap <silent> [unite]g  :Unite -start-insert grep<CR>
-  nnoremap <silent> [unite]o  :Unite -vertical -start-insert -direction=botright -winwidth=40 -no-quit outline<CR>
+  nnoremap <silent> [unite]o  :Unite -vertical -direction=botright -winwidth=40 -no-quit outline<CR>
   nnoremap <silent> [unite]r  <Plug>(unite_restart)
   nnoremap <silent> [unite]ri :Unite ref/ri<CR>
   nnoremap <silent> [unite]cs :Unite colorscheme -auto-preview<CR>

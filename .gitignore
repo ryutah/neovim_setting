@@ -1,5 +1,6 @@
 dein/temp/
 dein/repos/
+dein/.cache/
 dein/rollbacks/
 dein/merged
 dein/.dein/

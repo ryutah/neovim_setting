@@ -3,9 +3,9 @@ function! plugins#vim_quickrun#hook_source() abort
         \   "_" : {
         \       "hook/close_unite_quickfix/enable_hook_loaded" : 1,
         \       "hook/unite_quickfix/enable_failure" : 1,
-        \       "hook/unite_quickfix/enable_exit" : 1,
         \       "hook/close_quickfix/enable_exit" : 1,
         \       "hook/close_buffer/enable_failure" : 1,
+        \       "hook/close_buffer/enable_empty_data" : 1,
         \       "outputter" : "multi:buffer:quickfix",
         \       "hook/inu/enable" : 1,
         \       "hook/inu/wait" : 2,
@@ -15,6 +15,12 @@ function! plugins#vim_quickrun#hook_source() abort
         \       "runner" : "vimproc",
         \       "runner/vimproc/updatetime" : 40,
         \   },
+        \  "haskell" : { 'type' : 'haskell/stack' },
+        \  "haskell/stack" : {
+        \    "command" : "stack",
+        \    "exec" : "%c %o %s %a",
+        \    "cmdopt" : "runghc",
+        \  },
         \}
 
   let g:quickrun_config["ruby/watchdogs_checker"] = {

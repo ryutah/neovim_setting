@@ -1,7 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Go Settings
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Go Settings """"""""""""""""""""""""""""""""""""""""""""""""""
 function! s:go()
+  autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+  autocmd FileType go :match goErr /\<err\>/
   " hilight
   let g:go_hightlight_functions         = 1
   let g:go_hightlight_methods           = 1

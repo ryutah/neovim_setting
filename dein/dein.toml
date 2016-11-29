@@ -99,3 +99,12 @@ repo = 'thinca/vim-ref'
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+hook_add = '''
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'

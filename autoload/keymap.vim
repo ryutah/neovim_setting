@@ -65,4 +65,9 @@ function! keymap#init() abort
   " easy-align
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
+
+  " tagbar
+  nnoremap [Tagbar] <Nop>
+  nmap     <Space>t [Tagbar]
+  nnoremap <silent> [Tagbar]t :TagbarToggle<CR>
 endfunction

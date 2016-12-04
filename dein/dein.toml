@@ -108,3 +108,6 @@ let g:previm_open_cmd = 'open -a Google\ Chrome'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'majutsushi/tagbar.git'

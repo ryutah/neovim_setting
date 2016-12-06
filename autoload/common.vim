@@ -37,6 +37,8 @@ function! common#init() abort
 
   " Remove traing white space and lise white line
   autocmd BufWritePre * call s:remove_last_white_space_and_line_in_last()
+  " Rspec syntax on
+  autocmd BufNewFile,BufRead *_foo.rb set syntax=rspec
 
   " use undo file
   set undofile

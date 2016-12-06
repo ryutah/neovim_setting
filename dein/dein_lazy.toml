@@ -118,3 +118,7 @@ on_ft = 'haskell'
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_source = 'call plugins#vim_go#hook_source()'
+
+[[plugins]]
+repo = 'keith/rspec.vim'
+on_ft = 'ruby'

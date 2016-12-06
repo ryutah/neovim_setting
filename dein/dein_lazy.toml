@@ -74,6 +74,7 @@ on_i = 1
 repo = 'osyo-manga/vim-monster'
 on_ft = 'ruby'
 on_i = 1
+build = 'gem install rcodetools fastri'
 hook_add = '''
 let g:monster#completion#rcodetools#backend = "async_rct_complete"
 let g:deoplete#sources#omni#input_patterns = {

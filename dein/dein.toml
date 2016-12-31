@@ -111,3 +111,6 @@ repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'majutsushi/tagbar.git'
+
+[[plugins]]
+repo = 'tpope/vim-surround'

@@ -97,6 +97,7 @@ let g:haskell_enable_static_pointers = 1
 [[plugins]]
 repo = 'eagletmt/neco-ghc'
 on_ft = 'haskell'
+build = 'stack install ghc-mod'
 
 [[plugins]]
 repo = 'eagletmt/ghcmod-vim'
@@ -110,10 +111,12 @@ on_ft = 'haskell'
 [[plugins]]
 repo = 'ujihisa/ref-hoogle'
 on_ft = 'haskell'
+build = 'stack install hoogle'
 
 [[plugins]]
 repo = 'ujihisa/unite-haskellimport'
 on_ft = 'haskell'
+build = 'stack install hoogle && hoogle generate && hoogle data'
 
 [[plugins]]
 repo = 'fatih/vim-go'

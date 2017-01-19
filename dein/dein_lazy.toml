@@ -2,13 +2,12 @@
 repo = 'Shougo/deoplete.nvim'
 if = 'has("nvim")'
 on_i = 1
-hook_source = 'call plugins#deoplete#hook_source()'
+hook_add = 'call plugins#deoplete#hook_source()'
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
 on_i = 1
 build = 'make'
-hook_source = 'call plugins#deoplete_go#hook_source()'
 
 [[plugins]] # Codic
 repo = 'koron/codic-vim'
@@ -126,3 +125,30 @@ hook_source = 'call plugins#vim_go#hook_source()'
 [[plugins]]
 repo = 'keith/rspec.vim'
 on_ft = 'ruby'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = 'typescript'
+hook_add = '''
+let g:typescript_indent_disable = 1
+'''
+
+[[plugins]]
+repo = 'jason0x43/vim-js-indent'
+on_ft = ['typescript', 'javascript']
+hook_add = '''
+let g:js_indent_typescript = 1
+let g:js_indent_flat_switch = 1
+'''
+
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+on_ft = 'typescript'
+depends = ['deoplete.nvim']
+
+# [[plugins]]
+# repo = 'Quramy/tsuquyomi'
+# on_i = 1
+# on_ft = 'typescript'
+# build = 'npm install -g typescript'
+# depends = ['deoplete.nvim']

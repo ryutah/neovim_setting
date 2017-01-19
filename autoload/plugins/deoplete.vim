@@ -1,9 +1,17 @@
 function! plugins#deoplete#hook_source() abort
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#enable_ignore_case = 1
-  if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
+  if !exists('g:deoplete#sources#omni#input_patterns')
+    let g:deoplete#sources#omni#input_patterns = {}
   endif
+  " required vim-monster
+  let g:deoplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+  " required deoplete-go
+  let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+  let g:deoplete#sources#go#use_cache = 1
+  let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
 
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 endfunction

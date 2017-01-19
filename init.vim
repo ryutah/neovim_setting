@@ -7,6 +7,8 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
+call filetype#init()
+
 let s:cache_home    = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : expand('$XDG_CONFIG_HOME/nvim')
 let s:dein_dir      = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'

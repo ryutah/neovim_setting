@@ -146,6 +146,10 @@ repo = 'mhartington/nvim-typescript'
 on_ft = 'typescript'
 depends = ['deoplete.nvim']
 
+[[plugins]]
+repo = 'rhysd/vim-crystal'
+on_ft = 'crystal'
+
 # [[plugins]]
 # repo = 'Quramy/tsuquyomi'
 # on_i = 1

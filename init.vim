@@ -8,7 +8,6 @@ augroup MyAutoCmd
 augroup END
 
 call filetype#init()
-
 let s:cache_home    = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : expand('$XDG_CONFIG_HOME/nvim')
 let s:dein_dir      = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -41,7 +40,8 @@ endif
 call common#init()
 " Key maps
 call keymap#init()
+
 " ruby settings
-call langages#ruby#init()
+" call langages#ruby#init()
 " go settings
-call langages#go#init()
+" call langages#go#init()

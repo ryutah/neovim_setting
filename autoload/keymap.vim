@@ -70,4 +70,9 @@ function! keymap#init() abort
   nnoremap [Tagbar] <Nop>
   nmap     <Space>t [Tagbar]
   nnoremap <silent> [Tagbar]t :TagbarToggle<CR>
+
+  " format
+  nnoremap [Format] <Nop>
+  nmap <Space>f [Format]
+  nnoremap <silent> [Format]f gg=G``
 endfunction

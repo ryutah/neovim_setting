@@ -12,7 +12,7 @@ function! common#init() abort
   filetype plugin indent on
   syntax on
   " Set tab size
-  set tabstop=2
+  set tabstop=4
   " Set auto indent tab size
   set shiftwidth=2
   " Use whitespace alternative <TAB>
@@ -38,8 +38,6 @@ function! common#init() abort
 
   " Remove traing white space and lise white line
   autocmd BufWritePre * call s:remove_last_white_space_and_line_in_last()
-  " Rspec syntax on
-  autocmd BufNewFile,BufRead *_foo.rb set syntax=rspec
 
   " use undo file
   set undofile
@@ -48,7 +46,7 @@ endfunction
 
 function! s:remove_last_white_space_and_line_in_last() abort
   if getline('$') == ""
-     $delete _
+    $delete _
   endif
   :%s/\s\+$//ge
 endfunction

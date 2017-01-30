@@ -1,4 +1,14 @@
 function! plugins#vim_go#hook_source() abort
+  " hilight
+  let g:go_hightlight_functions         = 1
+  let g:go_hightlight_methods           = 1
+  let g:go_hightlight_structs           = 1
+  let g:go_hightlight_interfaces        = 1
+  let g:go_hightlight_operators         = 1
+  let g:go_hightlight_build_constraints = 1
+  " Auto import at save file
+  let g:go_fmt_command = "goimports"
+
   " Key mapping go
   nnoremap [vim-go] <Nop>
   nmap <Space>g [vim-go]

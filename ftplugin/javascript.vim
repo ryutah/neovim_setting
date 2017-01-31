@@ -1,4 +1,3 @@
-set tags=tags;/,codex.tags;/
 " Set tab size
 set tabstop=4
 " Set auto indent tab size

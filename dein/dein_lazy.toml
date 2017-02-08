@@ -154,6 +154,10 @@ on_ft = 'crystal'
 repo = 'chrisbra/csv.vim'
 on_ft = 'csv'
 
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = 'python'
+
 # [[plugins]]
 # repo = 'Quramy/tsuquyomi'
 # on_i = 1

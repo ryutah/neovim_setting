@@ -8,9 +8,10 @@ augroup MyAutoCmd
 augroup END
 
 call filetype#init()
-let s:cache_home    = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : expand('$XDG_CONFIG_HOME/nvim')
-let s:dein_dir      = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let s:cache_home                   = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : expand('$XDG_CONFIG_HOME/nvim')
+let s:dein_dir                     = s:cache_home . '/dein'
+let s:dein_repo_dir                = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let g:dein#install_process_timeout = 600
 
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))

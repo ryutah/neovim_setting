@@ -1,4 +1,7 @@
 function! plugins#deoplete#hook_source() abort
+  " Python3 full path
+  let g:python3_host_prog = '/Users/ryuta/.anyenv/envs/pyenv/versions/3.6.0/bin/python'
+
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#enable_ignore_case = 1
   if !exists('g:deoplete#sources#omni#input_patterns')

@@ -25,25 +25,19 @@ endfunction
 
 function! s:python_config() abort
   " Python syntax check
-  let s:pyflakes = executable("pyflakes3") ? "pyflakes3" :
-        \          executable("python3")   ? "python3" :
-        \          executable("pyflakes")  ? "pyflakes" :
-        \          "python"
-  let s:cmdopt = executable("pyflakes3") ? "" :
-        \        executable("python3")   ? "-m pyflakes" :
-        \        executable("pyflakes")  ? "" :
-        \        "-m pyflakes"
+  let s:flake8 = executable($PYTHON_PATH . "flake8")  ? $PYTHON_PATH . "flake8" :
+        \        executable($PYTHON_PATH . "python3") ? $PYTHON_PATH . "python3" :
+        \        "python"
   let g:quickrun_config["watchdogs_checker/pyflakes3"] = {
-        \   "command"     : s:pyflakes,
-        \   "cmdopt"      : s:cmdopt,
+        \   "command"     : s:flake8,
+        \   "cmdopt"      : "",
         \   "exec"        : "%c %o %s:p",
         \   "errorformat" : "%f:%l:%m"
         \ }
   let g:quickrun_config["python/watchdogs_checker"] = {
         \   "type" : "watchdogs_checker/pyflakes3"
         \ }
-  unlet s:pyflakes
-  unlet s:cmdopt
+  unlet s:flake8
 endfunction
 
 function! s:ruby_config() abort

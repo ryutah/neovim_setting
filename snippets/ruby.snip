@@ -176,12 +176,15 @@ snippet     module
   end
 
 snippet     describe
-  describe "${1}" do
+  describe '${1}' do
     ${2}
   end
 
 snippet     it
-  it "${1}" do
+  it '${1}& do
     ${2}
   end
 # vim:set et ts=2 sts=2 sw=2 tw=0:
+
+snippet frocom
+  # frozen_string_literal: true

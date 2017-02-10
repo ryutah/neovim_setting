@@ -78,5 +78,5 @@ endfunction
 
 function! s:go_config() abort
   " vim-goでチェックされるため、watchdogsでのlintを解除
-  let g:quickrun_config["go/watchdogs_checker"] = { "type" : "" }
+  let g:quickrun_config["go/watchdogs_checker"] = { "type" : "watchdogs_checker/golint" }
 endfunction

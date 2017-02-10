@@ -42,6 +42,8 @@ function! common#init() abort
   " use undo file
   set undofile
   set undodir=~/.config/nvim/undo
+  " ウィンドウ縦分割の際に下側に設定する
+  set splitbelow
 endfunction
 
 function! s:remove_last_white_space_and_line_in_last() abort

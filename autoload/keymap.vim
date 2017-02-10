@@ -47,6 +47,7 @@ function! keymap#init() abort
   nnoremap <silent> [unite]r  <Plug>(unite_restart)
   nnoremap <silent> [unite]ri :Unite ref/ri<CR>
   nnoremap <silent> [unite]cs :Unite colorscheme -auto-preview<CR>
+  nnoremap <silent> [unite]q  :Unite -no-quit -direction=botright quickfix<CR>
 
   " Open NERDTree
   nnoremap [NERDTree] <Nop>

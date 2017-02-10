@@ -7,8 +7,10 @@ function! plugins#deoplete#hook_source() abort
   if !exists('g:deoplete#sources#omni#input_patterns')
     let g:deoplete#sources#omni#input_patterns = {}
   endif
+  let g:deoplete#sources#omni#input_patterns['typescript'] = '[^. \t]\.\%(\h\w*\)\?'
   " required vim-monster
   let g:deoplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+  let g:deoplete#sources#omni#input_patterns.typescript = '[^. \t]\.\%(\h\w*\)\?'
 
   " required deoplete-go
   let g:deoplete#sources#go#gocode_binary  = $GOPATH .'/bin/gocode'

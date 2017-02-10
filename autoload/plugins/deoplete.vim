@@ -7,10 +7,13 @@ function! plugins#deoplete#hook_source() abort
   if !exists('g:deoplete#sources#omni#input_patterns')
     let g:deoplete#sources#omni#input_patterns = {}
   endif
-  let g:deoplete#sources#omni#input_patterns['typescript'] = '[^. \t]\.\%(\h\w*\)\?'
   " required vim-monster
   let g:deoplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-  let g:deoplete#sources#omni#input_patterns.typescript = '[^. \t]\.\%(\h\w*\)\?'
+
+  if !exists('g:deoplete#omni_patterns')
+    let g:deoplete#omni_patterns= {}
+  endif
+  let g:deoplete#omni_patterns.typescript = '[^. \t]\.\%(\h\w*\)\?'
 
   " required deoplete-go
   let g:deoplete#sources#go#gocode_binary  = $GOPATH .'/bin/gocode'
@@ -20,7 +23,6 @@ function! plugins#deoplete#hook_source() abort
 
   " Close popup menu when leave insert mode or complete end.
   " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
   " Close popup menu when leave insert mode
   autocmd InsertLeave * if pumvisible() == 0 | pclose | endif
 endfunction

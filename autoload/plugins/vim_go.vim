@@ -6,8 +6,10 @@ function! plugins#vim_go#hook_source() abort
   let g:go_hightlight_interfaces        = 1
   let g:go_hightlight_operators         = 1
   let g:go_hightlight_build_constraints = 1
-  " Auto import at save file
-  let g:go_fmt_command = "goimports"
+  let g:go_term_mode                    = "split"
+  let g:go_fmt_command                  = "goimports"
+  let g:go_metalinter_autosave          = 1
+
 
   " Key mapping go
   nnoremap [vim-go] <Nop>

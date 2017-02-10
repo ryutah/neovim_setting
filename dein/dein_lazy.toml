@@ -76,9 +76,6 @@ on_i = 1
 build = 'gem install rcodetools fastri'
 hook_add = '''
 let g:monster#completion#rcodetools#backend = "async_rct_complete"
-let g:deoplete#sources#omni#input_patterns = {
-\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-\}
 '''
 
 [[plugins]]
@@ -141,10 +138,14 @@ let g:js_indent_typescript = 1
 let g:js_indent_flat_switch = 1
 '''
 
+# [[plugins]]
+# repo = 'mhartington/nvim-typescript'
+# on_ft = 'typescript'
+# depends = ['deoplete.nvim']
+
 [[plugins]]
-repo = 'mhartington/nvim-typescript'
+repo = 'Quramy/tsuquyomi'
 on_ft = 'typescript'
-depends = ['deoplete.nvim']
 
 [[plugins]]
 repo = 'rhysd/vim-crystal'

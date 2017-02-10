@@ -21,6 +21,7 @@ function! plugins#vim_quickrun#hook_source() abort
   call s:ruby_config()
   call s:js_config()
   call s:haskell_config()
+  call s:go_config()
 endfunction
 
 function! s:python_config() abort
@@ -73,4 +74,9 @@ function! s:haskell_config() abort
         \   "exec"    : "%c %o %s %a",
         \   "cmdopt"  : "runghc",
         \ }
+endfunction
+
+function! s:go_config() abort
+  " vim-goでチェックされるため、watchdogsでのlintを解除
+  let g:quickrun_config["go/watchdogs_checker"] = { "type" : "watchdogs_checker/golint" }
 endfunction

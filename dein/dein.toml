@@ -96,7 +96,11 @@ autocmd BufEnter * :Rooter
 
 [[plugins]]
 repo = 'thinca/vim-ref'
-# build = 'bitclust setup --versions=2.4.0'
+build = '''
+gem install refe2
+gem install bitclust-dev
+bitclust setup --versions=2.4.0
+'''
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'

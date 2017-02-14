@@ -3,34 +3,34 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 function! plugins#lightline#hook_source() abort
   let g:lightline = {
-        \ 'colorscheme': 'landscape',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [
-        \     ['mode', 'paste'],
-        \     ['fugitive', 'gitgutter', 'filename'],
-        \   ],
-        \   'right': [
-        \     ['lineinfo', 'syntastic'],
-        \     ['percent'],
-        \     ['charcode', 'fileformat', 'fileencoding', 'filetype'],
-        \   ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'MyModified',
-        \   'readonly': 'MyReadonly',
-        \   'fugitive': 'MyFugitive',
-        \   'filename': 'MyFilename',
-        \   'fileformat': 'MyFileformat',
-        \   'filetype': 'MyFiletype',
-        \   'fileencoding': 'MyFileencoding',
-        \   'mode': 'MyMode',
-        \   'syntastic': 'SyntasticStatuslineFlag',
-        \   'charcode': 'MyCharCode',
-        \   'gitgutter': 'MyGitGutter',
-        \ },
-        \ 'separator': {'left': '⮀', 'right': '⮂'},
-        \ 'subseparator': {'left': '⮁', 'right': '⮃'}
+        \   'colorscheme': 'landscape',
+        \   'mode_map': {'c': 'NORMAL'},
+        \   'active': {
+        \     'left': [
+        \       ['mode', 'paste'],
+        \       ['fugitive', 'gitgutter', 'filename'],
+        \     ],
+        \     'right': [
+        \       ['lineinfo', 'syntastic'],
+        \       ['percent'],
+        \       ['charcode', 'fileformat', 'fileencoding', 'filetype'],
+        \     ]
+        \   },
+        \   'component_function': {
+        \     'modified': 'MyModified',
+        \     'readonly': 'MyReadonly',
+        \     'fugitive': 'MyFugitive',
+        \     'filename': 'MyFilename',
+        \     'fileformat': 'MyFileformat',
+        \     'filetype': 'MyFiletype',
+        \     'fileencoding': 'MyFileencoding',
+        \     'mode': 'MyMode',
+        \     'syntastic': 'SyntasticStatuslineFlag',
+        \     'charcode': 'MyCharCode',
+        \     'gitgutter': 'MyGitGutter',
+        \   },
+        \   'separator': {'left': '⮀', 'right': '⮂'},
+        \   'subseparator': {'left': '⮁', 'right': '⮃'}
         \ }
 
 endfunction

@@ -1,7 +1,6 @@
 function! plugins#deoplete#hook_source() abort
   " Python3 full path
-  let g:python3_host_prog = $PYTHON_PATH . '/python'
-
+  let g:python3_host_prog           = $PYTHON_PATH . '/python'
   let g:deoplete#enable_at_startup  = 1
   let g:deoplete#enable_ignore_case = 1
   if !exists('g:deoplete#sources#omni#input_patterns')
@@ -13,6 +12,7 @@ function! plugins#deoplete#hook_source() abort
   if !exists('g:deoplete#omni_patterns')
     let g:deoplete#omni_patterns= {}
   endif
+  " for tsuquyomi
   let g:deoplete#omni_patterns.typescript = '[^. \t]\.\%(\h\w*\)\?'
 
   " required deoplete-go

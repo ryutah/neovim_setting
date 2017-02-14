@@ -7,10 +7,10 @@ function! keymap#init() abort
   nnoremap k gk
   nnoremap gj j
   nnoremap gk k
-  noremap <S-h> ^
-  noremap <S-l> $
+  noremap  <S-h> ^
+  noremap  <S-l> $
 
-  nnoremap <Space>cd :lcd %:p:h<CR>
+  nnoremap <Leader>cd :lcd %:p:h<CR>
 
   " Tab controll
   nnoremap <silent> tn :tabnew<CR>
@@ -20,7 +20,7 @@ function! keymap#init() abort
 
   " Split screen controlls
   nnoremap [split] <Nop>
-  nmap <Space>s [split]
+  nmap     <Leader>s [split]
   nnoremap <silent> [split]v :vsplit<CR>
   nnoremap <silent> [split]i :split<CR>
   nnoremap <silent> [split]l <C-w>l
@@ -35,9 +35,9 @@ function! keymap#init() abort
   nnoremap <silent> [split]- 5<C-u>-
 
   " Unite key mapping
-  nnoremap <Space><Space> :<C-u>Unite -start-insert file_rec/async<CR>
+  nnoremap <Leader><Leader> :<C-u>Unite -start-insert file_rec/async<CR>
   nnoremap [unite] <Nop>
-  nmap     <Space>u [unite]
+  nmap     <Leader>u [unite]
   nnoremap <silent> [unite]y  :Unite history/yank<CR>
   nnoremap <silent> [unite]b  :Unite -start-insert buffer<CR>
   nnoremap <silent> [unite]t  :Unite -start-insert tab<CR>
@@ -51,12 +51,10 @@ function! keymap#init() abort
 
   " Open NERDTree
   nnoremap [NERDTree] <Nop>
-  nmap     <Space>n [NERDTree]
-  nnoremap <silent> [NERDTree]t :NERDTree<CR>
+  nmap     <Leader>n  [NERDTree]
+  nnoremap <silent>   [NERDTree]t :NERDTree<CR>
 
   " caw.vim
-  nmap \c <Plug>(caw:zeropos:toggle)
-  vmap \c <Plug>(caw:zeropos:toggle)
   nmap <C-_> <Plug>(caw:zeropos:toggle)
   vmap <C-_> <Plug>(caw:zeropos:toggle)
 
@@ -68,12 +66,12 @@ function! keymap#init() abort
   nmap ga <Plug>(EasyAlign)
 
   " tagbar
-  nnoremap [Tagbar] <Nop>
-  nmap     <Space>t [Tagbar]
-  nnoremap <silent> [Tagbar]t :TagbarToggle<CR>
+  nnoremap [Tagbar]  <Nop>
+  nmap     <Leader>t [Tagbar]
+  nnoremap <silent>  [Tagbar]t :TagbarToggle<CR>
 
   " format
-  nnoremap [Format] <Nop>
-  nmap <Space>f [Format]
-  nnoremap <silent> [Format]f gg=G``
+  nnoremap [Format]  <Nop>
+  nmap     <Leader>f [Format]
+  nnoremap <silent>  [Format]f gg=G``
 endfunction

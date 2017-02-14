@@ -2,7 +2,7 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
+repo  = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
@@ -10,15 +10,15 @@ repo = 'Shougo/neomru.vim'
 
 # Unites
 [[plugins]]
-repo = 'Shougo/unite.vim'
+repo    = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 
 [[plugins]]
-repo = 'Shougo/unite-outline'
+repo    = 'Shougo/unite-outline'
 depends = 'unite.vim'
 
 [[plugins]]
-repo = 'ujihisa/unite-colorscheme'
+repo    = 'ujihisa/unite-colorscheme'
 depends = 'unite.vim'
 
 [[plugins]]
@@ -38,41 +38,41 @@ repo = 'scrooloose/nerdtree'
 repo = 'kana/vim-smartinput'
 
 [[plugins]]
-repo = 'cohama/vim-smartinput-endwise'
-depends = 'vim-smartinput'
+repo     = 'cohama/vim-smartinput-endwise'
+depends  = 'vim-smartinput'
 hook_add = 'call plugins#vim_smartinput_endwise#hook_add()'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
 
 [[plugins]] # Japanese doc
-repo = 'vim-jp/vimdoc-ja'
+repo  = 'vim-jp/vimdoc-ja'
 on_ft = 'help'
 
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
+repo     = 'airblade/vim-gitgutter'
 hook_add = 'call plugins#gitgutter#hook_add()'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo        = 'itchyny/lightline.vim'
 hook_source = 'call plugins#lightline#hook_source()'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
+repo        = 'thinca/vim-quickrun'
 hook_source = 'call plugins#vim_quickrun#hook_source()'
 
 [[plugins]]
 repo = 'osyo-manga/shabadou.vim'
 
 [[plugins]]
-repo = 'osyo-manga/vim-watchdogs'
-hook_source = 'call plugins#watchdogs#hook_source()'
+repo             = 'osyo-manga/vim-watchdogs'
+hook_source      = 'call plugins#watchdogs#hook_source()'
 hook_post_source = 'call plugins#watchdogs#hook_post_source()'
 
 [[plugins]]
@@ -102,7 +102,7 @@ repo = 'thinca/vim-ref'
 repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
-repo = 'kannokanno/previm'
+repo     = 'kannokanno/previm'
 hook_add = '''
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 '''
@@ -116,3 +116,13 @@ hook_add = 'call plugins#tagbar#hook_add()'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo     = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+let g:indent_guides_auto_colors       = 1
+let g:indent_guides_guide_size        = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=grey
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=darkgrey
+'''

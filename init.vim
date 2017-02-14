@@ -24,6 +24,7 @@ if dein#load_state(s:dein_dir)
   " TOML files written plugins
   let s:toml      = s:dein_dir . '/dein.toml'
   let s:lazy_toml = s:dein_dir . '/dein_lazy.toml'
+  let mapleader   = "\<Space>"
 
   " Load plugins from toml at start nvim
   call dein#load_toml(s:toml, { 'lazy': 0 })
@@ -41,8 +42,3 @@ endif
 call common#init()
 " Key maps
 call keymap#init()
-
-" ruby settings
-" call langages#ruby#init()
-" go settings
-" call langages#go#init()

@@ -32,6 +32,9 @@ function! common#init() abort
 
   " Theme
   set background=dark
+  " 背景色をターミナルと同じ色にする
+  autocmd ColorScheme * highlight Normal ctermbg=none
+  autocmd ColorScheme * highlight LineNr ctermbg=none
   " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
   " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
   au MyAutoCmd VimEnter * nested colorscheme hybrid

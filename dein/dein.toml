@@ -26,6 +26,12 @@ repo = 'osyo-manga/unite-quickfix.git'
 
 # Colorschemes
 [[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'rhysd/vim-color-spring-night'
+
+[[plugins]]
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]

@@ -9,6 +9,8 @@ function! keymap#init() abort
   nnoremap gk k
   noremap  <S-h> ^
   noremap  <S-l> $
+  noremap  <S-j> %
+  noremap  <C-j> <S-j>
 
   nnoremap <Leader>cd :lcd %:p:h<CR>
 

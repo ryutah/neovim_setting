@@ -42,3 +42,5 @@ endif
 call common#init()
 " Key maps
 call keymap#init()
+" Command setting
+call command#init()

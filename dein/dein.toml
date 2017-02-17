@@ -10,8 +10,9 @@ repo = 'Shougo/neomru.vim'
 
 # Unites
 [[plugins]]
-repo    = 'Shougo/unite.vim'
-depends = 'neomru.vim'
+repo     = 'Shougo/unite.vim'
+depends  = 'neomru.vim'
+hook_add = 'call plugins#unite#hook_add()'
 
 [[plugins]]
 repo    = 'Shougo/unite-outline'

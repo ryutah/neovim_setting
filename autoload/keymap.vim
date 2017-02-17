@@ -37,19 +37,20 @@ function! keymap#init() abort
   nnoremap <silent> [split]- 5<C-u>-
 
   " Unite key mapping
-  nnoremap <Leader><Leader> :<C-u>Unite -start-insert file_rec/async<CR>
+  nnoremap <Leader><Leader> :<C-u>Unite -start-insert file_rec/neovim<CR>
   nnoremap [unite] <Nop>
   nmap     <Leader>u [unite]
   nnoremap <silent> [unite]y  :Unite history/yank<CR>
   nnoremap <silent> [unite]b  :Unite -start-insert buffer<CR>
   nnoremap <silent> [unite]t  :Unite -start-insert tab<CR>
   nnoremap <silent> [unite]m  :Unite -start-insert file_mru<CR>
-  nnoremap <silent> [unite]g  :Unite -start-insert grep<CR>
+  nnoremap <silent> [unite]g  :Unite -start-insert grep:.<CR>
   nnoremap <silent> [unite]o  :Unite -vertical -start-insert -direction=botright -winwidth=40 outline<CR>
   nnoremap <silent> [unite]r  <Plug>(unite_restart)
   nnoremap <silent> [unite]ri :Unite ref/ri<CR>
   nnoremap <silent> [unite]cs :Unite colorscheme -auto-preview<CR>
   nnoremap <silent> [unite]q  :Unite -no-quit -direction=botright quickfix<CR>
+  nnoremap <silent> [unite]f  :Unite -start-insert file<CR>
 
   " Open NERDTree
   nnoremap [NERDTree] <Nop>

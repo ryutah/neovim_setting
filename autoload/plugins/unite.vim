@@ -1,11 +1,16 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Unite Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
-let g:unite_source_history_yank_enable = 1
+function! plugins#unite#hook_add() abort
+  let g:unite_source_history_yank_enable = 1
 
-try
-  let g:unite_source_rec_async_command = ['ag', '--follow',  '--nocolor',
-        \ '--nogroup', '--hidden', '-g', '']
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-catch
-endtry
+  " Use silver search to find_rec/neovim and grep
+  if executable('ag')
+    let g:unite_source_rec_async_command  = ['ag', '--follow',  '--nocolor', '--nogroup', '--hidden', '-g', '']
+    let g:unite_source_grep_command       = 'ag'
+    let g:unite_source_grep_default_opts  = '--nogroup --nocolor --column'
+    let g:unite_source_grep_recursive_opt = ''
+  endif
+
+  call unite#custom#source('file', 'matchers', "matcher_default")
+endfunction

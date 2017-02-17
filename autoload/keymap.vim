@@ -31,26 +31,26 @@ function! keymap#init() abort
   nnoremap <silent> [split]k <C-w>k
   nnoremap <silent> [split]w <C-w>w
   nnoremap <silent> [split]o <C-w>=
-  nnoremap <silent> [split]> 10<C-w>>
-  nnoremap <silent> [split]< 10<C-w><
-  nnoremap <silent> [split]+ 5<C-w>+
-  nnoremap <silent> [split]- 5<C-u>-
+  nnoremap <silent> [split]> 20<C-w>>
+  nnoremap <silent> [split]< 20<C-w><
+  nnoremap <silent> [split]+ 10<C-w>+
+  nnoremap <silent> [split]- 10<C-w>-
 
   " Unite key mapping
-  nnoremap <Leader><Leader> :<C-u>Unite -start-insert file_rec/neovim<CR>
+  nnoremap <Leader><Leader> :<C-u>Unite -start-insert file_rec/neovim -ignorecase -smartcase<CR>
   nnoremap [unite] <Nop>
   nmap     <Leader>u [unite]
   nnoremap <silent> [unite]y  :Unite history/yank<CR>
-  nnoremap <silent> [unite]b  :Unite -start-insert buffer<CR>
-  nnoremap <silent> [unite]t  :Unite -start-insert tab<CR>
-  nnoremap <silent> [unite]m  :Unite -start-insert file_mru<CR>
-  nnoremap <silent> [unite]g  :Unite -start-insert grep:.<CR>
-  nnoremap <silent> [unite]o  :Unite -vertical -start-insert -direction=botright -winwidth=40 outline<CR>
-  nnoremap <silent> [unite]r  <Plug>(unite_restart)
+  nnoremap <silent> [unite]b  :Unite -start-insert buffer -ignorecase -smartcase<CR>
+  nnoremap <silent> [unite]t  :Unite -start-insert tab -ignorecase -smartcase<CR>
+  nnoremap <silent> [unite]m  :Unite -start-insert file_mru -ignorecase -smartcase<CR>
+  nnoremap <silent> [unite]g  :Unite -start-insert grep:. -ignorecase -smartcase<CR>
+  nnoremap <silent> [unite]o  :Unite -vertical -start-insert -direction=botright -winwidth=40 outline -ignorecase -smartcase<CR>
+  nnoremap <silent> [unite]rs  <Plug>(unite_restart)
   nnoremap <silent> [unite]ri :Unite ref/ri<CR>
   nnoremap <silent> [unite]cs :Unite colorscheme -auto-preview<CR>
   nnoremap <silent> [unite]q  :Unite -no-quit -direction=botright quickfix<CR>
-  nnoremap <silent> [unite]f  :Unite -start-insert file<CR>
+  nnoremap <silent> [unite]f  :Unite -start-insert file -ignorecase -smartcase<CR>
 
   " Open NERDTree
   nnoremap [NERDTree] <Nop>

@@ -113,10 +113,8 @@ bitclust setup --versions=2.4.0
 repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
-repo     = 'kannokanno/previm'
-hook_add = '''
-let g:previm_open_cmd = 'open -a Google\ Chrome'
-'''
+repo        = 'kannokanno/previm'
+hook_source = "let g:previm_open_cmd = 'open -a Google\ Chrome'"
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
@@ -129,11 +127,9 @@ hook_add = 'call plugins#tagbar#hook_add()'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo     = 'nathanaelkane/vim-indent-guides'
-hook_add = '''
-let g:indent_guides_auto_colors       = 1
-let g:indent_guides_guide_size        = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=grey
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=darkgrey
-'''
+repo        = 'nathanaelkane/vim-indent-guides'
+hook_source = 'call plugins#vim_indent_guides#hook_source()'
+
+[[plugins]]
+repo        = 'soramugi/auto-ctags.vim'
+hook_source = 'call plugins#auto_ctags#hook_source()'

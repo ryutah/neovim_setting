@@ -61,34 +61,22 @@ on_ft       = ['snippet']
 depends     = ['neosnippet-snippets']
 
 [[plugins]]
-# require "npm install -g tern"
 repo  = 'carlitux/deoplete-ternjs'
 build = 'npm install -g tern'
 on_ft = 'javascript'
 on_i  = 1
 
 [[plugins]]
-# require "gem install rcodetools"
-# *options "gem install fastri"
-repo     = 'osyo-manga/vim-monster'
-on_ft    = 'ruby'
-on_i     = 1
-build    = 'gem install rcodetools fastri'
-hook_add = '''
-let g:monster#completion#rcodetools#backend = "async_rct_complete"
-'''
+repo        = 'osyo-manga/vim-monster'
+on_ft       = 'ruby'
+on_i        = 1
+build       = 'gem install rcodetools fastri'
+hook_source = 'call plugins#vim_monster#hook_source()'
 
 [[plugins]]
-repo     = 'neovimhaskell/haskell-vim'
-on_ft    = 'haskell'
-hook_add = '''
-let g:haskell_enable_quantification = 1
-let g:haskell_enable_recursivedo = 1
-let g:haskell_enable_arrowsyntax = 1
-let g:haskell_enable_pattern_synonyms = 1
-let g:haskell_enable_typeroles = 1
-let g:haskell_enable_static_pointers = 1
-'''
+repo        = 'neovimhaskell/haskell-vim'
+on_ft       = 'haskell'
+hook_source = 'call plugins#haskell_vim#hook_source()'
 
 [[plugins]]
 repo  = 'eagletmt/neco-ghc'
@@ -126,15 +114,13 @@ on_ft = 'ruby'
 [[plugins]]
 repo     = 'leafgarland/typescript-vim'
 on_ft    = 'typescript'
-hook_add = '''
-let g:typescript_indent_disable = 1
-'''
+hook_add = 'let g:typescript_indent_disable = 1'
 
 [[plugins]]
 repo     = 'jason0x43/vim-js-indent'
 on_ft    = ['typescript', 'javascript']
 hook_add = '''
-let g:js_indent_typescript = 1
+let g:js_indent_typescript  = 1
 let g:js_indent_flat_switch = 1
 '''
 

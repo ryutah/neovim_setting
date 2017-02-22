@@ -12,5 +12,7 @@ function! plugins#unite#hook_add() abort
     let g:unite_source_grep_recursive_opt = ''
   endif
 
-  call unite#custom#source('file', 'matchers', "matcher_default")
+  " filterings
+  call unite#custom#source('file', 'matchers', "matcher_fuzzy")
+  call unite#custom#source('outline', 'matchers', "matcher_fuzzy")
 endfunction

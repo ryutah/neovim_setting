@@ -50,7 +50,7 @@ function! keymap#init() abort
   nnoremap <silent> [unite]ri :Unite ref/ri<CR>
   nnoremap <silent> [unite]cs :Unite colorscheme -auto-preview<CR>
   nnoremap <silent> [unite]q  :Unite -no-quit -direction=botright quickfix<CR>
-  nnoremap <silent> [unite]f  :Unite -start-insert file -ignorecase -smartcase<CR>
+  nnoremap <silent> [unite]f  :Unite -start-insert file file/new -ignorecase -smartcase<CR>
 
   " Open NERDTree
   nnoremap [NERDTree] <Nop>

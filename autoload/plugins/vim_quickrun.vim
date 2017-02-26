@@ -22,6 +22,7 @@ function! plugins#vim_quickrun#hook_source() abort
   call s:js_config()
   call s:haskell_config()
   call s:go_config()
+  call s:java_config()
 endfunction
 
 function! s:python_config() abort
@@ -79,4 +80,8 @@ endfunction
 function! s:go_config() abort
   " vim-goでチェックされるため、watchdogsでのlintを解除
   let g:quickrun_config["go/watchdogs_checker"] = { "type" : "watchdogs_checker/golint" }
+endfunction
+
+function! s:java_config() abort
+  let g:quickrun_config["java/watchdogs_checker"] = { "type" : "" }
 endfunction

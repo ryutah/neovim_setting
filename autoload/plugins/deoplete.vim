@@ -21,6 +21,9 @@ function! plugins#deoplete#hook_source() abort
   let g:deoplete#sources#go#use_cache      = 1
   let g:deoplete#sources#go#json_directory = $HOME . '/.cache/deoplete/go'
 
+  " for eclim
+  let g:deoplete#omni_patterns.java = '\k\.\k*'
+
   " Close popup menu when leave insert mode or complete end.
   " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
   " Close popup menu when leave insert mode

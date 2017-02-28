@@ -4,3 +4,5 @@ set tabstop=4
 set shiftwidth=2
 " Use whitespace alternative <TAB>
 set expandtab
+
+map <Leader>ff :call JsBeautify()<cr>

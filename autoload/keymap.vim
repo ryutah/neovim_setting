@@ -76,5 +76,6 @@ function! keymap#init() abort
   " format
   nnoremap [Format]  <Nop>
   nmap     <Leader>f [Format]
+  nnoremap <silent>  [Format]a :Autoformat<CR>
   nnoremap <silent>  [Format]f gg=G``
 endfunction

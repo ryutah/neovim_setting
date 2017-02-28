@@ -1,0 +1,89 @@
+snippet public
+    public
+
+snippet private
+    private
+
+snippet protected
+    protected
+
+snippet static
+    static
+
+snippet final
+    final
+
+snippet try
+    try
+
+snippet catch
+    catch
+
+snippet finally
+    finnally
+
+snippet synchronized
+    synchronized
+
+snippet volatile
+    volatile
+
+snippet finalval
+    public static final ${1} = ${2}
+
+snippet pubmethod
+    public ${1} ${2}(${3}) {
+        ${4}
+    }
+
+snippet primethod
+    private ${1} ${2}(${3}) {
+        ${4}
+    }
+
+snippet promethod
+    protected ${1} ${2}(${3}) {
+        ${4}
+    }
+
+snippet tryblock
+    try {
+        ${1}
+    } catch(${2}) {
+        ${3}
+    }
+
+snippet trycatchfinblock
+    try {
+        ${1}
+    } catch(${2}) {
+        ${3}
+    } finnally {
+        ${4}
+    }
+
+snippet trywithblock
+    try (${1}){
+        ${2}
+    }
+
+snippet catchblock
+    catch(${1}) {
+        ${2}
+    }
+
+snippet finnalyblock
+    finnally {
+        ${1}
+    }
+
+snippet synchronizedblock
+    synchronized(${1}) {
+        ${2}
+    }
+
+snippet sout
+    System.out.println(${1});
+
+snippet serr
+    System.err.println(${1});

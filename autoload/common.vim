@@ -2,6 +2,7 @@
 " Common Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
 function! common#init() abort
+  set ignorecase
   " Display row number
   set number
   " Open vim help By Shift-k

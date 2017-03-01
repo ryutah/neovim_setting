@@ -1,2 +1,6 @@
 syntax keyword goErr err
-autocmd ColorScheme *  highlight goErr cterm=bold ctermfg=214
+syntax match goAssign /:=/
+
+autocmd ColorScheme * highlight goErr cterm=bold ctermfg=214
+highlight link goAssign Constant
+highlight link goBrace Function

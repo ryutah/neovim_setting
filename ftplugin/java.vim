@@ -1,7 +1,13 @@
 " Set auto indent tab size
 set shiftwidth=4
-let g:EclimCompletionMethod = 'omnifunc'
 
+" javaid.vim setting
+let g:java_highlight_all       = 1
+let g:java_highlight_debug     = 1
+let g:java_allow_cpp_keywords  = 1
+let g:java_space_errors        = 1
+let g:java_highlight_functions = 1
+let g:EclimCompletionMethod    = 'omnifunc'
 " Split screen controlls
 nnoremap [java] <Nop>
 nmap     <Leader>j [java]

@@ -10,7 +10,7 @@ See [dein.vim](https://github.com/Shougo/dein.vim)
 
 ## Caution
 ### eclim
-eclimをデフォルトのまま使用すると、javascript、htmlのインデントがぶっ壊れる。
-
-そのため、 `indent`, `syntax` などにある `javascript` , `html` , `xml` , `css` の名前のもつファイル
-を削除するか名称を変更する必要あり。
+#### javascriptなどのインデント崩れ
+eclimをデフォルトのまま使用すると、javascript、htmlのインデントがぶっ壊れるので、`indent`, `syntax` などにある `javascript` , `html` , `xml` , `css` の名前のもつファイルを削除するか名称を変更する必要あり。
+#### カラー設定
+Syntax highlightの設定は、多分[javaid.vim](http://nanasi.jp/articles/vim/javaid_vim.html)を使ってるっぽいので、カラー設定はそこを参照

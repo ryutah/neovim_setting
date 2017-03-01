@@ -30,6 +30,7 @@ function! keymap#init() abort
   nnoremap <silent> [split]j <C-w>j
   nnoremap <silent> [split]k <C-w>k
   nnoremap <silent> [split]w <C-w>w
+  nnoremap <silent> [split]x <C-w>x
   nnoremap <silent> [split]o <C-w>=
   nnoremap <silent> [split]> 20<C-w>>
   nnoremap <silent> [split]< 20<C-w><

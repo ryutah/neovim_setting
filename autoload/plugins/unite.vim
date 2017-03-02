@@ -20,6 +20,12 @@ function! plugins#unite#hook_add() abort
 endfunction
 
 function! s:my_unite_settings() abort
+  nunmap <buffer><Space>
+  nmap , <Plug>(unite_toggle_mark_current_candidate)
   nnoremap <buffer><expr> s unite#do_action('split')
   nnoremap <buffer><expr> v unite#do_action('vsplit')
+
+  inoremap <buffer><expr> <C-s> unite#do_action('split')
+  inoremap <buffer><expr> <C-v> unite#do_action('vsplit')
+  inoremap <buffer><expr> <C-t> unite#do_action('tabsplit')
 endfunction

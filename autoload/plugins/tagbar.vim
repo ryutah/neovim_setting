@@ -1,5 +1,6 @@
 function! plugins#tagbar#hook_add() abort
-  let g:tagbar_type_haskell = {
+  let g:tagbar_map_showproto = ','
+  let g:tagbar_type_haskell  = {
         \  'ctagsbin'  : 'hasktags',
         \  'ctagsargs' : '-x -c -o-',
         \  'kinds'     : [

@@ -15,4 +15,11 @@ function! plugins#unite#hook_add() abort
   " filterings
   call unite#custom#source('file', 'matchers', "matcher_fuzzy")
   call unite#custom#source('outline', 'matchers', "matcher_fuzzy")
+
+  autocmd! FileType unite :call s:my_unite_settings()
+endfunction
+
+function! s:my_unite_settings() abort
+  nnoremap <buffer><expr> s unite#do_action('split')
+  nnoremap <buffer><expr> v unite#do_action('vsplit')
 endfunction

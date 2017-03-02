@@ -38,8 +38,8 @@ repo = 'w0ng/vim-hybrid'
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
 
-[[plugins]]
-repo = 'scrooloose/nerdtree'
+# [[plugins]]
+# repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'kana/vim-smartinput'
@@ -139,3 +139,7 @@ build = '''
 npm install -g js-beautify typescript-formatter remark-cli
 !gem install sass
 '''
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+hook_add = 'call plugins#vimfiler#hook_add()'

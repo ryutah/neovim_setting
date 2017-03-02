@@ -54,9 +54,14 @@ function! keymap#init() abort
   nnoremap <silent> [unite]f  :Unite -start-insert file file/new -ignorecase -smartcase<CR>
 
   " Open NERDTree
-  nnoremap [NERDTree] <Nop>
-  nmap     <Leader>n  [NERDTree]
-  nnoremap <silent>   [NERDTree]t :NERDTree<CR>
+  " nnoremap [NERDTree] <Nop>
+  " nmap     <Leader>n  [NERDTree]
+  " nnoremap <silent>   [NERDTree]t :NERDTree<CR>
+
+  " Open VimFiler
+  nnoremap [Vimfiler] <Nop>
+  nmap     <Leader>n [VimFiler]
+  nnoremap <silent> [VimFiler]t :VimFilerSimple -explorer<CR>
 
   " caw.vim
   nmap <C-_> <Plug>(caw:zeropos:toggle)

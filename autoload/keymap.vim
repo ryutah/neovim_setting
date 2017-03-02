@@ -44,7 +44,7 @@ function! keymap#init() abort
   nnoremap <silent> [unite]y  :Unite history/yank<CR>
   nnoremap <silent> [unite]b  :Unite -start-insert buffer -ignorecase -smartcase<CR>
   nnoremap <silent> [unite]t  :Unite -start-insert tab -ignorecase -smartcase<CR>
-  nnoremap <silent> [unite]m  :Unite -start-insert file_mru -ignorecase -smartcase<CR>
+  nnoremap <silent> [unite]r  :Unite -start-insert file_mru -ignorecase -smartcase<CR>
   nnoremap <silent> [unite]g  :Unite -start-insert grep:. -ignorecase -smartcase<CR>
   nnoremap <silent> [unite]o  :Unite -vertical -start-insert -direction=botright -winwidth=40 outline -ignorecase -smartcase<CR>
   nnoremap <silent> [unite]rs  <Plug>(unite_restart)
@@ -52,6 +52,7 @@ function! keymap#init() abort
   nnoremap <silent> [unite]cs :Unite colorscheme -auto-preview<CR>
   nnoremap <silent> [unite]q  :Unite -no-quit -direction=botright quickfix<CR>
   nnoremap <silent> [unite]f  :Unite -start-insert file file/new -ignorecase -smartcase<CR>
+  nnoremap <silent> [unite]m  :Unite -start-insert bookmark file/new -ignorecase -smartcase -default-action=open<CR>
 
   " Open NERDTree
   " nnoremap [NERDTree] <Nop>

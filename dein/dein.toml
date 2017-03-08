@@ -86,9 +86,6 @@ hook_post_source = 'call plugins#watchdogs#hook_post_source()'
 repo = 'jceb/vim-hier'
 
 [[plugins]]
-repo = 'Shougo/vimshell.vim'
-
-[[plugins]]
 repo = 'KabbAmine/vCoolor.vim'
 
 [[plugins]]

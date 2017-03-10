@@ -177,3 +177,8 @@ on_ft = 'java'
 [[plugins]]
 repo = 'slim-template/vim-slim'
 on_ft = 'slim'
+
+[[plugins]]
+repo        = 'elzr/vim-json'
+on_ft       = 'json'
+hook_source = 'let g:vim_json_syntax_conceal = 0'

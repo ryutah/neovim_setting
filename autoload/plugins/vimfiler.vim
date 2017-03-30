@@ -9,9 +9,9 @@ endfunction
 function! s:my_vimfiller_settings() abort
   nunmap <buffer><Space>
   nmap , <Plug>(vimfiler_toggle_mark_current_line)
-  nnoremap <silent><buffer><expr> s  vimfiler#do_action('my_split')
-  nnoremap <silent><buffer><expr> v  vimfiler#do_action('my_vsplit')
-  nnoremap <silent><buffer><expr> tt vimfiler#do_action('tabsplit')
+  nnoremap <silent><buffer><expr> <C-s>  vimfiler#do_action('my_split')
+  nnoremap <silent><buffer><expr> <C-v>  vimfiler#do_action('my_vsplit')
+  nnoremap <silent><buffer><expr> <C-t> vimfiler#do_action('tabsplit')
 endfunction
 
 let s:my_vimfiler_split = { 'is_selectable': 1 }

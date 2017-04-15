@@ -37,8 +37,16 @@ repo  = 'pangloss/vim-javascript'
 on_ft = 'javascript'
 
 [[plugins]]
-repo  = 'carlitux/deoplete-ternjs'
+repo  = 'ternjs/tern_for_vim'
 build = 'npm install -g tern'
+on_ft = 'javascript'
+hook_source = '''
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+'''
+
+[[plugins]]
+repo  = 'carlitux/deoplete-ternjs'
 on_ft = 'javascript'
 on_i  = 1
 

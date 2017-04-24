@@ -95,9 +95,10 @@ on_ft       = 'haskell'
 hook_source = 'call plugins#haskell_vim#hook_source()'
 
 [[plugins]]
-repo  = 'eagletmt/neco-ghc'
-on_ft = 'haskell'
-build = 'stack install ghc-mod'
+repo        = 'eagletmt/neco-ghc'
+on_ft       = 'haskell'
+build       = 'stack install ghc-mod'
+hook_source = 'let g:necoghc_enable_detailed_browse=1'
 
 [[plugins]]
 repo  = 'eagletmt/ghcmod-vim'

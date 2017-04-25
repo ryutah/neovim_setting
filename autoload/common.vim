@@ -51,6 +51,10 @@ function! common#init() abort
 endfunction
 
 function! s:remove_last_white_space_and_line_in_last() abort
+  if 'markdown' == &filetype
+    return
+  endif
+
   if getline('$') == ""
     $delete _
   endif

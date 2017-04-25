@@ -119,6 +119,10 @@ repo  = 'ujihisa/unite-haskellimport'
 on_ft = 'haskell'
 build = 'stack install hoogle && hoogle generate && hoogle data'
 
+[[plugins]]
+repo  = 'itchyny/vim-haskell-indent'
+on_ft = 'haskell'
+
 #############################################################
 # Lazy on Go
 #############################################################

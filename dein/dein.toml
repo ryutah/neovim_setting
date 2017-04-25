@@ -135,6 +135,7 @@ repo = 'Chiel92/vim-autoformat'
 build = '''
 npm install -g js-beautify typescript-formatter remark-cli
 !gem install sass
+!stack install stylish-haskell
 '''
 
 [[plugins]]

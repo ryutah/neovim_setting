@@ -188,3 +188,12 @@ snippet     it
 
 snippet frocom
   # frozen_string_literal: true
+
+snippet minspec
+  require 'minitest/autorun'
+
+  describe ${1:DESCRIBE} do
+    it '${2:TITLE}' do
+      ${3:TARGET}
+    end
+  end

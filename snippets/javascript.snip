@@ -209,7 +209,7 @@ snippet export
 snippet default
   default
 
-snippet class
+snippet class-template
 abbr    class NAME ...
   class ${1:#:NAME} {
      constructor(${2:#:ARGS}) {
@@ -218,83 +218,158 @@ abbr    class NAME ...
   }
 
 snippet constructor
-abbr constructor(ARGS) {...}
+abbr    constructor(ARGS) {...}
   constructor(${1:#:ARGS}) {
     ${2:#:TARGET}
   }
 
 snippet describe
-abbr [mocha] describe(DESCRIPTION, function() {...})
+abbr    [mocha] describe(DESCRIPTION, function() {...})
   describe(${1:#:DESCRIPTION}, function() {
     ${2:TARGET}
   })
 
 snippet describe-es6
-abbr [mocha] describe(DESCRIPTION, function() {...})
+abbr    [mocha] describe(DESCRIPTION, function() {...})
   describe(${1:#:DESCRIPTION}, () => {
     ${2:TARGET}
   })
 
 snippet it
-abbr [mocha] it(MESSAGE, function(ARGS) {...})
+abbr    [mocha] it(MESSAGE, function(ARGS) {...})
   it(${1:#:MESSAGE}, function(${2:#:ARGS}) {
     ${3:TARGET}
   })
 
 snippet it-es6
-abbr [mocha] it(MESSAGE, (ARGS) => {...})
+abbr    [mocha] it(MESSAGE, (ARGS) => {...})
   it(${1:#:MESSAGE}, (${2:#:ARGS}) => {
     ${3:TARGET}
   })
 
 snippet it-pending
-abbr [mocha] it(MESSAGE)
+abbr    [mocha] it(MESSAGE)
   it(${1:#:MESSAGE})
 
 snippet before
-abbr [mocha] before(function() {...})
+abbr    [mocha] before(function() {...})
   before(function() {
     ${1:TARGET}
   })
 
 snippet before-es6
-abbr [mocha] before(() => {...})
+abbr    [mocha] before(() => {...})
   before(() => {
     ${1:TARGET}
   })
 
 snippet beforeEach
-abbr [mocha] beforeEach(function() {...})
+abbr    [mocha] beforeEach(function() {...})
   beforeEach(function() {
     ${1:TARGET}
   })
 
 snippet beforeEach-es6
-abbr [mocha] beforeEach(() => {...})
+abbr    [mocha] beforeEach(() => {...})
   beforeEach(() => {
     ${1:TARGET}
   })
 
 snippet after
-abbr [mocha] after(function() {...})
+abbr    [mocha] after(function() {...})
   after(function() {
     ${1:TARGET}
   })
 
 snippet after-es6
-abbr [mocha] after(() => {...})
+abbr    [mocha] after(() => {...})
   after(() => {
     ${1:TARGET}
   })
 
 snippet afterEach
-abbr [mocha] afterEach(function() {...})
+abbr    [mocha] afterEach(function() {...})
   afterEach(function() {
     ${1:TARGET}
   })
 
 snippet afterEach-es6
-abbr [mocha] afterEach(() => {...})
+abbr    [mocha] afterEach(() => {...})
   afterEach(() => {
     ${1:TARGET}
   })
+
+snippet context
+abbr    [mocha] context(MESSAGE, function() {...})
+  context(${1:#:MESSAGE}, function() {
+    ${2:TARGET}
+  })
+
+snippet context-es6
+abbr    [mocha] context(MESSAGE, () => {...})
+  context(${1:#:MESSAGE}, () => {
+    ${2:TARGET}
+  })
+
+snippet webpack-config
+abbr    export default {...}
+  import path from "path"
+  import webpack from "webpack"
+
+  export default {
+    context: path.join(__dirname, "/src"),
+
+    entry: "${1:#:#ENTRY}",
+
+    output: {
+      publicPath: "/",
+      sourcePrefix: " ",
+      path: path.join(__dirname, "public"),
+      filename: "bundle.js"
+    },
+
+    // when want to export multiple entry
+    // entry: {
+    //   app: "./app.js",
+    //   search: "./search.js"
+    // },
+    //
+    // output: {
+    //   filename: "[name].bundle.js",
+    //   path: path.join(__dirname, "public"),
+    // },
+
+    target: "web",
+
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        // if need save license after ugilify
+        // output: {
+        //   comments: uglifySaveLicense,
+        // },
+        // if need save comment after ugilify
+        // comments: true,
+        compress: {
+          warnings: false
+        },
+      }),
+    ],
+
+    resolve: {
+      extensions: ["*", ".js", ".jsx"],
+    },
+
+    module: {
+      loaders: [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          // include: [path.resolve(__dirname, "src")],
+          loader: "babel",
+          query: {
+            presets: ["es2015", "react"],
+          },
+        }
+      ]
+    }
+  }

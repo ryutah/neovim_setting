@@ -202,3 +202,99 @@ snippet     import-default-member
 abbr        import defaultMember, { member, ... } from "module-name"
 options     head
   import ${1:defaultMember}, { ${2:MEMBERS} } from "${0:TARGET}"
+
+snippet export
+  export
+
+snippet default
+  default
+
+snippet class
+abbr    class NAME ...
+  class ${1:#:NAME} {
+     constructor(${2:#:ARGS}) {
+       ${3:#:TARGET}
+     }
+  }
+
+snippet constructor
+abbr constructor(ARGS) {...}
+  constructor(${1:#:ARGS}) {
+    ${2:#:TARGET}
+  }
+
+snippet describe
+abbr [mocha] describe(DESCRIPTION, function() {...})
+  describe(${1:#:DESCRIPTION}, function() {
+    ${2:TARGET}
+  })
+
+snippet describe-es6
+abbr [mocha] describe(DESCRIPTION, function() {...})
+  describe(${1:#:DESCRIPTION}, () => {
+    ${2:TARGET}
+  })
+
+snippet it
+abbr [mocha] it(MESSAGE, function(ARGS) {...})
+  it(${1:#:MESSAGE}, function(${2:#:ARGS}) {
+    ${3:TARGET}
+  })
+
+snippet it-es6
+abbr [mocha] it(MESSAGE, (ARGS) => {...})
+  it(${1:#:MESSAGE}, (${2:#:ARGS}) => {
+    ${3:TARGET}
+  })
+
+snippet it-pending
+abbr [mocha] it(MESSAGE)
+  it(${1:#:MESSAGE})
+
+snippet before
+abbr [mocha] before(function() {...})
+  before(function() {
+    ${1:TARGET}
+  })
+
+snippet before-es6
+abbr [mocha] before(() => {...})
+  before(() => {
+    ${1:TARGET}
+  })
+
+snippet beforeEach
+abbr [mocha] beforeEach(function() {...})
+  beforeEach(function() {
+    ${1:TARGET}
+  })
+
+snippet beforeEach-es6
+abbr [mocha] beforeEach(() => {...})
+  beforeEach(() => {
+    ${1:TARGET}
+  })
+
+snippet after
+abbr [mocha] after(function() {...})
+  after(function() {
+    ${1:TARGET}
+  })
+
+snippet after-es6
+abbr [mocha] after(() => {...})
+  after(() => {
+    ${1:TARGET}
+  })
+
+snippet afterEach
+abbr [mocha] afterEach(function() {...})
+  afterEach(function() {
+    ${1:TARGET}
+  })
+
+snippet afterEach-es6
+abbr [mocha] afterEach(() => {...})
+  afterEach(() => {
+    ${1:TARGET}
+  })

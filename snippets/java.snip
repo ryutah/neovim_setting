@@ -29,61 +29,61 @@ snippet volatile
     volatile
 
 snippet finalval
-    public static final ${1} = ${2}
+    public static final ${1:#:VAR} = ${2:#:VALUE}
 
 snippet pubmethod
-    public ${1} ${2}(${3}) {
-        ${4}
+    public ${1:void} ${2:#:METHOD}(${3:#:ARGS}) {
+        ${4:#:TARGET}
     }
 
 snippet primethod
-    private ${1} ${2}(${3}) {
-        ${4}
+    private ${1:void} ${2:#:METHOD}(${3:#:ARGS}) {
+        ${4:#:TARGET}
     }
 
 snippet promethod
-    protected ${1} ${2}(${3}) {
+    protected ${1:void} ${2:#:METHOD}(${3:#:ARGS}) {
         ${4}
     }
 
 snippet tryblock
     try {
-        ${1}
-    } catch(${2}) {
-        ${3}
+        ${1:#:TARGET}
+    } catch(${2:#:EXCEPTION}) {
+        ${3:#:TARGET}
     }
 
 snippet trycatchfinblock
     try {
-        ${1}
-    } catch(${2}) {
-        ${3}
+        ${1:#:TARGET}
+    } catch(${2:#:EXCEPTION}) {
+        ${3:#:TARGET}
     } finnally {
-        ${4}
+        ${4:#:TARGET}
     }
 
 snippet trywithblock
-    try (${1}){
-        ${2}
+    try (${1:#:RESOURCE}){
+        ${2:#:TARGET}
     }
 
 snippet catchblock
-    catch(${1}) {
-        ${2}
+    catch(${1:#:EXCEPTION}) {
+        ${2:#:TARGET}
     }
 
 snippet finnalyblock
     finnally {
-        ${1}
+        ${1:#:TARGET}
     }
 
 snippet synchronizedblock
-    synchronized(${1}) {
-        ${2}
+    synchronized(${1:#:SYNCOBJECT}) {
+        ${2:#:TARGET}
     }
 
 snippet sout
-    System.out.println(${1});
+    System.out.println(${1:#:TARGET});
 
 snippet serr
-    System.err.println(${1});
+    System.err.println(${1:#:TARGET});

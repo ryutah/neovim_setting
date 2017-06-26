@@ -76,11 +76,8 @@ repo  = 'vim-ruby/vim-ruby'
 on_ft = 'ruby'
 
 [[plugins]]
-repo        = 'osyo-manga/vim-monster'
-on_ft       = 'ruby'
-on_i        = 1
-build       = 'gem install rcodetools fastri'
-hook_source = 'call plugins#vim_monster#hook_source()'
+repo  = 'Shougo/deoplete-rct'
+on_ft = 'ruby'
 
 [[plugins]]
 repo  = 'keith/rspec.vim'

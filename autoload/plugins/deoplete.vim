@@ -6,8 +6,6 @@ function! plugins#deoplete#hook_source() abort
   if !exists('g:deoplete#sources#omni#input_patterns')
     let g:deoplete#sources#omni#input_patterns = {}
   endif
-  " required vim-monster
-  let g:deoplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
   if !exists('g:deoplete#omni_patterns')
     let g:deoplete#omni_patterns= {}

@@ -54,11 +54,6 @@ function! keymap#init() abort
   nnoremap <silent> [unite]f  :Unite -start-insert file file/new -ignorecase -smartcase<CR>
   nnoremap <silent> [unite]m  :Unite -start-insert bookmark file/new -ignorecase -smartcase -default-action=open<CR>
 
-  " Open NERDTree
-  " nnoremap [NERDTree] <Nop>
-  " nmap     <Leader>n  [NERDTree]
-  " nnoremap <silent>   [NERDTree]t :NERDTree<CR>
-
   " Open VimFiler
   nnoremap [Vimfiler] <Nop>
   nmap     <Leader>n [VimFiler]

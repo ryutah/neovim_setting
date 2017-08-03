@@ -11,7 +11,7 @@ function! plugins#deoplete#hook_source() abort
     let g:deoplete#omni_patterns= {}
   endif
   " for tsuquyomi
-  let g:deoplete#omni_patterns.typescript = '[^. \t]\.\%(\h\w*\)\?'
+  " let g:deoplete#omni_patterns.typescript = '[^. \t]\.\%(\h\w*\)\?'
 
   " required deoplete-go
   let g:deoplete#sources#go#gocode_binary  = $GOPATH .'/bin/gocode'

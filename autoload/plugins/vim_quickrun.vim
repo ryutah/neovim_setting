@@ -23,6 +23,7 @@ function! plugins#vim_quickrun#hook_source() abort
   call s:haskell_config()
   call s:go_config()
   call s:java_config()
+  call s:typescript_config()
 endfunction
 
 function! s:python_config() abort
@@ -48,7 +49,7 @@ function! s:ruby_config() abort
         \   "command"                 : "rubocop",
         \   "cmdopt"                  : "-fe",
         \   "exec"                    : "%c %o %s:p",
-        \   "quickfix/errorformat"    : "%f:%l:%c:%m",
+        \   "quickfix/errorformat"    : "%f:%l:%c:\ %t:\ %m",
         \ }
   let g:quickrun_config["ruby/watchdogs_checker"] = {
         \   "type" : "watchdogs_checker/rubocop",
@@ -84,4 +85,14 @@ endfunction
 
 function! s:java_config() abort
   let g:quickrun_config["java/watchdogs_checker"] = { "type" : "" }
+endfunction
+
+function! s:typescript_config() abort
+  let g:quickrun_config["watchdogs_checker/tslint"] = {
+        \   "command"                 : "tslint",
+        \   "cmdopt"                  : "-t msbuild",
+        \   "exec"                    : "%c %o %s:p",
+        \   "quickfix/errorformat"    : "%f(%l\\,%c):\ %t%*[^:]\ %m",
+        \ }
+  let g:quickrun_config["typescript/watchdogs_checker"] = { "type" : "watchdogs_checker/tslint" }
 endfunction

@@ -202,3 +202,7 @@ on_ft = 'slim'
 repo        = 'elzr/vim-json'
 on_ft       = 'json'
 hook_source = 'let g:vim_json_syntax_conceal = 0'
+
+[[plugins]]
+repo  = 'rust-lang/rust.vim'
+on_ft = 'rust'

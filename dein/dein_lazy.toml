@@ -27,13 +27,22 @@ repo     = 'othree/yajs.vim'
 on_ft    = 'javascript'
 hook_add = 'call plugins#yajs#hook_add()'
 
+# [[plugins]]
+# repo     = 'mxw/vim-jsx'
+# on_ft    = 'javascript'
+# hook_add = 'let g:jsx_ext_required = 0'
+#
+# [[plugins]]
+# repo  = 'pangloss/vim-javascript'
+# on_ft = 'javascript'
+
 [[plugins]]
-repo     = 'mxw/vim-jsx'
+repo     = 'Emigre/vim-jsx'
 on_ft    = 'javascript'
 hook_add = 'let g:jsx_ext_required = 0'
 
 [[plugins]]
-repo  = 'pangloss/vim-javascript'
+repo  = 'Emigre/vim-javascript'
 on_ft = 'javascript'
 
 [[plugins]]

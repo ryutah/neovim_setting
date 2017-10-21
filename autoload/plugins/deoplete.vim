@@ -22,6 +22,10 @@ function! plugins#deoplete#hook_source() abort
   " for eclim
   let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 
+  " for rust
+  let g:deoplete#sources#rust#racer_binary     = $HOME . '/.cargo/bin/racer'
+  let g:deoplete#sources#rust#rust_source_path = $XDG_CONFIG_HOME . '/rust/src'
+
   " Close popup menu when leave insert mode or complete end.
   " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
   " Close popup menu when leave insert mode

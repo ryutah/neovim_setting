@@ -46,9 +46,9 @@ repo  = 'Emigre/vim-javascript'
 on_ft = 'javascript'
 
 [[plugins]]
-repo  = 'ternjs/tern_for_vim'
-build = 'npm install -g tern'
-on_ft = 'javascript'
+repo        = 'ternjs/tern_for_vim'
+on_ft       = 'javascript'
+build       = 'npm install -g tern'
 hook_source = '''
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
@@ -212,6 +212,17 @@ repo        = 'elzr/vim-json'
 on_ft       = 'json'
 hook_source = 'let g:vim_json_syntax_conceal = 0'
 
+#############################################################
+# Rust
+#############################################################
 [[plugins]]
 repo  = 'rust-lang/rust.vim'
 on_ft = 'rust'
+
+[[plugins]]
+repo  = 'sebastianmarkow/deoplete-rust'
+on_ft = 'rust'
+build = '''
+cargo install -f racer
+git clone --depth=1 https://github.com/rust-lang/rust.git $XDG_CONFIG_HOME/rust
+'''

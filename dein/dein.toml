@@ -99,7 +99,7 @@ autocmd BufEnter * :Rooter
 '''
 
 [[plugins]]
-repo = 'thinca/vim-ref'
+repo  = 'thinca/vim-ref'
 build = '''
 gem install refe2 bitclust-dev
 !bitclust setup --versions=2.4.0
@@ -132,7 +132,7 @@ repo        = 'soramugi/auto-ctags.vim'
 hook_source = 'call plugins#auto_ctags#hook_source()'
 
 [[plugins]]
-repo = 'Chiel92/vim-autoformat'
+repo  = 'Chiel92/vim-autoformat'
 build = '''
 npm install -g js-beautify typescript-formatter remark-cli
 !gem install sass

@@ -24,6 +24,7 @@ function! plugins#vim_quickrun#hook_source() abort
   call s:go_config()
   call s:java_config()
   call s:typescript_config()
+  call s:rust_config()
 endfunction
 
 function! s:python_config() abort
@@ -95,4 +96,23 @@ function! s:typescript_config() abort
         \   "quickfix/errorformat"    : "%f(%l\\,%c):\ %t%*[^:]\ %m",
         \ }
   let g:quickrun_config["typescript/watchdogs_checker"] = { "type" : "watchdogs_checker/tslint" }
+endfunction
+
+function! s:rust_config() abort
+  " とりあえず、parse-only オプションでsyntaxチェック
+  " clippyとか使ったほうがいいかもしれない
+  " 参考 : https://github.com/wagnerf42/vim-clippy
+  let g:quickrun_config["rust/watchdogs_checker"] = { "type" : "rust/rustc_only_parse" }
+  let g:quickrun_config["rust/rustc_only_parse"] = {
+        \   "command" : "rustc",
+        \   "exec"    : "%c %o %s:p",
+        \   "cmdopt"  : "-Z parse-only",
+        \   "errorformat"
+        \     : '%-Gerror: aborting %.%#,'
+        \     . '%-Gerror: Could not compile %.%#,'
+        \     . '%Eerror: %m,'
+        \     . '%Eerror[E%n]: %m,'
+        \     . '%Wwarning: ,'
+        \     . '%C %#--> %f:%l:%c'
+        \ }
 endfunction

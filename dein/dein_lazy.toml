@@ -230,5 +230,5 @@ repo  = 'sebastianmarkow/deoplete-rust'
 on_ft = 'rust'
 build = '''
 cargo install -f racer
-git clone --depth=1 https://github.com/rust-lang/rust.git $XDG_CONFIG_HOME/rust
+rustup component add rust-src --toolchain nightly
 '''

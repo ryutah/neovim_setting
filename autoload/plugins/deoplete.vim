@@ -24,7 +24,7 @@ function! plugins#deoplete#hook_source() abort
 
   " for rust
   let g:deoplete#sources#rust#racer_binary     = $HOME . '/.cargo/bin/racer'
-  let g:deoplete#sources#rust#rust_source_path = $XDG_CONFIG_HOME . '/rust/src'
+  let g:deoplete#sources#rust#rust_source_path = $HOME . '/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
   " Close popup menu when leave insert mode or complete end.
   " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif

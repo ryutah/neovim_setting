@@ -1,6 +1,3 @@
-" Set auto indent tab size
-set shiftwidth=4
-
 " javaid.vim setting
 let g:java_highlight_all       = 1
 let g:java_highlight_debug     = 1

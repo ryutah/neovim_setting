@@ -13,11 +13,15 @@ function! common#init() abort
   filetype plugin indent on
   syntax on
   " Set tab size
-  set tabstop=4
+  set tabstop=2
+  " Set space size to tab
+  set softtabstop=2
   " Set auto indent tab size
   set shiftwidth=2
   " Use whitespace alternative <TAB>
   set expandtab
+  call s:config_indent()
+
   " Display invisible charcters.
   set list
   set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
@@ -59,4 +63,14 @@ function! s:remove_last_white_space_and_line_in_last() abort
     $delete _
   endif
   :%s/\s\+$//ge
+endfunction
+
+function! s:config_indent() abort
+  augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab&
+    autocmd BufNewFile,BufRead *.java setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.yacc setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab&
+  augroup END
 endfunction

@@ -23,8 +23,10 @@ function! plugins#deoplete#hook_source() abort
   let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 
   " for rust
+  let l:rust_root = system("rustc --print sysroot")
+  let l:rust_root_trimed = substitute(l:rust_root, "\n", "", "g")
   let g:deoplete#sources#rust#racer_binary     = $HOME . '/.cargo/bin/racer'
-  let g:deoplete#sources#rust#rust_source_path = $HOME . '/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+  let g:deoplete#sources#rust#rust_source_path = l:rust_root_trimed . '/lib/rustlib/src/rust/src'
 
   " Close popup menu when leave insert mode or complete end.
   " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif

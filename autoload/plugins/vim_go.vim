@@ -25,4 +25,6 @@ function! plugins#vim_go#hook_source() abort
   nmap     <silent> [vim-go]g <Plug>(go-def-tab)
   nmap     <silent> [vim-go]n <Plug>(go-info)
   nmap     <silent> [vim-go]e <Plug>(go-rename)
+  " vim-godebug key mapping
+  nmap <silent> [vim-go]p :GoToggleBreakpoint<CR>
 endfunction

@@ -13,7 +13,7 @@ function! common#init() abort
   filetype plugin indent on
   syntax on
   " Set tab size
-  set tabstop=2
+  set tabstop=4
   " Set space size to tab
   set softtabstop=2
   " Set auto indent tab size

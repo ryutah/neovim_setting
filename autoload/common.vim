@@ -52,6 +52,10 @@ function! common#init() abort
   set undodir=~/.config/nvim/undo
   " ウィンドウ縦分割の際に下側に設定する
   set splitbelow
+
+  " 日本語確定時の文字化け対策
+  set ttimeout
+  set ttimeoutlen=50
 endfunction
 
 function! s:remove_last_white_space_and_line_in_last() abort

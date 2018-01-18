@@ -1,46 +1,63 @@
-" dein settings {{{
-if &compatible
-  set nocompatible
-endif
+function! s:init() abort
+  set clipboard+=unnamedplus
+  set number
 
-augroup MyAutoCmd
-  autocmd!
-augroup END
+  set tabstop=4     " Tab size
+  set softtabstop=2 " Space size when enter tab
+  set shiftwidth=2  " Auto indent size
+  set expandtab     " Use whitespace alternative <TAB>
 
-call filetype#init()
-let s:cache_home                   = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : expand('$XDG_CONFIG_HOME/nvim')
-let s:dein_dir                     = s:cache_home . '/dein'
-let s:dein_repo_dir                = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-let g:dein#install_process_timeout = 600
+  " Show invisible characters
+  set list
+  set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
 
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-execute 'set runtimepath^=' . s:dein_repo_dir
+  set background=dark
+  set hidden " Allow load new buffe when not saved.
 
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+  augroup buf_write_pre
+    autocmd!
+    autocmd BufWritePre * call s:trim()
+  augroup END
+endfunction
 
-  " TOML files written plugins
-  let s:toml      = s:dein_dir . '/dein.toml'
-  let s:lazy_toml = s:dein_dir . '/dein_lazy.toml'
-  let mapleader   = "\<Space>"
+function! s:load_dein() abort
+  let cache_home    = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : expand('$XDG_CONFIG_HOME/nvim')
+  let dein_dir      = cache_home . '/dein'
+  let dein_repo_dir = dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-  " Load plugins from toml at start nvim
-  call dein#load_toml(s:toml, { 'lazy': 0 })
-  " Load lazy plugin from toml at insert mode
-  call dein#load_toml(s:lazy_toml, { 'lazy': 1 })
+  if !isdirectory(dein_repo_dir)
+    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(dein_repo_dir))
+  endif
+  execute 'set runtimepath^=' . dein_repo_dir
 
-  call dein#end()
-endif
+  let dein#install_process_timeout = 600
 
-if dein#check_install()
-  call dein#install()
-endif
+  if dein#load_state(dein_dir)
+    call dein#begin(dein_dir)
 
-" Common settings
-call common#init()
-" Key maps
-call keymap#init()
-" Command setting
-call command#init()
+    " TOML files written plugins
+    let toml = dein_dir . '/dein.toml'
+
+    " Load plugins from toml at start nvim
+    call dein#load_toml(toml, { 'lazy': 0 })
+
+    call dein#end()
+  endif
+
+  if dein#check_install()
+    call dein#install()
+  endif
+endfunction
+
+function! s:trim() abort
+  if 'markdown' == &filetype
+    return
+  endif
+
+  " :%s/^\n$//ge  " Trim end of line. XXX When trim line, the cursor is jump to end of line.
+  :%s/\s\+$//ge " Trim trail space
+endfunction
+
+call s:load_dein()
+call s:init()
+

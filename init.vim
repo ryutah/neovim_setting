@@ -12,7 +12,16 @@ function! s:init() abort
   set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
 
   set background=dark
+  colorscheme jellybeans
+
   set hidden " Allow load new buffe when not saved.
+
+  filetype plugin indent on " Enable filetype plugin and indent
+
+  " File encoding list XXX Read Documents
+  set encoding=utf-8
+  set fileencodings=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,euc-jp,cp932
+  set fileformats=unix,dos,mac
 
   augroup buf_write_pre
     autocmd!
@@ -54,10 +63,12 @@ function! s:trim() abort
     return
   endif
 
-  " :%s/^\n$//ge  " Trim end of line. XXX When trim line, the cursor is jump to end of line.
+  " Delete line
+  if getline('$') == ""
+    $delete _
+  endif
   :%s/\s\+$//ge " Trim trail space
 endfunction
 
 call s:load_dein()
 call s:init()
-

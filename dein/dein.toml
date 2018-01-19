@@ -3,3 +3,9 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'tyru/caw.vim'

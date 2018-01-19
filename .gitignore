@@ -6,6 +6,5 @@ dein/merged
 dein/.dein/
 undo/
 *.swp
-plugin/
 eclim/
 workbench.xmi

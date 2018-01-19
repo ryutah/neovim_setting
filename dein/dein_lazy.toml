@@ -196,14 +196,6 @@ let g:deoplete#sources#jedi#show_docstring = 1
 '''
 
 [[plugins]]
-repo  = 'ervandew/eclim'
-build = '''
-ant -Declipse.home="/Applications/Eclipse.app/Contents/Eclipse" -Dvim.files="/Users/ryuta/.config/nvim"
-!mv $XDG_CONFIG_HOME/nvim/eclim/plugin $XDG_CONFIG_HOME/nvim/plugin
-'''
-on_ft = 'java'
-
-[[plugins]]
 repo = 'slim-template/vim-slim'
 on_ft = 'slim'
 

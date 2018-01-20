@@ -23,6 +23,8 @@ function! s:init() abort
   set fileencodings=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,euc-jp,cp932
   set fileformats=unix,dos,mac
 
+  set ignorecase " Set command to ignore case
+
   augroup buf_write_pre
     autocmd!
     autocmd BufWritePre * call s:trim()
@@ -46,9 +48,11 @@ function! s:load_dein() abort
 
     " TOML files written plugins
     let toml = dein_dir . '/dein.toml'
+    let toml_lazy = dein_dir . '/dein_lazy.toml'
 
     " Load plugins from toml at start nvim
     call dein#load_toml(toml, { 'lazy': 0 })
+    call dein#load_toml(toml_lazy, { 'lazy': 1 })
 
     call dein#end()
   endif

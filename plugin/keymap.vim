@@ -47,5 +47,11 @@ vmap <C-_> <Plug>(caw:hatpos:toggle)
 " Denite.vim
 nnoremap [denite] <Nop>
 nmap     <Leader>u [denite]
-" TODO Set file_rec command
-nnoremap <Leader><Leader> :Denite file_rec -smartcase -direction=topleft<CR>
+nnoremap <silent> <Leader><Leader> :Denite file_rec -smartcase -direction=topleft<CR>
+nnoremap <silent> [denite]o        :Denite outline -split=vertical<CR>
+nnoremap <silent> [denite]b        :Denite buffer -smartcase -direction=topleft<CR>
+nnoremap <silent> [denite]f        :Denite file file:new -smartcase -direction=topleft<CR>
+
+" EasyAlign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)

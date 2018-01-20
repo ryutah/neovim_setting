@@ -2,10 +2,28 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
+repo     = 'Shougo/denite.nvim'
+hook_add = 'call hook#add#denite#load()'
 
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo  = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'call hook#add#lightline#load()'
+
+[[plugins]]
+repo     = 'airblade/vim-gitgutter'
+hook_add = 'call hook#add#gitgutter#load()'

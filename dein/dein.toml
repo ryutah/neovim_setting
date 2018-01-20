@@ -17,11 +17,12 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo  = 'cespare/vim-toml'
 
+# TODO Redeclared :E?
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo     = 'itchyny/lightline.vim'
 hook_add = 'call hook#add#lightline#load()'
 
 [[plugins]]

@@ -29,6 +29,10 @@ function! s:init() abort
     autocmd!
     autocmd BufWritePre * call s:trim()
   augroup END
+
+  augroup on_file_type
+    autocmd!
+  augroup END
 endfunction
 
 function! s:load_dein() abort

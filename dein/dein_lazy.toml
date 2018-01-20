@@ -4,9 +4,10 @@ on_i        = 1
 hook_source = 'call hook#source#deoplete#load()'
 
 [[plugins]]
-repo    = 'Shougo/neosnippet'
-on_i    = 1
-depends = ['neosnippet-snippets']
+repo        = 'Shougo/neosnippet'
+on_i        = 1
+depends     = ['neosnippet-snippets']
+hook_source = 'call hook#source#neosnippet#load()'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'

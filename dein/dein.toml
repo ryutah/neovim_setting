@@ -28,3 +28,6 @@ hook_add = 'call hook#add#lightline#load()'
 [[plugins]]
 repo     = 'airblade/vim-gitgutter'
 hook_add = 'call hook#add#gitgutter#load()'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'

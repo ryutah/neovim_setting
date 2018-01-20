@@ -8,6 +8,7 @@ nnoremap <Leader><C-l> :GoFmt<CR>
 nnoremap <Leader><C-o> :GoImpl<Space>
 nnoremap <Leader><C-r> :GoRun<CR>
 nnoremap <Leader><C-t> :GoTest<CR>
+nnoremap <Leader><C-d> :GoInfo<CR>
 
 nnoremap <silent> [denite]o :Denite decls -split=vertical<CR>
 

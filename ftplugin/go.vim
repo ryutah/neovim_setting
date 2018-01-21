@@ -8,7 +8,7 @@ nnoremap <Leader><C-o> :GoImpl<Space>
 nnoremap <Leader><C-r> :GoRun<CR>
 nnoremap <Leader><C-t> :GoTest<CR>
 nnoremap <Leader><C-d> :GoInfo<CR>
-nnoremap <silent> [denite]o :Denite decls -split=vertical<CR>
+nnoremap <expr> <silent> denite#start([{'name': 'decls', 'args': [expand('%')]}, {'split': 'vertical'}])
 " TODO Consider keymap
 nnoremap <silent> <F2> :GoRename<CR>
 

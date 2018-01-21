@@ -34,4 +34,10 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo     = 'w0rp/ale'
+build    = 'call hook#build#ale#load()'
 hook_add = 'call hook#add#ale#load()'
+
+[[plugins]]
+repo     = 'Chiel92/vim-autoformat'
+build    = 'call hook#build#vim_autoformat#load()'
+hook_add = 'call hook#add#vim_autoformat#load()'

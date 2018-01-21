@@ -16,6 +16,12 @@ nnoremap <silent> tl :tabnext<CR>
 nnoremap <silent> th :tabprevious<CR>
 nnoremap <silent> tx :tabclose<CR>
 
+" Buffer controll
+nnoremap [buffer] <Nop>
+nmap <Leader>b [buffer]
+nnoremap <silent> [buffer]n :bnext
+nnoremap <silent> [buffer]p :bprevious
+
 " Split screen controlls
 nnoremap [split] <Nop>
 nmap     <Leader>s [split]
@@ -51,6 +57,7 @@ nnoremap <silent> <Leader><Leader> :Denite file_rec -smartcase -direction=toplef
 nnoremap <silent> [denite]o        :Denite outline -split=vertical<CR>
 nnoremap <silent> [denite]b        :Denite buffer -smartcase -direction=topleft<CR>
 nnoremap <silent> [denite]f        :Denite file file:new -smartcase -direction=topleft<CR>
+nnoremap <silent> [denite]g        :Denite grep<CR>
 
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
@@ -62,9 +69,12 @@ nmap <Leader>a [ale]
 nmap <silent>           [ale]d <Plug>(ale_detail)
 nmap <silent>           [ale]n <Plug>(ale_next)
 nmap <silent>           [ale]p <Plug>(ale_previous)
-nmap <silent>           [ale]<S-n> <Plug>(ale_next_wrap)
-nmap <silent>           [ale]<S-p> <Plug>(ale_previous_wrap)
+nmap <silent>           [ale]N <Plug>(ale_next_wrap)
+nmap <silent>           [ale]P <Plug>(ale_previous_wrap)
 nnoremap <silent><expr> [ale]l <SID>toggle_location_list().'<CR>'
+
+" Autoformat
+nnoremap <silent> <Leader><C-l> :Autoformat<CR>
 
 " Location list
 nnoremap [location_list] <Nop>

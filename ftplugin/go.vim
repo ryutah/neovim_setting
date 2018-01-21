@@ -4,7 +4,6 @@ setlocal shiftwidth=4
 setlocal expandtab&
 
 nnoremap <Leader><C-i> :GoImport<Space>
-nnoremap <Leader><C-l> :GoFmt<CR>
 nnoremap <Leader><C-o> :GoImpl<Space>
 nnoremap <Leader><C-r> :GoRun<CR>
 nnoremap <Leader><C-t> :GoTest<CR>

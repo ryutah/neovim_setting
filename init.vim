@@ -12,7 +12,6 @@ function! s:init() abort
   set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
 
   set background=dark
-  colorscheme jellybeans
 
   set hidden " Allow load new buffe when not saved.
 
@@ -25,14 +24,16 @@ function! s:init() abort
 
   set ignorecase " Set command to ignore case
 
-  augroup buf_write_pre
-    autocmd!
-    autocmd BufWritePre * call s:trim()
-  augroup END
+  set undofile
+  set undodir=~/.config/nvim/undo
 
-  augroup on_file_type
+  augroup MyAuGroup
     autocmd!
   augroup END
+endfunction
+
+function! s:after_load_plugins() abort
+  colorscheme jellybeans
 endfunction
 
 function! s:load_dein() abort
@@ -66,17 +67,6 @@ function! s:load_dein() abort
   endif
 endfunction
 
-function! s:trim() abort
-  if 'markdown' == &filetype
-    return
-  endif
-
-  " Delete line
-  if getline('$') == ""
-    $delete _
-  endif
-  :%s/\s\+$//ge " Trim trail space
-endfunction
-
-call s:load_dein()
 call s:init()
+call s:load_dein()
+call s:after_load_plugins()

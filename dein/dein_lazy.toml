@@ -28,3 +28,24 @@ build       = 'make'
 on_ft       = ['go']
 depends     = ['deoplete.nvim']
 hook_source = 'call hook#source#deoplete_go#load()'
+
+[[plugins]]
+repo             = 'autozimu/LanguageClient-neovim'
+rev              = 'next'
+on_ft            = ['rust', 'python']
+depends          = ['deoplete.nvim', 'neosnippet']
+build            = 'call hook#build#language_client_neovim#load()'
+hook_source      = 'call hook#source#language_client_neovim#load()'
+
+# TODO Should use LSP
+[[plugins]]
+repo        = 'carlitux/deoplete-ternjs'
+build       = 'npm i -g tern'
+on_ft       = ['javascript']
+hook_source = 'call hook#source#deoplete_ternjs#load()'
+
+# TODO Want to use LSP
+[[plugins]]
+repo  = 'Shougo/deoplete-rct'
+build = 'gem install rcodetools'
+on_ft = ['ruby']

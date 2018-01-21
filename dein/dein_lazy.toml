@@ -35,21 +35,21 @@ rev              = 'next'
 on_ft            = ['rust', 'python']
 depends          = ['deoplete.nvim', 'neosnippet']
 build            = 'sh install.sh'
-hook_post_source = 'call hook#post_update#language_client_neovim#load()'
+hook_post_update = 'call hook#post_update#language_client_neovim#load()'
 hook_source      = 'call hook#source#language_client_neovim#load()'
 
 # TODO Should use LSP
 [[plugins]]
 repo             = 'carlitux/deoplete-ternjs'
-hook_post_source = '!npm i -g tern'
 on_ft            = ['javascript']
 hook_source      = 'call hook#source#deoplete_ternjs#load()'
+hook_post_update = '!npm i -g tern'
 
 # TODO Want to use LSP
 [[plugins]]
 repo             = 'Shougo/deoplete-rct'
-hook_post_source = '!gem install rcodetools'
 on_ft            = ['ruby']
+hook_post_update = '!gem install rcodetools'
 
 [[plugins]]
 repo        = 'kannokanno/previm'

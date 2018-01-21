@@ -8,11 +8,9 @@ nnoremap <Leader><C-o> :GoImpl<Space>
 nnoremap <Leader><C-r> :GoRun<CR>
 nnoremap <Leader><C-t> :GoTest<CR>
 nnoremap <Leader><C-d> :GoInfo<CR>
+nnoremap <silent> [denite]o :Denite decls -split=vertical<CR>
 " TODO Consider keymap
 nnoremap <silent> <F2> :GoRename<CR>
-nnoremap
-
-nnoremap <silent> [denite]o :Denite decls -split=vertical<CR>
 
 highlight goErr cterm=bold ctermfg=214
 match goErr /\<err\>/

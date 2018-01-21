@@ -19,8 +19,8 @@ nnoremap <silent> tx :tabclose<CR>
 " Buffer controll
 nnoremap [buffer] <Nop>
 nmap <Leader>b [buffer]
-nnoremap <silent> [buffer]n :bnext
-nnoremap <silent> [buffer]p :bprevious
+nnoremap <silent> [buffer]n :bnext<CR>
+nnoremap <silent> [buffer]p :bprevious<CR>
 
 " Split screen controlls
 nnoremap [split] <Nop>

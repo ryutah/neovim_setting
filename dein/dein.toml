@@ -31,3 +31,7 @@ hook_add = 'call hook#add#gitgutter#load()'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo     = 'w0rp/ale'
+hook_add = 'call hook#add#ale#load()'

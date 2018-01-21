@@ -55,3 +55,30 @@ nnoremap <silent> [denite]f        :Denite file file:new -smartcase -direction=t
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" Ale
+nnoremap [ale] <Nop>
+nmap <Leader>a [ale]
+nmap <silent>           [ale]d <Plug>(ale_detail)
+nmap <silent>           [ale]n <Plug>(ale_next)
+nmap <silent>           [ale]p <Plug>(ale_previous)
+nmap <silent>           [ale]<S-n> <Plug>(ale_next_wrap)
+nmap <silent>           [ale]<S-p> <Plug>(ale_previous_wrap)
+nnoremap <silent><expr> [ale]l <SID>toggle_location_list().'<CR>'
+
+" Location list
+nnoremap [location_list] <Nop>
+nmap <Leader>l [location_list]
+nnoremap <silent> [location_list]n :lnext<CR>
+nnoremap <silent> [location_list]p :lprevious<CR>
+nnoremap <silent><expr> [location_list]t <SID>toggle_location_list().'<CR>'
+
+" ref https://stackoverflow.com/questions/8061229/detecting-if-quickfix-buffer-exists-in-vim
+function! s:toggle_location_list() abort
+  if exists('g:location_list_open')
+    unlet g:location_list_open
+    return ':lclose'
+  endif
+  let g:location_list_open = 1
+  return ':lopen'
+endfunction

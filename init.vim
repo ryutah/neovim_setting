@@ -46,7 +46,7 @@ function! s:load_dein() abort
   endif
   execute 'set runtimepath^=' . dein_repo_dir
 
-  let dein#install_process_timeout = 600
+  let g:dein#install_process_timeout = 1200
 
   if dein#load_state(dein_dir)
     call dein#begin(dein_dir)

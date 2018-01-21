@@ -33,11 +33,13 @@ hook_add = 'call hook#add#gitgutter#load()'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo     = 'w0rp/ale'
-build    = 'call hook#build#ale#load()'
-hook_add = 'call hook#add#ale#load()'
+repo             = 'w0rp/ale'
+hook_add         = 'call hook#add#ale#load()'
+hook_post_source = 'call hook#post_update#ale#load()'
+# build    = 'call hook#build#ale#load()'
 
 [[plugins]]
-repo     = 'Chiel92/vim-autoformat'
-build    = 'call hook#build#vim_autoformat#load()'
-hook_add = 'call hook#add#vim_autoformat#load()'
+repo             = 'Chiel92/vim-autoformat'
+hook_add         = 'call hook#add#vim_autoformat#load()'
+hook_post_source = 'call hook#post_update#vim_autoformat#load()'
+# build    = 'call hook#build#vim_autoformat#load()'

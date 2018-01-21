@@ -1,6 +1,4 @@
-function! hook#build#language_client_neovim#load() abort
-  !sh install.sh
-
+function! hook#post_update#language_client_neovim#load() abort
   if !executable("rls")
     !rustup component add rls-preview rust-analysis rust-src
   endif
@@ -11,6 +9,6 @@ function! hook#build#language_client_neovim#load() abort
 
   " Python linter
   if !executable("pyls")
-    pip install python-language-server
+    !pip install python-language-server
   endif
 endfunction

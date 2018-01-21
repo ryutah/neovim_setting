@@ -1,4 +1,4 @@
-function! hook#build#ale#load() abort
+function! hook#post_update#ale#load() abort
   " Go linter
   if !executable("golint")
     !go get -u github.com/golang/lint/golint

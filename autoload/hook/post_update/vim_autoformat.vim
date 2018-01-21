@@ -1,4 +1,4 @@
-function! hook#build#vim_autoformat#load() abort
+function! hook#post_update#vim_autoformat#load() abort
   " Go formatter
   if !executable("goimports")
     !go get golang.org/x/tools/cmd/goimports

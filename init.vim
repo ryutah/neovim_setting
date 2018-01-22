@@ -29,6 +29,7 @@ function! s:init() abort
 
   let g:python_host_prog  = expand('$PYTHON2_PATH')
   let g:python3_host_prog = expand('$PYTHON3_PATH')
+  let g:neovim_home       = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/nvim') : expand('$XDG_CONFIG_HOME/nvim')
 
   augroup MyAuGroup
     autocmd!
@@ -40,8 +41,7 @@ function! s:after_load_plugins() abort
 endfunction
 
 function! s:load_dein() abort
-  let cache_home    = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : expand('$XDG_CONFIG_HOME/nvim')
-  let dein_dir      = cache_home . '/dein'
+  let dein_dir      = g:neovim_home . '/dein'
   let dein_repo_dir = dein_dir . '/repos/github.com/Shougo/dein.vim'
 
   if !isdirectory(dein_repo_dir)

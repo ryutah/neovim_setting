@@ -83,6 +83,8 @@ nnoremap <silent> [location_list]n :lnext<CR>
 nnoremap <silent> [location_list]p :lprevious<CR>
 nnoremap <silent><expr> [location_list]t <SID>toggle_location_list().'<CR>'
 
+" TODO want to add Git kaymaps
+
 " ref https://stackoverflow.com/questions/8061229/detecting-if-quickfix-buffer-exists-in-vim
 function! s:toggle_location_list() abort
   if exists('g:location_list_open')

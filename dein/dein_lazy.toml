@@ -29,15 +29,6 @@ on_ft       = ['go']
 depends     = ['deoplete.nvim']
 hook_source = 'call hook#source#deoplete_go#load()'
 
-[[plugins]]
-repo             = 'autozimu/LanguageClient-neovim'
-rev              = 'next'
-on_ft            = ['rust', 'python']
-depends          = ['deoplete.nvim', 'neosnippet']
-build            = 'sh install.sh'
-hook_post_update = 'call hook#post_update#language_client_neovim#load()'
-hook_source      = 'call hook#source#language_client_neovim#load()'
-
 # TODO Should use LSP
 [[plugins]]
 repo             = 'carlitux/deoplete-ternjs'

@@ -6,6 +6,24 @@ function! hook#add#language_client_neovim#load() abort
   let g:LanguageClient_serverCommands["python"] = ['pyls']
   " let g:LanguageClient_serverCommands["javascript"] = ['javascript-typescript-stdio'] " XXX it has not been confirmed to LSP is working well yet.
 
+  " ref https://www.eclipse.org/community/eclipse_newsletter/2017/may/article4.php
+  " Java LSP command example. This is not move expected move.
+  " let g:LanguageClient_serverCommands["java"] = [
+  "       \ 'java',
+  "       \ '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+  "       \ '-Dosgi.bundles.defaultStartLevel=4',
+  "       \ '-Declipse.product=org.eclipse.jdt.ls.core.product',
+  "       \ '-noverify',
+  "       \ '-Xmx1G',
+  "       \ '-XX:+UseG1GC',
+  "       \ '-XX:+UseStringDeduplication',
+  "       \ '-jar',
+  "       \ '/Users/ryuta/Downloads/plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar',
+  "       \ '-configuration',
+  "       \ '/Users/ryuta/Downloads/config_mac',
+  "       \ '-data',
+  "       \ '/Users/ryuta/hoge']
+
   " TODO Consider keymap
   nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
   nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>

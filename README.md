@@ -18,3 +18,6 @@ My neovim config
 
 -   [ag](https://github.com/ggreer/the_silver_searcher)  
     Faster search tool.
+
+-   [universal-ctags](https://github.com/universal-ctags/ctags)  
+    new ctags

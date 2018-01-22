@@ -51,3 +51,6 @@ hook_add         = 'call hook#add#language_client_neovim#load()'
 repo             = 'w0rp/ale'
 hook_add         = 'call hook#add#ale#load()'
 hook_post_update = 'call hook#post_update#ale#load()'
+
+[[plugins]]
+repo = 'rhysd/committia.vim'

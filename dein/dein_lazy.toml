@@ -46,3 +46,10 @@ hook_post_update = '!gem install rcodetools'
 repo        = 'kannokanno/previm'
 on_ft       = ['markdown']
 hook_source = 'call hook#source#previm#load()'
+
+[[plugins]]
+repo   = 'cohama/agit.vim'
+on_cmd = 'Agit'
+
+[[plugins]]
+repo   = 'idanarye/vim-merginal'

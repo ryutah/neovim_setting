@@ -27,6 +27,9 @@ function! s:init() abort
   set undofile
   set undodir=~/.config/nvim/undo
 
+  let g:python_host_prog  = expand('$PYTHON2_PATH')
+  let g:python3_host_prog = expand('$PYTHON3_PATH')
+
   augroup MyAuGroup
     autocmd!
   augroup END

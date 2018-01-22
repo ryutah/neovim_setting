@@ -1,5 +1,4 @@
 function! hook#source#deoplete#load() abort
-  let g:python3_host_preg          = $PYTHON_PATH . '/python'
   let g:deoplete#enable_at_startup = 1
   if !exists('g:deoplete#keyword_patterns')
     let g:deoplete#keyword_patterns  = {}

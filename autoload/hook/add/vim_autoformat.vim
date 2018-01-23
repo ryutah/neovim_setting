@@ -1,5 +1,8 @@
 function! hook#add#vim_autoformat#load() abort
-  autocmd MyAuGroup BufWrite * :Autoformat
+  augroup AutoIndentPreWrite
+    autocmd!
+    autocmd BufWrite * :Autoformat
+  augroup END
 
   let g:autoformat_remove_trailing_spaces = 1
 

@@ -24,12 +24,18 @@ function! s:init() abort
 
   set ignorecase " Set command to ignore case
 
+  let g:netrw_liststyle= 3
   set undofile
   set undodir=~/.config/nvim/undo
 
   let g:python_host_prog  = expand('$PYTHON2_PATH')
   let g:python3_host_prog = expand('$PYTHON3_PATH')
   let g:neovim_home       = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/nvim') : expand('$XDG_CONFIG_HOME/nvim')
+
+  augroup MyAuGroup_SetFiletype
+    autocmd!
+    autocmd BufNewFile,BufRead *.csv set filetype=csv
+  augroup END
 
   augroup MyAuGroup
     autocmd!

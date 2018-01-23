@@ -94,3 +94,16 @@ function! s:toggle_location_list() abort
   let g:location_list_open = 1
   return ':lopen'
 endfunction
+
+let g:Netrw_UserMaps = [
+      \   ['o', 'Netrw_OpenTree'],
+      \   ['n', 'Netrw_NewFile'],
+      \ ]
+
+function! Netrw_OpenTree(islocal) abort
+  return "normal \<CR>"
+endfunction
+
+function! Netrw_NewFile(islocal) abort
+  return 'normal %'
+endfunction

@@ -2,143 +2,55 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo  = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-
-# Unites
-[[plugins]]
-repo     = 'Shougo/unite.vim'
-depends  = 'neomru.vim'
-hook_add = 'call plugins#unite#hook_add()'
-
-[[plugins]]
-repo    = 'Shougo/unite-outline'
-depends = 'unite.vim'
-
-[[plugins]]
-repo    = 'ujihisa/unite-colorscheme'
-depends = 'unite.vim'
-
-[[plugins]]
-repo = 'osyo-manga/unite-quickfix.git'
-
-# Colorschemes
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
-
-[[plugins]]
-repo = 'rhysd/vim-color-spring-night'
-
-[[plugins]]
-repo = 'w0ng/vim-hybrid'
+repo     = 'Shougo/denite.nvim'
+hook_add = 'call hook#add#denite#load()'
 
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
 
-# [[plugins]]
-# repo = 'scrooloose/nerdtree'
-
-[[plugins]]
-repo = 'kana/vim-smartinput'
-
-[[plugins]]
-repo     = 'cohama/vim-smartinput-endwise'
-depends  = 'vim-smartinput'
-hook_add = 'call plugins#vim_smartinput_endwise#hook_add()'
-
 [[plugins]]
 repo = 'tyru/caw.vim'
-
-[[plugins]] # Japanese doc
-repo  = 'vim-jp/vimdoc-ja'
-on_ft = 'help'
-
-[[plugins]]
-repo     = 'airblade/vim-gitgutter'
-hook_add = 'call plugins#gitgutter#hook_add()'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo        = 'itchyny/lightline.vim'
-hook_source = 'call plugins#lightline#hook_source()'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo        = 'thinca/vim-quickrun'
-hook_source = 'call plugins#vim_quickrun#hook_source()'
-
-[[plugins]]
-repo = 'osyo-manga/shabadou.vim'
-
-[[plugins]]
-repo             = 'osyo-manga/vim-watchdogs'
-hook_source      = 'call plugins#watchdogs#hook_source()'
-hook_post_source = 'call plugins#watchdogs#hook_post_source()'
-
-[[plugins]]
-repo = 'jceb/vim-hier'
-
-[[plugins]]
-repo = 'KabbAmine/vCoolor.vim'
-
-[[plugins]]
-repo = 'thinca/vim-editvar'
-
-[[plugins]]
-repo = 'airblade/vim-rooter'
-hook_add = '''
-let g:rooter_use_lcd = 1
-autocmd BufEnter * :Rooter
-'''
-
-[[plugins]]
-repo  = 'thinca/vim-ref'
-build = '''
-gem install refe2 bitclust-dev
-!bitclust setup --versions=2.4.0
-'''
-
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
-
-[[plugins]]
-repo        = 'kannokanno/previm'
-hook_source = "let g:previm_open_cmd = 'open -a Google\ Chrome'"
-# hook_source = "let g:previm_open_cmd = 'open -a Firefox'"
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-
-[[plugins]]
-repo = 'majutsushi/tagbar.git'
-hook_add = 'call plugins#tagbar#hook_add()'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo        = 'nathanaelkane/vim-indent-guides'
-hook_source = 'call plugins#vim_indent_guides#hook_source()'
+repo  = 'cespare/vim-toml'
+
+# TODO Redeclared :E?
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
-repo        = 'soramugi/auto-ctags.vim'
-hook_source = 'call plugins#auto_ctags#hook_source()'
+repo     = 'itchyny/lightline.vim'
+hook_add = 'call hook#add#lightline#load()'
 
 [[plugins]]
-repo  = 'Chiel92/vim-autoformat'
-build = '''
-npm install -g js-beautify typescript-formatter remark-cli
-!gem install sass
-!stack install stylish-haskell
-'''
+repo     = 'airblade/vim-gitgutter'
+hook_add = 'call hook#add#gitgutter#load()'
 
 [[plugins]]
-repo = 'Shougo/vimfiler.vim'
-hook_add = 'call plugins#vimfiler#hook_add()'
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo             = 'Chiel92/vim-autoformat'
+hook_add         = 'call hook#add#vim_autoformat#load()'
+hook_post_update = 'call hook#post_update#vim_autoformat#load()'
+
+[[plugins]]
+repo = 'romainl/Apprentice'
+
+[[plugins]] # This plugin should not be lazy. If set so, lsp server does not start automatic
+repo             = 'autozimu/LanguageClient-neovim'
+rev              = 'next'
+build            = 'sh install.sh'
+hook_post_update = 'call hook#post_update#language_client_neovim#load()'
+hook_add         = 'call hook#add#language_client_neovim#load()'
+
+[[plugins]]
+repo             = 'w0rp/ale'
+hook_add         = 'call hook#add#ale#load()'
+hook_post_update = 'call hook#post_update#ale#load()'
+
+[[plugins]]
+repo = 'rhysd/committia.vim'

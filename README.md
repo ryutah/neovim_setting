@@ -1,16 +1,23 @@
 # NeoVim Settings
-## Init
-- npm install -g tern
-- gem install rcodetools
-- gem install fastri
-- Install "dein.vim"
 
-## Install dein
-See [dein.vim](https://github.com/Shougo/dein.vim)
+My neovim config
 
-## Caution
-### eclim
-#### javascriptなどのインデント崩れ
-eclimをデフォルトのまま使用すると、javascript、htmlのインデントがぶっ壊れるので、`indent`, `syntax` などにある `javascript` , `html` , `xml` , `css` の名前のもつファイルを削除するか名称を変更する必要あり。
-#### カラー設定
-Syntax highlightの設定は、多分[javaid.vim](http://nanasi.jp/articles/vim/javaid_vim.html)を使ってるっぽいので、カラー設定はそこを参照
+## Prepare
+
+### Python
+
+1.  Install Python2 and Python3 by pyenv and set environment.  
+    Reference [here](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim#tips-for-using-pyenv)
+
+2.  Set environment variables `$python3_neovim` and `python2_neovim` to name of created environemt.
+
+## tools
+
+-   [fd](https://github.com/sharkdp/fd)  
+    Alternative find implements by Rust.
+
+-   [ag](https://github.com/ggreer/the_silver_searcher)  
+    Faster search tool.
+
+-   [universal-ctags](https://github.com/universal-ctags/ctags)  
+    new ctags

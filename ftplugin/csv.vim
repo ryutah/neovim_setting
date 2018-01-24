@@ -1,0 +1,2 @@
+autocmd! AutoIndentPreWrite
+set nowrap

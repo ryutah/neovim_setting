@@ -1,46 +1,81 @@
-" dein settings {{{
-if &compatible
-  set nocompatible
-endif
+function! s:init() abort
+  set clipboard+=unnamedplus
+  set number
 
-augroup MyAutoCmd
-  autocmd!
-augroup END
+  set tabstop=4     " Tab size
+  set softtabstop=2 " Space size when enter tab
+  set shiftwidth=2  " Auto indent size
+  set expandtab     " Use whitespace alternative <TAB>
 
-call filetype#init()
-let s:cache_home                   = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : expand('$XDG_CONFIG_HOME/nvim')
-let s:dein_dir                     = s:cache_home . '/dein'
-let s:dein_repo_dir                = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-let g:dein#install_process_timeout = 600
+  " Show invisible characters
+  set list
+  set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
 
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-execute 'set runtimepath^=' . s:dein_repo_dir
+  set background=dark
 
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+  set hidden " Allow load new buffe when not saved.
 
-  " TOML files written plugins
-  let s:toml      = s:dein_dir . '/dein.toml'
-  let s:lazy_toml = s:dein_dir . '/dein_lazy.toml'
-  let mapleader   = "\<Space>"
+  filetype plugin indent on " Enable filetype plugin and indent
 
-  " Load plugins from toml at start nvim
-  call dein#load_toml(s:toml, { 'lazy': 0 })
-  " Load lazy plugin from toml at insert mode
-  call dein#load_toml(s:lazy_toml, { 'lazy': 1 })
+  " File encoding list XXX Read Documents
+  set encoding=utf-8
+  set fileencodings=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,euc-jp,cp932
+  set fileformats=unix,dos,mac
 
-  call dein#end()
-endif
+  set ignorecase " Set command to ignore case
 
-if dein#check_install()
-  call dein#install()
-endif
+  let g:netrw_liststyle= 3
+  set undofile
+  set undodir=~/.config/nvim/undo
 
-" Common settings
-call common#init()
-" Key maps
-call keymap#init()
-" Command setting
-call command#init()
+  let g:python_host_prog  = expand('$PYTHON2_PATH')
+  let g:python3_host_prog = expand('$PYTHON3_PATH')
+  let g:neovim_home       = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/nvim') : expand('$XDG_CONFIG_HOME/nvim')
+
+  augroup MyAuGroup_SetFiletype
+    autocmd!
+    autocmd BufNewFile,BufRead *.csv set filetype=csv
+  augroup END
+
+  augroup MyAuGroup
+    autocmd!
+  augroup END
+endfunction
+
+function! s:after_load_plugins() abort
+  colorscheme jellybeans
+endfunction
+
+function! s:load_dein() abort
+  let dein_dir      = g:neovim_home . '/dein'
+  let dein_repo_dir = dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+  if !isdirectory(dein_repo_dir)
+    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(dein_repo_dir))
+  endif
+  execute 'set runtimepath^=' . dein_repo_dir
+
+  let g:dein#install_process_timeout = 1200
+
+  if dein#load_state(dein_dir)
+    call dein#begin(dein_dir)
+
+    " TOML files written plugins
+    let toml = dein_dir . '/dein.toml'
+    let toml_lazy = dein_dir . '/dein_lazy.toml'
+
+    " Load plugins from toml at start nvim
+    call dein#load_toml(toml, { 'lazy': 0 })
+    call dein#load_toml(toml_lazy, { 'lazy': 1 })
+
+    call dein#end()
+  endif
+
+  if dein#check_install()
+    call dein#install()
+  endif
+endfunction
+
+call s:init()
+call s:load_dein()
+call s:after_load_plugins()

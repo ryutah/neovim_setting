@@ -53,3 +53,9 @@ on_cmd = 'Agit'
 
 [[plugins]]
 repo   = 'idanarye/vim-merginal'
+
+# Depends on 'godlygeek/tabular'
+[[plugins]]
+repo        = 'plasticboy/vim-markdown'
+on_ft       = 'markdown'
+hook_source = 'call hook#source#vim_markdown#load()'

@@ -54,3 +54,6 @@ hook_post_update = 'call hook#post_update#ale#load()'
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
+
+[[plugins]]
+repo = 'godlygeek/tabular'

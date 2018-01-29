@@ -7,11 +7,12 @@ function! hook#add#vim_autoformat#load() abort
   let g:autoformat_remove_trailing_spaces = 1
 
   " Custom formatter
-  let g:formatdef_prettier    = '"prettier"'
+  let g:formatdef_prettier        = '"prettier"'
+  let g:formatdef_nightly_rustfmt = '"rustup run nightly rustfmt"'
 
   " Formatter setting
   let g:formatters_go         = ['goimports']
-  let g:formatters_rust       = ['rustfmt']
+  let g:formatters_rust       = ['nightly_rustfmt']
   let g:formatters_python     = ['autopep8']
   let g:formatters_javascript = ['prettier', 'eslint_local']
   let g:formatters_typescript = ['prettier']

@@ -29,13 +29,6 @@ on_ft       = ['go']
 depends     = ['deoplete.nvim']
 hook_source = 'call hook#source#deoplete_go#load()'
 
-# TODO Should use LSP
-[[plugins]]
-repo             = 'carlitux/deoplete-ternjs'
-on_ft            = ['javascript']
-hook_source      = 'call hook#source#deoplete_ternjs#load()'
-hook_post_update = '!npm i -g tern'
-
 # TODO Want to use LSP
 [[plugins]]
 repo             = 'Shougo/deoplete-rct'
@@ -59,3 +52,14 @@ repo   = 'idanarye/vim-merginal'
 repo        = 'plasticboy/vim-markdown'
 on_ft       = 'markdown'
 hook_source = 'call hook#source#vim_markdown#load()'
+
+# XXX LSPのコード補完精度や速度があまりよくないので、少し様子を見て厳しそうならtern使う
+# [[plugins]]
+# repo             = 'carlitux/deoplete-ternjs'
+# on_ft            = ['javascript']
+# hook_source      = 'call hook#source#deoplete_ternjs#load()'
+# hook_post_update = '!npm i -g tern'
+
+[[plugins]]
+repo  = 'leafgarland/typescript-vim'
+on_ft = ['typescript'] # Add javascript if necessary

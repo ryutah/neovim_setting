@@ -43,7 +43,7 @@ function! s:init() abort
 endfunction
 
 function! s:after_load_plugins() abort
-  colorscheme jellybeans
+  colorscheme hybrid
 endfunction
 
 function! s:load_dein() abort

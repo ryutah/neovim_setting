@@ -9,6 +9,9 @@ hook_add = 'call hook#add#denite#load()'
 repo = 'nanotech/jellybeans.vim'
 
 [[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
 repo = 'tyru/caw.vim'
 
 [[plugins]]

@@ -53,11 +53,11 @@ vmap <C-_> <Plug>(caw:hatpos:toggle)
 " Denite.vim
 nnoremap [denite] <Nop>
 nmap     <Leader>u [denite]
-nnoremap <silent> <Leader><Leader> :Denite file_rec -smartcase -direction=topleft<CR>
-nnoremap <silent> [denite]o        :Denite outline -split=vertical<CR>
-nnoremap <silent> [denite]b        :Denite buffer -smartcase -direction=topleft<CR>
-nnoremap <silent> [denite]f        :Denite file file:new -smartcase -direction=topleft<CR>
-nnoremap <silent> [denite]g        :Denite grep<CR>
+nnoremap <silent> <Leader><Leader> :Denite file_rec -smartcase -direction=topleft -highlight-mode-insert=String<CR>
+nnoremap <silent> [denite]o        :Denite outline -split=vertical -highlight-mode-insert=String<CR>
+nnoremap <silent> [denite]b        :Denite buffer -smartcase -direction=topleft -highlight-mode-insert=String<CR>
+nnoremap <silent> [denite]f        :Denite file file:new -smartcase -direction=topleft -highlight-mode-insert=String<CR>
+nnoremap <silent> [denite]g        :Denite grep -highlight-mode-insert=String<CR>
 
 " EasyAlign
 xmap ga <Plug>(EasyAlign)

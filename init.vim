@@ -24,7 +24,8 @@ function! s:init() abort
 
   set ignorecase " Set command to ignore case
 
-  let g:netrw_liststyle= 3
+  let g:netrw_liststyle = 3 " netrw set to tree style listing
+
   set undofile
   set undodir=~/.config/nvim/undo
 
@@ -61,7 +62,7 @@ function! s:load_dein() abort
     call dein#begin(dein_dir)
 
     " TOML files written plugins
-    let toml = dein_dir . '/dein.toml'
+    let toml      = dein_dir . '/dein.toml'
     let toml_lazy = dein_dir . '/dein_lazy.toml'
 
     " Load plugins from toml at start nvim

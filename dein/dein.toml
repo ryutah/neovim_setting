@@ -60,3 +60,7 @@ repo = 'rhysd/committia.vim'
 
 [[plugins]]
 repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo    = 'Shougo/neomru.vim'
+depends = ['denite.nvim']

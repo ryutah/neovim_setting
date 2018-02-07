@@ -58,6 +58,7 @@ nnoremap <silent> [denite]o        :Denite outline -split=vertical -highlight-mo
 nnoremap <silent> [denite]b        :Denite buffer -smartcase -direction=topleft -highlight-mode-insert=String<CR>
 nnoremap <silent> [denite]f        :Denite file file:new -smartcase -direction=topleft -highlight-mode-insert=String<CR>
 nnoremap <silent> [denite]g        :Denite grep -highlight-mode-insert=String<CR>
+nnoremap <silent> [denite]m        :Denite file_mru -direction=topleft -highlight-mode-insert=String<CR>
 
 " EasyAlign
 xmap ga <Plug>(EasyAlign)

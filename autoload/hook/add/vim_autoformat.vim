@@ -18,7 +18,7 @@ function! hook#add#vim_autoformat#load() abort
   let g:formatters_typescript = ['prettier']
   let g:formatters_css        = ['prettier']
   let g:formatters_scss       = ['prettier']
-  let g:formatters_json       = ['prettier']
   let g:formatters_ruby       = ['rubocop']
   let g:formatters_html       = ['htmlbeautify']
+  let g:formatters_json       = ['fixjson']
 endfunction

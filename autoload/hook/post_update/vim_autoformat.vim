@@ -29,6 +29,11 @@ function! hook#post_update#vim_autoformat#load() abort
 
   " HTML formatter
   if !executable("html-beautify")
-    npm i -g js-beautify
+    !npm i -g js-beautify
+  endif
+
+  " JSON formatter
+  if !executable("fixjson")
+    !npm i -g fixjson
   endif
 endfunction

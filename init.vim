@@ -29,6 +29,8 @@ function! s:init() abort
   set undofile
   set undodir=~/.config/nvim/undo
 
+  set updatetime=500 " swap file written time. this affect to gitgutter.
+
   let g:python_host_prog  = expand('$PYTHON2_PATH')
   let g:python3_host_prog = expand('$PYTHON3_PATH')
   let g:neovim_home       = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/nvim') : expand('$XDG_CONFIG_HOME/nvim')

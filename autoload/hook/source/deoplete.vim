@@ -8,4 +8,8 @@ function! hook#source#deoplete#load() abort
 
   " Close popup window when leave insert mode.
   autocmd InsertLeave * if pumvisible() == 0 | pclose | endif
+
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
 endfunction

@@ -1,0 +1,66 @@
+# Macro
+snippet     println!
+abbr        println!()
+options     head
+    println!(${1:TARGET});
+
+snippet     panic!
+abbr        panic!()
+options     head
+    panic!(${1:TARGET});
+
+snippet     panicwithfmt!
+abbr        panic!(format, args)
+options     head
+    panic!(${1:#:format}, ${2:#:args});
+
+snippet     format!
+abbr        format!()
+options     head
+    format!(${1:#:format}, ${2:#:args})
+
+snippet     assert!
+abbr        assert!()
+options     head
+    assert!(${1:TARGET});
+
+snippet     assertwithmsg!
+abbr        assert!(assert, format, args)
+options     head
+    assert!(${1:#:assert}, ${2:#:format}, ${3:#:args});
+
+snippet     assert_eq!
+abbr        assert_eq!()
+options     head
+    assert_eq!(${1:#:want}, ${2:#:got});
+
+snippet     assert_ne!
+abbr        assert_ne!()
+options     head
+    assert_ne!(${1:#:not_waNT}, ${2:#:got});
+
+snippet     extcrate
+abbr        extern crate CRATE
+options     head
+    extern crate ${1:TARGET};
+
+snippet     vec!
+abbr        vec![]
+options     head
+    vec![${1:TARGET}]
+
+snippet     testpanic
+options     head
+    #[test]
+    #[should_panic]
+    fn ${1:#:test_function_name}() {
+        ${0:TARGET}
+    }
+
+snippet     testpanicmsg
+options     head
+    #[test]
+    #[should_panic(expected = "${2:#:panic_message})"]
+    fn ${2:#:test_function_name}() {
+        ${0:TARGET}
+    }

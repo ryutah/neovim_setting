@@ -69,3 +69,24 @@ options     head
     fn ${2:#:test_function_name}() {
         ${0:TARGET}
     }
+
+snippet     loop
+abbr        loop {}
+options     head
+    loop {
+        ${0:TARGET}
+    }
+
+snippet     while
+abbr        while (${condition}) {}
+options     head
+    while ${1:#:condition} {
+        ${0:TARGET}
+    }
+
+snippet     fnmain
+abbr        func main () {}
+options     head
+    fn main() {
+        ${0:TARGET}
+    }

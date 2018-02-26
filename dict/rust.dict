@@ -19,3 +19,5 @@ println!
 vec!
 use
 extern
+continue
+break

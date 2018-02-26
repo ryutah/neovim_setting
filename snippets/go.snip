@@ -1,0 +1,20 @@
+snippet     funcmain
+abbr        func main() {}
+options     head
+    func main() {
+        ${0:TARGET}
+    }
+
+snippet     funcinit
+abbr        func init() {}
+options     head
+    func init() {
+        ${0:TARGET}
+    }
+
+snippet     funchandler
+abbr        func ${name} (http.ResponseWriter, *http.Request) {}
+options     head
+    func ${1:#:handler_name} (w http.ResponseWriter, r *http.Request) {
+        ${0:TARGET}
+    }

@@ -4,18 +4,23 @@ abbr        println!()
 options     head
     println!(${1:TARGET});
 
+snippet     printfmt!
+abbr        println!(${format}, ${args})
+options     head
+    println!(${1:#:format}, ${2:#:args});
+
 snippet     panic!
 abbr        panic!()
 options     head
     panic!(${1:TARGET});
 
-snippet     panicwithfmt!
-abbr        panic!(format, args)
+snippet     panicfmt!
+abbr        panic!(${format}, ${args})
 options     head
     panic!(${1:#:format}, ${2:#:args});
 
 snippet     format!
-abbr        format!()
+abbr        format!(${format}, ${args})
 options     head
     format!(${1:#:format}, ${2:#:args})
 
@@ -24,23 +29,23 @@ abbr        assert!()
 options     head
     assert!(${1:TARGET});
 
-snippet     assertwithmsg!
-abbr        assert!(assert, format, args)
+snippet     assertfmt!
+abbr        assert!(${assert}, ${format}, ${args})
 options     head
     assert!(${1:#:assert}, ${2:#:format}, ${3:#:args});
 
 snippet     assert_eq!
-abbr        assert_eq!()
+abbr        assert_eq!(${want}, ${got})
 options     head
     assert_eq!(${1:#:want}, ${2:#:got});
 
 snippet     assert_ne!
-abbr        assert_ne!()
+abbr        assert_ne!(${not_want}, ${got})
 options     head
     assert_ne!(${1:#:not_waNT}, ${2:#:got});
 
 snippet     extcrate
-abbr        extern crate CRATE
+abbr        extern crate ${crate}
 options     head
     extern crate ${1:TARGET};
 

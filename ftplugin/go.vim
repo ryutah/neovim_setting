@@ -13,3 +13,5 @@ nnoremap <silent> <F2> :GoRename<CR>
 
 highlight goErr cterm=bold ctermfg=214
 match goErr /\<err\>/
+
+execute 'setlocal dictionary+=' . g:neovim_home . '/dict/go.dict'

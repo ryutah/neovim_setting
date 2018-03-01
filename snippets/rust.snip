@@ -1,55 +1,65 @@
 # Macro
-snippet     println!
+snippet     println
 abbr        println!()
 options     head
     println!(${1:TARGET});
 
-snippet     printfmt!
+snippet     printfmt
 abbr        println!(${format}, ${args})
 options     head
     println!(${1:#:format}, ${2:#:args});
 
-snippet     panic!
+snippet     panic
 abbr        panic!()
 options     head
     panic!(${1:TARGET});
 
-snippet     panicfmt!
+snippet     panicfmt
 abbr        panic!(${format}, ${args})
 options     head
     panic!(${1:#:format}, ${2:#:args});
 
-snippet     format!
+snippet     format
 abbr        format!(${format}, ${args})
 options     head
     format!(${1:#:format}, ${2:#:args})
 
-snippet     assert!
+snippet     assert
 abbr        assert!()
 options     head
     assert!(${1:TARGET});
 
-snippet     assertfmt!
+snippet     assertfmt
 abbr        assert!(${assert}, ${format}, ${args})
 options     head
     assert!(${1:#:assert}, ${2:#:format}, ${3:#:args});
 
-snippet     assert_eq!
+snippet     assert_eq
 abbr        assert_eq!(${want}, ${got})
 options     head
     assert_eq!(${1:#:want}, ${2:#:got});
 
-snippet     assert_ne!
+snippet     assert_ne
 abbr        assert_ne!(${not_want}, ${got})
 options     head
     assert_ne!(${1:#:not_waNT}, ${2:#:got});
+
+snippet     eprintln
+abbr        eprintln!()
+options     head
+    eprintln!(${1:TARGET});
+
+snippet     eprintfmt
+abbr        eprintln!(${format}, ${args})
+options     head
+    eprintln!(${1:#:format}, ${2:#:args});
 
 snippet     extcrate
 abbr        extern crate ${crate}
 options     head
     extern crate ${1:TARGET};
 
-snippet     vec!
+snippet     vec
 abbr        vec![]
 options     head
     vec![${1:TARGET}]

@@ -100,3 +100,14 @@ options     head
     fn main() {
         ${0:TARGET}
     }
+
+
+snippet     testmod
+abbr        #[cfg(test)] mod test {}
+options     head
+    #[cfg(test)]
+    mod ${1:#:mod} {
+        use super::*;
+
+        ${0:TARGET}
+    }

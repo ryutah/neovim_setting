@@ -64,3 +64,6 @@ repo = 'godlygeek/tabular'
 [[plugins]]
 repo    = 'Shougo/neomru.vim'
 depends = ['denite.nvim']
+
+[[plugins]]
+repo = 'mattn/emmet-vim'

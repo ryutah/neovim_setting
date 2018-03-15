@@ -38,6 +38,7 @@ function! s:init() abort
   augroup MyAuGroup_SetFiletype
     autocmd!
     autocmd BufNewFile,BufRead *.csv set filetype=csv
+    autocmd BufNewFile,BufRead *.mjs set filetype=javascript
   augroup END
 
   augroup MyAuGroup

@@ -63,3 +63,12 @@ hook_source = 'call hook#source#vim_markdown#load()'
 [[plugins]]
 repo  = 'leafgarland/typescript-vim'
 on_ft = ['typescript'] # Add javascript if necessary
+
+[[plugins]]
+repo  = 'pangloss/vim-javascript'
+on_ft = ['javascript']
+
+[[plugins]]
+repo    = 'mxw/vim-jsx'
+on_ft   = ['javascript']
+depends = ['vim-javascript']

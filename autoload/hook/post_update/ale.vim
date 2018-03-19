@@ -12,7 +12,14 @@ function! hook#post_update#ale#load() abort
   " Javascript linter
   if !executable("eslint")
     !npm i -g eslint
-    !npm i -g typescript-eslint-parser
+  endif
+
+  if !executable("tslint")
+    !npm i -g tslint
+  endif
+
+  if !executable("tsserver")
+    !npm i -g typescript
   endif
 
   " Python linter

@@ -6,6 +6,7 @@ function! hook#add#ale#load() abort
         \   'go': ['go build', 'go vet', 'golint'],
         \   'rust': ['cargo', 'rustc', 'rustfmt'],
         \   'javascript': ['eslint'],
+        \   'typescript': ['tslint', 'tsserver'],
         \   'python': ['autopep8', 'flake8'],
         \ }
 endfunction

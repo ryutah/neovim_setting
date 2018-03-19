@@ -8,14 +8,15 @@ function! hook#add#vim_autoformat#load() abort
 
   " Custom formatter
   let g:formatdef_prettier        = '"prettier"'
+  let g:formatdef_prettierjs      = '"prettier --trailing-comma es5 --arrow-parens=always"'
   let g:formatdef_nightly_rustfmt = '"rustup run nightly rustfmt"'
 
   " Formatter setting
   let g:formatters_go         = ['goimports']
   let g:formatters_rust       = ['nightly_rustfmt']
   let g:formatters_python     = ['autopep8']
-  let g:formatters_javascript = ['prettier', 'eslint_local']
-  let g:formatters_typescript = ['prettier']
+  let g:formatters_javascript = ['prettierjs', 'eslint_local']
+  let g:formatters_typescript = ['prettierjs']
   let g:formatters_css        = ['prettier']
   let g:formatters_scss       = ['prettier']
   let g:formatters_ruby       = ['rubocop']

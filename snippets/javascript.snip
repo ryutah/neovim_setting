@@ -1,0 +1,23 @@
+snippet     function-allow
+abbr        (${args}) => ${TARGET}
+options     word
+    (${1:#:args}) => ${0:TARGET}
+
+snippet     fallow
+abbr        (${args}) => ${TARGET}
+options     word
+    (${1:#:args}) => ${0:TARGET}
+
+snippet     constructor
+abbr        constructor(${args}) {}
+options     head
+    constructor(${1:#:args}) {
+      ${0:TARGET}
+    }
+
+snippet     method
+abbr        ${method_name}(${args}) {}
+options     head
+    ${1:#:method_name}(${2:#:args}) {
+      ${0:TARGET}
+    }

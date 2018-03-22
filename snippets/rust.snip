@@ -21,7 +21,7 @@ options     head
 
 snippet     format
 abbr        format!(${format}, ${args})
-options     head
+options     word
     format!(${1:#:format}, ${2:#:args})
 
 snippet     assert
@@ -61,7 +61,7 @@ options     head
 
 snippet     vec
 abbr        vec![]
-options     head
+options     word
     vec![${1:TARGET}]
 
 snippet     testpanic

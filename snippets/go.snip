@@ -18,3 +18,10 @@ options     head
     func ${1:#:handler_name} (w http.ResponseWriter, r *http.Request) {
         ${0:TARGET}
     }
+
+snippet     method
+abbr        func (${t_name} ${type}) ${func_name} (${args}) ${return} {}
+options     head
+    func (${1:#:t_name} ${2:#:type}) ${3:#:func_name} (${4:#:args}) ${5:#:return} {
+        ${0:TARGET}
+    }

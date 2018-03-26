@@ -9,7 +9,8 @@ nnoremap <Leader><C-r> :GoRun<CR>
 nnoremap <Leader><C-t> :GoTest<CR>
 nnoremap <Leader><C-d> :GoInfo<CR>
 " TODO Consider keymap
-nnoremap <silent> <F2> :GoRename<CR>
+nnoremap <silent><F2> :GoRename<CR>
+nnoremap <silent><F3> :GoReferrers<CR>
 
 highlight goErr cterm=bold ctermfg=214
 match goErr /\<err\>/

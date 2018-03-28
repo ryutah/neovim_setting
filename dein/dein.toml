@@ -50,7 +50,7 @@ repo = 'romainl/Apprentice'
 [[plugins]] # This plugin should not be lazy. If set so, lsp server does not start automatic
 repo             = 'autozimu/LanguageClient-neovim'
 rev              = 'next'
-build            = 'sh install.sh'
+build            = 'call hook#build#language_client_neovim#execute()'
 hook_post_update = 'call hook#post_update#language_client_neovim#load()'
 hook_add         = 'call hook#add#language_client_neovim#load()'
 

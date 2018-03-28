@@ -35,6 +35,13 @@ function! s:init() abort
   let g:python3_host_prog = expand('$PYTHON3_PATH')
   let g:neovim_home       = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/nvim') : expand('$XDG_CONFIG_HOME/nvim')
 
+  " Path of third party library download path.
+  " This config use by like eclipse.jdt.ls tolls.
+  let g:outher_package_path = expand('$HOME/.local/nvim')
+  if !isdirectory(g:outher_package_path)
+    call mkdir(g:outher_package_path, "p")
+  endif
+
   augroup MyAuGroup
     autocmd!
   augroup END

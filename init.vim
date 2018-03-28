@@ -39,6 +39,8 @@ function! s:init() abort
     autocmd!
     autocmd BufNewFile,BufRead *.csv set filetype=csv
     autocmd BufNewFile,BufRead *.mjs set filetype=javascript
+    autocmd BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
+    autocmd BufNewFile,BufRead *.dockerfile set filetype=dockerfile
   augroup END
 
   augroup MyAuGroup

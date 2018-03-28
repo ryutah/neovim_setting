@@ -36,29 +36,14 @@ on_ft            = ['ruby']
 hook_post_update = '!gem install rcodetools'
 
 [[plugins]]
-repo        = 'kannokanno/previm'
-on_ft       = ['markdown']
-hook_source = 'call hook#source#previm#load()'
-
-[[plugins]]
 repo   = 'cohama/agit.vim'
 on_cmd = 'Agit'
-
-[[plugins]]
-repo   = 'idanarye/vim-merginal'
 
 # Depends on 'godlygeek/tabular'
 [[plugins]]
 repo        = 'plasticboy/vim-markdown'
 on_ft       = 'markdown'
 hook_source = 'call hook#source#vim_markdown#load()'
-
-# XXX LSPのコード補完精度や速度があまりよくないので、少し様子を見て厳しそうならtern使う
-# [[plugins]]
-# repo             = 'carlitux/deoplete-ternjs'
-# on_ft            = ['javascript']
-# hook_source      = 'call hook#source#deoplete_ternjs#load()'
-# hook_post_update = '!npm i -g tern'
 
 [[plugins]]
 repo  = 'leafgarland/typescript-vim'

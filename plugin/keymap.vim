@@ -116,6 +116,7 @@ function! s:set_git_keymap() abort
   nnoremap <silent> [git]d :Gdiff<CR>
   nnoremap <silent> [git]w :Gwrite<CR>
   nnoremap <silent> [git]l :Agit<CR>
+  autocmd User Fugitive nnoremap <silent> <Leader>m :MerginalToggle<CR>
 endfunction
 
 function! s:set_netrw_keymap() abort

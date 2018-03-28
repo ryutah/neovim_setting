@@ -1,2 +1,1 @@
-autocmd! AutoIndentPreWrite
 set nowrap

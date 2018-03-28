@@ -1,7 +1,20 @@
 function! hook#add#vim_autoformat#load() abort
   augroup AutoIndentPreWrite
     autocmd!
-    autocmd BufWrite * :Autoformat
+    autocmd BufWrite *.go :Autoformat
+    autocmd BufWrite *.rb :Autoformat
+    autocmd BufWrite *.rs :Autoformat
+    autocmd BufWrite *.py :Autoformat
+    autocmd BufWrite *.js :Autoformat
+    autocmd BufWrite *.mjs :Autoformat
+    autocmd BufWrite *.ts :Autoformat
+    autocmd BufWrite *.vim :Autoformat
+    autocmd BufWrite *.html :Autoformat
+    autocmd BufWrite *.json :Autoformat
+    autocmd BufWrite *.css :Autoformat
+    autocmd BufWrite *.scss :Autoformat
+    autocmd BufWrite *.sass :Autoformat
+    autocmd BufWrite *.less :Autoformat
   augroup END
 
   let g:autoformat_remove_trailing_spaces = 1

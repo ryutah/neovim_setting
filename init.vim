@@ -35,14 +35,6 @@ function! s:init() abort
   let g:python3_host_prog = expand('$PYTHON3_PATH')
   let g:neovim_home       = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/nvim') : expand('$XDG_CONFIG_HOME/nvim')
 
-  augroup MyAuGroup_SetFiletype
-    autocmd!
-    autocmd BufNewFile,BufRead *.csv set filetype=csv
-    autocmd BufNewFile,BufRead *.mjs set filetype=javascript
-    autocmd BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
-    autocmd BufNewFile,BufRead *.dockerfile set filetype=dockerfile
-  augroup END
-
   augroup MyAuGroup
     autocmd!
   augroup END

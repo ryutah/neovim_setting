@@ -9,6 +9,10 @@ function! hook#add#language_client_neovim#load() abort
   let g:LanguageClient_serverCommands["javascript.jsx"] = ['javascript-typescript-stdio']
 
   " ref https://www.eclipse.org/community/eclipse_newsletter/2017/may/article4.php
+  let l:jdt_lsp_data_dir = expand(g:outher_package_path) . "/jdt-data"
+  if !isdirectory(l:jdt_lsp_data_dir)
+    call mkdir(l:jdt_lsp_data_dir, "p")
+  endif
   let g:LanguageClient_serverCommands["java"] = [
         \ 'java',
         \ '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
@@ -24,7 +28,7 @@ function! hook#add#language_client_neovim#load() abort
         \ '-configuration',
         \ expand(g:outher_package_path) . '/jdt-lsp/config_mac',
         \ '-data',
-        \ expand("%:p:h")]
+        \ l:jdt_lsp_data_dir]
 
   " TODO Consider keymap
   nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>

@@ -50,7 +50,6 @@ repo = 'romainl/Apprentice'
 [[plugins]] # This plugin should not be lazy. If set so, lsp server does not start automatic
 repo             = 'autozimu/LanguageClient-neovim'
 rev              = 'next'
-build            = 'call hook#build#language_client_neovim#execute()'
 hook_post_update = 'call hook#post_update#language_client_neovim#load()'
 hook_add         = 'call hook#add#language_client_neovim#load()'
 
@@ -73,5 +72,5 @@ depends = ['denite.nvim']
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
-repo  = 'suan/vim-instant-markdown'
-build = 'npm -g install instant-markdown-d'
+repo             = 'suan/vim-instant-markdown'
+hook_post_update = '!npm -g install instant-markdown-d'

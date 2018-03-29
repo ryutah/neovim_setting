@@ -23,11 +23,11 @@ on_ft       = ['go']
 hook_source = 'call hook#source#vim_go#load()'
 
 [[plugins]]
-repo        = 'zchee/deoplete-go'
-build       = 'make'
-on_ft       = ['go']
-depends     = ['deoplete.nvim']
-hook_source = 'call hook#source#deoplete_go#load()'
+repo             = 'zchee/deoplete-go'
+on_ft            = ['go']
+depends          = ['deoplete.nvim']
+hook_source      = 'call hook#source#deoplete_go#load()'
+hook_post_update = 'make'
 
 # TODO Want to use LSP
 [[plugins]]

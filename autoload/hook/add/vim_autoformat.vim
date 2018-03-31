@@ -1,22 +1,4 @@
 function! hook#add#vim_autoformat#load() abort
-  augroup AutoIndentPreWrite
-    autocmd!
-    autocmd BufWrite *.go :Autoformat
-    autocmd BufWrite *.rb :Autoformat
-    autocmd BufWrite *.rs :Autoformat
-    autocmd BufWrite *.py :Autoformat
-    autocmd BufWrite *.js :Autoformat
-    autocmd BufWrite *.mjs :Autoformat
-    autocmd BufWrite *.ts :Autoformat
-    autocmd BufWrite *.vim :Autoformat
-    autocmd BufWrite *.html :Autoformat
-    autocmd BufWrite *.json :Autoformat
-    autocmd BufWrite *.css :Autoformat
-    autocmd BufWrite *.scss :Autoformat
-    autocmd BufWrite *.sass :Autoformat
-    autocmd BufWrite *.less :Autoformat
-  augroup END
-
   let g:autoformat_remove_trailing_spaces = 1
 
   " Custom formatter
@@ -35,4 +17,17 @@ function! hook#add#vim_autoformat#load() abort
   let g:formatters_ruby       = ['rubocop']
   let g:formatters_html       = ['htmlbeautify']
   let g:formatters_json       = ['fixjson']
+
+  call s:set_autoformat("go", "rb", "rs", "py", "js", "mjs", "ts", "vim", "html", "json", "css", "scss", "sass", "less", "java")
+endfunction
+
+function! s:set_autoformat(...) abort
+  augroup AutoIndentPreWrite
+    autocmd!
+  augroup End
+
+  for var in a:000
+    let l:cmd = 'autocmd AutoIndentPreWrite BufWrite *.' . var . ' :Autoformat'
+    execute l:cmd
+  endfor
 endfunction

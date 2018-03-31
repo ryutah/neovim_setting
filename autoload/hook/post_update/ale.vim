@@ -35,4 +35,3 @@ function! hook#post_update#ale#load() abort
     !gem install rubocop
   endif
 endfunction
-

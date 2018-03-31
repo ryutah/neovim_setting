@@ -41,6 +41,8 @@ function! s:init() abort
   if !isdirectory(g:outher_package_path)
     call mkdir(g:outher_package_path, "p")
   endif
+  " Java formatter jar file name. Use by Autoformat
+  let g:google_java_formatter = 'google-java-format-1.5-all-deps.jar'
 
   call s:set_trail_highlight("py", "go", "rb", "rs", "js", "mjs", "ts", "java", "vim", "sh")
 endfunction

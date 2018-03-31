@@ -36,4 +36,10 @@ function! hook#post_update#vim_autoformat#load() abort
   if !executable("fixjson")
     !npm i -g fixjson
   endif
+
+  " Java formatter
+  let l:google_java_formatter = expand(g:outher_package_path) . "/google-java-format-1.5-all-deps.jar"
+  if !executable(l:google_java_formatter)
+    execute "!wget https://github.com/google/google-java-format/releases/download/google-java-format-1.5/google-java-format-1.5-all-deps.jar -P " . expand(g:outher_package_path)
+  endif
 endfunction

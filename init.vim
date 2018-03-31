@@ -42,9 +42,18 @@ function! s:init() abort
     call mkdir(g:outher_package_path, "p")
   endif
 
-  augroup MyAuGroup
+  call s:set_trail_highlight("py", "go", "rb", "rs", "js", "mjs", "ts", "java", "vim", "sh")
+endfunction
+
+function! s:set_trail_highlight(...) abort
+  augroup HighlightTrailingSpaces
     autocmd!
   augroup END
+
+  for var in a:000
+    let l:cmd = 'autocmd HighlightTrailingSpaces VimEnter,WinEnter,ColorScheme *.' . var . ' syntax match Error "\s\+$"'
+    execute l:cmd
+  endfor
 endfunction
 
 function! s:after_load_plugins() abort

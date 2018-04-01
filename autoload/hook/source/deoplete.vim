@@ -6,6 +6,9 @@ function! hook#source#deoplete#load() abort
   " Default keyword patterns. This is mutch 'a-z, A-Z, 0-9, _, -'
   let g:deoplete#keyword_patterns._ = '[\w\-]*'
 
+  " Candidate menu size
+  let g:deoplete#max_menu_width = 100
+
   " Close popup window when leave insert mode.
   autocmd InsertLeave * if pumvisible() == 0 | pclose | endif
 

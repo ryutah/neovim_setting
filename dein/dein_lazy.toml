@@ -35,6 +35,18 @@ repo             = 'Shougo/deoplete-rct'
 on_ft            = ['ruby']
 hook_post_update = '!gem install rcodetools'
 
+# TODO This is recommanded for ruby completion. But too slow!!
+# [[plugins]]
+# repo             = 'uplus/deoplete-solargraph'
+# on_ft            = ['ruby']
+# depends          = ['deoplete.nvim']
+# hook_post_update = '''
+# !gem install solargraph
+# !pip install solargraph-utils.py
+# !yard gems
+# !yard config --gem-install-yri
+# '''
+
 [[plugins]]
 repo   = 'cohama/agit.vim'
 on_cmd = 'Agit'
@@ -57,3 +69,4 @@ on_ft = ['javascript']
 repo    = 'mxw/vim-jsx'
 on_ft   = ['javascript']
 depends = ['vim-javascript']
+

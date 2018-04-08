@@ -74,3 +74,13 @@ repo = 'mattn/emmet-vim'
 [[plugins]]
 repo             = 'suan/vim-instant-markdown'
 hook_post_update = '!npm -g install instant-markdown-d'
+
+[[plugins]]
+repo = 'ayu-theme/ayu-vim'
+
+[[plugins]]
+repo     = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_setColors = 0
+let g:indentLine_char = "│"
+'''

@@ -59,7 +59,10 @@ function! s:set_trail_highlight(...) abort
 endfunction
 
 function! s:after_load_plugins() abort
-  colorscheme hybrid
+  " colorscheme hybrid
+  set termguicolors
+  let ayucolor="dark"
+  colorscheme ayu
 endfunction
 
 function! s:load_dein() abort

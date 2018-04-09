@@ -12,7 +12,7 @@ nnoremap <Leader><C-d> :GoInfo<CR>
 nnoremap <silent><F2> :GoRename<CR>
 nnoremap <silent><F3> :GoReferrers<CR>
 
-highlight goErr ctermfg=11 guifg=#F29718 guibg=#151A1E cterm=bold term=bold gui=bold
+highlight goErr ctermfg=11 guifg=#F29718 cterm=bold term=bold gui=bold
 match goErr /\<err\>/
 
 execute 'setlocal dictionary+=' . g:neovim_home . '/dict/go.dict'

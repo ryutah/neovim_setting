@@ -44,7 +44,8 @@ function! s:init() abort
   " Java formatter jar file name. Use by Autoformat
   let g:google_java_formatter = 'google-java-format-1.5-all-deps.jar'
 
-  call s:set_trail_highlight("py", "go", "rb", "rs", "js", "mjs", "ts", "java", "vim", "sh")
+  call s:set_trail_highlight("py", "go", "rb", "rs", "js", "mjs", "ts", "java", "vim", "sh", "yaml", "json")
+  call s:set_colors()
 endfunction
 
 function! s:set_trail_highlight(...) abort
@@ -53,7 +54,7 @@ function! s:set_trail_highlight(...) abort
   augroup END
 
   for var in a:000
-    let l:cmd = 'autocmd HighlightTrailingSpaces VimEnter,WinEnter,ColorScheme *.' . var . ' syntax match Error "\s\+$"'
+    let l:cmd = 'autocmd HighlightTrailingSpaces VimEnter,WinEnter,ColorScheme *.' . var . ' syntax match Error /\s\+$/'
     execute l:cmd
   endfor
 endfunction
@@ -97,6 +98,13 @@ function! s:load_dein() abort
   if dein#check_install()
     call dein#install()
   endif
+endfunction
+
+function! s:set_colors() abort
+  autocmd! ColorScheme *
+        \ hi Whitespace ctermfg=Gray guifg=#2C2C2C |
+        \ hi link ALEErrorSign todo |
+        \ hi link ALEWarningSign Identifier
 endfunction
 
 call s:init()

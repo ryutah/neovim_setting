@@ -144,6 +144,10 @@ function! s:toggle_location_list() abort
   return ':lopen'
 endfunction
 
+function! s:set_ctags_keymap() abort
+  nnoremap <C-]> g<C-]>
+endfunction
+
 call s:set_cursor_keymap()
 call s:set_tab_keymap()
 call s:set_buffer_keymap()
@@ -157,3 +161,4 @@ call s:set_autoformat_keymap()
 call s:set_location_list_keymap()
 call s:set_git_keymap()
 call s:set_netrw_keymap()
+call s:set_ctags_keymap()

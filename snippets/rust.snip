@@ -111,3 +111,8 @@ options     head
 
         ${0:TARGET}
     }
+
+snippet     writeln
+abbr        writeln(&mut ${writer}, ${string})
+options     word
+    writeln!(&mut ${1:#:writer}, ${2:#:format})

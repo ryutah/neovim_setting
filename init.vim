@@ -21,7 +21,8 @@ function! s:init() abort
   set encoding=utf-8
   set fileencodings=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,euc-jp,cp932
   set fileformats=unix,dos,mac
-  set ambiwidth=double
+  " XXX This config fix 2bytes symbols display, but someting error happen when edit ascii codes.
+  " set ambiwidth=double
 
   set ignorecase " Set command to ignore case
 

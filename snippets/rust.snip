@@ -1,22 +1,32 @@
 # Macro
-snippet     println
-abbr        println!()
-options     head
-    println!(${1:TARGET});
+snippet     print
+abbr        print!()
+options     word
+    print!(${1:TARGET})
 
 snippet     printfmt
+abbr        print!(${format}, ${args})
+options     word
+    print!(${1:#:format}, ${2:#:args});
+
+snippet     println
+abbr        println!()
+options     word
+    println!(${1:TARGET});
+
+snippet     printlnfmt
 abbr        println!(${format}, ${args})
-options     head
+options     word
     println!(${1:#:format}, ${2:#:args});
 
 snippet     panic
 abbr        panic!()
-options     head
+options     word
     panic!(${1:TARGET});
 
 snippet     panicfmt
 abbr        panic!(${format}, ${args})
-options     head
+options     word
     panic!(${1:#:format}, ${2:#:args});
 
 snippet     format
@@ -101,7 +111,6 @@ options     head
         ${0:TARGET}
     }
 
-
 snippet     testmod
 abbr        #[cfg(test)] mod test {}
 options     head
@@ -113,6 +122,11 @@ options     head
     }
 
 snippet     writeln
-abbr        writeln(&mut ${writer}, ${string})
+abbr        writeln!(&mut ${writer}, ${string})
 options     word
     writeln!(&mut ${1:#:writer}, ${2:#:format})
+
+snippet     write
+abbr        write!(&mut ${writer}, ${string})
+options     word
+    write!(&mut ${1:#:writer}, ${2:#:format})

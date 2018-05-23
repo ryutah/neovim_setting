@@ -14,7 +14,14 @@ function! hook#add#denite#load() abort
   endif
 
   " Set grep command
-  if executable('ag')
+  if executable("rg")
+    call denite#custom#var('grep', 'command', ['rg'])
+    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+  elseif executable('ag')
     call denite#custom#var('grep', 'command', ['ag'])
     call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
     call denite#custom#var('grep', 'recursive_opts', [])

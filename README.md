@@ -16,8 +16,8 @@ My neovim config
 -   [fd](https://github.com/sharkdp/fd)  
     Alternative find implements by Rust.
 
--   [ag](https://github.com/ggreer/the_silver_searcher)  
-    Faster search tool.
+-   [ag](https://github.com/ggreer/the_silver_searcher) or [ripgrep](https://github.com/BurntSushi/ripgrep)  
+    Faster search tool.  
 
 -   [universal-ctags](https://github.com/universal-ctags/ctags)  
     new ctags

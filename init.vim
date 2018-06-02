@@ -30,6 +30,7 @@ function! s:init() abort
 
   set undofile
   set undodir=~/.config/nvim/undo
+  execute 'set undodir=' . expand('$HOME') . '/.cache/nvim/undo'
 
   set updatetime=500 " swap file written time. this affect to gitgutter.
 

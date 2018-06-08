@@ -23,3 +23,48 @@ snippet     syntax
 abbr        syntax = "proto3";
 options     head
     syntax = "${1:proto3}";
+
+snippet     rpc
+abbr        rpc ${name} (${request}) returns ${response}
+options     head
+    rpc ${1:#:NAME} (${2:#:REQUEST}) returns (${3:#:RESPONSE}) {}
+
+snippet     java_package
+abbr        option java_package = "${package}"
+options     head
+    option java_package = "${1:#:PACKAGE}";
+
+snippet     java_multiple_files
+abbr        option java_multiple_files = true
+options     head
+    option java_multiple_files = ${1:true};
+
+snippet     java_outer_classname
+abbr        option java_outer_classname = "${name}"
+options     head
+    option java_outer_classname = "${1:#:PACKAGE}";
+
+snippet     package
+abbr        package ${package}
+options     head
+    package ${1:#:PACKAGE};
+
+snippet     go_package
+abbr        option go_package = "${package}"
+options     head
+    option go_package = "${1:#:PACKAGE}";
+
+snippet     field
+abbr        ${type} ${field_name} = ${index};
+options     head
+    ${1:#:TYPE} ${2:#:FIELD_NAME} = ${3:#:INDEX};
+
+snippet     required_field
+abbr        required ${type} ${field_name} = ${index};
+options     head
+    required ${1:#:TYPE} ${2:#:FIELD_NAME} = ${3:#:INDEX};
+
+snippet     repeated_field
+abbr        repeated ${type} ${field_name} = ${index};
+options     head
+    repeated ${1:#:TYPE} ${2:#:FIELD_NAME} = ${3:#:INDEX};

@@ -1,0 +1,25 @@
+snippet     message
+abbr        message ${name} {}
+options     head
+    message ${1:#:NAME} {
+      ${0:TARGET}
+    }
+
+snippet     enum
+abbr        enum ${name} {}
+options     head
+    enum ${1:#:NAME} {
+      ${0:TARGET}
+    }
+
+snippet     service
+abbr        service ${name} {}
+options     head
+    service ${1:#:NAME} {
+      ${0:TARGET}
+    }
+
+snippet     syntax
+abbr        syntax = "proto3";
+options     head
+    syntax = "${1:proto3}";

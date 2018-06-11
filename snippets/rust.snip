@@ -130,3 +130,15 @@ snippet     write
 abbr        write!(&mut ${writer}, ${string})
 options     word
     write!(&mut ${1:#:writer}, ${2:#:format})
+
+snippet     select
+abbr        select! {}
+options     head
+    select! {
+        ${1:val} = ${2:receiver}.recv() => ${0:TARGET},
+    };
+
+snippet     arm
+abbr        ${condition} => ${TARGET}
+options     head
+    ${1:()} => ${0:TARGET},

@@ -70,3 +70,6 @@ repo    = 'mxw/vim-jsx'
 on_ft   = ['javascript']
 depends = ['vim-javascript']
 
+[[plugins]]
+repo  = 'Glench/Vim-Jinja2-Syntax'
+on_ft = ["jinja"]

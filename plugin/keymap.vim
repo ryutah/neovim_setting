@@ -10,6 +10,8 @@ function! s:set_cursor_keymap() abort
   noremap <S-l> $
   noremap <S-j> %
   noremap <C-j> <S-j>
+  nnoremap <C-h> H
+  nnoremap <C-l> L
 endfunction
 
 function! s:set_tab_keymap() abort

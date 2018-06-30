@@ -142,3 +142,8 @@ snippet     arm
 abbr        ${condition} => ${TARGET}
 options     head
     ${1:()} => ${0:TARGET},
+
+snippet     macro_use
+abbr        #[macro_use]
+options     head
+    #[macro_use]

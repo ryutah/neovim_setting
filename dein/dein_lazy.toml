@@ -3,15 +3,15 @@ repo        = 'Shougo/deoplete.nvim'
 on_i        = 1
 hook_source = 'call hook#source#deoplete#load()'
 
-# [[plugins]]
-# repo        = 'Shougo/neosnippet'
-# on_i        = 1
-# depends     = ['neosnippet-snippets']
-# hook_source = 'call hook#source#neosnippet#load()'
-#
-# [[plugins]]
-# repo = 'Shougo/neosnippet-snippets'
-# on_i = 1
+[[plugins]]
+repo        = 'Shougo/neosnippet'
+on_i        = 1
+depends     = ['neosnippet-snippets']
+hook_source = 'call hook#source#neosnippet#load()'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
 
 [[plugins]]
 repo = 'cohama/lexima.vim'

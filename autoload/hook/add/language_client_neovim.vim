@@ -1,4 +1,5 @@
 function! hook#add#language_client_neovim#load() abort
+  let g:LanguageClient_hoverPreview                     = "Always"
   let g:LanguageClient_autoStart                        = 1 " XXX Auto start is not work...
   let g:LanguageClient_diagnosticsEnable                = 0 " Turn off because it is uses ale to lint file.
   let g:LanguageClient_serverCommands                   = {}

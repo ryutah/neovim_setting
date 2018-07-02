@@ -1,0 +1,13 @@
+priority 10
+
+snippet fn "fn ${function_name}() {}"
+fn ${1:function_name}($2) {
+    ${3:// code}
+}
+endsnippet
+
+snippet fn- "fn ${function_name}() -> ${return} {}"
+fn ${1:function_name}($2) -> $3 {
+    ${4:// code}
+}
+endsnippet

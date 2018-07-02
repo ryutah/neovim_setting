@@ -11,3 +11,31 @@ fn ${1:function_name}($2) -> $3 {
     ${4:// code}
 }
 endsnippet
+
+snippet impl "impl ${type} {}"
+impl ${1:type} {
+    ${2:// code}
+}
+endsnippet
+
+snippet implfor "impl ${trait} for ${type} {}"
+impl ${1:trait} for ${2:type} {
+    ${3:// code}
+}
+endsnippet
+
+snippet struct "struct ${type} {}"
+struct ${1:type} {
+    $2
+}
+endsnippet
+
+snippet struct; "struct ${type};"
+struct ${1:type};
+endsnippet
+
+snippet trait "trait ${type} {}"
+trait ${1:type} {
+    $2
+}
+endsnippet

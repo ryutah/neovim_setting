@@ -147,3 +147,53 @@ snippet     macro_use
 abbr        #[macro_use]
 options     head
     #[macro_use]
+
+snippet     fnwhere
+abbr        fn${name}<${generics}>(${args}) where ${type} {}
+options     head
+    fn ${1:#:name}<${2:T}>(${3:#:args})
+    where
+        ${4:T}: ${5:#:type},
+    {
+        ${0:TARGET}
+    }
+
+snippet     fn-where
+abbr        fn${name}<${generics}>(${args}) -> ${return} where ${type} {}
+options     head
+    fn ${1:#:name}<${2:T}>(${3:#:args}) -> ${4:#:return}
+    where
+        ${5:T}: ${6:#:type},
+    {
+        ${0:TARGET}
+    }
+
+snippet     structwhere
+abbr        struct<${generics}
+options     word
+    struct ${1:#:name}<${2:T}> ${3:#:return}
+    where
+        ${4:T}: ${5:#:type},
+    {
+        ${0:TARGET}
+    }
+
+snippet     implwhere
+abbr        impl<${generics}> ${target} where ${type}<${generics}> {}
+options     head
+    impl<${1:T}> ${2:#:target}<${3:T}>
+    where
+        ${4:T}: ${5:#:type},
+    {
+        ${0:TARGET}
+    }
+
+snippet     implforwhere
+abbr        impl<${generics}> ${trait} for ${target}<${generics}> {}
+options     head
+    impl<${1:T}> ${2:#:trait} for ${3:#:target}<${4:T}>
+    where
+        ${5:T}: ${6:#:type},
+    {
+        ${0:TARGET}
+    }

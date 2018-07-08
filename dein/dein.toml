@@ -74,6 +74,9 @@ repo = 'mattn/emmet-vim'
 [[plugins]]
 repo             = 'suan/vim-instant-markdown'
 hook_post_update = '!npm -g install instant-markdown-d'
+hook_add = '''
+let g:instant_markdown_autostart = 0
+'''
 
 [[plugins]]
 repo = 'ayu-theme/ayu-vim'

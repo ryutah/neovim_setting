@@ -52,6 +52,7 @@ repo             = 'autozimu/LanguageClient-neovim'
 rev              = 'next'
 hook_post_update = 'call hook#post_update#language_client_neovim#load()'
 hook_add         = 'call hook#add#language_client_neovim#load()'
+frozen           = 1 # XXX Frozen version because snippets bloken.
 
 [[plugins]]
 repo             = 'w0rp/ale'

@@ -25,3 +25,33 @@ options     head
     func (${1:#:t_name} ${2:#:type}) ${3:#:func_name} (${4:#:args}) ${5:#:return} {
         ${0:TARGET}
     }
+
+snippet     execcmd
+abbr        cmd := exec.Command(${command}, ${args})...
+options     head
+    cmd := exec.Command(${1:#:command}, ${2:#:args})
+    if err := cmd.Run(); err != nil {
+        ${3:log.Printf("failed to exec command: %v", err)}
+    }
+    ${0:TARGET}
+
+snippet     functestcase
+abbr        func Test${name}(t *testing.T) { // case test }
+options     head
+    func Test${1:#:name}(t *testing.T) {
+        cases := []struct{
+            name string
+            ${2:#:property}
+        }{
+            {
+                name: ${3:"test1"},
+                ${4:#:test_cases}
+            },
+        }
+
+        for _, c := range cases {
+            t.Run(c.name, func(t *testing.T) {
+                ${0:TARGET}
+            })
+        }
+    }

@@ -39,13 +39,34 @@ snippet     functestcase
 abbr        func Test${name}(t *testing.T) { // case test }
 options     head
     func Test${1:#:name}(t *testing.T) {
+        type (
+            in struct {
+                ${2:#:in}
+            }
+            returns struct {
+                ${3:#:returns}
+            }
+            out struct {
+                ${4:#:out}
+            }
+        )
         cases := []struct{
-            name string
-            ${2:#:property}
+            name    string
+            in      in
+            returns returns
+            out     out
         }{
             {
-                name: ${3:"test1"},
-                ${4:#:test_cases}
+                name: ${5:"test1"},
+                in: in{
+                    ${6:#:in}
+                },
+                returns: returns{
+                    ${7:#:returns}
+                },
+                out: out{
+                    ${8:#:out}
+                },
             },
         }
 
@@ -55,3 +76,9 @@ options     head
             })
         }
     }
+
+snippet     mockctrl
+abbr        ctrl := gomock.NewController(t)...
+options     head
+    ctrl := gomock.NewController(t)
+    defer ctrl.Finish()

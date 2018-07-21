@@ -1,3 +1,11 @@
+snippet     func
+abbr        func ${name}(${args}) ${returns} {}
+options     word
+    func ${1:#:name}(${2:#:args}) ${3:int} {
+        ${0:TARGET}
+        ${4:return 0}
+    }
+
 snippet     funcmain
 abbr        func main() {}
 options     head
@@ -15,14 +23,14 @@ options     head
 snippet     funchandler
 abbr        func ${name}(http.ResponseWriter, *http.Request) {}
 options     head
-    func ${1:#:handler_name} (w http.ResponseWriter, r *http.Request) {
+    func ${1:#:handler_name}(w http.ResponseWriter, r *http.Request) {
         ${0:TARGET}
     }
 
 snippet     method
-abbr        func (${t_name} ${type})${func_name} (${args}) ${return} {}
+abbr        func (${t_name} ${type})${func_name}(${args}) ${return} {}
 options     head
-    func (${1:#:t_name} ${2:#:type}) ${3:#:func_name} (${4:#:args}) ${5:#:return} {
+    func (${1:#:t_name} ${2:#:type}) ${3:#:func_name}(${4:#:args}) ${5:#:return} {
         ${0:TARGET}
     }
 
@@ -82,3 +90,33 @@ abbr        ctrl := gomock.NewController(t)...
 options     head
     ctrl := gomock.NewController(t)
     defer ctrl.Finish()
+
+snippet     struct
+abbr        ${name} struct {}
+options     word
+    ${1:#:name} struct {
+        ${0:TARGET}
+    }
+
+snippet     interface
+abbr        ${name} interface {}
+options     word
+    ${1:#:name} interface {
+        ${0:TARGET}
+    }
+
+
+snippet     structt
+abbr        type ${name} struct {}
+options     word
+    type ${1:#:name} struct {
+        ${0:TARGET}
+    }
+
+snippet     interfacet
+abbr        type ${name} interface {}
+options     word
+    type ${1:#:name} interface {
+        ${0:TARGET}
+    }
+

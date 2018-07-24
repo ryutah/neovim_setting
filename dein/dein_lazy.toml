@@ -73,3 +73,8 @@ depends = ['vim-javascript']
 [[plugins]]
 repo  = 'Glench/Vim-Jinja2-Syntax'
 on_ft = ["jinja"]
+
+# [[plugins]]
+# repo = 'previm/previm'
+# on_ft = ["markdown"]
+# hook_source = 'let g:previm_open_cmd = "open"'

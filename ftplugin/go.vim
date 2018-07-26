@@ -16,10 +16,3 @@ highlight goErr ctermfg=11 guifg=#F29718 cterm=bold term=bold gui=bold
 match goErr /\<err\>/
 
 execute 'setlocal dictionary+=' . g:neovim_home . '/dict/go.dict'
-
-if executable("gocode")
-  augroup CloseGocode
-    autocmd!
-    autocmd VimLeave * execute "!gocode close"
-  augroup END
-endif

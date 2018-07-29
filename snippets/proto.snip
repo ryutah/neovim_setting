@@ -63,3 +63,26 @@ snippet     repeated_field
 abbr        repeated ${type} ${field_name} = ${index};
 options     head
     repeated ${1:#:TYPE} ${2:#:FIELD_NAME} = ${3:#:INDEX};
+
+snippet     helloworld
+abbr        proto3 helloworld
+options     head
+    syntax = "proto3";
+
+    option java_multiple_files = true;
+    option java_package = "jp.co.ryutah.examples.helloworld";
+    option java_outer_classname = "HelloWorldProto";
+
+    package helloworld;
+
+    service Greeter {
+      rpc SayHello(HelloRequest) returns (HelloReply) {}
+    }
+
+    message HelloRequest {
+      string name = 1;
+    }
+
+    message HelloReply {
+      string message = 1;
+    }

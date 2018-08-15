@@ -87,10 +87,14 @@ hook_add = '''
 let g:indentLine_setColors = 0
 let g:indentLine_char = "│"
 '''
-#
+
 # [[plugins]]
 # repo     = 'SirVer/ultisnips'
 # hook_add = 'call hook#add#ultisnips#load()'
 #
 # [[plugins]]
 # repo = 'honza/vim-snippets'
+
+# For composite filetype including. Like vue.
+[[plugins]]
+repo = 'posva/vim-vue'

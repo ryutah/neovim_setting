@@ -10,5 +10,6 @@ function! hook#add#ale#load() abort
         \   'javascript': ['eslint'],
         \   'typescript': ['tslint', 'tsserver'],
         \   'python': ['autopep8', 'flake8'],
+        \   'dart': ['dartanalyzer', 'dartfmt'],
         \ }
 endfunction

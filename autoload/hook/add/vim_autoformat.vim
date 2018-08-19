@@ -6,6 +6,7 @@ function! hook#add#vim_autoformat#load() abort
   let g:formatdef_prettierts            = '"prettier --single-quote --stdin --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")." --tab-width=".shiftwidth()." -parser typescript --trailing-comma all --arrow-parens=always"'
   let g:formatdef_nightly_rustfmt       = '"rustup run nightly rustfmt"'
   let g:formatdef_google_java_formatter = '"java -jar ' . g:outher_package_path . '/' . g:google_java_formatter . ' - --aosp"'
+  let g:formatdef_dartfmt = '"dartfmt"'
 
   " Formatter setting
   let g:formatters_go         = ['goimports']
@@ -19,8 +20,9 @@ function! hook#add#vim_autoformat#load() abort
   let g:formatters_html       = ['htmlbeautify']
   let g:formatters_json       = ['fixjson']
   let g:formatters_java       = ['google_java_formatter']
+  let g:formatters_dart = ['dartfmt']
 
-  call s:set_autoformat("go", "rb", "rs", "py", "js", "mjs", "ts", "vim", "html", "json", "css", "scss", "sass", "less", "java")
+  call s:set_autoformat("go", "rb", "rs", "py", "js", "mjs", "ts", "vim", "html", "json", "css", "scss", "sass", "less", "java", "dart")
 endfunction
 
 function! s:set_autoformat(...) abort

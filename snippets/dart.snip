@@ -1,0 +1,100 @@
+snippet     fn
+abbr        ${return} ${name}(${args}) {}
+options     head
+    ${1:void} ${2:func}(${3:#:args}) {
+        ${0:TARGET}
+    }
+
+snippet     fnmain
+abbr        void main() {}
+options     head
+    main() {
+        ${0:TARGET}
+    }
+
+snippet     staticfn
+abbr        static ${return} ${name}(${args}) {}
+options     head
+    static ${1:void} ${2:func}(${3:#:args}) {
+        ${0:TARGET}
+    }
+
+snippet     lambda
+abbr        ${return_type} ${name}(${args}) => ${statement}
+options     word
+    ${1:#:int} ${2:func}(${3:#:args}) => ${0:TARGET};
+
+snippet     if
+abbr        if {}
+options     word
+    if (${1:true}) {
+        ${0:TARGET}
+    }
+
+snippet     ifelse
+abbr        if {} else {}
+options     head
+    if (${1:true}) {
+        ${2:#:if_body}
+    } else {
+        ${3:#:else_body}
+    }
+
+snippet     else
+abbr        else {}
+options     word
+    else {
+        ${0:TARGET}
+    }
+
+
+snippet     assert
+abbr        assert()
+options     word
+    assert(${1:true});
+
+snippet     class
+abbr        class ${class_name} {}
+options     head
+    class ${1:Clazz} {
+        ${0:TARGET}
+    }
+
+snippet     for
+abbr        for () {}
+options     head
+    for (var ${1:i} = ${2:0}; ${3:i} < ${4:10}; ${5:i++}) {
+        ${0:TARGET}
+    }
+
+snippet     forin
+abbr        for (v in list) {}
+options     head
+    for (var ${1:v} in ${2:list}) {
+        ${0:TARGET}
+    }
+
+snippet     while
+abbr        while() {}
+options     head
+    while (${1:true}) {
+        ${0:TARGET}
+    }
+
+snippet     switch
+abbr        switch () {}
+options     head
+    switch (${1:#:target}) {
+        case ${2:#:state}:
+            ${0:#:case_body}
+            break;
+        default:
+            ${0:#:default_body}
+    }
+
+snippet     case
+abbr        case state:
+options     head
+    case ${1:#:state}:
+        ${0:TARGET}
+        break;

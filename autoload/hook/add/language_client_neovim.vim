@@ -17,21 +17,16 @@ function! hook#add#language_client_neovim#load() abort
     call mkdir(l:jdt_lsp_data_dir, "p")
   endif
   let g:LanguageClient_serverCommands["java"] = [
-        \ 'java',
-        \ '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
-        \ '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-        \ '-Dosgi.bundles.defaultStartLevel=4',
-        \ '-Declipse.product=org.eclipse.jdt.ls.core.product',
-        \ '-Dlog.protocol=true',
-        \ '-Dlog.level=ALL',
-        \ '-noverify',
-        \ '-Xmx1G',
-        \ '-jar',
-        \ expand(g:outher_package_path) . '/jdt-lsp/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar',
-        \ '-configuration',
-        \ expand(g:outher_package_path) . '/jdt-lsp/config_mac',
-        \ '-data',
-        \ l:jdt_lsp_data_dir]
+        \ 'docker',
+        \ 'run',
+        \ '--rm',
+        \ '-i',
+        \ '-v', getcwd() . ':'. getcwd(),
+        \ '-v', $HOME . '/.local/java-dev/jlsp:/root/jlsp',
+        \ '-v', $HOME . '/.local/java-dev/.gradle:/root/.gradle',
+        \ '-v', $HOME . '/.local/java-dev/.m2:/root/.m2',
+        \ 'ryutah/openjdk',
+        \ 'jlsp.sh']
 
   " TODO Consider keymap
   nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>

@@ -98,3 +98,9 @@ let g:indentLine_char = "│"
 # For composite filetype including. Like vue.
 [[plugins]]
 repo = 'posva/vim-vue'
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+hook_add = '''
+au FileType plantuml command! OpenUml :!open -a "Google Chrome" %
+'''

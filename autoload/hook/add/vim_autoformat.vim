@@ -10,7 +10,7 @@ function! hook#add#vim_autoformat#load() abort
 
   " Formatter setting
   let g:formatters_go         = ['goimports']
-  let g:formatters_rust       = ['nightly_rustfmt']
+  let g:formatters_rust       = ['rustfmt']
   let g:formatters_python     = ['autopep8']
   let g:formatters_javascript = ['prettierjs', 'eslint_local']
   let g:formatters_typescript = ['prettierts']

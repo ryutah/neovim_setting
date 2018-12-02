@@ -1,15 +1,19 @@
-function! hook#add#language_client_neovim#load() abort
-  let g:LanguageClient_hoverPreview                     = "Always"
-  let g:LanguageClient_autoStart                        = 1 " XXX Auto start is not work...
-  let g:LanguageClient_diagnosticsEnable                = 0 " Turn off because it is uses ale to lint file.
-  let g:LanguageClient_serverCommands                   = {}
-  let g:LanguageClient_serverCommands["rust"]           = ['rustup', 'run', 'nightly', 'rls']
-  let g:LanguageClient_serverCommands["python"]         = ['pyls']
-  let g:LanguageClient_serverCommands["javascript"]     = ['javascript-typescript-stdio']
-  let g:LanguageClient_serverCommands["typescript"]     = ['javascript-typescript-stdio']
-  let g:LanguageClient_serverCommands["javascript.jsx"] = ['javascript-typescript-stdio']
-  let g:LanguageClient_serverCommands["vue"]            = ['vls']
-  let g:LanguageClient_serverCommands["dart"]           = ['dart_language_server']
+function! hook#source#language_client_neovim#load() abort
+  set hidden
+
+  let g:LanguageClient_hoverPreview = "Always"
+  let g:LanguageClient_autoStart = 1 " XXX Auto start is not work...
+  let g:LanguageClient_diagnosticsEnable = 0 " Turn off because it is uses ale to lint file.
+  let g:LanguageClient_serverCommands = {
+        \ "rust": ['rustup', 'run', 'stable', 'rls'],
+        \ "python": ['pyls'],
+        \ "javascript": ['javascript-typescript-stdio'],
+        \ "typescript": ['javascript-typescript-stdio'],
+        \ "javascript.jsx": ['javascript-typescript-stdio'],
+        \ "vue": ['vls'],
+        \ "dart": ['dart_language_server'],
+        \ "ocaml": ['ocaml-language-server', '--stdio'],
+        \ }
 
   " ref https://www.eclipse.org/community/eclipse_newsletter/2017/may/article4.php
   let l:jdt_lsp_data_dir = expand(g:outher_package_path) . "/jdt-data"

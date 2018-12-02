@@ -8,7 +8,7 @@ repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
 on_ft = ['javascript', 'ocaml', 'python', 'typescript', 'vue', 'javascript.jsx', 'dart', 'ocaml', 'rust']
 hook_post_update = 'call hook#post_update#language_client_neovim#load()'
-hook_source = 'call hook#add#language_client_neovim#load()'
+hook_source = 'call hook#source#language_client_neovim#load()'
 
 # [[plugins]]
 # repo = 'Shougo/neosnippet'

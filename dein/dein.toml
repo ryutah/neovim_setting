@@ -2,7 +2,7 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo     = 'Shougo/denite.nvim'
+repo = 'Shougo/denite.nvim'
 hook_add = 'call hook#add#denite#load()'
 
 [[plugins]]
@@ -18,44 +18,38 @@ repo = 'tyru/caw.vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo  = 'cespare/vim-toml'
+repo = 'cespare/vim-toml'
 
 # TODO Redeclared :E?
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
-repo     = 'itchyny/lightline.vim'
+repo = 'itchyny/lightline.vim'
 hook_add = 'call hook#add#lightline#load()'
 
 [[plugins]]
-repo     = 'airblade/vim-gitgutter'
+repo = 'airblade/vim-gitgutter'
 hook_add = 'call hook#add#gitgutter#load()'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo    = 'idanarye/vim-merginal'
+repo = 'idanarye/vim-merginal'
 depends = ['vim-fugitive']
 
 [[plugins]]
-repo             = 'Chiel92/vim-autoformat'
-hook_add         = 'call hook#add#vim_autoformat#load()'
+repo = 'Chiel92/vim-autoformat'
+hook_add = 'call hook#add#vim_autoformat#load()'
 hook_post_update = 'call hook#post_update#vim_autoformat#load()'
 
 [[plugins]]
 repo = 'romainl/Apprentice'
 
-[[plugins]] # This plugin should not be lazy. If set so, lsp server does not start automatic
-repo             = 'autozimu/LanguageClient-neovim'
-rev              = 'next'
-hook_post_update = 'call hook#post_update#language_client_neovim#load()'
-hook_add         = 'call hook#add#language_client_neovim#load()'
-
 [[plugins]]
-repo             = 'w0rp/ale'
-hook_add         = 'call hook#add#ale#load()'
+repo = 'w0rp/ale'
+hook_add = 'call hook#add#ale#load()'
 hook_post_update = 'call hook#post_update#ale#load()'
 
 [[plugins]]
@@ -65,14 +59,14 @@ repo = 'rhysd/committia.vim'
 repo = 'godlygeek/tabular'
 
 [[plugins]]
-repo    = 'Shougo/neomru.vim'
+repo = 'Shougo/neomru.vim'
 depends = ['denite.nvim']
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
-repo             = 'suan/vim-instant-markdown'
+repo = 'suan/vim-instant-markdown'
 hook_post_update = '!npm -g install instant-markdown-d'
 hook_add = '''
 let g:instant_markdown_autostart = 0
@@ -82,16 +76,16 @@ let g:instant_markdown_autostart = 0
 repo = 'ayu-theme/ayu-vim'
 
 [[plugins]]
-repo     = 'Yggdroot/indentLine'
+repo = 'Yggdroot/indentLine'
 hook_add = '''
 let g:indentLine_setColors = 0
 let g:indentLine_char = "│"
 '''
 
-# [[plugins]]
-# repo     = 'SirVer/ultisnips'
-# hook_add = 'call hook#add#ultisnips#load()'
-#
+[[plugins]]
+repo     = 'SirVer/ultisnips'
+hook_add = 'call hook#add#ultisnips#load()'
+
 # [[plugins]]
 # repo = 'honza/vim-snippets'
 
@@ -104,3 +98,6 @@ repo = 'aklt/plantuml-syntax'
 hook_add = '''
 au FileType plantuml command! OpenUml :!open -a "Google Chrome" %
 '''
+
+[[plugins]]
+repo = 'honza/vim-snippets'

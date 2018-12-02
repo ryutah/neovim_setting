@@ -1,38 +1,45 @@
 [[plugins]]
-repo        = 'Shougo/deoplete.nvim'
-on_i        = 1
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
 hook_source = 'call hook#source#deoplete#load()'
 
-[[plugins]]
-repo        = 'Shougo/neosnippet'
-on_i        = 1
-depends     = ['neosnippet-snippets']
-hook_source = 'call hook#source#neosnippet#load()'
+[[plugins]] # This plugin should not be lazy. If set so, lsp server does not start automatic
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+on_ft = ['javascript', 'ocaml', 'python', 'typescript', 'vue', 'javascript.jsx', 'dart', 'ocaml', 'rust']
+hook_post_update = 'call hook#post_update#language_client_neovim#load()'
+hook_source = 'call hook#add#language_client_neovim#load()'
 
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_i = 1
+# [[plugins]]
+# repo = 'Shougo/neosnippet'
+# on_i = 1
+# depends = ['neosnippet-snippets']
+# hook_source = 'call hook#source#neosnippet#load()'
+#
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
+# on_i = 1
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
 
 [[plugins]]
-repo        = 'fatih/vim-go'
-on_ft       = ['go']
+repo = 'fatih/vim-go'
+on_ft = ['go']
 hook_source = 'call hook#source#vim_go#load()'
 
 [[plugins]]
-repo             = 'zchee/deoplete-go'
-on_ft            = ['go']
-depends          = ['deoplete.nvim']
-hook_source      = 'call hook#source#deoplete_go#load()'
+repo = 'zchee/deoplete-go'
+on_ft = ['go']
+depends = ['deoplete.nvim']
+hook_source = 'call hook#source#deoplete_go#load()'
 hook_post_update = 'call hook#post_update#deoplete_go#load()'
 
 # TODO Want to use LSP
 [[plugins]]
-repo             = 'Shougo/deoplete-rct'
-on_ft            = ['ruby']
+repo = 'Shougo/deoplete-rct'
+on_ft = ['ruby']
 hook_post_update = '!gem install rcodetools'
 
 # TODO This is recommanded for ruby completion. But too slow!!
@@ -53,25 +60,25 @@ on_cmd = 'Agit'
 
 # Depends on 'godlygeek/tabular'
 [[plugins]]
-repo        = 'plasticboy/vim-markdown'
-on_ft       = 'markdown'
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
 hook_source = 'call hook#source#vim_markdown#load()'
 
 [[plugins]]
-repo  = 'leafgarland/typescript-vim'
+repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript'] # Add javascript if necessary
 
 [[plugins]]
-repo  = 'pangloss/vim-javascript'
+repo = 'pangloss/vim-javascript'
 on_ft = ['javascript']
 
 [[plugins]]
-repo    = 'mxw/vim-jsx'
-on_ft   = ['javascript']
+repo = 'mxw/vim-jsx'
+on_ft = ['javascript']
 depends = ['vim-javascript']
 
 [[plugins]]
-repo  = 'Glench/Vim-Jinja2-Syntax'
+repo = 'Glench/Vim-Jinja2-Syntax'
 on_ft = ["jinja"]
 
 [[plugins]]

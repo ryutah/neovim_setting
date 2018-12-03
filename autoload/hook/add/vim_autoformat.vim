@@ -4,7 +4,7 @@ function! hook#add#vim_autoformat#load() abort
   " Custom formatter
   let g:formatdef_prettierjs            = '"prettier --stdin --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")." --tab-width=".shiftwidth()." --trailing-comma es5 --arrow-parens=always"'
   let g:formatdef_prettierts            = '"prettier --single-quote --stdin --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")." --tab-width=".shiftwidth()." -parser typescript --trailing-comma all --arrow-parens=always"'
-  let g:formatdef_nightly_rustfmt       = '"rustup run nightly rustfmt"'
+  let g:formatdef_nightly_rustfmt       = '"rustup run rustfmt"'
   let g:formatdef_google_java_formatter = '"java -jar ' . g:outher_package_path . '/' . g:google_java_formatter . ' - --aosp"'
   let g:formatdef_dartfmt = '"dartfmt"'
 

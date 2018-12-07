@@ -101,3 +101,7 @@ au FileType plantuml command! OpenUml :!open -a "Google Chrome" %
 
 [[plugins]]
 repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = 'call hook#add#defx#load()'

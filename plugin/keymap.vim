@@ -150,6 +150,10 @@ function! s:set_ctags_keymap() abort
   nnoremap <C-]> g<C-]>
 endfunction
 
+function! s:set_defx_keymap() abort
+  nnoremap <Leader>df :Defx -split=vertical -toggle=true -winwidth=50<CR>
+endfunction
+
 call s:set_cursor_keymap()
 call s:set_tab_keymap()
 call s:set_buffer_keymap()
@@ -164,3 +168,4 @@ call s:set_location_list_keymap()
 call s:set_git_keymap()
 call s:set_netrw_keymap()
 call s:set_ctags_keymap()
+call s:set_defx_keymap()

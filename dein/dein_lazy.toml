@@ -10,15 +10,15 @@ on_ft = ['javascript', 'ocaml', 'python', 'typescript', 'vue', 'javascript.jsx',
 hook_post_update = 'call hook#post_update#language_client_neovim#load()'
 hook_source = 'call hook#source#language_client_neovim#load()'
 
-# [[plugins]]
-# repo = 'Shougo/neosnippet'
-# on_i = 1
-# depends = ['neosnippet-snippets']
-# hook_source = 'call hook#source#neosnippet#load()'
-#
-# [[plugins]]
-# repo = 'Shougo/neosnippet-snippets'
-# on_i = 1
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_i = 1
+depends = ['neosnippet-snippets']
+hook_source = 'call hook#source#neosnippet#load()'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
 
 [[plugins]]
 repo = 'cohama/lexima.vim'

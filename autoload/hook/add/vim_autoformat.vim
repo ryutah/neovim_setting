@@ -7,7 +7,7 @@ function! hook#add#vim_autoformat#load() abort
   let g:formatdef_nightly_rustfmt = '"rustup run rustfmt"'
   let g:formatdef_google_java_formatter = '"java -jar ' . g:outher_package_path . '/' . g:google_java_formatter . ' - --aosp"'
   let g:formatdef_dartfmt = '"dartfmt"'
-  let g:formatdef_prettier_yaml = '"prettier --stdin --parser yaml"'
+  let g:formatdef_prettier_yaml = '"prettier --parser yaml"'
 
   " Formatter setting
   let g:formatters_go = ['goimports']

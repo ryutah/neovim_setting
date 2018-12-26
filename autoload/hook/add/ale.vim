@@ -27,6 +27,7 @@ function! hook#add#ale#load() abort
         \   'python': ['autopep8'],
         \   'css': ['prettier'],
         \   'scss': ['prettier'],
+        \   'haskell': ['hfmt'],
         \ }
 
   let g:ale_linters = {

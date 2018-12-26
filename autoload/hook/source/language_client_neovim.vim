@@ -13,6 +13,7 @@ function! hook#source#language_client_neovim#load() abort
         \ "vue": ['vls'],
         \ "dart": ['dart_language_server'],
         \ "ocaml": ['ocaml-language-server', '--stdio'],
+        \ "haskell": ['hie-wrapper'],
         \ }
 
   " ref https://www.eclipse.org/community/eclipse_newsletter/2017/may/article4.php

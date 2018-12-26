@@ -6,7 +6,7 @@ hook_source = 'call hook#source#deoplete#load()'
 [[plugins]] # This plugin should not be lazy. If set so, lsp server does not start automatic
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
-on_ft = ['javascript', 'ocaml', 'python', 'typescript', 'vue', 'javascript.jsx', 'dart', 'ocaml', 'rust']
+on_ft = ['javascript', 'ocaml', 'python', 'typescript', 'vue', 'javascript.jsx', 'dart', 'ocaml', 'rust', 'java', 'haskell']
 hook_post_update = 'call hook#post_update#language_client_neovim#load()'
 hook_source = 'call hook#source#language_client_neovim#load()'
 

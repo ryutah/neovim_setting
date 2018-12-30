@@ -41,4 +41,9 @@ function! hook#post_update#ale#load() abort
     execute "!echo #!/bin/sh\njava -jar /Users/ryuta/.local/nvim/google-java-format.jar --aosp $* > " . expand(g:outher_package_path) "/google_java_format"
     execute "!chmod +x ". expand(g:outher_package_path) "/google_java_format"
   endif
+
+  " SQL formatter
+  if !executable("sqlfmt")
+    go get github.com/jackc/sqlfmt/...
+  endif
 endfunction

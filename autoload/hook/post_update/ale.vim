@@ -44,6 +44,6 @@ function! hook#post_update#ale#load() abort
 
   " SQL formatter
   if !executable("sqlfmt")
-    go get github.com/jackc/sqlfmt/...
+    execute "!go get github.com/jackc/sqlfmt/..."
   endif
 endfunction

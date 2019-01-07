@@ -38,7 +38,7 @@ function! hook#post_update#ale#load() abort
   " Java formatter
   if !executable(g:outher_package_path . "/google_java_format")
     execute "!wget -O " . expand(g:outher_package_path) . "/google-java-format.jar https://github.com/google/google-java-format/releases/download/google-java-format-1.6/google-java-format-1.6-all-deps.jar"
-    execute "!echo #!/bin/sh\njava -jar /Users/ryuta/.local/nvim/google-java-format.jar --aosp $* > " . expand(g:outher_package_path) "/google_java_format"
+    execute "!echo '#!/bin/sh\njava -jar /Users/ryuta/.local/nvim/google-java-format.jar --aosp $*' > " . expand(g:outher_package_path) "/google_java_format"
     execute "!chmod +x ". expand(g:outher_package_path) "/google_java_format"
   endif
 

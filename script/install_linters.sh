@@ -23,6 +23,9 @@ fi
 if !type "tsserver" > /dev/null 2>&1; then
   npm i -g tsserver
 fi
+if !type "prettier" > /dev/null 2>&1; then
+  npm i -g prettier
+fi
 
 # pythong
 if !type "autopep8" > /dev/null 2>&1; then

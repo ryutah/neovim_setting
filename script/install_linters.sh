@@ -45,7 +45,7 @@ if [ ! -x $nvim_lib_dir/google_java_format ]; then
   wget -O $nvim_lib_dir/google-java-format.jar \
     https://github.com/google/google-java-format/releases/download/google-java-format-$google_java_format_version/google-java-format-$google_java_format_version-all-deps.jar
   echo '#!/bin/sh\njava -jar /Users/ryuta/.local/nvim/google-java-format.jar --aosp $*' > $nvim_lib_dir/google_java_format
-  chmod +x $nvim_lib_dir/google-java-format
+  chmod +x $nvim_lib_dir/google_java_format
 fi
 
 # sql

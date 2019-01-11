@@ -3,40 +3,44 @@
 nvim_lib_dir=$HOME/.local/nvim
 google_java_format_version=1.6
 
+check_executable() {
+  type "$1" > /dev/null 2>&1
+}
+
 # go
-if !type "golint" > /dev/null 2>&1; then
+if ! check_executable golint; then
   go get -u github.com/golang/lint/golint
 fi
 
 # rust
-if !type "rustfmt" > /dev/null 2>&1; then
+if ! check_executable eslint; then
   rustup component add rustfmt-preview --toolchain=nightly
 fi
 
 # javascript typescript
-if !type "eslint" > /dev/null 2>&1; then
+if ! check_executable eslint; then
   npm i -g eslint
 fi
-if !type "tslint" > /dev/null 2>&1; then
+if ! check_executable tslint; then
   npm i -g tslint
 fi
-if !type "tsserver" > /dev/null 2>&1; then
+if ! check_executable tsserver; then
   npm i -g tsserver
 fi
-if !type "prettier" > /dev/null 2>&1; then
+if ! check_executable prettier; then
   npm i -g prettier
 fi
 
 # pythong
-if !type "autopep8" > /dev/null 2>&1; then
+if ! check_executable autopep8; then
   pip install -U autopep8
 fi
-if !type "flake8" > /dev/null 2>&1; then
+if ! check_executable flake8; then
   pip install -U flake8
 fi
 
 # ruby
-if !type "rubocop" > /dev/null 2>&1; then
+if ! check_executable rubocop; then
   gem install rubocop
 fi
 
@@ -49,6 +53,6 @@ if [ ! -x $nvim_lib_dir/google_java_format ]; then
 fi
 
 # sql
-if !type "sqlfmt" > /dev/null 2>&1; then
+if ! check_executable sqlfmt; then
   go get github.com/jackc/sqlfmt/...
 fi

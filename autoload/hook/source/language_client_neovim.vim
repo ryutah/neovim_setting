@@ -30,7 +30,7 @@ function! hook#source#language_client_neovim#load() abort
         \ '-v', $HOME . '/.local/java-dev/jlsp:/root/jlsp',
         \ '-v', $HOME . '/.local/java-dev/.gradle:/root/.gradle',
         \ '-v', $HOME . '/.local/java-dev/.m2:/root/.m2',
-        \ 'ryutah/openjdk',
+        \ 'ryutah/openjdk:11',
         \ 'jlsp.sh']
 
   " TODO Consider keymap

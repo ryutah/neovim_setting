@@ -1,0 +1,11 @@
+snippet     confirm
+abbr        read -p "Ok? (y/N): " yn ...
+options     head
+    read -p "${1:Ok? (y/N)}: " yn
+    case "${yn}" in
+    [yY]*)
+      ;;
+    *)
+      echo "abort." ; exit
+      ;;
+    esac

@@ -7,6 +7,8 @@ hook_source = 'call hook#source#deoplete#load()'
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
 on_ft = ['javascript', 'ocaml', 'python', 'typescript', 'vue', 'javascript.jsx', 'dart', 'ocaml', 'rust', 'java', 'haskell']
+# If enable golang lsp
+# on_ft = ['javascript', 'ocaml', 'python', 'typescript', 'vue', 'javascript.jsx', 'dart', 'ocaml', 'rust', 'java', 'haskell', 'go']
 hook_post_update = 'call hook#post_update#language_client_neovim#load()'
 hook_source = 'call hook#source#language_client_neovim#load()'
 

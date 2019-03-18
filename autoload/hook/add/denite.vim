@@ -8,9 +8,9 @@ function! hook#add#denite#load() abort
 
   " Set file_rec command
   if executable('fd')
-    call denite#custom#var('file_rec', 'command', ['fd', '-H', '-t', 'f', '-c', 'never', '-E', '.git', ''])
+    call denite#custom#var('file/rec', 'command', ['fd', '-H', '-t', 'f', '-c', 'never', '-E', '.git', ''])
   elseif executable('ag')
-    call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+    call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
   endif
 
   " Set grep command

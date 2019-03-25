@@ -22,12 +22,11 @@ function! s:set_tab_keymap() abort
   nnoremap <silent> tx :tabclose<CR>
 endfunction
 
-function! s:set_buffer_keymap() abort
-  " Buffer controll
-  nnoremap [buffer] <Nop>
-  nmap <Leader>b [buffer]
-  nnoremap <silent> [buffer]n :bnext<CR>
-  nnoremap <silent> [buffer]p :bprevious<CR>
+function! s:set_default_keymap() abort
+  nmap <Leader>d [default]
+  nnoremap <silent> [default]n :bnext<CR>
+  nnoremap <silent> [default]p :bprevious<CR>
+  nnoremap <silent> [default]lcd :lcd %:h<CR>
 endfunction
 
 function! s:set_split_keymap() abort
@@ -156,8 +155,8 @@ endfunction
 
 call s:set_cursor_keymap()
 call s:set_tab_keymap()
-call s:set_buffer_keymap()
 call s:set_split_keymap()
+call s:set_default_keymap()
 call s:set_console_keymap()
 call s:set_denite_keymap()
 call s:set_caw_keymap()

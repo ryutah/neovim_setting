@@ -100,3 +100,9 @@ repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = 'call hook#add#defx#load()'
+
+[[plugins]]
+repo = 'tokorom/vim-review'
+hook_add = '''
+let g:vim_review#include_filetypes = ['go', 'javascript', 'html']
+'''

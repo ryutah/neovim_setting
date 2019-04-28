@@ -33,7 +33,7 @@ function! hook#add#ale#load() abort
 
   let g:ale_linters = {
         \   'go': ['goimports', 'go build', 'go vet', 'golint'],
-        \   'rust': ['cargo', 'rustc', 'rustfmt'],
+        \   'rust': ['rls'],
         \   'javascript': ['eslint'],
         \   'typescript': ['tslint', 'tsserver'],
         \   'python': ['autopep8', 'flake8'],

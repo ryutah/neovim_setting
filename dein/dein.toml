@@ -1,3 +1,6 @@
+##################################################################
+# Basic
+##################################################################
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -6,11 +9,55 @@ repo = 'Shougo/denite.nvim'
 hook_add = 'call hook#add#denite#load()'
 
 [[plugins]]
-repo = 'nanotech/jellybeans.vim'
+repo = 'roxma/nvim-yarp'
+
+
+##################################################################
+# Snipets, Completions
+##################################################################
+[[plugins]]
+repo = 'ncm2/ncm2'
+hook_add = '''
+autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd TextChangedI * call ncm2#auto_trigger()
+
+inoremap <c-c> <ESC>
+inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
+'''
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
+repo = 'ncm2/ncm2-bufword'
 
+[[plugins]]
+repo = 'ncm2/ncm2-path'
+
+[[plugins]]
+repo = 'ncm2/ncm2-ultisnips'
+hook_add = '''
+imap <expr> <c-k> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
+smap <c-u> <Plug>(ultisnips_expand)
+'''
+
+[[plugins]]
+repo     = 'SirVer/ultisnips'
+hook_add = '''
+let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+let g:UltiSnipsSnippetDirectories = [
+      \ g:neovim_home . '/ultisnips',
+      \ g:neovim_home . '/dein/repos/github.com/honza/vim-snippets/UltiSnips',
+      \ ]
+'''
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+
+##################################################################
+# Code Format, Translate
+##################################################################
 [[plugins]]
 repo = 'tyru/caw.vim'
 
@@ -18,16 +65,46 @@ repo = 'tyru/caw.vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-
-# TODO Redeclared :E?
-[[plugins]]
 repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = 'call hook#add#lightline#load()'
+repo = 'godlygeek/tabular'
 
+
+##################################################################
+# Languages Extend
+##################################################################
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'tokorom/vim-review'
+hook_add = '''
+let g:vim_review#include_filetypes = ['go', 'javascript', 'html']
+'''
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+
+# For composite filetype including. Like vue.
+[[plugins]]
+repo = 'posva/vim-vue'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+hook_add = '''
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+'''
+depends = ['tabular']
+
+[[plugins]]
+repo = 'Glench/Vim-Jinja2-Syntax'
+
+
+##################################################################
+# Git
+##################################################################
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = 'call hook#add#gitgutter#load()'
@@ -40,33 +117,12 @@ repo = 'idanarye/vim-merginal'
 depends = ['vim-fugitive']
 
 [[plugins]]
-repo = 'romainl/Apprentice'
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = 'call hook#add#ale#load()'
-hook_post_update = 'call hook#post_update#ale#load()'
-
-[[plugins]]
 repo = 'rhysd/committia.vim'
 
-[[plugins]]
-repo = 'godlygeek/tabular'
 
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-depends = ['denite.nvim']
-
-[[plugins]]
-repo = 'mattn/emmet-vim'
-
-[[plugins]]
-repo = 'suan/vim-instant-markdown'
-hook_post_update = '!npm -g install instant-markdown-d'
-hook_add = '''
-let g:instant_markdown_autostart = 0
-'''
-
+##################################################################
+# Editor Style
+##################################################################
 [[plugins]]
 repo = 'ayu-theme/ayu-vim'
 
@@ -74,35 +130,33 @@ repo = 'ayu-theme/ayu-vim'
 repo = 'Yggdroot/indentLine'
 hook_add = '''
 let g:indentLine_setColors = 0
-let g:indentLine_char = "│"
+let g:indentLine_char = "┃"
+let g:indentLine_fileTypeExclude = ['markdown']
 '''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'call hook#add#lightline#load()'
+
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = 'call hook#add#ale#load()'
+# hook_post_update = 'call hook#post_update#ale#load()'
+
 
 # [[plugins]]
-# repo     = 'SirVer/ultisnips'
-# hook_add = 'call hook#add#ultisnips#load()'
-
+# repo = 'Shougo/defx.nvim'
+# hook_add = 'call hook#add#defx#load()'
+#
 # [[plugins]]
-# repo = 'honza/vim-snippets'
-
-# For composite filetype including. Like vue.
-[[plugins]]
-repo = 'posva/vim-vue'
-
-[[plugins]]
-repo = 'aklt/plantuml-syntax'
-hook_add = '''
-au FileType plantuml command! OpenUml :!open -a "Google Chrome" %
-'''
-
-[[plugins]]
-repo = 'honza/vim-snippets'
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-hook_add = 'call hook#add#defx#load()'
-
-[[plugins]]
-repo = 'tokorom/vim-review'
-hook_add = '''
-let g:vim_review#include_filetypes = ['go', 'javascript', 'html']
-'''
+# repo = 'w0rp/ale'
+# hook_add = 'call hook#add#ale#load()'
+# hook_post_update = 'call hook#post_update#ale#load()'
+#
+# [[plugins]]
+# repo = 'Shougo/neomru.vim'
+# depends = ['denite.nvim']
+#
+# [[plugins]]
+# repo = 'mattn/emmet-vim'

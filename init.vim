@@ -1,7 +1,10 @@
 function! s:init() abort
+  set shortmess+=c
+
   set clipboard+=unnamedplus
   set number
 
+  set completeopt=noinsert,menuone,noselect
   set tabstop=4     " Tab size
   set softtabstop=2 " Space size when enter tab
   set shiftwidth=2  " Auto indent size

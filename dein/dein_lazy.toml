@@ -1,93 +1,55 @@
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-hook_source = 'call hook#source#deoplete#load()'
-
-[[plugins]] # This plugin should not be lazy. If set so, lsp server does not start automatic
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
-on_ft = ['javascript', 'ocaml', 'python', 'typescript', 'vue', 'javascript.jsx', 'dart', 'ocaml', 'rust', 'java', 'haskell']
-# If enable golang lsp
-# on_ft = ['javascript', 'ocaml', 'python', 'typescript', 'vue', 'javascript.jsx', 'dart', 'ocaml', 'rust', 'java', 'haskell', 'go']
-hook_post_update = 'call hook#post_update#language_client_neovim#load()'
+on_ft = [
+  'javascript',
+  'ocaml',
+  'python',
+  'typescript',
+  'vue',
+  'javascript.jsx',
+  'dart',
+  'ocaml',
+  'rust',
+  'java',
+  'haskell',
+  'go',
+]
+# hook_post_update = 'call hook#post_update#language_client_neovim#load()'
 hook_source = 'call hook#source#language_client_neovim#load()'
-
-[[plugins]]
-repo = 'Shougo/neosnippet'
-on_i = 1
-depends = ['neosnippet-snippets']
-hook_source = 'call hook#source#neosnippet#load()'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_i = 1
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
 
 [[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-hook_source = 'call hook#source#vim_go#load()'
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-on_ft = ['go']
-depends = ['deoplete.nvim']
-hook_source = 'call hook#source#deoplete_go#load()'
-hook_post_update = 'call hook#post_update#deoplete_go#load()'
-
-# TODO Want to use LSP
-[[plugins]]
-repo = 'Shougo/deoplete-rct'
-on_ft = ['ruby']
-hook_post_update = '!gem install rcodetools'
-
-# TODO This is recommanded for ruby completion. But too slow!!
-# [[plugins]]
-# repo             = 'uplus/deoplete-solargraph'
-# on_ft            = ['ruby']
-# depends          = ['deoplete.nvim']
-# hook_post_update = '''
-# !gem install solargraph
-# !pip install solargraph-utils.py
-# !yard gems
-# !yard config --gem-install-yri
-# '''
-
-[[plugins]]
-repo   = 'cohama/agit.vim'
+repo = 'cohama/agit.vim'
 on_cmd = 'Agit'
-
-# Depends on 'godlygeek/tabular'
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_ft = 'markdown'
-hook_source = 'call hook#source#vim_markdown#load()'
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript'] # Add javascript if necessary
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = ['javascript']
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-on_ft = ['javascript']
-depends = ['vim-javascript']
-
-[[plugins]]
-repo = 'Glench/Vim-Jinja2-Syntax'
-on_ft = ["jinja"]
 
 [[plugins]]
 repo = 'previm/previm'
 on_ft = ["markdown"]
 hook_source = 'let g:previm_open_cmd = "open"'
 
+
 [[plugins]]
-repo = 'dart-lang/dart-vim-plugin'
-on_ft = ["dart"]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+hook_source = 'call hook#source#vim_go#load()'
+#
+# [[plugins]]
+# repo = 'leafgarland/typescript-vim'
+# on_ft = ['typescript'] # Add javascript if necessary
+#
+# [[plugins]]
+# repo = 'pangloss/vim-javascript'
+# on_ft = ['javascript']
+#
+# [[plugins]]
+# repo = 'mxw/vim-jsx'
+# on_ft = ['javascript']
+# depends = ['vim-javascript']
+#
+# [[plugins]]
+# repo = 'dart-lang/dart-vim-plugin'
+# on_ft = ["dart"]

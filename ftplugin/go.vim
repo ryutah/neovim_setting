@@ -16,3 +16,5 @@ highlight goErr ctermfg=11 guifg=#F29718 cterm=bold term=bold gui=bold
 match goErr /\<err\>/
 
 execute 'setlocal dictionary+=' . g:neovim_home . '/dict/go.dict'
+
+nnoremap <silent> [denite]d :Denite decls -direction=topleft -highlight-mode-insert=String<CR>

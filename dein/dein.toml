@@ -5,11 +5,15 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = 'call hook#add#denite#load()'
 
 [[plugins]]
-repo = 'roxma/nvim-yarp'
+repo = 'Shougo/defx.nvim'
+hook_add = 'call hook#add#defx#load()'
 
 
 ##################################################################
@@ -17,13 +21,7 @@ repo = 'roxma/nvim-yarp'
 ##################################################################
 [[plugins]]
 repo = 'ncm2/ncm2'
-hook_add = '''
-autocmd BufEnter * call ncm2#enable_for_buffer()
-autocmd TextChangedI * call ncm2#auto_trigger()
-
-inoremap <c-c> <ESC>
-inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
-'''
+hook_add = 'call hook#add#ncm2#load()'
 
 [[plugins]]
 repo = 'ncm2/ncm2-bufword'
@@ -33,23 +31,21 @@ repo = 'ncm2/ncm2-path'
 
 [[plugins]]
 repo = 'ncm2/ncm2-ultisnips'
-hook_add = '''
-imap <expr> <c-k> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
-smap <c-u> <Plug>(ultisnips_expand)
-'''
+hook_add = 'call hook#add#ncm2_ultisnips#load()'
+
+[[plugins]]
+repo = 'ncm2/ncm2-vim'
+depends = ['neco-vim']
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+
+[[plugins]]
+repo = 'ncm2/ncm2-match-highlight'
 
 [[plugins]]
 repo     = 'SirVer/ultisnips'
-hook_add = '''
-let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
-let g:UltiSnipsSnippetDirectories = [
-      \ g:neovim_home . '/ultisnips',
-      \ g:neovim_home . '/dein/repos/github.com/honza/vim-snippets/UltiSnips',
-      \ ]
-'''
+hook_add = 'call hook#add#ultisnips#load()'
 
 [[plugins]]
 repo = 'honza/vim-snippets'
@@ -69,6 +65,9 @@ repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
 repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
 
 
 ##################################################################
@@ -100,6 +99,20 @@ depends = ['tabular']
 
 [[plugins]]
 repo = 'Glench/Vim-Jinja2-Syntax'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+hook_add = '''
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+'''
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+depends = ['vim-javascript']
 
 
 ##################################################################
@@ -139,24 +152,9 @@ repo = 'itchyny/lightline.vim'
 hook_add = 'call hook#add#lightline#load()'
 
 
+##################################################################
+# Linters XXX: lazyでいいかも
+##################################################################
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = 'call hook#add#ale#load()'
-# hook_post_update = 'call hook#post_update#ale#load()'
-
-
-# [[plugins]]
-# repo = 'Shougo/defx.nvim'
-# hook_add = 'call hook#add#defx#load()'
-#
-# [[plugins]]
-# repo = 'w0rp/ale'
-# hook_add = 'call hook#add#ale#load()'
-# hook_post_update = 'call hook#post_update#ale#load()'
-#
-# [[plugins]]
-# repo = 'Shougo/neomru.vim'
-# depends = ['denite.nvim']
-#
-# [[plugins]]
-# repo = 'mattn/emmet-vim'

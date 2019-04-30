@@ -15,7 +15,7 @@ on_ft = [
   'haskell',
   'go',
 ]
-# hook_post_update = 'call hook#post_update#language_client_neovim#load()'
+hook_post_update = '!./install.sh'
 hook_source = 'call hook#source#language_client_neovim#load()'
 
 [[plugins]]
@@ -29,27 +29,15 @@ on_cmd = 'Agit'
 [[plugins]]
 repo = 'previm/previm'
 on_ft = ["markdown"]
-hook_source = 'let g:previm_open_cmd = "open"'
-
+hook_source = '''
+let g:previm_open_cmd = "open"
+'''
 
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
 hook_source = 'call hook#source#vim_go#load()'
-#
-# [[plugins]]
-# repo = 'leafgarland/typescript-vim'
-# on_ft = ['typescript'] # Add javascript if necessary
-#
-# [[plugins]]
-# repo = 'pangloss/vim-javascript'
-# on_ft = ['javascript']
-#
-# [[plugins]]
-# repo = 'mxw/vim-jsx'
-# on_ft = ['javascript']
-# depends = ['vim-javascript']
-#
-# [[plugins]]
-# repo = 'dart-lang/dart-vim-plugin'
-# on_ft = ["dart"]
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+on_ft = ["dart"]

@@ -20,11 +20,11 @@ function! s:init() abort
 
   filetype plugin indent on " Enable filetype plugin and indent
 
-  " File encoding list XXX Read Documents
+  " File encoding list
   set encoding=utf-8
   set fileencodings=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,euc-jp,cp932
   set fileformats=unix,dos,mac
-  " XXX This config fix 2bytes symbols display, but someting error happen when edit ascii codes.
+  " This config fix 2bytes symbols display, but someting error happen when edit ascii codes.
   " set ambiwidth=double
 
   set ignorecase " Set command to ignore case
@@ -36,9 +36,9 @@ function! s:init() abort
 
   set updatetime=500 " swap file written time. this affect to gitgutter.
 
-  let g:python_host_prog  = expand('$PYTHON2_PATH')
+  let g:python_host_prog = expand('$PYTHON2_PATH')
   let g:python3_host_prog = expand('$PYTHON3_PATH')
-  let g:neovim_home       = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/nvim') : expand('$XDG_CONFIG_HOME/nvim')
+  let g:neovim_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/nvim') : expand('$XDG_CONFIG_HOME/nvim')
 
   " Path of third party library download path.
   " This config use by like eclipse.jdt.ls tolls.
@@ -49,7 +49,11 @@ function! s:init() abort
   " Java formatter jar file name. Use by Autoformat
   let g:google_java_formatter = 'google-java-format-1.5-all-deps.jar'
 
-  call s:set_trail_highlight("py", "go", "rb", "rs", "js", "mjs", "ts", "java", "vim", "sh", "yaml", "json")
+  call s:set_trail_highlight(
+        \   "py", "go", "rb", "rs", "js", "mjs",
+        \   "ts", "java", "vim", "sh", "yaml", "json",
+        \   "vim",
+        \ )
   call s:set_colors()
 endfunction
 
@@ -65,7 +69,6 @@ function! s:set_trail_highlight(...) abort
 endfunction
 
 function! s:after_load_plugins() abort
-  " colorscheme hybrid
   set termguicolors
   " For use True Colr on tmux
   " ref https://qiita.com/yami_beta/items/ef535d3458addd2e8fbb
@@ -76,7 +79,7 @@ function! s:after_load_plugins() abort
 endfunction
 
 function! s:load_dein() abort
-  let dein_dir      = g:neovim_home . '/dein'
+  let dein_dir = g:neovim_home . '/dein'
   let dein_repo_dir = dein_dir . '/repos/github.com/Shougo/dein.vim'
 
   if !isdirectory(dein_repo_dir)
@@ -90,7 +93,7 @@ function! s:load_dein() abort
     call dein#begin(dein_dir)
 
     " TOML files written plugins
-    let toml      = dein_dir . '/dein.toml'
+    let toml = dein_dir . '/dein.toml'
     let toml_lazy = dein_dir . '/dein_lazy.toml'
 
     " Load plugins from toml at start nvim

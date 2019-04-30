@@ -6,7 +6,7 @@ function! hook#source#language_client_neovim#load() abort
   let g:LanguageClient_diagnosticsEnable = 0 " Turn off because it is uses ale to lint file.
   let g:LanguageClient_hasSnippetSupport=1
   let g:LanguageClient_rootMarkers = {
-         \ 'go': ['.git', 'go.mod'],
+         \ 'go': ['go.mod', '.git'],
          \ }
   let g:LanguageClient_serverCommands = {
         \ "rust": ['rustup', 'run', 'stable', 'rls'],
@@ -18,7 +18,7 @@ function! hook#source#language_client_neovim#load() abort
         \ "dart": ['dart_language_server'],
         \ "ocaml": ['ocaml-language-server', '--stdio'],
         \ "haskell": ['hie-wrapper'],
-        \ "go": ['gopls', '-mode', 'stdio'],
+        \ "go": ['gopls'],
         \ }
 
   " ref https://www.eclipse.org/community/eclipse_newsletter/2017/may/article4.php

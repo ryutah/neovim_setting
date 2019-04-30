@@ -9,7 +9,7 @@ function! s:set_cursor_keymap() abort
   noremap <S-h> ^
   noremap <S-l> $
   noremap <S-j> %
-  noremap <D-j> <S-j>
+  noremap <C-j> <S-j>
   nnoremap <C-h> H
   nnoremap <C-l> L
 endfunction
@@ -22,11 +22,17 @@ function! s:set_tab_keymap() abort
   nnoremap <silent> tx :tabclose<CR>
 endfunction
 
-function! s:set_default_keymap() abort
-  nmap <Leader>d [default]
+function! s:set_other_keymap() abort
+  nmap <Leader>, [default]
   nnoremap <silent> [default]n :bnext<CR>
   nnoremap <silent> [default]p :bprevious<CR>
   nnoremap <silent> [default]lcd :lcd %:h<CR>
+endfunction
+
+function! s:set_buffer_keymap() abort
+  nmap <Leader>b [buffer]
+  nnoremap <silent> [buffer]n :bnext<CR>
+  nnoremap <silent> [buffer]p :bprevious<CR>
 endfunction
 
 function! s:set_split_keymap() abort
@@ -58,7 +64,7 @@ function! s:set_console_keymap() abort
 endfunction
 
 function! s:set_caw_keymap() abort
-  " caw.vim XXX Consider add any toggle.
+  " caw.vim
   nmap <C-_> <Plug>(caw:hatpos:toggle)
   vmap <C-_> <Plug>(caw:hatpos:toggle)
 endfunction
@@ -72,7 +78,6 @@ function! s:set_denite_keymap() abort
   nnoremap <silent> [denite]b        :Denite buffer -smartcase -direction=topleft -highlight-mode-insert=String<CR>
   nnoremap <silent> [denite]f        :Denite file file:new -smartcase -direction=topleft -highlight-mode-insert=String<CR>
   nnoremap <silent> [denite]g        :Denite grep -highlight-mode-insert=String<CR>
-  nnoremap <silent> [denite]m        :Denite file_mru -direction=topleft -highlight-mode-insert=String<CR>
 endfunction
 
 function! s:set_easy_align_keymap() abort
@@ -117,7 +122,7 @@ function! s:set_git_keymap() abort
   nnoremap <silent> [git]d :Gdiff<CR>
   nnoremap <silent> [git]w :Gwrite<CR>
   nnoremap <silent> [git]l :Agit<CR>
-  autocmd User Fugitive nnoremap <silent> <Leader>m :MerginalToggle<CR>
+  nnoremap <silent> [git]m :MerginalToggle<CR>
 endfunction
 
 function! s:set_netrw_keymap() abort
@@ -150,13 +155,14 @@ function! s:set_ctags_keymap() abort
 endfunction
 
 function! s:set_defx_keymap() abort
-  nnoremap <Leader>df :Defx -split=vertical -toggle=true -winwidth=50<CR>
+  nnoremap <Leader>df :Defx -split=vertical -winwidth=50<CR>
 endfunction
 
 call s:set_cursor_keymap()
 call s:set_tab_keymap()
 call s:set_split_keymap()
-call s:set_default_keymap()
+call s:set_other_keymap()
+call s:set_buffer_keymap()
 call s:set_console_keymap()
 call s:set_denite_keymap()
 call s:set_caw_keymap()

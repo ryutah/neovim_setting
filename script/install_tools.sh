@@ -12,7 +12,7 @@ go get -u golang.org/x/lint/golint
 export GO111MODULE=on
 git clone -b bingo https://github.com/saibing/tools.git
 pushd tools/cmd/gopls && go install
-popd && rm -rf tools
+popd && rm -rf tools && export GO111MODULE=auto
 
 
 ###############################################
@@ -41,7 +41,7 @@ npm install -g \
 # Python
 ###############################################
 pip install -U \
-  python-language-server
+  python-language-server \
   autopep8 \
   flake8
 

@@ -10,6 +10,7 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = 'call hook#add#denite#load()'
+rev = '1.2' # TODO: remove this
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'

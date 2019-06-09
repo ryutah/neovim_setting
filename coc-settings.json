@@ -1,0 +1,15 @@
+{
+  "diagnostic.enable": false,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": [
+        "go.mod",
+        ".git/"
+      ],
+      "filetypes": [
+        "go"
+      ]
+    }
+  }
+}

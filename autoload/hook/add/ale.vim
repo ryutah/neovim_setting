@@ -8,6 +8,7 @@ function! hook#add#ale#load() abort
 
   let g:ale_javascript_prettier_options = '--tab-width="' . shiftwidth() . '" --trailing-comma es5 --arrow-parens=always'
   let g:ale_java_google_java_format_executable = g:outher_package_path . '/google_java_format'
+  let g:ale_sql_pgformatter_options = '-s 2 -u 2'
 
   " Set to use merlin
   let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
@@ -28,7 +29,7 @@ function! hook#add#ale#load() abort
         \   'css': ['prettier'],
         \   'scss': ['prettier'],
         \   'haskell': ['hfmt'],
-        \   'sql': ['sqlfmt'],
+        \   'sql': ['pgformatter'],
         \ }
 
   let g:ale_linters = {

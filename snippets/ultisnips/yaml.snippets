@@ -1,0 +1,42 @@
+priority 10
+
+snippet dep "Deployment" b
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+	labels:
+		${1:app: my-app}
+	name: ${2:my-deployment}
+spec:
+	replicas: 1
+	selector:
+		matchLabels:
+			$3
+	template:
+		metadata:
+			labels:
+				${3:app: my-app}
+		spec:
+			containers:
+				- image: ${4:nginx}
+				  name: ${5:nginx}
+endsnippet
+
+snippet svc "Service" b
+apiVersion: v1
+kind: Service
+metadata:
+	creationTimestamp: null
+	labels:
+		${1:app: my-app}
+	name: ${2:my-svc}
+spec:
+	type: ${3:LoadBalancer}
+	selector:
+		${4:app: my-app}
+	ports:
+		- name: 80-80
+		  protocol: TCP
+		  port: 80
+		  targetPort: 80
+endsnippet

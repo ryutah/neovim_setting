@@ -7,6 +7,7 @@ function! hook#source#language_client_neovim#load() abort
   let g:LanguageClient_hasSnippetSupport=1
   let g:LanguageClient_rootMarkers = {
          \ 'go': ['go.mod', '.git'],
+         \ 'scala': ['build.sbt'],
          \ }
   let g:LanguageClient_serverCommands = {
         \ "rust": ['rustup', 'run', 'stable', 'rls'],
@@ -19,6 +20,7 @@ function! hook#source#language_client_neovim#load() abort
         \ "ocaml": ['ocaml-language-server', '--stdio'],
         \ "haskell": ['hie-wrapper'],
         \ "go": ['gopls'],
+        \ "scala": ['metals-vim'],
         \ }
 
   " ref https://www.eclipse.org/community/eclipse_newsletter/2017/may/article4.php

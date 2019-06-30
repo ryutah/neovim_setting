@@ -6,7 +6,7 @@ set -eux
 ###############################################
 # Go
 ###############################################
-go get -u golang.org/x/lint/golint
+go get -u golang.org/x/lint/golint honnef.co/go/tools/cmd/staticcheck
 
 # Extend tool for golang.org/x/tools/cmd/gopls
 export GO111MODULE=on

@@ -3,12 +3,12 @@ function! hook#add#ale#load() abort
   let g:ale_sign_warning = '⚠'
   let g:ale_sign_info = 'ℹ"'
   let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}} " Disable lint on minify js.
-  let g:ale_rust_rustc_options = "-Z no-codegen"
   let g:ale_fix_on_save = 1
 
   let g:ale_javascript_prettier_options = '--tab-width="' . shiftwidth() . '" --trailing-comma es5 --arrow-parens=always'
   let g:ale_java_google_java_format_executable = g:outher_package_path . '/google_java_format'
   let g:ale_sql_pgformatter_options = '-s 2 -u 2 -B'
+  let g:ale_go_staticcheck_lint_package = 1
 
   " Set to use merlin
   let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
@@ -33,12 +33,10 @@ function! hook#add#ale#load() abort
         \ }
 
   let g:ale_linters = {
-        \   'go': ['goimports', 'go build', 'go vet', 'golint'],
-        \   'rust': ['rls'],
+        \   'go': ['go build', 'go vet', 'staticcheck', 'golint'],
         \   'javascript': ['eslint'],
         \   'typescript': ['tslint', 'tsserver'],
         \   'python': ['autopep8', 'flake8'],
         \   'dart': ['dartanalyzer', 'dartfmt'],
-        \   'ocaml': ['merlin'],
         \ }
 endfunction

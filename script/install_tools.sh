@@ -92,3 +92,23 @@ popd && rm -rf haskell-ide-engine
 # OCaml
 ###############################################
 npm install -g ocaml-language-server
+
+
+###############################################
+# Scala
+###############################################
+coursier bootstrap \
+  --java-opt -Xss4m \
+  --java-opt -Xms100m \
+  --java-opt -Dmetals.client=coc.nvim \
+  org.scalameta:metals_2.12:0.7.0 \
+  -r bintray:scalacenter/releases \
+  -r sonatype:snapshots \
+  -o $HOME/.local/bin/metals-vim -f
+
+coursier bootstrap \
+  org.scalameta:scalafmt-cli_2.12:2.0.0 \
+  -r sonatype:snapshots \
+  -o $HOME/.local/bin/scalafmt \
+  --standalone \
+  --main org.scalafmt.cli.Cli

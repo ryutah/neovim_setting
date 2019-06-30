@@ -3,8 +3,8 @@ function! hook#source#language_client_neovim#load() abort
 
   let g:LanguageClient_hoverPreview = "Always"
   let g:LanguageClient_autoStart = 1
-  let g:LanguageClient_diagnosticsEnable = 0 " Turn off because it is uses ale to lint file.
-  let g:LanguageClient_hasSnippetSupport=1
+  let g:LanguageClient_diagnosticsEnable = 1
+  let g:LanguageClient_hasSnippetSupport = 1
   let g:LanguageClient_rootMarkers = {
          \ 'go': ['go.mod', '.git'],
          \ 'scala': ['build.sbt'],

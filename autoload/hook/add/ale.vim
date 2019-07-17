@@ -9,6 +9,7 @@ function! hook#add#ale#load() abort
   let g:ale_java_google_java_format_executable = g:outher_package_path . '/google_java_format'
   let g:ale_sql_pgformatter_options = '-s 2 -u 2 -B'
   let g:ale_go_staticcheck_lint_package = 1
+  let g:ale_lint_on_text_changed = 'never'
 
   " Set to use merlin
   let g:opamshare = substitute(system('opam config var share'),'\n$','','''')

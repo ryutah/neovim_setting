@@ -6,5 +6,6 @@ function! hook#add#ultisnips#load() abort
   let g:UltiSnipsSnippetDirectories = [
         \ g:neovim_home . '/snippets/ultisnips',
         \ g:neovim_home . '/dein/repos/github.com/honza/vim-snippets/UltiSnips',
+        \ g:neovim_home . '/dein/repos/github.com/andrewstuart/vim-kubernetes/UltiSnips'
         \ ]
 endfunction

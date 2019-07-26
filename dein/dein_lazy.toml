@@ -42,3 +42,7 @@ hook_source = 'call hook#source#vim_go#load()'
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
 on_ft = ["dart"]
+
+[[plugins]]
+repo = 'andrewstuart/vim-kubernetes'
+on_ft = ['yaml']

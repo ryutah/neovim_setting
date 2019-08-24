@@ -6,7 +6,7 @@ set -eux
 ###############################################
 # Go
 ###############################################
-go get -u golang.org/x/lint/golint honnef.co/go/tools/cmd/staticcheck
+go get -u golang.org/x/lint/golint honnef.co/go/tools/cmd/staticcheck golang.org/x/tools/...
 
 # Extend tool for golang.org/x/tools/cmd/gopls
 export GO111MODULE=on
@@ -68,7 +68,7 @@ chmod +x ${nvim_lib_dir}/google_java_format
 ###############################################
 # SQL
 ###############################################
-go get github.com/jackc/sqlfmt/...
+# go get github.com/jackc/sqlfmt/...
 
 
 ###############################################

@@ -12,8 +12,10 @@ function! hook#add#ale#load() abort
   let g:ale_lint_on_text_changed = 'never'
 
   " Set to use merlin
-  let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-  execute "set rtp+=" . g:opamshare . "/merlin/vim"
+  if executable("opam")
+    let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+    execute "set rtp+=" . g:opamshare . "/merlin/vim"
+  endif
 
   let g:ale_fixers = {
         \   'go': ['goimports'],

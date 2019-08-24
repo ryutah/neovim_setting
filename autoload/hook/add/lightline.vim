@@ -26,8 +26,8 @@ function! hook#add#lightline#load() abort
         \     'charcode': 'MyCharCode',
         \     'gitgutter': 'MyGitGutter',
         \   },
-        \   'separator': {'left': '⮀', 'right': '⮂'},
-        \   'subseparator': {'left': '⮁', 'right': '⮃'}
+        \   'separator': {'left': "", 'right': "'"},
+        \   'subseparator': {'left': "", 'right': ""}
         \ }
 endfunction
 
@@ -36,7 +36,7 @@ function! MyModified()
 endfunction
 
 function! MyReadonly()
-  return &ft =~? 'help\|defx\|gundo' || &ro ? '⭤' : ''
+  return &ft =~? 'help\|defx\|gundo' || &ro ? "" : ''
 endfunction
 
 function! MyFilename()
@@ -52,7 +52,7 @@ function! MyFugitive()
   try
     if &ft !~? 'defx\|gundo' && exists('*fugitive#head')
       let _ = fugitive#head()
-      return strlen(_) ? '⭠ '._ : ''
+      return strlen(_) ? " "._ : ''
     endif
   catch
   endtry

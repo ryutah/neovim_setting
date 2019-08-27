@@ -1,5 +1,24 @@
 priority 10
 
+snippet app.yaml "app.yaml" b
+runtime: go111
+service: ${1:default}
+handlers:
+	- url: /stylesheets
+	  static_dir: stylesheets
+
+	- url: /(.*\.(gif|png|jpg))$
+	  static_files: static/\1
+	  upload: static/.*\.(gif|png|jpg)$
+
+	- url: /.*
+	  script: auto
+	  secure: always
+
+	env_variables:
+		ENV_NAME: ENV_VALUE
+endsnippet
+
 snippet dep "Deployment" b
 apiVersion: apps/v1
 kind: Deployment

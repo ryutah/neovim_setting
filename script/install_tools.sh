@@ -112,3 +112,9 @@ coursier bootstrap \
   -o $HOME/.local/bin/scalafmt \
   --standalone \
   --main org.scalafmt.cli.Cli
+
+
+###############################################
+# Markdown
+###############################################
+npm install -g markdownlint-cli

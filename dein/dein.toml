@@ -198,5 +198,5 @@ hook_add = 'call hook#add#lightline#load()'
 # Linters XXX: lazyでいいかも
 ##################################################################
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 hook_add = 'call hook#add#ale#load()'

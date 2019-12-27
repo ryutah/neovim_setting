@@ -200,3 +200,9 @@ hook_add = 'call hook#add#lightline#load()'
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = 'call hook#add#ale#load()'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+hook_add = '''
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+'''

@@ -73,11 +73,11 @@ function! s:set_denite_keymap() abort
   " Denite.vim
   nnoremap [denite] <Nop>
   nmap     <Leader>u [denite]
-  nnoremap <silent> <Leader><Leader> :Denite file/rec -smartcase -direction=topleft -highlight-mode-insert=String<CR>
-  nnoremap <silent> [denite]o        :Denite outline -split=vertical -highlight-mode-insert=String<CR>
-  nnoremap <silent> [denite]b        :Denite buffer -smartcase -direction=topleft -highlight-mode-insert=String<CR>
-  nnoremap <silent> [denite]f        :Denite file file:new -smartcase -direction=topleft -highlight-mode-insert=String<CR>
-  nnoremap <silent> [denite]g        :Denite grep -highlight-mode-insert=String<CR>
+  nnoremap <silent> <Leader><Leader> :Denite file/rec -smartcase -direction=topleft -start-filter -highlight-matched-char=RedrawDebugComposed<CR>
+  nnoremap <silent> [denite]o        :Denite outline -split=vertical -start-filter -highlight-matched-char=RedrawDebugComposed<CR>
+  nnoremap <silent> [denite]b        :Denite buffer -smartcase -direction=topleft -start-filter -highlight-matched-char=RedrawDebugComposed<CR>
+  nnoremap <silent> [denite]f        :Denite file file:new -smartcase -direction=topleft -start-filter -highlight-matched-char=RedrawDebugComposed<CR>
+  nnoremap <silent> [denite]g        :Denite grep -start-filter -highlight-matched-char=RedrawDebugComposed<CR>
 endfunction
 
 function! s:set_easy_align_keymap() abort

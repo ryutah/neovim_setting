@@ -205,3 +205,6 @@ repo = 'editorconfig/editorconfig-vim'
 hook_add = '''
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 '''
+
+[[plugins]]
+repo = 'https://tpope.io/vim/repeat.git'

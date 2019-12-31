@@ -155,6 +155,9 @@ let g:javascript_plugin_ngdoc = 1
 repo = 'mxw/vim-jsx'
 depends = ['vim-javascript']
 
+[[plugins]]
+repo = 'jparise/vim-graphql'
+
 
 ##################################################################
 # Git

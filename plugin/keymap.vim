@@ -9,7 +9,7 @@ function! s:set_cursor_keymap() abort
   noremap <S-h> ^
   noremap <S-l> $
   noremap <S-j> %
-  noremap <C-j> <S-j>
+  noremap <C-S-j> <S-j>
   nnoremap <C-h> H
   nnoremap <C-l> L
 endfunction

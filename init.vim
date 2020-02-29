@@ -18,6 +18,8 @@ function! s:init() abort
 
   set hidden " Allow load new buffe when not saved.
 
+  set diffopt=vertical
+
   filetype plugin indent on " Enable filetype plugin and indent
 
   " File encoding list

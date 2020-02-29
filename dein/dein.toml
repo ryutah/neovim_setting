@@ -19,74 +19,11 @@ hook_add = 'call hook#add#defx#load()'
 ##################################################################
 # Snipets, Completions
 ##################################################################
-# [[plugins]]
-# repo = 'neoclide/coc.nvim'
-# build = './install.sh'
-# rev = '*'
-# hook_add = '''
-# inoremap <silent><expr> <C-o> pumvisible() ? coc#_select_confirm() : 
-#                                            \"\<C-g>u\<C-o>\<c-r>=coc#on_enter()\<C-o>"
-# function! SetupCommandAbbrs(from, to)
-#   exec 'cnoreabbrev <expr> '.a:from
-#         \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
-#         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
-# endfunction
-#
-# " Use C to open coc config
-# call SetupCommandAbbrs('C', 'CocConfig')
-#
-# " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-# " Coc only does snippet and additional edit on confirm.
-# inoremap <expr> <C-o> pumvisible() ? "\<C-y>" : "\<C-g>u\<C-o>"
-#
-# " Use K to show documentation in preview window
-# nnoremap <silent> K :call <SID>show_documentation()<CR>
-#
-# function! s:show_documentation()
-#   if (index(['vim','help'], &filetype) >= 0)
-#     execute 'h '.expand('<cword>')
-#   else
-#     call CocAction('doHover')
-#   endif
-# endfunction
-#
-# " Remap keys for gotos
-# nmap <silent> gd <Plug>(coc-definition)
-# nmap <silent> gy <Plug>(coc-type-definition)
-# nmap <silent> gi <Plug>(coc-implementation)
-# nmap <silent> gr <Plug>(coc-references)
-#
-# " Remap for rename current word
-# nmap <space>rn <Plug>(coc-rename)
-# '''
-
 [[plugins]]
-repo = 'ncm2/ncm2'
-hook_add = 'call hook#add#ncm2#load()'
-
-[[plugins]]
-repo = 'ncm2/ncm2-bufword'
-
-[[plugins]]
-repo = 'ncm2/ncm2-path'
-
-[[plugins]]
-repo = 'ncm2/ncm2-ultisnips'
-hook_add = 'call hook#add#ncm2_ultisnips#load()'
-
-[[plugins]]
-repo = 'ncm2/ncm2-vim'
-depends = ['neco-vim']
-
-[[plugins]]
-repo = 'Shougo/neco-vim'
-
-[[plugins]]
-repo = 'ncm2/ncm2-match-highlight'
-
-[[plugins]]
-repo     = 'SirVer/ultisnips'
-hook_add = 'call hook#add#ultisnips#load()'
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = 0
+hook_add = 'call hook#add#coc#load()'
 
 [[plugins]]
 repo = 'honza/vim-snippets'

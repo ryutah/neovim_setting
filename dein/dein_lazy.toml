@@ -1,25 +1,4 @@
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-on_ft = [
-  'javascript',
-  'ocaml',
-  'python',
-  'typescript',
-  'vue',
-  'javascript.jsx',
-  'dart',
-  'ocaml',
-  'rust',
-  'java',
-  'haskell',
-  'go',
-  'scala',
-]
-hook_post_update = '!./install.sh'
-hook_source = 'call hook#source#language_client_neovim#load()'
-
-[[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
 

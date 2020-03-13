@@ -77,6 +77,17 @@
       }
     }
   },
+  "snippets.extends": {
+    "javascriptreact": [
+      "javascript"
+    ],
+    "typescriptreact": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
+  },
   "snippets.ultisnips.directories": [
     "UltiSnips",
     "gosnippets/UltiSnips",

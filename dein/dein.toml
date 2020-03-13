@@ -95,6 +95,12 @@ depends = ['vim-javascript']
 [[plugins]]
 repo = 'jparise/vim-graphql'
 
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+
 
 ##################################################################
 # Git

@@ -88,9 +88,9 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 '''
 
-[[plugins]]
-repo = 'mxw/vim-jsx'
-depends = ['vim-javascript']
+# [[plugins]]
+# repo = 'mxw/vim-jsx'
+# depends = ['vim-javascript']
 
 [[plugins]]
 repo = 'jparise/vim-graphql'

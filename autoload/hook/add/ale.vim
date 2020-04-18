@@ -35,6 +35,7 @@ function! hook#add#ale#load() abort
         \   'scss': ['prettier'],
         \   'haskell': ['hfmt'],
         \   'sql': ['pgformatter'],
+        \   'graphql': ['prettier'],
         \ }
 
   let g:ale_linters = {

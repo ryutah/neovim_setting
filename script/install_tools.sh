@@ -6,7 +6,7 @@ set -eux
 ###############################################
 # Go
 ###############################################
-go get -u golang.org/x/lint/golint honnef.co/go/tools/cmd/staticcheck golang.org/x/tools/...
+go get -u honnef.co/go/tools/cmd/staticcheck golang.org/x/tools/cmd/...
 
 ###############################################
 # JavaScript, TypeScript

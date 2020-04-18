@@ -38,7 +38,7 @@ function! hook#add#ale#load() abort
         \ }
 
   let g:ale_linters = {
-        \   'go': ['go build', 'go vet', 'staticcheck', 'golint'],
+        \   'go': ['go build', 'go vet', 'staticcheck', 'golangci-lint'],
         \   'javascript': ['eslint'],
         \   'typescript': ['tslint', 'tsserver'],
         \   'python': ['autopep8', 'flake8'],

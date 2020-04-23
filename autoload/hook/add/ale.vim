@@ -11,6 +11,8 @@ function! hook#add#ale#load() abort
   let g:ale_go_staticcheck_lint_package = 1
   let g:ale_lint_on_text_changed = 'never'
 
+  let g:ale_go_golangci_lint_options = '--tests -E misspell -E unparam -E goimports'
+
   " Set to use merlin
   if executable("opam")
     let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
@@ -39,7 +41,7 @@ function! hook#add#ale#load() abort
         \ }
 
   let g:ale_linters = {
-        \   'go': ['go build', 'go vet', 'staticcheck', 'golangci-lint'],
+        \   'go': ['go build', 'go vet', 'golangci-lint'],
         \   'javascript': ['eslint'],
         \   'typescript': ['tslint', 'tsserver'],
         \   'python': ['autopep8', 'flake8'],

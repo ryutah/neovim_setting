@@ -58,7 +58,7 @@ function! s:set_console_keymap() abort
   nnoremap [Console]  <Nop>
   nmap     <Leader>c [Console]
   nnoremap <silent>  [Console]v :vs +term<CR>
-  nnoremap <silent>  [Console]i :split +term<CR>
+  nnoremap <silent>  [Console]i :split +term<CR> <C-w>10-
   nnoremap <silent>  [Console]t :tabnew +term<CR>
   tnoremap <silent> <ESC> <C-\><C-n>
 endfunction

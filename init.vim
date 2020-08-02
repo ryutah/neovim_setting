@@ -30,6 +30,7 @@ function! s:init() abort
   " set ambiwidth=double
 
   set ignorecase " Set command to ignore case
+  set splitbelow " split horizonal screen to below
 
   let g:netrw_liststyle = 3 " netrw set to tree style listing
 

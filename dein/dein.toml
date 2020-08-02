@@ -12,8 +12,14 @@ repo = 'Shougo/denite.nvim'
 hook_add = 'call hook#add#denite#load()'
 
 [[plugins]]
-repo = 'Shougo/defx.nvim'
-hook_add = 'call hook#add#defx#load()'
+repo = 'preservim/nerdtree' 
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = '''
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '   '
+let g:webdevicons_enable_denite = 0
+'''
 
 
 ##################################################################
@@ -46,6 +52,9 @@ repo = 'godlygeek/tabular'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'https://tpope.io/vim/repeat.git'
 
 
 ##################################################################
@@ -151,6 +160,3 @@ repo = 'editorconfig/editorconfig-vim'
 hook_add = '''
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 '''
-
-[[plugins]]
-repo = 'https://tpope.io/vim/repeat.git'

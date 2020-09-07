@@ -110,6 +110,8 @@ repo = 'leafgarland/typescript-vim'
 [[plugins]]
 repo = 'peitalin/vim-jsx-typescript'
 
+[[plugins]]
+repo = 'udalov/kotlin-vim'
 
 ##################################################################
 # Git
@@ -146,7 +148,6 @@ let g:indentLine_fileTypeExclude = ['markdown']
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = 'call hook#add#lightline#load()'
-
 
 ##################################################################
 # Linters XXX: lazyでいいかも

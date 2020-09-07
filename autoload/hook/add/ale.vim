@@ -7,7 +7,6 @@ function! hook#add#ale#load() abort
 
   let g:ale_javascript_prettier_options = '--tab-width="' . shiftwidth() . '" --trailing-comma es5 --arrow-parens=always'
   let g:ale_java_google_java_format_executable = g:outher_package_path . '/google_java_format'
-  let g:ale_sql_pgformatter_options = '-s 2 -u 2 -B'
   let g:ale_go_staticcheck_lint_package = 1
   let g:ale_lint_on_text_changed = 'never'
 
@@ -36,14 +35,13 @@ function! hook#add#ale#load() abort
         \   'css': ['prettier'],
         \   'scss': ['prettier'],
         \   'haskell': ['hfmt'],
-        \   'sql': ['pgformatter'],
         \   'graphql': ['prettier'],
         \ }
 
   let g:ale_linters = {
-        \   'go': ['go build', 'go vet', 'golangci-lint'],
+        \   'go': ['golangci-lint'],
         \   'javascript': ['eslint'],
-        \   'typescript': ['tslint', 'tsserver'],
+        \   'typescript': ['eslint'],
         \   'python': ['autopep8', 'flake8'],
         \   'dart': ['dartanalyzer', 'dartfmt'],
         \   'markdown': ['mymarkdownlint'],

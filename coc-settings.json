@@ -1,5 +1,12 @@
 {
-  "diagnostic.enable": false,
+  "languageserver": {
+    "kotlin": {
+      "command": "~/.local/nvim/server/bin/kotlin-language-server",
+      "filetypes": [
+        "kotlin"
+      ]
+    }
+  },
   "snippets.extends": {
     "javascriptreact": [
       "javascript"
@@ -15,5 +22,9 @@
     "UltiSnips",
     "gosnippets/UltiSnips",
     "snippets/ultisnips"
-  ]
+  ],
+  "python.jediEnabled": false,
+  "go.goplsOptions": {
+    "usePlaceholders": true
+  }
 }

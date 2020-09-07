@@ -10,6 +10,7 @@ function! hook#add#coc#load() abort
 
   " Use K to show documentation in preview window
   nnoremap <silent> K :call <SID>show_documentation()<CR>
+  nmap <silent> <Space>rf <Plug>(coc-references)
 
   " Remap keys for gotos
   nmap <silent> gd <Plug>(coc-definition)

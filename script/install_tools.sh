@@ -6,14 +6,14 @@ set -eux
 ###############################################
 # Go
 ###############################################
-go get -u honnef.co/go/tools/cmd/staticcheck golang.org/x/tools/cmd/...
+go get -u golang.org/x/tools/cmd/goimports
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
 
 ###############################################
 # JavaScript, TypeScript
 ###############################################
 npm install -g \
   eslint \
-  tslint \
   prettier \
   fixjson \
   typescript
@@ -22,7 +22,6 @@ npm install -g \
 # Python
 ###############################################
 pip install -U \
-  python-language-server \
   autopep8 \
   flake8
 
@@ -30,24 +29,6 @@ pip install -U \
 # Ruby
 ###############################################
 gem install rubocop
-
-###############################################
-# Java
-###############################################
-google_java_format_version=1.7
-wget -O ${nvim_lib_dir}/google-java-format.jar \
-  https://github.com/google/google-java-format/releases/download/google-java-format-${google_java_format_version}/google-java-format-${google_java_format_version}-all-deps.jar
-rm -rf ${nvim_lib_dir}/google_java_format
-echo '#!/bin/sh\njava -jar /Users/ryuta/.local/nvim/google-java-format.jar --aosp $*' > ${nvim_lib_dir}/google_java_format
-chmod +x ${nvim_lib_dir}/google_java_format
-
-# TODO: Eclipse LSP JDT Install
-
-
-###############################################
-# SQL
-###############################################
-# go get github.com/jackc/sqlfmt/...
 
 ###############################################
 # OCaml

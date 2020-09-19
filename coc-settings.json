@@ -1,4 +1,7 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": [
+    "vue"
+  ],
   "languageserver": {
     "kotlin": {
       "command": "~/.local/nvim/server/bin/kotlin-language-server",

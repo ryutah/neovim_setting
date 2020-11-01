@@ -32,6 +32,9 @@ function! s:init() abort
   set ignorecase " Set command to ignore case
   set splitbelow " split horizonal screen to below
 
+  set foldmethod=syntax
+  set foldlevelstart=99
+
   let g:netrw_liststyle = 3 " netrw set to tree style listing
 
   set undofile

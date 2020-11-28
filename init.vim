@@ -1,3 +1,4 @@
+set hidden
 set number
 set clipboard+=unnamedplus
 set ignorecase
@@ -133,6 +134,7 @@ set updatetime=300
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 inoremap <expr> <C-o> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<C-o>"
 nnoremap [coc] <Nop>

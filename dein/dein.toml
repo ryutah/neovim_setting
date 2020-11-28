@@ -88,9 +88,6 @@ depends = ['tabular']
 repo = 'Glench/Vim-Jinja2-Syntax'
 
 [[plugins]]
-repo = 'leafgarland/typescript-vim'
-
-[[plugins]]
 repo = 'pangloss/vim-javascript'
 hook_add = '''
 let g:javascript_plugin_jsdoc = 1
@@ -148,6 +145,13 @@ let g:indentLine_fileTypeExclude = ['markdown']
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = 'call hook#add#lightline#load()'
+
+[[plugins]]
+repo = 'miyakogi/seiya.vim'
+hook_add = '''
+let g:seiya_auto_enable=1
+let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
+'''
 
 ##################################################################
 # Linters XXX: lazyでいいかも

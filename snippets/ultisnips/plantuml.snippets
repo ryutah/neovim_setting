@@ -1,0 +1,15 @@
+priority 10
+
+snippet ddd "Domain Model Template" b
+@startuml ${uml_name}
+
+skinparam class {
+	BackgroundColor<<Entity>> pink
+	BackgroundColor<<VO>> palegreen
+	BackgroundColor<<Service>> cyan
+}
+hide circle
+
+@enduml
+
+endsnippet

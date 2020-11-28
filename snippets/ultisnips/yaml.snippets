@@ -84,3 +84,25 @@ spec:
 		  port: 80
 		  targetPort: 80
 endsnippet
+
+snippet circleci "CircleCI yaml" b
+version: 2.1
+
+orbs:
+  go: circleci/go@1.5.0
+
+jobs:
+  unit_test:
+    docker:
+      - image: 'cimg/go:1.15'
+    steps:
+      - checkout
+      - run:
+	      go test ./...
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - unit_test
+endsnippet

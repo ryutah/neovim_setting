@@ -11,14 +11,13 @@ function! hook#add#ale#load() abort
   let g:ale_lint_on_text_changed = 'never'
 
   let g:ale_go_golangci_lint_options = '--tests -E misspell -E unparam -E goimports'
+  let g:ale_go_golangci_lint_package = 1
 
   " Set to use merlin
   if executable("opam")
     let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
   endif
-
-  call s:markdownlint_define()
 
   let g:ale_fixers = {
         \   'go': ['goimports'],
@@ -44,7 +43,7 @@ function! hook#add#ale#load() abort
         \   'typescript': ['eslint'],
         \   'python': ['autopep8', 'flake8'],
         \   'dart': ['dartanalyzer', 'dartfmt'],
-        \   'markdown': ['mymarkdownlint'],
+        \   'markdown': ['markdownlint'],
         \ }
 endfunction
 

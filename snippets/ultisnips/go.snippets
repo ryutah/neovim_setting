@@ -1,51 +1,6 @@
 priority 10
 
-snippet /^pkg/ "Package declaration" r
-package ${1:main}
-endsnippet
-
-snippet funct "Test function" b
-func Test$1(t *testing.T) {
-	$2
-}
-endsnippet
-
-snippet funcb "Bench function" b
-func Benchmark$1(b *testing.B) {
-	$2
-}
-endsnippet
-
-snippet functcase "Test function with case" b
-func Test$1(t *testing.T) {
-	type(
-		in       struct{}
-		ret      struct{}
-		expected struct{}
-	)
-	cases := []struct{
-		name string
-		in        in
-		ret       ret
-		expected  expected
-	}{
-		{
-			name:      "${2:test1}",
-			in:        in{},
-			ret:       ret{},
-			expected:  expected{},
-		},
-	}
-
-	for _, c := range cases {
-		t.Run(c.name, func(t *testing.T) {
-			$3
-		})
-	}
-}
-endsnippet
-
-snippet graceful_shutdown "Graceful Shutdown" b
+snippet graceful "Graceful Shutdown" b
 package main
 
 import (

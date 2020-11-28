@@ -1,33 +1,78 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "vue"
-  ],
+  "go.goplsOptions": {
+    "usePlaceholders": true
+  },
+  "json.format.enable": false,
+  "yaml.format.enable": false,
+  "python.jediEnabled": false,
+  "snippets.ultisnips.directories": ["snippets/ultisnips"],
+  "snippets.ultisnips.enable": true,
   "languageserver": {
-    "kotlin": {
-      "command": "~/.local/nvim/server/bin/kotlin-language-server",
-      "filetypes": [
-        "kotlin"
+    "golangci-lint-languageserver": {
+      "command": "golangci-lint-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--out-format",
+          "json",
+          "--enable-all"
+        ]
+      }
+    }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "javascript": ["eslint"],
+    "typescript": ["eslint"],
+    "markdown": ["markdownlint"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "javascript": "prettier_js",
+    "typescript": "prettier_js",
+    "json": "prettier",
+    "yaml": "prettier",
+    "sh": "shfmt",
+    "markdown": "prettier"
+  },
+  "diagnostic-languageserver.linters": {
+    "markdownlint": {
+      "command": "markdownlint",
+      "isStderr": true,
+      "debounce": 100,
+      "args": ["--stdin"],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "markdownlint",
+      "formatLines": 1,
+      "formatPattern": [
+        "^.*?:(\\d+):(\\d)\\s+(.*)(\\r|\\n)*$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 3
+        }
       ]
     }
   },
-  "snippets.extends": {
-    "javascriptreact": [
-      "javascript"
-    ],
-    "typescriptreact": [
-      "javascript"
-    ],
-    "typescript": [
-      "javascript"
-    ]
-  },
-  "snippets.ultisnips.directories": [
-    "UltiSnips",
-    "gosnippets/UltiSnips",
-    "snippets/ultisnips"
-  ],
-  "python.jediEnabled": false,
-  "go.goplsOptions": {
-    "usePlaceholders": true
+  "diagnostic-languageserver.formatters": {
+    "prettier_js": {
+      "command": "prettier",
+      "args": [
+        "--trailing-comma",
+        "es5",
+        "--arrow-parens",
+        "always",
+        "--stdin-filepath",
+        "%filename"
+      ]
+    },
+    "prettier": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filename"]
+    },
+    "shfmt": {
+      "command": "shfmt"
+    }
   }
 }

@@ -2,22 +2,33 @@
 
 My neovim config
 
-## Prepare
+## Pre Required
 
-### Python
+### Install [vim-plug](https://github.com/junegunn/vim-plug)
 
-1.  Install Python2 and Python3 by pyenv and set environment.  
-    Reference [here](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim#tips-for-using-pyenv)
+```console
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
 
-2.  Set environment variables `$python3_neovim` and `python2_neovim` to name of created environemt.
+### Set Python3 PATH
 
-## tools
+```console
+export PYTHON3_PATH="<PYTHON3_INSTALL_PATH>"
+```
 
--   [fd](https://github.com/sharkdp/fd)  
-    Alternative find implements by Rust.
+references [here](https://github.com/deoplete-plugins/deoplete-jedi/wiki/Setting-up-Python-for-Neovim#using-virtual-environments)
 
--   [ag](https://github.com/ggreer/the_silver_searcher) or [ripgrep](https://github.com/BurntSushi/ripgrep)  
-    Faster search tool.  
+## Usage
 
--   [universal-ctags](https://github.com/universal-ctags/ctags)  
-    new ctags
+### Install
+
+```console
+./script/initialize.sh
+```
+
+### Update
+
+```console
+./script/update.sh
+```

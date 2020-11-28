@@ -18,7 +18,7 @@ set foldmethod=syntax
 set foldlevelstart=99
 " Undo setting
 set undofile
-execute 'set undodir=' . stdpath('cache') . '/sandbox/undo'
+execute 'set undodir=' . stdpath('cache') . '/undo'
 
 let g:python3_host_prog = expand('$PYTHON3_PATH')
 

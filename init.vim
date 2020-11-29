@@ -37,12 +37,16 @@ Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 
 " Vim UI / UX
-" Plug 'ms-jpq/chadtree', { 'branch': 'chad', 'do': ':UpdateRemotePlugins' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'miyakogi/seiya.vim'
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
+Plug 'lambdalisue/fern-git-status.vim'
 
 " Code Extends
 Plug 'editorconfig/editorconfig-vim'
@@ -169,6 +173,7 @@ augroup cocGoGroup
   autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
   autocmd BufEnter *.go :silent nnoremap <silent> <Leader>go <cmd>CocCommand go.impl.cursor<CR>
 augroup END
+
 command! GoBinaryUpdates CocCommand go.install.tools
 
 """""""""""""""""""""""""""""""""""""""""
@@ -188,3 +193,46 @@ let g:go_highlight_functions = 1
 """""""""""""""""""""""""""""""""""""""""
 let g:seiya_auto_enable = 1
 let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
+
+"""""""""""""""""""""""""""""""""""""""""
+" lambdalisue/fern.vim
+"""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <Leader>v <cmd>Fern . -width=40 -stay -reveal=% -drawer -toggle<CR>
+
+augroup my-fern-highlight
+    autocmd!
+    autocmd User FernHighlight call s:on_highlight()
+augroup END
+
+augroup my-fern
+    autocmd! *
+    autocmd FileType fern call s:init_fern()
+augroup END
+
+function! s:on_highlight() abort
+    highlight link FernRootSymbol Identifier
+    highlight link FernRootText Identifier
+    highlight link FernBranchText Identifier
+endfunction
+
+function! s:init_fern() abort
+  nmap <buffer> i <Plug>(fern-action-open:split)
+  nmap <buffer> s <Plug>(fern-action-open:vsplit)
+  nmap <buffer> S <Plug>(fern-action-open:select)
+  nmap <buffer> / <Plug>(fern-action-reveal)
+endfunction
+
+" lambdalisue/nerdfont.vim and lambdalisue/fern-renderer-nerdfont.vim configuration
+let g:fern#renderer = "nerdfont"
+
+" lambdalisue/glyph-palette.vim configuration
+augroup my-glyph-palette
+    autocmd! *
+    autocmd FileType fern call glyph_palette#apply()
+    autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+
+"""""""""""""""""""""""""""""""""""""""""
+" https://tpope.io/vim/fugitive.git
+"""""""""""""""""""""""""""""""""""""""""
+set diffopt=vertical

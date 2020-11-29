@@ -21,6 +21,8 @@ set undofile
 execute 'set undodir=' . stdpath('cache') . '/undo'
 
 let g:python3_host_prog = expand('$PYTHON3_PATH')
+" Too heavy
+let g:polyglot_disabled = ['vue']
 
 """""""""""""""""""""""""""""""""""""""""
 " plugins

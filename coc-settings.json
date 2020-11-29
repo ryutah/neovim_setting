@@ -9,7 +9,8 @@
     "yaml",
     "json",
     "markdown",
-    "sql"
+    "sql",
+    "vue"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -20,7 +21,8 @@
     "yaml",
     "json",
     "markdown",
-    "sql"
+    "sql",
+    "vue"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true

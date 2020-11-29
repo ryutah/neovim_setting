@@ -148,9 +148,8 @@ nnoremap <silent>  [coc]l <cmd>CocList<CR>
 command! Format call CocAction('format')
 
 augroup cocgroup
-  autocmd!
-  autocmd BufWritePre * :silent call CocAction('format')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " coc-snippets config

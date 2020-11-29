@@ -1,4 +1,27 @@
 {
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "rust",
+    "python",
+    "javascript",
+    "typescript",
+    "yaml",
+    "json",
+    "markdown",
+    "sql"
+  ],
+  "coc.preferences.formatOnTypeFiletypes": [
+    "go",
+    "rust",
+    "python",
+    "javascript",
+    "typescript",
+    "yaml",
+    "json",
+    "markdown",
+    "sql"
+  ],
   "go.goplsOptions": {
     "usePlaceholders": true
   },

@@ -60,6 +60,22 @@ Plug 'sheerun/vim-polyglot'
 " Git Extends
 Plug 'https://tpope.io/vim/fugitive.git'
 Plug 'airblade/vim-gitgutter'
+
+" Coc Extensions
+Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-yaml', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-vetur', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-python', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'josa42/coc-sh', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'josa42/coc-go', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'josa42/coc-docker', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'fannheyward/coc-rust-analyzer', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'fannheyward/coc-sql', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'fannheyward/coc-marketplace', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'iamcco/coc-vimlsp', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""

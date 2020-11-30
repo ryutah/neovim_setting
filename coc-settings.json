@@ -30,7 +30,6 @@
   "json.format.enable": false,
   "yaml.format.enable": false,
   "python.jediEnabled": false,
-  "snippets.ultisnips.directories": ["snippets/ultisnips"],
   "snippets.ultisnips.enable": true,
   "languageserver": {
     "golangci-lint-languageserver": {

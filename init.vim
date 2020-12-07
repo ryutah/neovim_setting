@@ -56,6 +56,8 @@ Plug 'tyru/caw.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
+Plug 'skanehira/preview-markdown.vim'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Git Extends
 Plug 'https://tpope.io/vim/fugitive.git'
@@ -84,6 +86,7 @@ call plug#end()
 let mapleader = "\<Space>"
 
 " cursor keymap
+noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
@@ -154,14 +157,17 @@ let g:fzf_action = {
 set hidden
 set updatetime=300
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K <cmd>call <SID>show_documentation()<CR>
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rf <Plug>(coc-references)
+nmap <leader>gn <Plug>(coc-diagnostic-next)
+nmap <leader>gp <Plug>(coc-diagnostic-prev)
 inoremap <expr> <C-o> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<C-o>"
 nnoremap [coc] <Nop>
 nmap     <Leader>c [coc]
-nnoremap <silent>  [coc]l <cmd>CocList<CR>
+nnoremap <silent> [coc]l <cmd>CocList<CR>
+nnoremap <silent> [coc]a <cmd>call CocAction('codeAction')<CR>
 
 command! Format call CocAction('format')
 
@@ -253,3 +259,8 @@ augroup END
 " https://tpope.io/vim/fugitive.git
 """""""""""""""""""""""""""""""""""""""""
 set diffopt=vertical
+
+"""""""""""""""""""""""""""""""""""""""""
+" skanehira/preview-markdown.vim
+"""""""""""""""""""""""""""""""""""""""""
+let g:preview_markdown_vertical = 1

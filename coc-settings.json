@@ -10,7 +10,9 @@
     "json",
     "markdown",
     "sql",
-    "vue"
+    "vue",
+    "html",
+    "css"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -22,7 +24,9 @@
     "json",
     "markdown",
     "sql",
-    "vue"
+    "vue",
+    "html",
+    "css"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,
@@ -51,6 +55,8 @@
     "typescript": "prettier_js",
     "json": "prettier",
     "yaml": "prettier",
+    "html": "prettier",
+    "css": "prettier",
     "sh": "shfmt",
     "markdown": "prettier"
   },

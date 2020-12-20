@@ -25,7 +25,8 @@
     "vue"
   ],
   "go.goplsOptions": {
-    "usePlaceholders": true
+    "usePlaceholders": true,
+    "gofumpt": true
   },
   "json.format.enable": false,
   "yaml.format.enable": false,
@@ -36,13 +37,7 @@
       "command": "golangci-lint-langserver",
       "filetypes": ["go"],
       "initializationOptions": {
-        "command": [
-          "golangci-lint",
-          "run",
-          "--out-format",
-          "json",
-          "--enable-all"
-        ]
+        "command": ["golangci-lint", "run", "--out-format", "json"]
       }
     }
   },
@@ -83,6 +78,8 @@
     "prettier_js": {
       "command": "prettier",
       "args": [
+        "--config-precedence",
+        "prefer-file",
         "--trailing-comma",
         "es5",
         "--arrow-parens",

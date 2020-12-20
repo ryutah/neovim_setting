@@ -56,8 +56,9 @@ Plug 'tyru/caw.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
-Plug 'skanehira/preview-markdown.vim'
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'skanehira/preview-markdown.vim', { 'for': 'markdown' }
+Plug 'mattn/vim-maketable'
+Plug 'previm/previm'
 
 " Git Extends
 Plug 'https://tpope.io/vim/fugitive.git'
@@ -264,3 +265,11 @@ set diffopt=vertical
 " skanehira/preview-markdown.vim
 """""""""""""""""""""""""""""""""""""""""
 let g:preview_markdown_vertical = 1
+
+"""""""""""""""""""""""""""""""""""""""""
+" junegunn/vim-easy-align
+"""""""""""""""""""""""""""""""""""""""""
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+let g:previm_open_cmd = 'open -a Vivaldi'

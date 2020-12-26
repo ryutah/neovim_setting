@@ -12,7 +12,9 @@
     "sql",
     "vue",
     "html",
-    "css"
+    "css",
+    "fish",
+    "proto"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -26,7 +28,9 @@
     "sql",
     "vue",
     "html",
-    "css"
+    "css",
+    "fish",
+    "proto"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,
@@ -48,7 +52,9 @@
   "diagnostic-languageserver.filetypes": {
     "javascript": ["eslint"],
     "typescript": ["eslint"],
-    "markdown": ["markdownlint"]
+    "markdown": ["markdownlint"],
+    "proto": ["clang-format"],
+    "fish": ["fish_indent"]
   },
   "diagnostic-languageserver.formatFiletypes": {
     "javascript": "prettier_js",
@@ -58,7 +64,9 @@
     "html": "prettier",
     "css": "prettier",
     "sh": "shfmt",
-    "markdown": "prettier"
+    "markdown": "prettier",
+    "proto": "clang-format",
+    "fish": "fish_indent"
   },
   "diagnostic-languageserver.linters": {
     "markdownlint": {
@@ -100,6 +108,13 @@
     },
     "shfmt": {
       "command": "shfmt"
+    },
+    "clang-format": {
+      "command": "clang-format"
+    },
+    "fish_indent": {
+      "command": "fish_indent"
     }
-  }
+  },
+  "coc.source.fish.enable": true
 }

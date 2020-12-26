@@ -14,3 +14,5 @@ ls ./node_modules/.bin | xargs -tI {} ln -f -s $(pwd)/node_modules/.bin/{} ${HOM
 
 curl -L -o $HOME/.local/bin/mdr https://github.com/MichaelMure/mdr/releases/download/v0.2.5/mdr_darwin_amd64
 chmod +x $HOME/.local/bin/mdr
+
+pip install -U pynvim

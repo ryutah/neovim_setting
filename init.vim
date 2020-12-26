@@ -24,6 +24,13 @@ let g:python3_host_prog = expand('$PYTHON3_PATH')
 " Too heavy
 let g:polyglot_disabled = ['vue']
 
+if system('uname -a | grep microsoft') != ""
+    augroup myYank
+        autocmd!
+        autocmd TextYankPost * :call system('clip.exe', @")
+    augroup END
+endif
+
 """""""""""""""""""""""""""""""""""""""""
 " plugins
 """""""""""""""""""""""""""""""""""""""""
@@ -129,8 +136,8 @@ colorscheme ayu
 """""""""""""""""""""""""""""""""""""""""
 " tyru/caw.vim
 """""""""""""""""""""""""""""""""""""""""
-nmap <C-_> <Plug>(caw:hatpos:toggle)
-vmap <C-_> <Plug>(caw:hatpos:toggle)
+nmap <leader>/ <Plug>(caw:hatpos:toggle)
+vmap <leader>/ <Plug>(caw:hatpos:toggle)
 
 """""""""""""""""""""""""""""""""""""""""
 " vim-airline/vim-airline
@@ -156,7 +163,7 @@ let g:fzf_action = {
 " neoclide/coc.nvim
 """""""""""""""""""""""""""""""""""""""""
 set hidden
-set updatetime=300
+set updatetime=100
 
 nnoremap <silent> K <cmd>call <SID>show_documentation()<CR>
 nmap <silent> gd <Plug>(coc-definition)

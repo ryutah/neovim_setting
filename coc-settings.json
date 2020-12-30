@@ -34,7 +34,8 @@
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,
-    "gofumpt": true
+    "gofumpt": true,
+    "completeUnimported": true
   },
   "json.format.enable": false,
   "yaml.format.enable": false,

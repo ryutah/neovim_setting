@@ -24,7 +24,7 @@ let g:python3_host_prog = expand('$PYTHON3_PATH')
 " Too heavy
 let g:polyglot_disabled = ['vue']
 
-if system('uname -a | grep microsoft') != ""
+if system('uname -a | grep -i microsoft') != ""
     augroup myYank
         autocmd!
         autocmd TextYankPost * :call system('clip.exe', @")

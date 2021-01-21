@@ -26,4 +26,9 @@ mkdir -p tmp; cd tmp
 wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz
 tar xvf clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz
 mv clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-20.04/bin/clang-format $HOME/.local/bin/
+
+wget https://releases.hashicorp.com/terraform-ls/0.12.1/terraform-ls_0.12.1_linux_amd64.zip
+unzip terraform-ls_0.12.1_linux_amd64.zip
+mv terraform-ls $HOME/.local/bin/
+
 cd ..; rm -rf tmp

@@ -14,7 +14,9 @@
     "html",
     "css",
     "fish",
-    "proto"
+    "proto",
+    "terraform",
+    "jsonc"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -30,7 +32,9 @@
     "html",
     "css",
     "fish",
-    "proto"
+    "proto",
+    "terraform",
+    "jsonc"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,
@@ -48,6 +52,13 @@
       "initializationOptions": {
         "command": ["golangci-lint", "run", "--out-format", "json"]
       }
+    },
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
     }
   },
   "diagnostic-languageserver.filetypes": {
@@ -61,6 +72,7 @@
     "javascript": "prettier_js",
     "typescript": "prettier_js",
     "json": "prettier",
+    "jsonc": "prettier",
     "yaml": "prettier",
     "html": "prettier",
     "css": "prettier",

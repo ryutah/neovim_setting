@@ -87,6 +87,7 @@ Plug 'fannheyward/coc-marketplace', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'iamcco/coc-vimlsp', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'oncomouse/coc-fish', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'marlonfan/coc-phpls', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""

@@ -16,7 +16,9 @@
     "fish",
     "proto",
     "terraform",
-    "jsonc"
+    "jsonc",
+    "php",
+    "yaml.docker-compose"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -34,7 +36,9 @@
     "fish",
     "proto",
     "terraform",
-    "jsonc"
+    "jsonc",
+    "php",
+    "yaml.docker-compose"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,
@@ -74,6 +78,7 @@
     "json": "prettier",
     "jsonc": "prettier",
     "yaml": "prettier",
+    "yaml.docker-compose": "prettier",
     "html": "prettier",
     "css": "prettier",
     "sh": "shfmt",

@@ -18,7 +18,8 @@
     "terraform",
     "jsonc",
     "php",
-    "yaml.docker-compose"
+    "yaml.docker-compose",
+    "java"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -38,7 +39,8 @@
     "terraform",
     "jsonc",
     "php",
-    "yaml.docker-compose"
+    "yaml.docker-compose",
+    "java"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,
@@ -47,6 +49,17 @@
   },
   "json.format.enable": false,
   "yaml.format.enable": false,
+  "yaml.completion": true,
+  "yaml.schemas": {
+    "kubernetes": [
+      "k8s.yaml",
+      "k8s/**/*.yaml",
+      "k8s.yml",
+      "k8s/**/*.yml",
+      "k8s/*.yaml",
+      "k8s/*.yml"
+    ]
+  },
   "python.jediEnabled": false,
   "snippets.ultisnips.enable": true,
   "languageserver": {

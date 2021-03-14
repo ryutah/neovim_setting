@@ -24,7 +24,11 @@ let g:python3_host_prog = expand('$PYTHON3_PATH')
 " Too heavy
 let g:polyglot_disabled = ['vue']
 
-if system('uname -a | grep -i microsoft') != ""
+function s:is_run_in_wsl() abort
+    return system('uname -a | grep -i microsoft') != ""
+endfunction
+
+if s:is_run_in_wsl()
     augroup myYank
         autocmd!
         autocmd TextYankPost * :call system('clip.exe', @")
@@ -66,6 +70,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'skanehira/preview-markdown.vim', { 'for': 'markdown' }
 Plug 'mattn/vim-maketable'
 Plug 'previm/previm'
+Plug 'mattn/emmet-vim'
 
 " Git Extends
 Plug 'https://tpope.io/vim/fugitive.git'
@@ -88,6 +93,7 @@ Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'iamcco/coc-vimlsp', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'oncomouse/coc-fish', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'marlonfan/coc-phpls', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-java', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""
@@ -281,4 +287,5 @@ let g:preview_markdown_vertical = 1
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-let g:previm_open_cmd = 'open -a Vivaldi'
+let g:previm_open_cmd = '/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
+let g:previm_wsl_mode = 1

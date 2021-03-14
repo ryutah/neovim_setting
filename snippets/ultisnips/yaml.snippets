@@ -43,16 +43,16 @@ spec:
             - containerPort: 8080
           livenessProbe:
             httpGet:
-            path: /healthz
-            port: 8080
+              path: /healthz
+              port: 8080
             timeoutSeconds: 5
             initialDelaySeconds: 5
             successThreshold: 1
             failureThreshold: 5
           readinessProbe:
             httpGet:
-            path: /healthz
-            port: 80
+              path: /healthz
+              port: 80
             timeoutSeconds: 5
             initialDelaySeconds: 5
             successThreshold: 1
@@ -61,9 +61,9 @@ spec:
             requests:
               memory: 10Mi
               cpu: 10m
-          limits:
-            memory: 128Mi
-            cpu: 100m
+            limits:
+              memory: 128Mi
+              cpu: 100m
 endsnippet
 
 snippet svc "Service" b

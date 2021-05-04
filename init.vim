@@ -25,14 +25,14 @@ let g:python3_host_prog = expand('$PYTHON3_PATH')
 let g:polyglot_disabled = ['vue']
 
 function s:is_run_in_wsl() abort
-    return system('uname -a | grep -i microsoft') != ""
+  return system('uname -a | grep -i microsoft') != ""
 endfunction
 
 if s:is_run_in_wsl()
-    augroup myYank
-        autocmd!
-        autocmd TextYankPost * :call system('clip.exe', @")
-    augroup END
+  augroup myYank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe', @")
+  augroup END
 endif
 
 """""""""""""""""""""""""""""""""""""""""
@@ -94,6 +94,7 @@ Plug 'iamcco/coc-vimlsp', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'oncomouse/coc-fish', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'marlonfan/coc-phpls', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-java', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'kkiyama117/coc-toml', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""
@@ -133,11 +134,11 @@ nnoremap <silent>  [split]- 10<C-w>-
 """""""""""""""""""""""""""""""""""""""""
 " colorscheme gruvbox
 if has("termguicolors")
-    " fix true color not work under tmux
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    " enable true color
-    set termguicolors
+  " fix true color not work under tmux
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  " enable true color
+  set termguicolors
 endif
 colorscheme ayu
 
@@ -161,11 +162,11 @@ nnoremap <silent> <Leader><Leader>g <cmd>Rg<CR>
 nnoremap <silent> <Leader><Leader>t <cmd>BTags<CR>
 " refs: https://github.com/junegunn/fzf.vim/issues/772
 let g:fzf_action = {
-\ 'ctrl-t': 'tab split',
-\ 'ctrl-i': 'split',
-\ 'ctrl-s': 'vsplit',
-\ 'ctrl-y': { lines -> setreg('*', join(lines, "\n")) }
-\}
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-i': 'split',
+      \ 'ctrl-s': 'vsplit',
+      \ 'ctrl-y': { lines -> setreg('*', join(lines, "\n")) }
+      \}
 
 """""""""""""""""""""""""""""""""""""""""
 " neoclide/coc.nvim
@@ -188,8 +189,8 @@ nnoremap <silent> [coc]a <cmd>call CocAction('codeAction')<CR>
 command! Format call CocAction('format')
 
 augroup cocgroup
-    autocmd!
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd!
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " coc-snippets config
@@ -239,19 +240,19 @@ let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
 nnoremap <silent> <Leader>v <cmd>Fern . -width=40 -stay -reveal=% -drawer -toggle<CR>
 
 augroup my-fern-highlight
-    autocmd!
-    autocmd User FernHighlight call s:on_highlight()
+  autocmd!
+  autocmd User FernHighlight call s:on_highlight()
 augroup END
 
 augroup my-fern
-    autocmd! *
-    autocmd FileType fern call s:init_fern()
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
 augroup END
 
 function! s:on_highlight() abort
-    highlight link FernRootSymbol Identifier
-    highlight link FernRootText Identifier
-    highlight link FernBranchText Identifier
+  highlight link FernRootSymbol Identifier
+  highlight link FernRootText Identifier
+  highlight link FernBranchText Identifier
 endfunction
 
 function! s:init_fern() abort
@@ -266,9 +267,9 @@ let g:fern#renderer = "nerdfont"
 
 " lambdalisue/glyph-palette.vim configuration
 augroup my-glyph-palette
-    autocmd! *
-    autocmd FileType fern call glyph_palette#apply()
-    autocmd FileType nerdtree,startify call glyph_palette#apply()
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""
@@ -287,5 +288,10 @@ let g:preview_markdown_vertical = 1
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-let g:previm_open_cmd = '/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
-let g:previm_wsl_mode = 1
+"""""""""""""""""""""""""""""""""""""""""
+" previm/previm
+"""""""""""""""""""""""""""""""""""""""""
+if s:is_run_in_wsl()
+  let g:previm_open_cmd = 'explorer.exe'
+  let g:previm_wsl_mode = 1
+endif

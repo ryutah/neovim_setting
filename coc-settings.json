@@ -19,7 +19,8 @@
     "jsonc",
     "php",
     "yaml.docker-compose",
-    "java"
+    "java",
+    "toml"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -40,7 +41,8 @@
     "jsonc",
     "php",
     "yaml.docker-compose",
-    "java"
+    "java",
+    "toml"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,

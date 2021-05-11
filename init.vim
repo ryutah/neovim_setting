@@ -81,7 +81,6 @@ Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-yaml', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-vetur', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-python', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'josa42/coc-sh', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'josa42/coc-go', { 'do': 'yarn install --frozen-lockfile' }
@@ -95,6 +94,7 @@ Plug 'oncomouse/coc-fish', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'marlonfan/coc-phpls', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-java', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'kkiyama117/coc-toml', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'fannheyward/coc-pyright', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""
@@ -151,7 +151,7 @@ vmap <leader>/ <Plug>(caw:hatpos:toggle)
 """""""""""""""""""""""""""""""""""""""""
 " vim-airline/vim-airline
 """""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='wombat'
+let g:airline_theme='ayu_dark'
 
 """""""""""""""""""""""""""""""""""""""""
 " junegunn/fzf.vim

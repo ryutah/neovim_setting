@@ -83,6 +83,7 @@
   "diagnostic-languageserver.filetypes": {
     "javascript": ["eslint"],
     "typescript": ["eslint"],
+    "vue": ["eslint"],
     "markdown": ["markdownlint"],
     "proto": ["clang-format"],
     "fish": ["fish_indent"]
@@ -149,5 +150,7 @@
       "command": "fish_indent"
     }
   },
-  "coc.source.fish.enable": true
+  "coc.source.fish.enable": true,
+  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+  "rust-analyzer.procMacro.enable": true
 }

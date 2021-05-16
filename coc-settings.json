@@ -62,7 +62,6 @@
       "k8s/*.yml"
     ]
   },
-  "python.jediEnabled": false,
   "snippets.ultisnips.enable": true,
   "languageserver": {
     "golangci-lint-languageserver": {

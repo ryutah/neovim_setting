@@ -15,7 +15,7 @@ ls ./node_modules/.bin | xargs -tI {} ln -f -s $(pwd)/node_modules/.bin/{} ${HOM
 # create symlink of snippets
 coc_config_path=${XDG_CONFIG_HOME:-$HOME/.config}/coc
 mkdir -p ${coc_config_path}
-ln -f -s $(pwd)/snippets/ultisnips ${coc_config_path}/ultisnips
+ln -f -s $(pwd)/snippets/ultisnips ${coc_config_path}/
 
 curl -L -o $HOME/.local/bin/mdr https://github.com/MichaelMure/mdr/releases/download/v0.2.5/mdr_darwin_amd64
 chmod +x $HOME/.local/bin/mdr

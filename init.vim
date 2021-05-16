@@ -56,6 +56,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'miyakogi/seiya.vim'
 Plug 'lambdalisue/fern.vim'
+Plug 'preservim/tagbar'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
@@ -95,6 +96,11 @@ Plug 'marlonfan/coc-phpls', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-java', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'kkiyama117/coc-toml', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'fannheyward/coc-pyright', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'fannheyward/coc-deno', { 'do': 'yarn install --frozen-lockfile' }
+
+" Editor extends
+Plug 'sotte/presenting.vim'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""
@@ -295,3 +301,9 @@ if s:is_run_in_wsl()
   let g:previm_open_cmd = 'explorer.exe'
   let g:previm_wsl_mode = 1
 endif
+
+"""""""""""""""""""""""""""""""""""""""""
+" preservim/tagbar
+"""""""""""""""""""""""""""""""""""""""""
+let g:tagbar_map_showproto = ','
+nnoremap <silent> <leader>t :TagbarToggle<CR>

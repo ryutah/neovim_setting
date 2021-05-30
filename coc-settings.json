@@ -20,7 +20,8 @@
     "php",
     "yaml.docker-compose",
     "java",
-    "toml"
+    "toml",
+    "typescriptreact"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -42,7 +43,8 @@
     "php",
     "yaml.docker-compose",
     "java",
-    "toml"
+    "toml",
+    "typescriptreact"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,
@@ -90,6 +92,7 @@
   "diagnostic-languageserver.formatFiletypes": {
     "javascript": "prettier_js",
     "typescript": "prettier_js",
+    "typescriptreact": "prettier_js",
     "json": "prettier",
     "jsonc": "prettier",
     "yaml": "prettier",

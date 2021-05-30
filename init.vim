@@ -119,6 +119,12 @@ noremap <S-f> %
 nnoremap <C-h> H
 nnoremap <C-l> L
 
+" buffer moving
+nnoremap [buffer] <Nop>
+nmap     <Leader>b [buffer]
+nnoremap <silent>  [buffer]n :bnext<CR>
+nnoremap <silent>  [buffer]p :bprevious<CR>
+
 " split screen
 nnoremap [split] <Nop>
 nmap     <Leader>s [split]

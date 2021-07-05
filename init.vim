@@ -18,6 +18,11 @@ set foldmethod=syntax
 set foldlevelstart=99
 " Undo setting
 set undofile
+" enable cursorline and highlight only row number
+set cursorline
+" allow mouse scrolling
+set mouse=a
+
 execute 'set undodir=' . stdpath('cache') . '/undo'
 
 let g:python3_host_prog = expand('$PYTHON3_PATH')
@@ -39,6 +44,11 @@ endif
 " plugins
 """""""""""""""""""""""""""""""""""""""""
 call plug#begin(stdpath('data') . '/plugged')
+" Neovim Extends
+Plug 'jbyuki/instant.nvim'
+Plug 'justinmk/vim-sneak'
+Plug 'sotte/presenting.vim'
+
 " Text Extends
 Plug 'tpope/vim-surround'
 Plug 'https://tpope.io/vim/repeat.git'
@@ -48,6 +58,7 @@ Plug 'jiangmiao/auto-pairs'
 " Color Scheme
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
+Plug 'nanotech/jellybeans.vim'
 
 " Vim UI / UX
 Plug 'vim-airline/vim-airline'
@@ -97,9 +108,7 @@ Plug 'neoclide/coc-java', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'kkiyama117/coc-toml', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'fannheyward/coc-pyright', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'fannheyward/coc-deno', { 'do': 'yarn install --frozen-lockfile' }
-
-" Editor extends
-Plug 'sotte/presenting.vim'
+Plug 'antoinemadec/coc-fzf', { 'do': 'yarn install --frozen-lockfile' }
 
 call plug#end()
 
@@ -152,7 +161,15 @@ if has("termguicolors")
   " enable true color
   set termguicolors
 endif
-colorscheme ayu
+
+colorscheme gruvbox
+" For gruvbox fix nontext color
+hi NonText ctermfg=12 guifg=#2D3640
+
+" colorscheme jellybeans
+
+" highlight cursorline only row number
+hi clear CursorLine
 
 """""""""""""""""""""""""""""""""""""""""
 " tyru/caw.vim
@@ -171,7 +188,6 @@ let g:airline_theme='ayu_dark'
 nnoremap <silent> <Leader><Leader>f <cmd>Files<CR>
 nnoremap <silent> <Leader><Leader>b <cmd>Buffers<CR>
 nnoremap <silent> <Leader><Leader>g <cmd>Rg<CR>
-nnoremap <silent> <Leader><Leader>t <cmd>BTags<CR>
 " refs: https://github.com/junegunn/fzf.vim/issues/772
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
@@ -179,6 +195,16 @@ let g:fzf_action = {
       \ 'ctrl-s': 'vsplit',
       \ 'ctrl-y': { lines -> setreg('*', join(lines, "\n")) }
       \}
+" refs: https://github.com/junegunn/fzf.vim/issues/609#issuecomment-549390273
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+" with antoinemadec/coc-fzf
+nnoremap <silent> <Leader><Leader>c :<C-u>CocFzfList<CR>
+nnoremap <silent> <Leader><Leader>a :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <Leader><Leader>d :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <Leader><Leader>c :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <Leader><Leader>l :<C-u>CocFzfList location<CR>
+nnoremap <silent> <Leader><Leader>t :<C-u>CocFzfList outline<CR>
 
 """""""""""""""""""""""""""""""""""""""""
 " neoclide/coc.nvim
@@ -313,3 +339,14 @@ endif
 """""""""""""""""""""""""""""""""""""""""
 let g:tagbar_map_showproto = ','
 nnoremap <silent> <leader>t :TagbarToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""
+" justinmk/vim-sneak
+"""""""""""""""""""""""""""""""""""""""""
+let g:sneak#label = 1
+
+"""""""""""""""""""""""""""""""""""""""""
+" jbyuki/instant.nvim
+"""""""""""""""""""""""""""""""""""""""""
+let g:instant_username = "ryutah"
+let g:sneak#f_reset = 0

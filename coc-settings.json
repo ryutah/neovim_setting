@@ -62,6 +62,14 @@
       "k8s/**/*.yml",
       "k8s/*.yaml",
       "k8s/*.yml"
+    ],
+    "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json": [
+      "openapi.yaml",
+      "openapi.yml"
+    ],
+    "https://json.schemastore.org/golangci-lint.json": [
+      ".golangci.yml",
+      ".golangci.yaml"
     ]
   },
   "snippets.ultisnips.enable": true,
@@ -70,7 +78,20 @@
       "command": "golangci-lint-langserver",
       "filetypes": ["go"],
       "initializationOptions": {
-        "command": ["golangci-lint", "run", "--out-format", "json"]
+        "command": [
+          "golangci-lint",
+          "run",
+          "--out-format",
+          "json",
+          "-E",
+          "gosec",
+          "-E",
+          "bodyclose",
+          "-E",
+          "misspell",
+          "-E",
+          "gocritic"
+        ]
       }
     },
     "terraform": {
@@ -154,5 +175,7 @@
   },
   "coc.source.fish.enable": true,
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
-  "rust-analyzer.procMacro.enable": true
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.checkOnSave.extraArgs": ["--tests"]
 }

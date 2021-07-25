@@ -23,9 +23,9 @@ snippet dep "Deployment" b
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: ${2:my-deployment}
   labels:
     ${1:app: my-app}
-    name: ${2:my-deployment}
 spec:
   replicas: 1
   selector:

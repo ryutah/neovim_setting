@@ -21,7 +21,8 @@
     "yaml.docker-compose",
     "java",
     "toml",
-    "typescriptreact"
+    "typescriptreact",
+    "sh"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -44,7 +45,8 @@
     "yaml.docker-compose",
     "java",
     "toml",
-    "typescriptreact"
+    "typescriptreact",
+    "sh"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,

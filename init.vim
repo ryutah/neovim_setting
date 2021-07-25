@@ -48,6 +48,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'jbyuki/instant.nvim'
 Plug 'justinmk/vim-sneak'
 Plug 'sotte/presenting.vim'
+" Plug 'puremourning/vimspector', { 'do': './install_gadget.py --all' }
 
 " Text Extends
 Plug 'tpope/vim-surround'
@@ -63,7 +64,7 @@ Plug 'nanotech/jellybeans.vim'
 " Vim UI / UX
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'miyakogi/seiya.vim'
 Plug 'lambdalisue/fern.vim'

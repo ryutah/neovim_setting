@@ -22,35 +22,11 @@
 #		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
 #		endsnippet
 #
-snippet ignore_lint "ignore markdownlint" b
-<!-- markdownlint-disable -->
-endsnippet
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet marp "description" b
-<!-- markdownlint-disable -->
-
-<style>
-img[alt~="center"] {
-  display: block;
-  margin: 0 auto;
-}
-</style>
-
-# ${title}
-
-@ryutah
-
----
-endsnippet
-
-snippet bg "background left for marp" b
-![bg contain](${1})
-endsnippet
-
-snippet bgleft "background left for marp" b
-![bg left](${1})
-endsnippet
-
-snippet bgright "background right for marp" b
-![bg right](${1})
+snippet union_enum "Enum" b
+const ${1:type_name} = {
+  ${2:enum}
+} as const;
+type ${1:type_name} = typeof ${1:type_name}[keyof typeof ${1:type_name}];
 endsnippet

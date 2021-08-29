@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+prettier_exec="prettier"
+if [[ -x "node_modules/.bin/prettier" ]]; then
+  prettier_exec="node_modules/.bin/prettier"
+fi
+
+${prettier_exec} "$@"

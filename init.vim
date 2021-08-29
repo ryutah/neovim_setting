@@ -22,6 +22,8 @@ set undofile
 set cursorline
 " allow mouse scrolling
 set mouse=a
+" adds `-` to vim keywords
+set iskeyword+=-
 
 execute 'set undodir=' . stdpath('cache') . '/undo'
 
@@ -48,13 +50,13 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'jbyuki/instant.nvim'
 Plug 'justinmk/vim-sneak'
 Plug 'sotte/presenting.vim'
-" Plug 'puremourning/vimspector', { 'do': './install_gadget.py --all' }
 
 " Text Extends
 Plug 'tpope/vim-surround'
 Plug 'https://tpope.io/vim/repeat.git'
 Plug 'junegunn/vim-easy-align'
 Plug 'jiangmiao/auto-pairs'
+Plug 'jbyuki/venn.nvim'
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
@@ -226,6 +228,7 @@ nnoremap <silent> [coc]l <cmd>CocList<CR>
 nnoremap <silent> [coc]a <cmd>call CocAction('codeAction')<CR>
 
 command! Format call CocAction('format')
+command! Inew split_f
 
 augroup cocgroup
   autocmd!

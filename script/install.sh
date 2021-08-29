@@ -5,6 +5,9 @@ set -eu
 cd $(dirname $0)/..
 source ./script/versions.sh
 
+# Make simlink to extends scripts
+ls ./script/extends | xargs -tI {} ln -f -s $(pwd)/script/extends/{} ${HOME}/.local/bin/
+
 # Install neovim extends
 pip install -U pynvim
 

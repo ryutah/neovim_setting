@@ -151,6 +151,7 @@
     "prettier_js": {
       "command": "prettier",
       "args": [
+        "--stdin",
         "--config-precedence",
         "prefer-file",
         "--trailing-comma",
@@ -159,11 +160,37 @@
         "always",
         "--stdin-filepath",
         "%filename"
+      ],
+      "rootPatterns": [
+        ".prettierrc",
+        ".prettierrc.json",
+        ".prettierrc.toml",
+        ".prettierrc.json",
+        ".prettierrc.yml",
+        ".prettierrc.yaml",
+        ".prettierrc.json5",
+        ".prettierrc.js",
+        ".prettierrc.cjs",
+        "prettier.config.js",
+        "prettier.config.cjs"
       ]
     },
     "prettier": {
-      "command": "prettier",
-      "args": ["--stdin-filepath", "%filename"]
+      "command": "xprettier",
+      "args": ["--stdin", "--stdin-filepath", "%filename"],
+      "rootPatterns": [
+        ".prettierrc",
+        ".prettierrc.json",
+        ".prettierrc.toml",
+        ".prettierrc.json",
+        ".prettierrc.yml",
+        ".prettierrc.yaml",
+        ".prettierrc.json5",
+        ".prettierrc.js",
+        ".prettierrc.cjs",
+        "prettier.config.js",
+        "prettier.config.cjs"
+      ]
     },
     "shfmt": {
       "command": "shfmt"
@@ -178,6 +205,7 @@
   "coc.source.fish.enable": true,
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.experimental.procAttrMacros": true,
   "rust-analyzer.checkOnSave.command": "clippy",
   "rust-analyzer.checkOnSave.extraArgs": ["--tests"]
 }

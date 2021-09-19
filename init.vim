@@ -24,6 +24,13 @@ set cursorline
 set mouse=a
 " adds `-` to vim keywords
 set iskeyword+=-
+" set commands cursor to I beam
+set guicursor+=c:ver10
+
+augroup RestoreCursorShapeOnExit
+  autocmd!
+    autocmd VimLeave * set guicursor=a:ver10
+  augroup END
 
 execute 'set undodir=' . stdpath('cache') . '/undo'
 
@@ -90,6 +97,7 @@ Plug 'mattn/emmet-vim'
 " Git Extends
 Plug 'https://tpope.io/vim/fugitive.git'
 Plug 'airblade/vim-gitgutter'
+Plug 'stsewd/fzf-checkout.vim'
 
 " Coc Extensions
 Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
@@ -169,8 +177,6 @@ colorscheme gruvbox
 " For gruvbox fix nontext color
 hi NonText ctermfg=12 guifg=#2D3640
 
-" colorscheme jellybeans
-
 " highlight cursorline only row number
 hi clear CursorLine
 
@@ -208,6 +214,11 @@ nnoremap <silent> <Leader><Leader>d :<C-u>CocFzfList diagnostics --current-buf<C
 nnoremap <silent> <Leader><Leader>c :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <Leader><Leader>l :<C-u>CocFzfList location<CR>
 nnoremap <silent> <Leader><Leader>t :<C-u>CocFzfList outline<CR>
+
+"""""""""""""""""""""""""""""""""""""""""
+" stsewd/fzf-checkout.vim
+"""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <Leader><Leader>o :<C-u>GBranches<CR>
 
 """""""""""""""""""""""""""""""""""""""""
 " neoclide/coc.nvim

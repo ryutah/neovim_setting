@@ -205,7 +205,6 @@
   "coc.source.fish.enable": true,
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,
-  "rust-analyzer.experimental.procAttrMacros": true,
   "rust-analyzer.checkOnSave.command": "clippy",
   "rust-analyzer.checkOnSave.extraArgs": ["--tests"]
 }

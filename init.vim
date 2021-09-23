@@ -64,6 +64,7 @@ Plug 'https://tpope.io/vim/repeat.git'
 Plug 'junegunn/vim-easy-align'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jbyuki/venn.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'   }
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
@@ -91,7 +92,6 @@ Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
 Plug 'skanehira/preview-markdown.vim', { 'for': 'markdown' }
 Plug 'mattn/vim-maketable'
-Plug 'previm/previm'
 Plug 'mattn/emmet-vim'
 
 " Git Extends
@@ -340,14 +340,6 @@ let g:preview_markdown_vertical = 1
 """""""""""""""""""""""""""""""""""""""""
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-"""""""""""""""""""""""""""""""""""""""""
-" previm/previm
-"""""""""""""""""""""""""""""""""""""""""
-if s:is_run_in_wsl()
-  let g:previm_open_cmd = 'explorer.exe'
-  let g:previm_wsl_mode = 1
-endif
 
 """""""""""""""""""""""""""""""""""""""""
 " preservim/tagbar

@@ -243,6 +243,7 @@ nnoremap <silent> [coc]a <cmd>call CocAction('codeAction')<CR>
 
 command! Format call CocAction('format')
 command! Inew split_f
+command! UpdateTags silent execute("!".g:fzf_tags_command)
 
 augroup cocgroup
   autocmd!

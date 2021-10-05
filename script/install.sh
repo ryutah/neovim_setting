@@ -3,6 +3,14 @@
 set -eu
 
 cd $(dirname $0)/..
+wd=$(pwd)
+
+mkdir -p ${HOME}/.config/nvim
+mkdir -p ${HOME}/.local/bin
+cd ${HOME}/.config/nvim && ln -sf ${wd}/init.vim
+
+cd ${wd}
+
 source ./script/versions.sh
 
 # Make simlink to extends scripts

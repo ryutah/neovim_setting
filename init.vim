@@ -206,6 +206,9 @@ let g:fzf_action = {
       \}
 " refs: https://github.com/junegunn/fzf.vim/issues/609#issuecomment-549390273
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+" create ctags without gitignore files
+" see: https://github.com/universal-ctags/ctags/issues/218#issuecomment-377717588
+let g:fzf_tags_command = 'rg --files | ctags -R --links=no -L -'
 
 " with antoinemadec/coc-fzf
 nnoremap <silent> <Leader><Leader>c :<C-u>CocFzfList<CR>

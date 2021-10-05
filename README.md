@@ -11,6 +11,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
+### Install Golang
+
+### Install Python3
+
+### Install Node
+
 ### Set Python3 PATH
 
 ```console

@@ -17,7 +17,7 @@ source ./script/versions.sh
 ls ./script/extends | xargs -tI {} ln -f -s $(pwd)/script/extends/{} ${HOME}/.local/bin/
 
 # Install neovim extends
-pip install -U pynvim
+pip install -U pynvim autopep8
 
 # Install Go tools
 #   - golangci-lint-langserver

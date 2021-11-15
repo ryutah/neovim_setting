@@ -203,6 +203,7 @@
       "command": "fish_indent"
     }
   },
+  "python.formatting.autopep8Path": "~/.asdf/shims/autopep8",
   "coc.source.fish.enable": true,
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,

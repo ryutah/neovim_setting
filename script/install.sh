@@ -8,6 +8,7 @@ wd=$(pwd)
 mkdir -p ${HOME}/.config/nvim
 mkdir -p ${HOME}/.local/bin
 cd ${HOME}/.config/nvim && ln -sf ${wd}/init.vim
+cd ${HOME} && ln -sf ${wd}/.vimspector.json
 
 cd ${wd}
 
@@ -26,6 +27,9 @@ pip install -U pynvim autopep8
 #     - for shell script formatter
 go install github.com/nametake/golangci-lint-langserver@latest
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install github.com/mdempsky/gocode@latest
+go install github.com/x-motemen/gore/cmd/gore@latest
 
 # Install Node tools
 mkdir -p ${HOME}/.local/bin

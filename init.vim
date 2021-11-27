@@ -57,6 +57,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'jbyuki/instant.nvim'
 Plug 'justinmk/vim-sneak'
 Plug 'sotte/presenting.vim'
+Plug 'puremourning/vimspector', { 'do': './install_gadget.py --enable-go --force-enable-node' }
 
 " Text Extends
 Plug 'tpope/vim-surround'
@@ -361,3 +362,17 @@ let g:sneak#label = 1
 """""""""""""""""""""""""""""""""""""""""
 let g:instant_username = "ryutah"
 let g:sneak#f_reset = 0
+
+"""""""""""""""""""""""""""""""""""""""""
+" puremourning/vimspector
+" see below document for references configuration
+"   - golang
+"     - https://github.com/puremourning/vimspector#go
+"     - https://github.com/golang/vscode-go/blob/master/docs/debugging-legacy.md
+"""""""""""""""""""""""""""""""""""""""""
+" FIXME(ryutah): these mapping is not work
+nnoremap [spector] <Nop>
+nmap <Leader>d [spector]
+nmap <silent> [spector]b <Plug>(VimspectorToggleBreakpoint)
+nmap <silent> [spector]s <Plug>(VimspectorRunToCursor)
+nmap <silent> [spector]c <Plug>(VimspectorContinue)

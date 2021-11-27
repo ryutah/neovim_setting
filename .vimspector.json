@@ -1,0 +1,24 @@
+{
+  "configurations": {
+    "golang": {
+      "adapter": "vscode-go",
+      "filetypes": ["go"],
+      "configuration": {
+        "request": "launch",
+        "program": "${fileDirname}",
+        "mode": "debug",
+        "dlvToolPath": "$HOME/.local/go/bin/dlv"
+      }
+    },
+    "golang_test": {
+      "adapter": "vscode-go",
+      "filetypes": ["go"],
+      "configuration": {
+        "request": "launch",
+        "program": "${fileDirname}",
+        "mode": "test",
+        "dlvToolPath": "$HOME/.local/go/bin/dlv"
+      }
+    }
+  }
+}

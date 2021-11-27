@@ -27,14 +27,10 @@ references [here](https://github.com/deoplete-plugins/deoplete-jedi/wiki/Setting
 
 ## Usage
 
-### Install
+### Install tools
 
 ```console
-./script/initialize.sh
+./script/install.sh
 ```
 
-### Update
-
-```console
-./script/update.sh
-```
+and start editor then install plugins with `:PlugInstall`

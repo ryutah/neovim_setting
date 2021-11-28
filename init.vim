@@ -57,7 +57,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'jbyuki/instant.nvim'
 Plug 'justinmk/vim-sneak'
 Plug 'sotte/presenting.vim'
-Plug 'puremourning/vimspector', { 'do': './install_gadget.py --enable-go --force-enable-node' }
+Plug 'puremourning/vimspector', { 'do': './install_gadget.py --enable-go --enable-rust' }
 
 " Text Extends
 Plug 'tpope/vim-surround'
@@ -218,6 +218,7 @@ nnoremap <silent> <Leader><Leader>d :<C-u>CocFzfList diagnostics --current-buf<C
 nnoremap <silent> <Leader><Leader>c :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <Leader><Leader>l :<C-u>CocFzfList location<CR>
 nnoremap <silent> <Leader><Leader>t :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <Leader><Leader>k :<C-u>Commands<CR>
 
 """""""""""""""""""""""""""""""""""""""""
 " stsewd/fzf-checkout.vim
@@ -369,10 +370,18 @@ let g:sneak#f_reset = 0
 "   - golang
 "     - https://github.com/puremourning/vimspector#go
 "     - https://github.com/golang/vscode-go/blob/master/docs/debugging-legacy.md
+"   - rust
+"     - https://github.com/puremourning/vimspector#rust
+"     - https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md
 """""""""""""""""""""""""""""""""""""""""
-" FIXME(ryutah): these mapping is not work
 nnoremap [spector] <Nop>
 nmap <Leader>d [spector]
-nmap <silent> [spector]b <Plug>(VimspectorToggleBreakpoint)
-nmap <silent> [spector]s <Plug>(VimspectorRunToCursor)
-nmap <silent> [spector]c <Plug>(VimspectorContinue)
+nnoremap <silent> [spector]b :<C-U>call vimspector#ToggleBreakpoint()<CR>
+nnoremap <silent> [spector]l :<C-U>call vimspector#Launch()<CR>
+nnoremap <silent> [spector]c :<C-U>call vimspector#Continue()<CR>
+nnoremap <silent> [spector]sov :<C-U>call vimspector#StepOver()<CR>
+nnoremap <silent> [spector]sou :<C-U>call vimspector#StepOut()<CR>
+nnoremap <silent> [spector]sin :<C-U>call vimspector#StepOut()<CR>
+nnoremap <silent> [spector]sin :<C-U>call vimspector#StepOut()<CR>
+nmap <silent> [spector]e <Plug>VimspectorBalloonEval
+xmap <silent> [spector]e <Plug>VimspectorBalloonEval

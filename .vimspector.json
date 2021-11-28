@@ -19,6 +19,14 @@
         "mode": "test",
         "dlvToolPath": "$HOME/.local/go/bin/dlv"
       }
+    },
+    "rust": {
+      "adapter": "CodeLLDB",
+      "filetypes": ["rust"],
+      "configuration": {
+        "request": "launch",
+        "program": "${cwd}/target/debug/${workspaceFolderBasename}"
+      }
     }
   }
 }

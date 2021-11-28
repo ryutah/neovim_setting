@@ -379,9 +379,8 @@ nmap <Leader>d [spector]
 nnoremap <silent> [spector]b :<C-U>call vimspector#ToggleBreakpoint()<CR>
 nnoremap <silent> [spector]l :<C-U>call vimspector#Launch()<CR>
 nnoremap <silent> [spector]c :<C-U>call vimspector#Continue()<CR>
-nnoremap <silent> [spector]sov :<C-U>call vimspector#StepOver()<CR>
-nnoremap <silent> [spector]sou :<C-U>call vimspector#StepOut()<CR>
-nnoremap <silent> [spector]sin :<C-U>call vimspector#StepOut()<CR>
-nnoremap <silent> [spector]sin :<C-U>call vimspector#StepOut()<CR>
-nmap <silent> [spector]e <Plug>VimspectorBalloonEval
-xmap <silent> [spector]e <Plug>VimspectorBalloonEval
+nnoremap <C-N> :<C-U>call vimspector#StepOver()<CR>
+nnoremap <C-H> :<C-U>call vimspector#StepOut()<CR>
+nnoremap <C-L> :<C-U>call vimspector#StepInto()<CR>
+nmap <C-K> <Plug>VimspectorBalloonEval
+xmap <C-K> <Plug>VimspectorBalloonEval

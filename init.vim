@@ -91,7 +91,6 @@ Plug 'tyru/caw.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
-Plug 'skanehira/preview-markdown.vim', { 'for': 'markdown' }
 Plug 'mattn/vim-maketable'
 Plug 'mattn/emmet-vim'
 

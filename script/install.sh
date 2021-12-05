@@ -47,6 +47,9 @@ coc_config_path=${config_path}/coc
 mkdir -p ${coc_config_path}
 ln -f -s $(pwd)/snippets/ultisnips ${coc_config_path}/
 
+####################################################################
+# work with tmp directory
+####################################################################
 mkdir -p tmp && cd tmp
 
 # for protocol buffer formatter
@@ -61,4 +64,11 @@ wget https://releases.hashicorp.com/terraform-ls/${TERRAFORM_LSP_VERSION}/${terr
 unzip ${terraform_lsp_file}.zip
 mv terraform-ls ${bin_path}/
 
-cd .. && rm -rf tmp
+# for plantuml
+wget https://github.com/plantuml/plantuml/releases/download/v${PLANT_UML_VERSION}/plantuml-${PLANT_UML_VERSION}.jar
+mv plantuml-${PLANT_UML_VERSION}.jar ${bin_path}/plantuml.jar
+
+# move to working directory and remove tmp directory
+cd ${wd} && rm -rf tmp
+
+####################################################################

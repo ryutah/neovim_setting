@@ -8,12 +8,22 @@ cd $(dirname $0)/..
 wd=$(pwd)
 bin_path=${HOME}/.local/bin
 config_path=${XDG_CONFIG_HOME:-$HOME/.config}
+data_path=${XDG_DATA_HOME:-$HOME/.local/share}
+
+# Install vim-plug
+if [[ ! -f ${data_path}/nvim/site/autoload/plug.vim ]]; then
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
+    --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+fi
 
 mkdir -p ${bin_path}
 
+# create neovim synlink to XDG_CONFIG_HOME
 if [[ ! -d ${HOME}/.config/nvim ]]; then
   cd ${config_path} && ln -sf ${wd}/ nvim
 fi
+# create symlink for vimspector
 cd ${HOME} && ln -sf ${wd}/.vimspector.json
 
 cd ${wd}

@@ -5,9 +5,10 @@ set -eu
 cd $(dirname $0)/..
 wd=$(pwd)
 
-mkdir -p ${HOME}/.config/nvim
 mkdir -p ${HOME}/.local/bin
-cd ${HOME}/.config/nvim && ln -sf ${wd}/init.vim
+if [[ ! -d ${HOME}/.config/nvim ]]; then
+  cd ${HOME}/.config && ln -sf ${wd}/ nvim
+fi
 cd ${HOME} && ln -sf ${wd}/.vimspector.json
 
 cd ${wd}

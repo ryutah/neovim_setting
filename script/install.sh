@@ -77,6 +77,7 @@ mv terraform-ls ${bin_path}/
 # for plantuml
 wget https://github.com/plantuml/plantuml/releases/download/v${PLANT_UML_VERSION}/plantuml-${PLANT_UML_VERSION}.jar
 mv plantuml-${PLANT_UML_VERSION}.jar ${bin_path}/plantuml.jar
+chmod +x ${bin_path}/plantuml.jar
 
 # move to working directory and remove tmp directory
 cd ${wd} && rm -rf tmp

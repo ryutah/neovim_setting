@@ -58,6 +58,7 @@ Plug 'jbyuki/instant.nvim'
 Plug 'justinmk/vim-sneak'
 Plug 'sotte/presenting.vim'
 Plug 'puremourning/vimspector', { 'do': './install_gadget.py --enable-go --enable-rust' }
+Plug 'tyru/open-browser.vim'
 
 " Text Extends
 Plug 'tpope/vim-surround'
@@ -66,6 +67,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jbyuki/venn.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'   }
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
 
 " Color Scheme
 Plug 'morhetz/gruvbox'
@@ -383,3 +386,10 @@ nnoremap <C-H> :<C-U>call vimspector#StepOut()<CR>
 nnoremap <C-L> :<C-U>call vimspector#StepInto()<CR>
 nmap <C-K> <Plug>VimspectorBalloonEval
 xmap <C-K> <Plug>VimspectorBalloonEval
+
+"""""""""""""""""""""""""""""""""""""""""
+" weirongxu/plantuml-previewer.vim
+"""""""""""""""""""""""""""""""""""""""""
+" it should be trim newline
+autocmd FileType plantuml let g:plantuml_previewer#plantuml_jar_path =
+      \ substitute(system('which plantuml.jar'), '\n\+$', '', '')

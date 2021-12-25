@@ -26,6 +26,8 @@ set mouse=a
 set iskeyword+=-
 " set commands cursor to I beam
 set guicursor+=c:ver10
+" adds html tag to % jump
+source $VIMRUNTIME/macros/matchit.vim
 
 augroup RestoreCursorShapeOnExit
   autocmd!
@@ -138,7 +140,8 @@ noremap gj j
 noremap gk k
 noremap <S-h> ^
 noremap <S-l> $
-noremap <S-f> %
+nmap <S-f> %
+vmap <S-f> %
 nnoremap <C-h> H
 nnoremap <C-l> L
 

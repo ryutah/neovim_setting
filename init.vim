@@ -31,8 +31,8 @@ source $VIMRUNTIME/macros/matchit.vim
 
 augroup RestoreCursorShapeOnExit
   autocmd!
-    autocmd VimLeave * set guicursor=a:ver10
-  augroup END
+  autocmd VimLeave * set guicursor=a:ver10
+augroup END
 
 execute 'set undodir=' . stdpath('cache') . '/undo'
 

@@ -95,7 +95,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tyru/caw.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'honza/vim-snippets'
-Plug 'sheerun/vim-polyglot'
+" NOTE(ryutah): specify previues version because latest version is broken.
+" see https://github.com/sheerun/vim-polyglot/issues/781
+Plug 'sheerun/vim-polyglot', { 'commit': '2c5af8f89d3e61e04e761c07a1f043b0f35203c6' }
 Plug 'mattn/vim-maketable'
 Plug 'mattn/emmet-vim'
 

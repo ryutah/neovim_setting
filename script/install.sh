@@ -63,7 +63,7 @@ ln -f -s $(pwd)/snippets/ultisnips ${coc_config_path}/
 mkdir -p tmp && cd tmp
 
 # for protocol buffer formatter
-clang_llvm_file="clang+llvm-${CLANG_LLVM_VERSION}-x86_64-linux-gnu-ubuntu-${OS_VERSION}"
+clang_llvm_file="clang+llvm-${CLANG_LLVM_VERSION}-x86_64-linux-gnu-ubuntu-20.04"
 wget https://github.com/llvm/llvm-project/releases/download/llvmorg-${CLANG_LLVM_VERSION}/${clang_llvm_file}.tar.xz
 tar xvf ${clang_llvm_file}.tar.xz
 mv ${clang_llvm_file}/bin/clang-format ${bin_path}/

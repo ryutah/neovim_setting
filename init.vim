@@ -76,6 +76,7 @@ Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'andreasvc/vim-256noir'
 
 " Vim UI / UX
 Plug 'vim-airline/vim-airline'
@@ -179,9 +180,10 @@ if has("termguicolors")
   set termguicolors
 endif
 
-colorscheme gruvbox
+colorscheme 256_noir
 " For gruvbox fix nontext color
 hi NonText ctermfg=12 guifg=#2D3640
+hi LineNr term=bold cterm=bold ctermfg=2 guifg=Grey guibg=Grey90
 
 " highlight cursorline only row number
 hi clear CursorLine

@@ -23,7 +23,9 @@
     "java",
     "toml",
     "typescriptreact",
-    "sh"
+    "sh",
+    "dockerfile",
+    "lua"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "go",
@@ -47,7 +49,9 @@
     "java",
     "toml",
     "typescriptreact",
-    "sh"
+    "sh",
+    "dockerfile",
+    "lua"
   ],
   "go.goplsOptions": {
     "usePlaceholders": true,
@@ -204,6 +208,7 @@
     }
   },
   "python.formatting.autopep8Path": "~/.asdf/shims/autopep8",
+  "python.formatting.blackPath": "~/.asdf/shims/black",
   "coc.source.fish.enable": true,
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,

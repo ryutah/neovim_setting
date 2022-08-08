@@ -126,6 +126,7 @@ Plug 'kkiyama117/coc-toml', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'fannheyward/coc-pyright', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'fannheyward/coc-deno', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'antoinemadec/coc-fzf', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'josa42/coc-lua', { 'do': 'yarn install --frozen-lockfile' }
 
 call plug#end()
 
@@ -180,10 +181,15 @@ if has("termguicolors")
   set termguicolors
 endif
 
-colorscheme 256_noir
+" colorscheme 256_noir
+colorscheme gruvbox
+
 " For gruvbox fix nontext color
 hi NonText ctermfg=12 guifg=#2D3640
-hi LineNr term=bold cterm=bold ctermfg=2 guifg=Grey guibg=Grey90
+
+" For 256_noir
+" hi LineNr term=bold cterm=bold ctermfg=2 guifg=Grey guibg=Grey90
+" hi NonText ctermfg=12 gui=bold guifg=#2D3640
 
 " highlight cursorline only row number
 hi clear CursorLine
@@ -262,6 +268,9 @@ augroup end
 " coc-snippets config
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
+
+" Make <C-o> to accept selected completion item or notify coc.nvim to format
+inoremap <silent><expr> <C-o> coc#pum#visible() ? coc#pum#confirm() : "<C-o>"
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

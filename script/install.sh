@@ -10,6 +10,14 @@ bin_path=${HOME}/.local/bin
 config_path=${XDG_CONFIG_HOME:-$HOME/.config}
 data_path=${XDG_DATA_HOME:-$HOME/.local/share}
 
+# setup nvim config
+if [[ ! -d ${config_path}/nvim ]]; then
+  mkdir -p ${config_path}/nvim
+  cd ${config_path}/nvim &&
+    ln -sf ${wd}/init.vim &&
+    ln -sf ${wd}/coc-settings.json
+fi
+
 # Install vim-plug
 if [[ ! -f ${data_path}/nvim/site/autoload/plug.vim ]]; then
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
@@ -48,14 +56,21 @@ go install github.com/mdempsky/gocode@latest
 go install github.com/x-motemen/gore/cmd/gore@latest
 
 # Install Node tools
+npm install -g yarn
 npx npm-check-updates -u
 npm install
 ls ./node_modules/.bin | xargs -tI {} ln -f -s $(pwd)/node_modules/.bin/{} ${bin_path}/
 
-# create symlink of snippets
+# create symlink of coc
+#  1. snippets
+#  2. extentions
 coc_config_path=${config_path}/coc
 mkdir -p ${coc_config_path}
 ln -f -s $(pwd)/snippets/ultisnips ${coc_config_path}/
+ln -f -s $(pwd)/coc-package.json ${coc_config_path}/extensions/package.json
+
+# install coc extentions
+cd ${coc_config_path}/extensions && npm install
 
 ####################################################################
 # work with tmp directory

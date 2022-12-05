@@ -44,10 +44,10 @@ function s:is_run_in_wsl() abort
   return system('uname -a | grep -i microsoft') != ""
 endfunction
 
-if s:is_run_in_wsl()
-  augroup myYank
+if has('vim')
+  augroup MyYank
     autocmd!
-    autocmd TextYankPost * :call system('clip.exe', @")
+    autocmd Yank * :call system('clip.ext', @")
   augroup END
 endif
 
@@ -95,6 +95,7 @@ Plug 'lambdalisue/fern-git-status.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tyru/caw.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/vim-maketable'
@@ -104,29 +105,6 @@ Plug 'mattn/emmet-vim'
 Plug 'https://tpope.io/vim/fugitive.git'
 Plug 'airblade/vim-gitgutter'
 Plug 'stsewd/fzf-checkout.vim'
-
-" Coc Extensions
-Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-yaml', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-vetur', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'josa42/coc-sh', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'josa42/coc-go', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'josa42/coc-docker', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'fannheyward/coc-rust-analyzer', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'fannheyward/coc-sql', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'fannheyward/coc-marketplace', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'iamcco/coc-vimlsp', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'oncomouse/coc-fish', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'marlonfan/coc-phpls', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-java', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'kkiyama117/coc-toml', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'fannheyward/coc-pyright', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'fannheyward/coc-deno', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'antoinemadec/coc-fzf', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'josa42/coc-lua', { 'do': 'yarn install --frozen-lockfile' }
 
 call plug#end()
 

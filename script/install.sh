@@ -12,10 +12,7 @@ data_path=${XDG_DATA_HOME:-$HOME/.local/share}
 
 # setup nvim config
 if [[ ! -d ${config_path}/nvim ]]; then
-  mkdir -p ${config_path}/nvim
-  cd ${config_path}/nvim &&
-    ln -sf ${wd}/init.vim &&
-    ln -sf ${wd}/coc-settings.json
+  ln -sf ${wd} ${config_path}/nvim
 fi
 
 # Install vim-plug

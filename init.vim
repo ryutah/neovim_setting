@@ -40,14 +40,10 @@ let g:python3_host_prog = expand('$PYTHON3_PATH')
 " Too heavy
 let g:polyglot_disabled = ['vue']
 
-function s:is_run_in_wsl() abort
-  return system('uname -a | grep -i microsoft') != ""
-endfunction
-
-if has('vim')
+if has('wsl')
   augroup MyYank
     autocmd!
-    autocmd Yank * :call system('clip.ext', @")
+    autocmd TextYankPost * :call system('clip.exe', @")
   augroup END
 endif
 
@@ -56,7 +52,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""
 call plug#begin(stdpath('data') . '/plugged')
 " Neovim Extends
-Plug 'jbyuki/instant.nvim'
 Plug 'justinmk/vim-sneak'
 Plug 'sotte/presenting.vim'
 Plug 'puremourning/vimspector', { 'do': './install_gadget.py --enable-go --enable-rust' }
@@ -68,7 +63,7 @@ Plug 'https://tpope.io/vim/repeat.git'
 Plug 'junegunn/vim-easy-align'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jbyuki/venn.nvim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'   }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'aklt/plantuml-syntax'
 Plug 'weirongxu/plantuml-previewer.vim'
 
@@ -95,7 +90,7 @@ Plug 'lambdalisue/fern-git-status.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tyru/caw.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf', { 'branch': 'release' }
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/vim-maketable'
@@ -160,7 +155,9 @@ if has("termguicolors")
 endif
 
 " colorscheme 256_noir
-colorscheme gruvbox
+" colorscheme gruvbox
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu"
 
 " For gruvbox fix nontext color
 hi NonText ctermfg=12 guifg=#2D3640
@@ -351,12 +348,6 @@ nnoremap <silent> <leader>t :TagbarToggle<CR>
 " justinmk/vim-sneak
 """""""""""""""""""""""""""""""""""""""""
 let g:sneak#label = 1
-
-"""""""""""""""""""""""""""""""""""""""""
-" jbyuki/instant.nvim
-"""""""""""""""""""""""""""""""""""""""""
-let g:instant_username = "ryutah"
-let g:sneak#f_reset = 0
 
 """""""""""""""""""""""""""""""""""""""""
 " puremourning/vimspector

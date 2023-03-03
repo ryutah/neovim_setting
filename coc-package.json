@@ -7,7 +7,7 @@
     "coc-vetur": ">=1.2.5",
     "coc-sh": ">=0.7.0",
     "coc-go": ">=1.3.0",
-    "coc-rust-analyzer": ">=0.69.7",
+    "coc-rust-analyzer": ">=0.70.0",
     "coc-marketplace": ">=1.9.0",
     "coc-diagnostic": ">=0.23.6",
     "coc-vimlsp": ">=0.13.0",
@@ -17,9 +17,9 @@
     "coc-phpls": ">=2.2.2",
     "coc-deno": ">=3.10.5",
     "coc-toml": ">=1.2.5",
-    "coc-pyright": ">=1.1.282",
+    "coc-pyright": ">=1.1.283",
     "coc-lua": ">=1.0.1",
     "coc-sqlfluff": ">=0.10.7"
   },
-  "lastUpdate": 1670559609757
+  "lastUpdate": 1671189247312
 }

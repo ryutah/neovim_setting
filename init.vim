@@ -1,5 +1,6 @@
 set hidden
 set number
+set clipboard&
 set clipboard+=unnamedplus
 set ignorecase
 set tabstop=4
@@ -39,13 +40,6 @@ execute 'set undodir=' . stdpath('cache') . '/undo'
 let g:python3_host_prog = expand('$PYTHON3_PATH')
 " Too heavy
 let g:polyglot_disabled = ['vue']
-
-if has('wsl')
-  augroup MyYank
-    autocmd!
-    autocmd TextYankPost * :call system('clip.exe', @")
-  augroup END
-endif
 
 """""""""""""""""""""""""""""""""""""""""
 " plugins

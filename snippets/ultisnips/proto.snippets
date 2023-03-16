@@ -23,3 +23,13 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet syntax "syntax config" b
+syntax = ${1:proto3}
+endsnippet
+
+snippet message "message" b
+message ${1} {
+  ${0}
+}
+endsnippet

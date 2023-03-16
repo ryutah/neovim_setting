@@ -51,6 +51,7 @@ go install mvdan.cc/sh/v3/cmd/shfmt@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 go install github.com/mdempsky/gocode@latest
 go install github.com/x-motemen/gore/cmd/gore@latest
+go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
 
 # Install Node tools
 npm install -g yarn

@@ -62,7 +62,7 @@
     "typescript": ["eslint"],
     "vue": ["eslint"],
     "markdown": ["markdownlint"],
-    "proto": ["clang-format"],
+    "proto": ["buf"],
     "fish": ["fish_indent"]
   },
   "diagnostic-languageserver.formatFiletypes": {
@@ -77,8 +77,8 @@
     "css": "prettier",
     "sh": "shfmt",
     "markdown": "prettier",
-    "proto": "clang-format",
-    "fish": "fish_indent"
+    "fish": "fish_indent",
+    "proto": "buf"
   },
   "diagnostic-languageserver.linters": {
     "markdownlint": {
@@ -92,6 +92,25 @@
       "formatLines": 1,
       "formatPattern": [
         "^.*?:(\\d+):(\\d)\\s+(.*)(\\r|\\n)*$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 3
+        }
+      ]
+    },
+    "buf": {
+      "command": "buf",
+      "rootPatterns": ["buf.yaml"],
+      "debounce": 100,
+      "args": ["lint", "%filepath"],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "buf",
+      "formatLines": 1,
+      // proto/pet/v1/pet.proto:37:9:Service name "PetStore" should be suffixed with "Service".
+      "formatPattern": [
+        "^.*?:(\\d+):(\\d):(.*)$",
         {
           "line": 1,
           "column": 2,
@@ -153,6 +172,11 @@
     },
     "fish_indent": {
       "command": "fish_indent"
+    },
+    "buf": {
+      "command": "buf",
+      "args": ["format", "%filepath"],
+      "rootPatterns": ["buf.yaml"]
     }
   },
   "python.formatting.autopep8Path": "~/.asdf/shims/autopep8",

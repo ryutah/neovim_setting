@@ -66,6 +66,7 @@ Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'andreasvc/vim-256noir'
+Plug 'w0ng/vim-hybrid'
 
 " Vim UI / UX
 Plug 'vim-airline/vim-airline'
@@ -148,10 +149,13 @@ if has("termguicolors")
   set termguicolors
 endif
 
+colorscheme hybrid
+
 " colorscheme 256_noir
 " colorscheme gruvbox
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu"
+
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu"
 
 " For gruvbox fix nontext color
 hi NonText ctermfg=12 guifg=#2D3640

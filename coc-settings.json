@@ -167,9 +167,6 @@
     "shfmt": {
       "command": "shfmt"
     },
-    "clang-format": {
-      "command": "clang-format"
-    },
     "fish_indent": {
       "command": "fish_indent"
     },

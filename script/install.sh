@@ -10,20 +10,29 @@ bin_path=${HOME}/.local/bin
 config_path=${XDG_CONFIG_HOME:-$HOME/.config}
 data_path=${XDG_DATA_HOME:-$HOME/.local/share}
 
+################################################################
 # setup nvim config
+################################################################
 if [[ ! -d ${config_path}/nvim ]]; then
   ln -sf ${wd} ${config_path}/nvim
 fi
+################################################################
 
+################################################################
 # Install vim-plug
+################################################################
 if [[ ! -f ${data_path}/nvim/site/autoload/plug.vim ]]; then
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
     --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
+################################################################
 
 mkdir -p ${bin_path}
 
+################################################################
+# create symlinks
+################################################################
 # create neovim synlink to XDG_CONFIG_HOME
 if [[ ! -d ${HOME}/.config/nvim ]]; then
   cd ${config_path} && ln -sf ${wd}/ nvim
@@ -33,12 +42,22 @@ cd ${HOME} && ln -sf ${wd}/.vimspector.json
 
 cd ${wd}
 
+# Make simlink to extends scripts
+ls ./script/extends | xargs -tI {} ln -f -s ${wd}/script/extends/{} ${bin_path}/
+################################################################
+
+################################################################
+# install plugins and tools
+################################################################
 source ./script/versions.sh
 
-# Make simlink to extends scripts
-ls ./script/extends | xargs -tI {} ln -f -s $(pwd)/script/extends/{} ${bin_path}/
-
 # Install neovim extends
+#   - pynvim
+#     - neovim plugin
+#   - autopep8
+#     - python linter
+#   - black
+#     - python linter
 pip install -U pynvim autopep8 black
 
 # Install Go tools
@@ -46,6 +65,12 @@ pip install -U pynvim autopep8 black
 #     - for lsp of golangci-lint
 #   - shfmt
 #     - for shell script formatter
+#   - gore
+#     - golang REPL
+#   - gocode
+#     - auto completion for gore
+#   - bufls
+#     - lsp server for protocol buffer
 go install github.com/nametake/golangci-lint-langserver@latest
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
@@ -59,27 +84,8 @@ npx npm-check-updates -u
 npm install
 ls ./node_modules/.bin | xargs -tI {} ln -f -s $(pwd)/node_modules/.bin/{} ${bin_path}/
 
-# create symlink of coc
-#  1. snippets
-#  2. extentions
-coc_config_path=${config_path}/coc
-mkdir -p ${coc_config_path}
-ln -f -s $(pwd)/snippets/ultisnips ${coc_config_path}/
-ln -f -s $(pwd)/coc-package.json ${coc_config_path}/extensions/package.json
-
-# install coc extentions
-cd ${coc_config_path}/extensions && npm install
-
-####################################################################
 # work with tmp directory
-####################################################################
 mkdir -p tmp && cd tmp
-
-# for protocol buffer formatter
-clang_llvm_file="clang+llvm-${CLANG_LLVM_VERSION}-x86_64-linux-gnu-ubuntu-20.04"
-wget https://github.com/llvm/llvm-project/releases/download/llvmorg-${CLANG_LLVM_VERSION}/${clang_llvm_file}.tar.xz
-tar xvf ${clang_llvm_file}.tar.xz
-mv ${clang_llvm_file}/bin/clang-format ${bin_path}/
 
 # for terraform lsp
 terraform_lsp_file="terraform-ls_${TERRAFORM_LSP_VERSION}_linux_amd64"
@@ -96,3 +102,18 @@ chmod +x ${bin_path}/plantuml.jar
 cd ${wd} && rm -rf tmp
 
 ####################################################################
+
+################################################################
+# coc settins
+################################################################
+# create symlink of coc
+#  1. snippets
+#  2. extentions
+coc_config_path=${config_path}/coc
+mkdir -p ${coc_config_path}
+ln -f -s ${wd}/snippets/ultisnips ${coc_config_path}/
+ln -f -s ${wd}/coc-package.json ${coc_config_path}/extensions/package.json
+
+# install coc extentions
+cd ${coc_config_path}/extensions && npm install
+################################################################

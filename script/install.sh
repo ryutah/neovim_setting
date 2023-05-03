@@ -78,6 +78,9 @@ go install github.com/mdempsky/gocode@latest
 go install github.com/x-motemen/gore/cmd/gore@latest
 go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
 
+# install golangci-lint
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin ${GOLANGCI_LINT_VERSION}
+
 # Install Node tools
 npm install -g yarn
 npx npm-check-updates -u
@@ -98,6 +101,10 @@ wget https://github.com/plantuml/plantuml/releases/download/v${PLANT_UML_VERSION
 mv plantuml-${PLANT_UML_VERSION}.jar ${bin_path}/plantuml.jar
 chmod +x ${bin_path}/plantuml.jar
 
+# install rust tools
+
+cargo install tree-sitter-cli
+
 # move to working directory and remove tmp directory
 cd ${wd} && rm -rf tmp
 
@@ -116,4 +123,5 @@ ln -f -s ${wd}/coc-package.json ${coc_config_path}/extensions/package.json
 
 # install coc extentions
 cd ${coc_config_path}/extensions && npm install
+################################################################
 ################################################################

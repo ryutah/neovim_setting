@@ -140,11 +140,6 @@ nnoremap <silent>  [split]- 10<C-w>-
 
 
 """""""""""""""""""""""""""""""""""""""""
-" Filetypes
-"""""""""""""""""""""""""""""""""""""""""
-au! BufRead,BufNewFile *.astro set filetype=astro
-
-"""""""""""""""""""""""""""""""""""""""""
 " Colors
 """""""""""""""""""""""""""""""""""""""""
 " colorscheme gruvbox

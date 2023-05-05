@@ -68,6 +68,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'andreasvc/vim-256noir'
 Plug 'w0ng/vim-hybrid'
+Plug 'sainnhe/everforest'
 
 " Vim UI / UX
 Plug 'vim-airline/vim-airline'
@@ -142,6 +143,8 @@ nnoremap <silent>  [split]- 10<C-w>-
 """""""""""""""""""""""""""""""""""""""""
 " Colors
 """""""""""""""""""""""""""""""""""""""""
+set background=dark
+
 " colorscheme gruvbox
 if has("termguicolors")
   " fix true color not work under tmux
@@ -151,8 +154,25 @@ if has("termguicolors")
   set termguicolors
 endif
 
-colorscheme hybrid
+""""""""""""""""""""""""""""""""""""
+" for everforest
+""""""""""""""""""""""""""""""""""""
+" Set contrast.
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'soft'
 
+" For better performance
+let g:everforest_better_performance = 1
+
+" enable italic font
+let g:everforest_enable_italic = 1
+
+let g:everforest_diagnostic_line_highlight = 1
+
+colorscheme everforest
+""""""""""""""""""""""""""""""""""""
+" colorscheme hybrid
 " colorscheme 256_noir
 " colorscheme gruvbox
 

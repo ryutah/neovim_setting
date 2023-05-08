@@ -176,6 +176,7 @@
       "rootPatterns": ["buf.yaml"]
     }
   },
+  "sqlfluff.lintOnChange": false,
   "python.formatting.autopep8Path": "~/.asdf/shims/autopep8",
   "python.formatting.blackPath": "~/.asdf/shims/black",
   "rust-analyzer.procMacro.enable": true,

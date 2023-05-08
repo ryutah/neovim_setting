@@ -328,8 +328,8 @@ endfunction
 function! s:init_fern() abort
   nmap <buffer> i <Plug>(fern-action-open:split)
   nmap <buffer> s <Plug>(fern-action-open:vsplit)
-  nmap <buffer> S <Plug>(fern-action-open:select)
-  nmap <buffer> / <Plug>(fern-action-reveal)
+  nmap <buffer> <S-s> <Plug>(fern-action-open:select)
+  nmap <buffer> <S-i> <Plug>(fern-action-reveal=)
 endfunction
 
 " lambdalisue/nerdfont.vim and lambdalisue/fern-renderer-nerdfont.vim configuration

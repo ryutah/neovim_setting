@@ -281,3 +281,48 @@ Container_Boundary(container_boundary, "container boundary")
 
 @enduml
 endsnippet
+
+snippet business_process_diagram "sample of business process diagram"
+@startuml
+
+title マグネットシートデザイン募集サイト
+
+left to right direction
+
+node Haier {
+	actor 審査員
+
+	artifact マグネットシートデザイン
+	artifact 審査結果
+	artifact 応募情報
+
+	マグネットシートデザイン - 審査結果
+	マグネットシートデザイン - 応募情報
+
+	審査員 -up- (デザイン審査)
+
+	マグネットシートデザイン -- デザイン審査
+	審査結果 -- デザイン審査
+}
+
+
+actor 投稿者
+
+投稿者 -- (デザイン応募)
+投稿者 -- (審査結果確認)
+
+(デザイン応募) -- マグネットシートデザイン
+(審査結果確認) -- 審査結果
+
+note as N2
+	**システム化対象業務**
+
+	* 投稿者
+		* デザイン応募
+		* 審査結果確認
+	* 審査員
+		* デザイン審査
+end note
+
+@enduml
+endsnippet

@@ -180,6 +180,6 @@
   "python.formatting.autopep8Path": "~/.asdf/shims/autopep8",
   "python.formatting.blackPath": "~/.asdf/shims/black",
   "rust-analyzer.procMacro.enable": true,
-  "rust-analyzer.checkOnSave.command": "clippy",
-  "rust-analyzer.checkOnSave.extraArgs": ["--tests"]
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.check.extraArgs": ["--tests"]
 }

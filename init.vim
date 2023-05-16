@@ -39,7 +39,8 @@ execute 'set undodir=' . stdpath('cache') . '/undo'
 
 let g:python3_host_prog = expand('$PYTHON3_PATH')
 " Too heavy
-let g:polyglot_disabled = ['vue']
+" NOTE(ryutah): polyglot の代わりに Treesitter を使うようにするので様子見でコメントアウト
+" let g:polyglot_disabled = ['vue']
 
 """""""""""""""""""""""""""""""""""""""""
 " plugins
@@ -89,7 +90,9 @@ Plug 'tyru/caw.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'antoinemadec/coc-fzf', { 'branch': 'release' }
 Plug 'honza/vim-snippets'
-Plug 'sheerun/vim-polyglot'
+" NOTE(ryutah): polyglot の代わりに Treesitter を使うようにするので様子見でコメントアウト
+" go.sum ファイルは Treesitter だとシンタックスハイライト微妙かも
+" Plug 'sheerun/vim-polyglot'
 Plug 'mattn/vim-maketable'
 Plug 'mattn/emmet-vim'
 

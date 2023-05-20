@@ -89,6 +89,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tyru/caw.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'antoinemadec/coc-fzf', { 'branch': 'release' }
+Plug 'rafcamlet/coc-nvim-lua'
 Plug 'honza/vim-snippets'
 " NOTE(ryutah): polyglot の代わりに Treesitter を使うようにするので様子見でコメントアウト
 " go.sum ファイルは Treesitter だとシンタックスハイライト微妙かも

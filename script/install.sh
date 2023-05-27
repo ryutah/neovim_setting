@@ -118,6 +118,7 @@ cd ${wd} && rm -rf tmp
 #  2. extentions
 coc_config_path=${config_path}/coc
 mkdir -p ${coc_config_path}
+mkdir -p ${coc_config_path}/extensions
 ln -f -s ${wd}/snippets/ultisnips ${coc_config_path}/
 ln -f -s ${wd}/coc-package.json ${coc_config_path}/extensions/package.json
 

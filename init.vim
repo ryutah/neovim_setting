@@ -409,7 +409,8 @@ autocmd FileType plantuml let g:plantuml_previewer#plantuml_jar_path =
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = "all",
+  -- NOTE: 一部のプラグインのインストールに失敗するため、とりあえずコメントアウト
+  -- ensure_installed = "all",
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

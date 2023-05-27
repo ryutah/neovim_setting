@@ -96,6 +96,7 @@ Plug 'honza/vim-snippets'
 " Plug 'sheerun/vim-polyglot'
 Plug 'mattn/vim-maketable'
 Plug 'mattn/emmet-vim'
+Plug 'github/copilot.vim', { 'do': ':Copilot setup' }
 
 " Git Extends
 Plug 'https://tpope.io/vim/fugitive.git'
@@ -430,3 +431,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true

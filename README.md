@@ -28,4 +28,5 @@ My neovim configrations
 ./script/install.sh
 ```
 
-Start neovim and install plugins with `:PlugInstall` !
+- Start neovim and install plugins with `:PlugInstall` !
+- Execute command `:Copilot setup` for enable GitHub Copilot !

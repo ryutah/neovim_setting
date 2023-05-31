@@ -96,7 +96,7 @@ Plug 'honza/vim-snippets'
 " Plug 'sheerun/vim-polyglot'
 Plug 'mattn/vim-maketable'
 Plug 'mattn/emmet-vim'
-Plug 'github/copilot.vim', { 'do': ':Copilot setup' }
+Plug 'github/copilot.vim'
 
 " Git Extends
 Plug 'https://tpope.io/vim/fugitive.git'

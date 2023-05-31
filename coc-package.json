@@ -17,9 +17,9 @@
     "coc-phpls": ">=2.2.2",
     "coc-deno": ">=3.10.5",
     "coc-toml": ">=1.2.5",
-    "coc-pyright": ">=1.1.307",
+    "coc-pyright": ">=1.1.310",
     "coc-lua": ">=1.0.1",
     "coc-sqlfluff": ">=0.10.7"
   },
-  "lastUpdate": 1682992782969
+  "lastUpdate": 1685409681511
 }

@@ -86,7 +86,7 @@ Plug 'lambdalisue/fern-git-status.vim'
 
 " Code Extends
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tyru/caw.vim'
+Plug 'https://tpope.io/vim/commentary.git'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'antoinemadec/coc-fzf', { 'branch': 'release' }
 Plug 'rafcamlet/coc-nvim-lua'
@@ -195,10 +195,10 @@ hi NonText ctermfg=12 guifg=#2D3640
 hi clear CursorLine
 
 """""""""""""""""""""""""""""""""""""""""
-" tyru/caw.vim
+" tpope/vim-commentary
 """""""""""""""""""""""""""""""""""""""""
-nmap <leader>/ <Plug>(caw:hatpos:toggle)
-vmap <leader>/ <Plug>(caw:hatpos:toggle)
+nmap <silent> <leader>/ gcc
+vmap <silent> <leader>/ gc
 
 """""""""""""""""""""""""""""""""""""""""
 " vim-airline/vim-airline

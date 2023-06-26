@@ -63,7 +63,8 @@
     "vue": ["eslint"],
     "markdown": ["markdownlint"],
     "proto": ["buf"],
-    "fish": ["fish_indent"]
+    "fish": ["fish_indent"],
+    "terraform": ["tflint"]
   },
   "diagnostic-languageserver.formatFiletypes": {
     "javascript": "prettier_js",
@@ -117,6 +118,26 @@
           "message": 3
         }
       ]
+    },
+    "tflint": {
+      "command": "tflint",
+      "rootPatterns": [".tflint.hcl"],
+      "debounce": 100,
+      "args": ["-f", "sarif", "--filter", "%filename"],
+      "sourceName": "tflint",
+      "parseJson": {
+        "errorsRoot": "runs[0].results",
+        "line": "locations[0].physicalLocation.region.startLine",
+        "column": "locations[0].physicalLocation.region.startColumn",
+        "endLine": "locations[0].physicalLocation.region.endLine",
+        "endColumn": "locations[0].physicalLocation.region.endColumn",
+        "message": "[tflint] ${message.text} [${ruleId}]",
+        "security": "level"
+      },
+      "securities": {
+        "error": "error",
+        "warning": "warning"
+      }
     }
   },
   "diagnostic-languageserver.formatters": {

@@ -79,7 +79,8 @@
     "sh": "shfmt",
     "markdown": "prettier",
     "fish": "fish_indent",
-    "proto": "buf"
+    "proto": "buf",
+    "terraform": "terraform"
   },
   "diagnostic-languageserver.linters": {
     "markdownlint": {
@@ -195,6 +196,10 @@
       "command": "buf",
       "args": ["format", "%filepath"],
       "rootPatterns": ["buf.yaml"]
+    },
+    "terraform": {
+      "command": "terraform",
+      "args": ["fmt", "-"]
     }
   },
   "sqlfluff.lintOnChange": false,

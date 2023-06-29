@@ -40,7 +40,7 @@ execute 'set undodir=' . stdpath('cache') . '/undo'
 let g:python3_host_prog = expand('$PYTHON3_PATH')
 " Too heavy
 " NOTE(ryutah): polyglot の代わりに Treesitter を使うようにするので様子見でコメントアウト
-let g:polyglot_disabled = ['vue']
+" let g:polyglot_disabled = ['vue']
 
 """""""""""""""""""""""""""""""""""""""""
 " plugins
@@ -93,7 +93,7 @@ Plug 'rafcamlet/coc-nvim-lua'
 Plug 'honza/vim-snippets'
 " NOTE(ryutah): polyglot の代わりに Treesitter を使うようにするので様子見でコメントアウト
 " go.sum ファイルは Treesitter だとシンタックスハイライト微妙かも
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'mattn/vim-maketable'
 Plug 'mattn/emmet-vim'
 Plug 'github/copilot.vim'
@@ -409,8 +409,7 @@ autocmd FileType plantuml let g:plantuml_previewer#plantuml_jar_path =
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  -- NOTE: 一部のプラグインのインストールに失敗するため、とりあえずコメントアウト
-  -- ensure_installed = "all",
+  ensure_installed = "all",
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -420,7 +419,11 @@ require'nvim-treesitter.configs'.setup {
   auto_install = true,
 
   -- List of parsers to ignore installing (for "all")
-  ignore_install = {},
+  ignore_install = { "matlab" },
+
+  indent = {
+    enable = true,
+  },
 
   highlight = {
     enable = true,

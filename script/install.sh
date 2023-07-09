@@ -58,7 +58,9 @@ source ./script/versions.sh
 #     - python linter
 #   - black
 #     - python linter
-pip install -U pynvim autopep8 black
+#   - sqlfluff
+#     - linter and formatter of sql, dbt, etc
+pip install -U pynvim autopep8 black sqlfluff
 
 # Install Go tools
 #   - golangci-lint-langserver

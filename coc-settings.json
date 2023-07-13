@@ -187,7 +187,8 @@
       ]
     },
     "shfmt": {
-      "command": "shfmt"
+      "command": "shfmt",
+      "args": ["-i", "2"]
     },
     "fish_indent": {
       "command": "fish_indent"

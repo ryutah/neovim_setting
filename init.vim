@@ -97,6 +97,7 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/vim-maketable'
 Plug 'mattn/emmet-vim'
 Plug 'github/copilot.vim'
+Plug 'vim-test/vim-test'
 
 " Git Extends
 Plug 'https://tpope.io/vim/fugitive.git'
@@ -144,6 +145,9 @@ nnoremap <silent>  [split]< 20<C-w><
 nnoremap <silent>  [split]+ 10<C-w>+
 nnoremap <silent>  [split]- 10<C-w>-
 
+" terminal keymap
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-[> <C-\><C-n>
 
 """""""""""""""""""""""""""""""""""""""""
 " Colors
@@ -441,3 +445,10 @@ EOF
 """""""""""""""""""""""""""""""""""""""""
 imap <silent><script><expr> <C-f> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+
+"""""""""""""""""""""""""""""""""""""""""
+" vim-test/vim-test
+"""""""""""""""""""""""""""""""""""""""""
+let test#strategy = "neovim"
+let test#neovim#term_position = "botright 10"
+let g:test#neovim#start_normal = 1

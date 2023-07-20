@@ -80,7 +80,8 @@
     "markdown": "prettier",
     "fish": "fish_indent",
     "proto": "buf",
-    "terraform": "terraform"
+    "terraform": "terraform",
+    "sql": "sqlfmt"
   },
   "diagnostic-languageserver.linters": {
     "markdownlint": {
@@ -201,9 +202,14 @@
     "terraform": {
       "command": "terraform",
       "args": ["fmt", "-"]
+    },
+    "sqlfmt": {
+      "command": "sqlfmt",
+      "args": ["-q", "-"]
     }
   },
   "sqlfluff.lintOnChange": false,
+  "sqlfluff.formatEnable": false,
   "python.formatting.autopep8Path": "~/.asdf/shims/autopep8",
   "python.formatting.blackPath": "~/.asdf/shims/black",
   "rust-analyzer.procMacro.enable": true,

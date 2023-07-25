@@ -208,6 +208,7 @@
       "args": ["-q", "-"]
     }
   },
+  "tsserver.useLocalTsdk": true,
   "sqlfluff.lintOnChange": false,
   "sqlfluff.formatEnable": false,
   "python.formatting.autopep8Path": "~/.asdf/shims/autopep8",

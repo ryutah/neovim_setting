@@ -452,3 +452,8 @@ let g:copilot_no_tab_map = v:true
 let test#strategy = "neovim"
 let test#neovim#term_position = "botright 10"
 let g:test#neovim#start_normal = 1
+
+"""""""""""""""""""""""""""""""""""""""""
+" iamcco/markdown-preview.nvim
+"""""""""""""""""""""""""""""""""""""""""
+let g:mkdp_theme = 'light'

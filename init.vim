@@ -391,11 +391,12 @@ let g:sneak#label = 1
 nnoremap [spector] <Nop>
 nmap <Leader>d [spector]
 nnoremap <silent> [spector]b :<C-U>call vimspector#ToggleBreakpoint()<CR>
+nnoremap <silent> [spector]B <Plug>VimspectorBreakpoints
 nnoremap <silent> [spector]l :<C-U>call vimspector#Launch()<CR>
 nnoremap <silent> [spector]c :<C-U>call vimspector#Continue()<CR>
-nnoremap <C-N> :<C-U>call vimspector#StepOver()<CR>
-nnoremap <C-H> :<C-U>call vimspector#StepOut()<CR>
-nnoremap <C-L> :<C-U>call vimspector#StepInto()<CR>
+nnoremap <silent> [spector]n :<C-U>call vimspector#StepOver()<CR>
+nnoremap <silent> [spector]s :<C-U>call vimspector#StepInto()<CR>
+nnoremap <silent> [spector]r :<C-U>call vimspector#Reset( { 'interactive': v:false } )<CR>
 nmap <C-K> <Plug>VimspectorBalloonEval
 xmap <C-K> <Plug>VimspectorBalloonEval
 

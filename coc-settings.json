@@ -204,8 +204,7 @@
       "args": ["fmt", "-"]
     },
     "sqlfmt": {
-      "command": "sqlfmt",
-      "args": ["-q", "-"]
+      "command": "xsqlfmt"
     }
   },
   "tsserver.useLocalTsdk": true,

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [[ -f .sql_formatter.json ]]; then
+  sql-formatter -c .sql_formatter.json
+elif [[ -f sql_formatter.json ]]; then
+  sql-formatter -c sql_formatter.json
+else
+  sql-formatter
+fi

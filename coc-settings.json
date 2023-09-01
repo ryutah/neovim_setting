@@ -81,7 +81,7 @@
     "fish": "fish_indent",
     "proto": "buf",
     "terraform": "terraform",
-    "sql": "sqlfmt"
+    "sql": "sql_formatter"
   },
   "diagnostic-languageserver.linters": {
     "markdownlint": {
@@ -205,6 +205,10 @@
     },
     "sqlfmt": {
       "command": "xsqlfmt"
+    },
+    "sql_formatter": {
+      "command": "xsql_formatter",
+      "rootPatterns": [".sql_formatter.json", "sql_formatter.json"]
     }
   },
   "tsserver.useLocalTsdk": true,

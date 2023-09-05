@@ -1,14 +1,118 @@
 priority 10
 
+snippet state "State diagram template" b
+@startuml
+
+' see: https://plantuml.com/ja-dark/state-diagram
+
+hide empty description
+
+state "未着手" as todo
+state "対応中" as in_progress
+state "レビュー中" as in_review
+state "レビュー修正" as in_fix
+state "承認済" as approve
+state "クローズ" as close
+
+[*] --> todo : 起票
+todo --> in_progress : 着手
+in_progress --> in_review : レビュー依頼
+in_review --> in_fix : 修正依頼
+in_fix --> in_review : レビュー依頼
+in_review --> approve : 承認
+approve --> close : 対応完了
+close --> [*]
+
+@enduml
+endsnippet
+
+snippet activity "Adtivity diagram template" b
+@startuml
+
+' see: https://plantuml.com/ja-dark/activity-diagram-beta
+' 不明なエラー発生時の Internal Error はアプリケーションロジックとは直接関係ない者であるため省略して記載する
+
+title タスク起票
+
+start
+
+#cyan:ユーザ認可リクエスト共通処理;
+:Task エンティティ新規作成;
+
+if (入力エラー) then (yes)
+	:BadRequest レスポンス;
+	stop
+else (no)
+	:Task エンティティ保存;
+	note right
+		* Database
+			* Task
+		====
+		* DB への登録、ファイルへの出力は note で記述
+		* メモが必要な場合は `====` で区切って下部に記載
+	end note
+endif
+
+if (Task 重複エラー) then (yes)
+	:BadRequest レスポンス;
+else (no)
+	:Task 起票成功レスポンス;
+endif
+
+stop
+
+@enduml
+endsnippet
+
 snippet ddd "Domain Model Template" b
-@startuml ${uml_name}
+@startuml
+
+' see: https://plantuml.com/ja-dark/class-diagram
 
 skinparam class {
-	BackgroundColor<<Entity>> pink
+	BackgroundColor<<RootEntity>> pink
+	BackgroundColor<<Entity>> orange
 	BackgroundColor<<VO>> palegreen
 	BackgroundColor<<Service>> cyan
 }
 hide circle
+hide empty members
+
+' 境界付けられたコンテキストを定義する場合は namespace を使用する
+namespace bounded_context {
+	class ルートエンティティ[RootEntity]<<RootEntity>> {
+		' エンティティのキーとなるフィールドには [pk] を付与
+		' 複合キーの場合複数のフィールドに [pk] を付与
+		id[pk]
+		' 日本語表記[英語表記]
+		' id 等の名称が明確な場合は省略可
+		name[名前]
+	}
+	class Entity<<Entity>> {
+		id[pk]
+		名前 : name
+	}
+	class ValueObject<<VO>> {
+		値 : value
+	}
+	RootEntity "1" -- "1" Entity
+	RootEntity "1" -- "1" ValueObject
+
+	class RootEntity2<<RootEntity>> {
+		id[pk]
+		value : 値
+	}
+	' ID等による緩い関連は "--> : 関連フィールド" の表記で表現
+	RootEntity2 --> RootEntity : id
+
+	class Service<<Service>> {
+		' 関数名(引数) : 戻り値
+		method(RootEntity, RootEntity2) : void
+	}
+	' サービスが利用するエンティティを表す
+	Service ..> RootEntity : use
+	Service ..> RootEntity2 : use
+}
 
 @enduml
 endsnippet

@@ -70,6 +70,7 @@
     "javascript": "prettier_js",
     "typescript": "prettier_js",
     "typescriptreact": "prettier_js",
+    "javascriptreact": "prettier_js",
     "json": "prettier",
     "jsonc": "prettier",
     "yaml": "prettier",

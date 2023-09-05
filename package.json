@@ -3,9 +3,9 @@
   "description": "My neovim config",
   "dependencies": {
     "eslint": "^8.48.0",
-    "markdownlint-cli": "^0.35.0",
+    "markdownlint-cli": "^0.36.0",
     "prettier": "^3.0.3",
-    "sql-formatter": "^12.2.4",
+    "sql-formatter": "^13.0.0",
     "textlint": "^13.3.3"
   }
 }

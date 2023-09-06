@@ -1,5 +1,123 @@
 priority 10
 
+snippet system_context "System context diagram template" b
+' see
+'   - https://plantuml.com/ja-dark/use-case-diagram
+'   - https://qiita.com/nkenbou/items/86d5718b63f610dfd67f
+'
+' 人               : actor
+' システム         : usecase
+' 外部システム     : agent
+' システム化の目的 : note
+
+@startuml
+
+left to right direction
+
+actor 会員 as member
+actor 図書館員 as librarian
+
+agent 書籍通販会社 as book_company
+
+usecase 図書館システム as library_system
+note top of library_system
+	図書館員の作業 (書籍購買の自動連携) を支援し、本の貸
+	出・返却業務において会員を待たせないスムーズな運用を
+	実現する。蔵書管理をリアルタイムで行い、検索、在庫な
+	ど会員サービスを向上させる
+end note
+
+member -- library_system
+librarian -- library_system
+library_system -- book_company
+
+@enduml
+endsnippet
+
+snippet uiflow "UI flow diagram template" b
+' see: https://plantuml.com/ja-dark/state-diagram
+
+@startuml
+
+hide empty description
+
+[*] --> SignIn : 未ログイン状態
+[*] -> Todoリスト : ログイン状態
+
+SignIn : Email input[email]
+SignIn : Password input[password]
+SignIn : 新規登録 link
+SignIn -up-> Todoリスト : ログイン
+SignIn --> SignUp : 新規登録クリック
+
+
+SignUp : 姓 input[text]
+SignUp : 名 input[text]
+SignUp : Email input[email]
+SignUp : Password input[password]
+SignUp : Cancel button
+SignUp : Submit input[submit]
+SignUp --> SignIn : Cancelクリック
+SignUp --> Todoリスト : Submitクリック
+
+
+Todoリスト : 新規登録 button
+Todoリスト : ページネーション
+state Todoリスト {
+	Todo : タイトル text
+	Todo : 状態 select
+	Todo : 削除 button
+}
+Todoリスト -> Todoリスト : ページネーションクリック
+Todoリスト --> Todo新規登録 : 新規登録クリック
+Todo --> Todo詳細_編集 : Todoクリック
+Todo --> Todoリスト : 削除クリック
+
+
+Todo新規登録 : タイトル input[text]
+Todo新規登録 : 状態 select
+Todo新規登録 : Cancel button
+Todo新規登録 : Save input[submit]
+Todo新規登録 -up-> Todoリスト : Cancelクリック
+Todo新規登録 -up-> Todoリスト : Saveクリック
+
+
+Todo詳細_編集 : タイトル input[text]
+Todo詳細_編集 : 状態 select
+Todo詳細_編集 : Cancel button
+Todo詳細_編集 : Save input[submit]
+Todo詳細_編集 --> Todoリスト : Cancelクリック
+Todo詳細_編集 --> Todoリスト : Saveクリック
+
+@enduml
+endsnippet
+
+snippet wireframe "Wireframe diagram template" b
+' see: https://plantuml.com/ja/salt
+'
+' button : [ BUTTON ]
+' input  : " INPUT "
+' select : ^ SELECT ^
+
+@startsalt
+{
+	Normal Text
+	" Input "
+	[ Button ] | [ Button2 ]
+	{ " Grouping " | " Grouping2 "}
+	^ Select ^
+	^ Select ^ Choice1 ^ Choice2 ^
+
+	{#
+		Table | 状態                               | .
+		Task1  | ^Todo       ^                      | <&circle-x>
+	}
+
+	<< 1 2 3 4 5 6 >>
+}
+@endsalt
+endsnippet
+
 snippet state "State diagram template" b
 @startuml
 

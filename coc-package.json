@@ -20,7 +20,8 @@
     "coc-pyright": ">=1.1.320",
     "coc-lua": ">=2.0.5",
     "coc-sqlfluff": ">=0.11.4",
-    "coc-swagger": ">=0.0.3"
+    "coc-swagger": ">=0.0.3",
+    "coc-flutter": ">=1.9.10"
   },
   "lastUpdate": 1693438874689
 }

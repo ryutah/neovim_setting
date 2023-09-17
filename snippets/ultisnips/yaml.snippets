@@ -3,119 +3,119 @@ priority 10
 snippet bufgen "tempalte of buf.gen.yaml" b
 version: v1
 plugins:
-  - plugin: go
-    out: proto
-    opt: paths=source_relative
-  - plugin: go-grpc
-    out: proto
-    opt:
-      - paths=source_relative
-      - require_unimplemented_servers=false
+	- plugin: go
+		out: proto
+		opt: paths=source_relative
+	- plugin: go-grpc
+		out: proto
+		opt:
+			- paths=source_relative
+			- require_unimplemented_servers=false
 endsnippet
 
 snippet app.yaml "app.yaml" b
 runtime: go114
 service: ${1:default}
 handlers:
-  - url: /stylesheets
-    static_dir: stylesheets
+	- url: /stylesheets
+		static_dir: stylesheets
 
-  - url: /(.*\.(gif|png|jpg))$
-    static_files: static/\1
-    upload: static/.*\.(gif|png|jpg)$
+	- url: /(.*\.(gif|png|jpg))$
+		static_files: static/\1
+		upload: static/.*\.(gif|png|jpg)$
 
-  - url: /.*
-    script: auto
-    secure: always
+	- url: /.*
+		script: auto
+		secure: always
 
 env_variables:
-  ENV_NAME: ENV_VALUE
+	ENV_NAME: ENV_VALUE
 endsnippet
 
 snippet dep "Deployment" b
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${2:my-deployment}
-  labels:
-    ${1:app: my-app}
+	name: ${2:my-deployment}
+	labels:
+		${1:app: my-app}
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      $3
-  template:
-    metadata:
-      labels:
-        ${3:app: my-app}
-    spec:
-      containers:
-        - image: ${4:nginx}
-          name: ${5:nginx}
-          ports:
-            - containerPort: 8080
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: 8080
-            timeoutSeconds: 5
-            initialDelaySeconds: 5
-            successThreshold: 1
-            failureThreshold: 5
-          readinessProbe:
-            httpGet:
-              path: /healthz
-              port: 80
-            timeoutSeconds: 5
-            initialDelaySeconds: 5
-            successThreshold: 1
-            failureThreshold: 5
-          resources:
-            requests:
-              memory: 10Mi
-              cpu: 10m
-            limits:
-              memory: 128Mi
-              cpu: 100m
+	replicas: 1
+	selector:
+		matchLabels:
+			$3
+	template:
+		metadata:
+			labels:
+				${3:app: my-app}
+		spec:
+			containers:
+				- image: ${4:nginx}
+					name: ${5:nginx}
+					ports:
+						- containerPort: 8080
+					livenessProbe:
+						httpGet:
+							path: /healthz
+							port: 8080
+						timeoutSeconds: 5
+						initialDelaySeconds: 5
+						successThreshold: 1
+						failureThreshold: 5
+					readinessProbe:
+						httpGet:
+							path: /healthz
+							port: 80
+						timeoutSeconds: 5
+						initialDelaySeconds: 5
+						successThreshold: 1
+						failureThreshold: 5
+					resources:
+						requests:
+							memory: 10Mi
+							cpu: 10m
+						limits:
+							memory: 128Mi
+							cpu: 100m
 endsnippet
 
 snippet svc "Service" b
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: null
-  labels:
-    ${1:app: my-app}
-  name: ${2:my-svc}
+	creationTimestamp: null
+	labels:
+		${1:app: my-app}
+	name: ${2:my-svc}
 spec:
-  type: ${3:LoadBalancer}
-  selector:
-    ${4:app: my-app}
-  ports:
-    - name: 80-80
-      protocol: TCP
-      port: 80
-      targetPort: 80
+	type: ${3:LoadBalancer}
+	selector:
+		${4:app: my-app}
+	ports:
+		- name: 80-80
+			protocol: TCP
+			port: 80
+			targetPort: 80
 endsnippet
 
 snippet circleci "CircleCI yaml" b
 version: 2.1
 
 orbs:
-  go: circleci/go@1.5.0
+	go: circleci/go@1.5.0
 
 jobs:
-  unit_test:
-    docker:
-      - image: 'cimg/go:1.15'
-    steps:
-      - checkout
-      - run:
-          go test ./...
+	unit_test:
+		docker:
+			- image: 'cimg/go:1.15'
+		steps:
+			- checkout
+			- run:
+					go test ./...
 
 workflows:
-  version: 2
-  build_and_deploy:
-    jobs:
-      - unit_test
+	version: 2
+	build_and_deploy:
+		jobs:
+			- unit_test
 endsnippet

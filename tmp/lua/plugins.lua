@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lsp',
       'folke/neodev.nvim',
       'b0o/schemastore.nvim',
+      'ray-x/lsp_signature.nvim',
     },
     config = function()
       require('configs/nvim_lspconfig')

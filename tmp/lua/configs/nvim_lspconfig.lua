@@ -157,6 +157,7 @@ local lsps = {
 local formatters = {
   'prettierd',
   'sql-formatter',
+  'sqlfmt',
   'shfmt',
 }
 
@@ -191,6 +192,10 @@ local setup_mason = function()
 
   require('mason').setup()
   require('mason-lspconfig').setup()
+end
+
+local function setup_lsp_signature()
+  require('lsp_signature').setup()
 end
 
 local exec_format = function()
@@ -228,9 +233,7 @@ local on_attach_nvim_lspconfig_setup_format = function(args)
     vim.api.nvim_create_augroup('lsp_auto_format', {})
     vim.api.nvim_create_autocmd('BufWritePre', {
       group = 'lsp_auto_format',
-      callback = function()
-        exec_format()
-      end
+      callback = exec_format
     })
   end
 end
@@ -361,7 +364,7 @@ local setup_nvim_lsp_config = function()
         -- see:
         --   - https://github.com/neovim/nvim-lspconfig/issues/2481
         client.server_capabilities.semanticTokensProvider = nil
-
+        require('lsp_signature').on_attach()
         on_attach_nvim_lspconfig_setup_format({
           client = client,
           format = config.format,
@@ -382,4 +385,5 @@ local setup_nvim_lsp_config = function()
 end
 
 setup_mason()
+setup_lsp_signature()
 setup_nvim_lsp_config()

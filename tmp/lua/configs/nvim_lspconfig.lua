@@ -10,6 +10,7 @@
 --        },
 --      },
 --   }
+
 local lsps = {
   {
     name = 'golangci_lint_ls',
@@ -56,7 +57,16 @@ local lsps = {
       }
     },
   },
-  { name = 'pyright' },
+  {
+    name = 'pyright',
+    lsp_opts = {
+      settings = {
+        python = {
+          pythonPath = require('utils/python').python_path(),
+        },
+      },
+    },
+  },
   {
     name = 'lua_ls',
     lsp_opts = {
@@ -295,7 +305,8 @@ local setup_nvim_lsp_config_keymap = function()
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       local opts = { buffer = ev.buf }
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+      -- use fzf-lua
+      -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
       vim.keymap.set('n', '<C-h>', vim.lsp.buf.signature_help, opts)

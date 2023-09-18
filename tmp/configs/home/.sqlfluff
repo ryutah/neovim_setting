@@ -1,0 +1,6 @@
+# see: https://docs.sqlfluff.com/en/stable/configuration.html#default-configuration
+
+[sqlfluff]
+templater = raw
+dialect = postgres
+exclude_rules = LT01, LT02, LT06, CP05, CP03

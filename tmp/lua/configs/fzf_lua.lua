@@ -9,6 +9,7 @@ vim.keymap.set('n', '<Leader><Leader>wo', "<cmd>lua require('fzf-lua').lsp_live_
 vim.keymap.set('n', '<Leader>d', "<cmd>lua require('fzf-lua').diagnostics_workspace()<CR>", { silent = true })
 vim.keymap.set('n', '<Leader>rf', "<cmd>lua require('fzf-lua').lsp_references()<CR>", { silent = true })
 vim.keymap.set('n', '<Leader>im', "<cmd>lua require('fzf-lua').lsp_implementations()<CR>", { silent = true })
+vim.keymap.set('n', 'gd', "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", { silent = true })
 vim.keymap.set('n', '<Leader>ca', "<cmd>lua require('fzf-lua').lsp_code_actions()<CR>", { silent = true })
 vim.keymap.set('n', '<Leader>gb', "<cmd>lua require('fzf-lua').git_branches()<CR>", { silent = true })
 

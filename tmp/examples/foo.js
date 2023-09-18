@@ -1,11 +1,12 @@
-console.log("Hello, World!!");
+console.log('Hello, World!!')
 
 function foobar() {
-  console.log("Foob");
+  console.log('Foob')
 }
 
-foobar();
+foobar()
 
-console.log("XXXXXX");
+console.log('XXXXXX')
 
-console.log("XXXX");
+console.log('XXXX')
+

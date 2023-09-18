@@ -1,18 +1,18 @@
-console.log("");
+console.log('')
 
 class Foo {
-  private bar: number;
+  private bar: number
 
   constructor() {
-    this.bar = 1;
+    this.bar = 1
   }
 
   public getBar(): number {
-    return this.bar;
+    return this.bar
   }
 }
 
-const foo = new Foo();
-foo.getBar();
+const foo = new Foo()
+foo.getBar()
 
-console.log("XXXXXX");
+console.log('XXXXXX')

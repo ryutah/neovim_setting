@@ -46,6 +46,7 @@ func main() {
 		hoge(1)
 		fmt.Fprintf(w, "Hello, world!")
 	})
+
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}

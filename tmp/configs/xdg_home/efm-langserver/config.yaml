@@ -8,7 +8,7 @@ tools:
   #   - https://github.com/mattn/efm-langserver/blob/master/README.md
   prettierd: &prettierd
     format-stdin: true
-    # 追加 Option つけると、 .prettierrc とかの設定読み込まないので追加設 Option はつけない
+    # 追加 Option つけると .prettierrc とかの設定読み込まないので追加 Option はつけない
     format-command: >
       prettierd ${INPUT}
     root-markers:
@@ -36,6 +36,13 @@ tools:
       - sql_formatter.json
       - .sql_formatter.json
 
+  # NOTE:
+  # sqlc などの、標準の SQL ではない場合にエラーが発生するため sql_formatter を代わりに利用
+  sqlfmt: &sqlfmt
+    format-stdin: true
+    format-command: >
+      sqlfmt -
+
   shfmt: &shfmt
     format-stdin: true
     format-command: >
@@ -55,9 +62,9 @@ tools:
         -e LT09,AM04
         ${INPUT}
     lint-formats:
-      - "::%totice title=SQLFluff,file=%f,line=%l,col=%c::%m"
-      - "::%tarning title=SQLFluff,file=%f,line=%l,col=%c::%m"
-      - "::%trror title=SQLFluff,file=%f,line=%l,col=%c::%m"
+      - '::%totice title=SQLFluff,file=%f,line=%l,col=%c::%m'
+      - '::%tarning title=SQLFluff,file=%f,line=%l,col=%c::%m'
+      - '::%trror title=SQLFluff,file=%f,line=%l,col=%c::%m'
     root-markers:
       - .sqlfluff
 
@@ -72,9 +79,9 @@ tools:
     lint-command: >
       tflint --recursive --format compact
     lint-formats:
-      - "%f:%l:%c: %trror - %m"
-      - "%f:%l:%c: %tarning - %m"
-      - "%f:%l:%c: %totice - %m"
+      - '%f:%l:%c: %trror - %m'
+      - '%f:%l:%c: %tarning - %m'
+      - '%f:%l:%c: %totice - %m'
     root-markers:
       - .tflint.hcl
 
@@ -90,9 +97,9 @@ tools:
     lint-command: >
       markdownlint ${INPUT}
     lint-formats:
-      - "%f:%l %m"
-      - "%f:%l:%c %m"
-      - "%f: %l: %m"
+      - '%f:%l %m'
+      - '%f:%l:%c %m'
+      - '%f: %l: %m'
     root-markers:
       - .markdownlint.jsonc
       - .markdownlint.json
@@ -103,10 +110,10 @@ tools:
   # refs
   #   - https://github.com/mattn/efm-langserver
   dockerfile-hadolint: &dockerfile-hadolint
-    lint-command: "hadolint --no-color "
+    lint-command: 'hadolint --no-color '
     lint-severity: 2
     lint-formats:
-      - "%f:%l %m"
+      - '%f:%l %m'
 
 languages:
   javascript:

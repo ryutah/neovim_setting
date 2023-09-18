@@ -45,9 +45,16 @@ local function install_gotests()
   vim.print('Installed gotests')
 end
 
+local function install_treesitter_cli()
+  vim.print('Installing treesitter-cli...')
+  vim.fn.system('cargo install tree-sitter-cli')
+  vim.print('Installed treesitter-cli')
+end
+
 local function install_tools()
   install_plantuml()
   install_gotests()
+  install_treesitter_cli()
 end
 
 vim.g.plantuml_jar_path = install_dir('plantuml.jar')

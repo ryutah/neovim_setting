@@ -28,3 +28,15 @@ My neovim configrations
 :UpdateTools
 :Copilot setup
 ```
+
+## Tips
+
+### .luarc.json
+
+adds below config to your `.luarc.json` to disable annoying diagnostics.
+
+```json
+{
+  "diagnostics.disable": ["missing-fields"]
+}
+```

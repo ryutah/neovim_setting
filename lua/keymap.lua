@@ -1,10 +1,10 @@
 vim.g.mapleader = " "
 
 -- cursor
-vim.keymap.set('', 'j', 'gj')
-vim.keymap.set('', 'k', 'gk')
-vim.keymap.set('', 'gj', 'j')
-vim.keymap.set('', 'gk', 'k')
+vim.keymap.set({ 'n', 'x', 'o' }, 'j', 'gj')
+vim.keymap.set({ 'n', 'x', 'o' }, 'k', 'gk')
+vim.keymap.set({ 'n', 'x', 'o' }, 'gj', 'j')
+vim.keymap.set({ 'n', 'x', 'o' }, 'gk', 'k')
 vim.keymap.set({ 'n', 'x', 'o' }, 'H', '^')
 vim.keymap.set({ 'n', 'x', 'o' }, 'L', '$')
 vim.keymap.set({ 'n', 'x' }, 'F', '%')

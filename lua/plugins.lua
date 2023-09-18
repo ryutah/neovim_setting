@@ -189,6 +189,17 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'mfussenegger/nvim-dap',
+    requires = {
+      'leoluz/nvim-dap-go',
+      'theHamsta/nvim-dap-virtual-text',
+    },
+    config = function()
+      require('configs/nvim_dap')
+    end,
+  }
+
+  use {
     'nvim-lua/plenary.nvim'
   }
 

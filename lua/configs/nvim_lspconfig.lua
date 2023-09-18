@@ -164,6 +164,12 @@ local lsps = {
   },
 }
 
+local daps = {
+  {
+    name = 'delve',
+  },
+}
+
 local formatters = {
   'prettierd',
   'sql-formatter',
@@ -181,6 +187,10 @@ local linters = {
 local setup_mason_tool_installer = function()
   local ensure_installed = {}
   for _, v in ipairs(lsps) do
+    table.insert(ensure_installed, v.name)
+  end
+
+  for _, v in ipairs(daps) do
     table.insert(ensure_installed, v.name)
   end
 
@@ -248,7 +258,7 @@ local on_attach_nvim_lspconfig_setup_format = function(args)
   end
 end
 
-local setup_nvim_lsp_config_auto_organize_import_on_save = function()
+local setup_lspconfig_auto_organize_import_on_save = function()
   vim.api.nvim_create_augroup('lsp_auto_organize_import', {})
   -- organize import for golang
   -- see:
@@ -288,7 +298,7 @@ local setup_nvim_lsp_config_auto_organize_import_on_save = function()
   })
 end
 
-local setup_nvim_lsp_config_keymap = function()
+local setup_lspconfig_keymap = function()
   -- Global mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
   vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float)
@@ -326,7 +336,7 @@ local setup_nvim_lsp_config_keymap = function()
   })
 end
 
-local setup_lsp_config_symbol_highlight = function()
+local setup_lspconfig_symbol_highlight = function()
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
       local bufnr = args.buf
@@ -360,7 +370,21 @@ local setup_lsp_config_symbol_highlight = function()
   })
 end
 
-local setup_nvim_lsp_config = function()
+-- see: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#change-diagnostic-symbols-in-the-sign-column-gutter
+local function setup_lspconfig_diagnostic()
+  local signs = {
+    Error = '',
+    Warn = '',
+    Hint = '',
+    Info = '',
+  }
+  for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  end
+end
+
+local setup_lspconfig = function()
   require("neodev").setup()
 
   local lspconfig = require('lspconfig')
@@ -390,11 +414,12 @@ local setup_nvim_lsp_config = function()
     lspconfig[lsp.name].setup(config)
   end
 
-  setup_nvim_lsp_config_keymap()
-  setup_nvim_lsp_config_auto_organize_import_on_save()
-  setup_lsp_config_symbol_highlight()
+  setup_lspconfig_keymap()
+  setup_lspconfig_auto_organize_import_on_save()
+  setup_lspconfig_symbol_highlight()
+  setup_lspconfig_diagnostic()
 end
 
 setup_mason()
 setup_lsp_signature()
-setup_nvim_lsp_config()
+setup_lspconfig()

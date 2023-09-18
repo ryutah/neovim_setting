@@ -1,20 +1,22 @@
-vim.keymap.set('n', '<Leader><Leader>f', "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader><Leader>c', "<cmd>lua require('fzf-lua').commands()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader><Leader>b', "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader><Leader>g', "<cmd>lua require('fzf-lua').grep_project()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader><Leader>t', "<cmd>lua require('fzf-lua').tabs()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader><Leader>o', "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader><Leader>wo', "<cmd>lua require('fzf-lua').lsp_live_workspace_symbols()<CR>",
-  { silent = true })
-vim.keymap.set('n', '<Leader>d', "<cmd>lua require('fzf-lua').diagnostics_workspace()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader>rf', "<cmd>lua require('fzf-lua').lsp_references()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader>im', "<cmd>lua require('fzf-lua').lsp_implementations()<CR>", { silent = true })
-vim.keymap.set('n', 'gd', "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader>ca', "<cmd>lua require('fzf-lua').lsp_code_actions()<CR>", { silent = true })
-vim.keymap.set('n', '<Leader>gb', "<cmd>lua require('fzf-lua').git_branches()<CR>", { silent = true })
+local fzf_lua = require('fzf-lua')
 
-local actions = require 'fzf-lua.actions'
-require 'fzf-lua'.setup({
+vim.keymap.set('n', '<Leader><Leader><Leader>', require('fzf-lua.cmd').load_command, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>f', fzf_lua.files, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>cm', fzf_lua.commands, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>b', fzf_lua.buffers, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>gg', fzf_lua.grep_project, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>t', fzf_lua.tabs, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>o', fzf_lua.lsp_document_symbols, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>wo', fzf_lua.lsp_live_workspace_symbols, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>d', fzf_lua.diagnostics_workspace, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>rf', fzf_lua.lsp_references, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>im', fzf_lua.lsp_implementations, { silent = true })
+vim.keymap.set('n', 'gd', fzf_lua.lsp_definitions, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>ca', fzf_lua.lsp_code_actions, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>gb', fzf_lua.git_branches, { silent = true })
+
+local actions = require('fzf-lua.actions')
+fzf_lua.setup({
   actions = {
     files = {
       ["default"] = actions.file_edit,

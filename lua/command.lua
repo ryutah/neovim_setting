@@ -51,10 +51,17 @@ local function install_treesitter_cli()
   vim.print('Installed treesitter-cli')
 end
 
+local function install_swagger_ui_watcher()
+  vim.print('Installing swagger-ui-watcher...')
+  vim.fn.system('npm install swagger-ui-watcher -g')
+  vim.print('Installed swagger-ui-watcher')
+end
+
 local function install_tools()
   install_plantuml()
   install_gotests()
   install_treesitter_cli()
+  install_swagger_ui_watcher()
 end
 
 vim.g.plantuml_jar_path = install_dir('plantuml.jar')

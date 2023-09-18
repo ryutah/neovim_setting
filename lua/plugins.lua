@@ -201,6 +201,13 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'vinnymeller/swagger-preview.nvim',
+    config = function()
+      require('configs/swagger_preview')
+    end,
+  }
+
+  use {
     'nvim-lua/plenary.nvim'
   }
 

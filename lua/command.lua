@@ -1,3 +1,5 @@
+local curl = require('plenary.curl')
+
 local function install_dir(arg)
   local base_dir = vim.fn.stdpath('data') .. '/custom/bin/'
 
@@ -7,13 +9,25 @@ local function install_dir(arg)
   return base_dir .. arg
 end
 
+local function get_latest_stable_plantuml_version()
+  local response = curl.get('https://api.github.com/repos/plantuml/plantuml/releases', {
+    query = { per_page = 10 },
+    timeout = 300000,
+  })
+
+  local versions = vim.json.decode(response.body)
+  for _, value in ipairs(versions or {}) do
+    -- tag_name に snapshot が含まれていないものを返す
+    if not string.find(value.tag_name, 'snapshot') then
+      return value.name
+    end
+  end
+end
+
 local function install_plantuml()
   vim.print('Installing plantuml...')
 
-  local curl = require('plenary.curl')
-  local response = curl.get('https://api.github.com/repos/plantuml/plantuml/releases?per_page=1')
-  local latest_version = vim.json.decode(response.body)[1].name
-
+  local latest_version = get_latest_stable_plantuml_version()
   local url = 'https://github.com/plantuml/plantuml/releases/download/' ..
       latest_version .. '/plantuml-' .. string.sub(latest_version, 2) .. '.jar'
 

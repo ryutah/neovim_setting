@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-sqlfmt -q - 2>/dev/null | head -c -1

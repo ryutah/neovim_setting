@@ -10,23 +10,21 @@ My neovim configrations
   - golang
   - node
   - python
-  - java
 - tools
-  - wget
   - graphviz
-
-### Environment variables
-
-| name         | value                                                                                                                                                                                                                                   |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PYTHON3_PATH | used as [g:python3_host_prog](https://github.com/deoplete-plugins/deoplete-jedi/wiki/Setting-up-Python-for-Neovim#using-virtual-environments). If you use asdf, set like below<br>`export PYTHON3_PATH=$(asdf where python)/bin/python` |
 
 ## Setup
 
+### In terminal
+
 ```console
-# install editor tools
-./script/install.sh
+./script/setup.sh
 ```
 
-- Start neovim and install plugins with `:PlugInstall` !
-- Execute command `:Copilot setup` for enable GitHub Copilot !
+### In neovim
+
+```vim
+:PackerSync
+:UpdateTools
+:Copilot setup
+```

@@ -193,6 +193,7 @@ return require('packer').startup(function(use)
     requires = {
       'leoluz/nvim-dap-go',
       'theHamsta/nvim-dap-virtual-text',
+      'LiadOz/nvim-dap-repl-highlights',
     },
     config = function()
       require('configs/nvim_dap')

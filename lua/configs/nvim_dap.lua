@@ -2,8 +2,9 @@ local dap_go = require('dap-go')
 local dap = require('dap')
 local api = vim.api
 
-require("nvim-dap-virtual-text").setup()
 dap_go.setup()
+require("nvim-dap-virtual-text").setup()
+require('nvim-dap-repl-highlights').setup()
 
 -- default keymaps
 vim.keymap.set('n', '[nvim_dap]', '<Nop>')

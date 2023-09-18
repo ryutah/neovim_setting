@@ -1,3 +1,0 @@
-@startuml
-Foo -> Bar: Hello
-@enduml

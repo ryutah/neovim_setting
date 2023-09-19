@@ -3,6 +3,9 @@ local aerial = require('aerial')
 aerial.setup({
   layout = {
     min_width = 40,
+  },
+  keymaps = {
+    ['o'] = 'actions.jump',
   }
 })
 

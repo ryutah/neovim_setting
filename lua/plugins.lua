@@ -211,6 +211,13 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'stevearc/aerial.nvim',
+    config = function()
+      require('configs/aerial')
+    end,
+  }
+
+  use {
     'nvim-lua/plenary.nvim'
   }
 

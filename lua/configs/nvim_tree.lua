@@ -2,11 +2,11 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.keymap.set('n', '<Leader>v', '<cmd>NvimTreeToggle<CR>')
+vim.keymap.set('n', '<Leader>v', '<cmd>NvimTreeFindFileToggle<CR>')
+
+local api = require("nvim-tree.api")
 
 local on_attach = function(bufnr)
-  local api = require('nvim-tree.api')
-
   local opts = function(desc)
     return {
       desc = "nvim-tree: " .. desc,
@@ -19,6 +19,8 @@ local on_attach = function(bufnr)
 
   api.config.mappings.default_on_attach(bufnr)
 
+  vim.keymap.set("n", "l", api.node.open.edit, opts("Edit Or Open"))
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
   vim.keymap.set('n', '<C-h>', api.node.navigate.parent_close, opts('Close Directory'))
   vim.keymap.set('n', '<C-s>', api.node.open.horizontal, opts('Open: Horizontal Split'))
 end

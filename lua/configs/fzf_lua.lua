@@ -5,7 +5,7 @@ vim.keymap.set('n', '<Leader><Leader>f', fzf_lua.files, { silent = true })
 vim.keymap.set('n', '<Leader><Leader>cm', fzf_lua.commands, { silent = true })
 vim.keymap.set('n', '<Leader><Leader>b', fzf_lua.buffers, { silent = true })
 vim.keymap.set('n', '<Leader><Leader>gg', fzf_lua.grep_project, { silent = true })
-vim.keymap.set('n', '<Leader><Leader>t', fzf_lua.tabs, { silent = true })
+vim.keymap.set('n', '<Leader><Leader>t', fzf_lua.btags, { silent = true })
 vim.keymap.set('n', '<Leader><Leader>o', fzf_lua.lsp_document_symbols, { silent = true })
 vim.keymap.set('n', '<Leader><Leader>wo', fzf_lua.lsp_live_workspace_symbols, { silent = true })
 vim.keymap.set('n', '<Leader><Leader>d', fzf_lua.diagnostics_workspace, { silent = true })
@@ -17,6 +17,9 @@ vim.keymap.set('n', '<Leader><Leader>gb', fzf_lua.git_branches, { silent = true 
 
 local actions = require('fzf-lua.actions')
 fzf_lua.setup({
+  btags = {
+    ctags_autogen = true,
+  },
   actions = {
     files = {
       ["default"] = actions.file_edit,

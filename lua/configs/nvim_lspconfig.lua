@@ -282,20 +282,21 @@ local setup_lspconfig_auto_organize_import_on_save = function()
   })
 
   -- organize import for js and ts
+  -- import 順の変更で問題が出ること( import 順が変わることによる想定外の差分発生とか、インデントがずれるとか )が割とあるので一旦無効にする
   -- see:
   --   - https://www.reddit.com/r/neovim/comments/lwz8l7/how_to_use_tsservers_organize_imports_with_nvim/
   --   - https://github.com/typescript-language-server/typescript-language-server#organize-imports
-  vim.api.nvim_create_autocmd('BufWritePre', {
-    group = 'lsp_auto_organize_import',
-    pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
-    callback = function()
-      local params = {
-        command = '_typescript.organizeImports',
-        arguments = { vim.api.nvim_buf_get_name(0) }
-      }
-      vim.lsp.buf.execute_command(params)
-    end
-  })
+  -- vim.api.nvim_create_autocmd('BufWritePre', {
+  --   group = 'lsp_auto_organize_import',
+  --   pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
+  --   callback = function()
+  --     local params = {
+  --       command = '_typescript.organizeImports',
+  --       arguments = { vim.api.nvim_buf_get_name(0) }
+  --     }
+  --     vim.lsp.buf.execute_command(params)
+  --   end
+  -- })
 end
 
 local setup_lspconfig_keymap = function()

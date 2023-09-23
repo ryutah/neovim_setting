@@ -28,8 +28,11 @@ local function install_plantuml()
   vim.print('Installing plantuml...')
 
   local latest_version = get_latest_stable_plantuml_version()
-  local url = 'https://github.com/plantuml/plantuml/releases/download/' ..
-      latest_version .. '/plantuml-' .. string.sub(latest_version, 2) .. '.jar'
+  local url = string.format(
+    "https://github.com/plantuml/plantuml/releases/download/%s/plantuml-%s.jar",
+    latest_version,
+    string.sub(latest_version, 2)
+  )
 
   curl.get(url, {
     output = install_dir('plantuml.jar'),

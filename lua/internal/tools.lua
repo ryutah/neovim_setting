@@ -5,11 +5,47 @@
 --      name: string (required lsp name),
 --      lsp_opts: table (optional lsp config),
 --      config: {
+--        buf_write_pre: {
+--          {
+--            pattern: string (required file pattern),
+--            callback: function (required callback function),
+--          },
+--        },
 --        format: {
 --          enable: boolean (optional, default: true),
 --        },
 --      },
 --   }
+
+local function go_organize_import()
+  local params = vim.lsp.util.make_range_params()
+  params.context = { only = { "source.organizeImports" } }
+  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+  for cid, res in pairs(result or {}) do
+    for _, r in pairs(res.result or {}) do
+      if r.edit then
+        local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+        vim.lsp.util.apply_workspace_edit(r.edit, enc)
+      end
+    end
+  end
+end
+
+-- organize import for js and ts
+-- import 順の変更で問題が出ること( import 順が変わることによる想定外の差分発生とか、インデントがずれるとか )が割とあるので一旦無効にする。
+-- organize import が必要な場合は、プロジェクト個別に https://github.com/simonhaenisch/prettier-plugin-organize-imports などを設定する
+--
+-- organize import については以下を参考にする
+-- see:
+--   - https://www.reddit.com/r/neovim/comments/lwz8l7/how_to_use_tsservers_organize_imports_with_nvim/
+--   - https://github.com/typescript-language-server/typescript-language-server#organize-imports
+local function tsserver_organize_import()
+  local params = {
+    command = '_typescript.organizeImports',
+    arguments = { vim.api.nvim_buf_get_name(0) }
+  }
+  vim.lsp.buf.execute_command(params)
+end
 
 local lsps = {
   {
@@ -21,20 +57,7 @@ local lsps = {
       buf_write_pre = {
         {
           pattern = '*.go',
-          -- organize import
-          callback = function()
-            local params = vim.lsp.util.make_range_params()
-            params.context = { only = { "source.organizeImports" } }
-            local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
-            for cid, res in pairs(result or {}) do
-              for _, r in pairs(res.result or {}) do
-                if r.edit then
-                  local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-                  vim.lsp.util.apply_workspace_edit(r.edit, enc)
-                end
-              end
-            end
-          end
+          callback = go_organize_import,
         },
       },
     },
@@ -73,23 +96,6 @@ local lsps = {
   {
     name = 'tsserver',
     config = {
-      buf_write_pre = {
-        -- {
-        --   -- organize import for js and ts
-        --   -- import 順の変更で問題が出ること( import 順が変わることによる想定外の差分発生とか、インデントがずれるとか )が割とあるので一旦無効にする
-        --   -- see:
-        --   --   - https://www.reddit.com/r/neovim/comments/lwz8l7/how_to_use_tsservers_organize_imports_with_nvim/
-        --   --   - https://github.com/typescript-language-server/typescript-language-server#organize-imports
-        --   pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
-        --   callback = function()
-        --     local params = {
-        --       command = '_typescript.organizeImports',
-        --       arguments = { vim.api.nvim_buf_get_name(0) }
-        --     }
-        --     vim.lsp.buf.execute_command(params)
-        --   end,
-        -- },
-      },
       format = {
         enable = false,
       }

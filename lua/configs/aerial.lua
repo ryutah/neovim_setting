@@ -9,4 +9,7 @@ aerial.setup({
   }
 })
 
-vim.keymap.set('n', '<Leader>o', '<cmd>AerialToggle<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>o', '<cmd>AerialToggle<CR>', {
+  silent = true,
+  desc = 'open aerial (code outline).'
+})

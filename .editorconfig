@@ -26,3 +26,17 @@ indent_size = 4
 
 [*.md]
 trim_trailing_whitespace = false
+
+# to control auto format line brak, adding below config to .luarc
+# {
+#   "format": {
+#     "defaultConfig": {
+#       "max_line_length": "200"
+#     }
+#   }
+# }
+# see
+#   - https://luals.github.io/wiki/settings/#format
+#   - https://github.com/CppCXY/EmmyLuaCodeStyle/blob/master/docs/format_config_EN.md#max_line_length
+[*.lua]
+max_line_length = 200

@@ -9,9 +9,9 @@ require('nvim-dap-repl-highlights').setup()
 -- default keymaps
 vim.keymap.set('n', '[nvim_dap]', '<Nop>')
 vim.keymap.set('n', '<Leader>d', '[nvim_dap]', { remap = true })
-vim.keymap.set('n', '[nvim_dap]b', dap.toggle_breakpoint, { silent = true })
-vim.keymap.set('n', '[nvim_dap]c', dap.continue, { silent = true })
-vim.keymap.set('n', '[nvim_dap]t', dap_go.debug_test, { silent = true })
+vim.keymap.set('n', '[nvim_dap]b', dap.toggle_breakpoint, { silent = true, desc = 'dap toggle breakpoint' })
+vim.keymap.set('n', '[nvim_dap]c', dap.continue, { silent = true, desc = 'dap continue' })
+vim.keymap.set('n', '[nvim_dap]t', dap_go.debug_test, { silent = true, desc = 'dap_go debug test' })
 
 vim.api.nvim_create_augroup('nvim_dap_filetype_keymap', {})
 vim.api.nvim_create_autocmd('FileType', {

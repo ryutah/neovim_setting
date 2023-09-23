@@ -62,6 +62,10 @@ return require('packer').startup(function(use)
 
   use 'sainnhe/everforest'
 
+  use 'nanotech/jellybeans.vim'
+
+  use 'w0ng/vim-hybrid'
+
   use {
     'vim-airline/vim-airline',
     requires = {
@@ -117,7 +121,10 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'airblade/vim-gitgutter'
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('configs/gitsigns')
+    end
   }
 
   use {

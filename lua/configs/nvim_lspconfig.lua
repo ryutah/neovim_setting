@@ -1,204 +1,20 @@
--- mason registry: https://mason-registry.dev/registry/list
-
--- lsp config references:
---   {
---      name: string (required lsp name),
---      lsp_opts: table (optional lsp config),
---      config: {
---        format: {
---          enable: boolean (optional, default: true),
---        },
---      },
---   }
-
-local lsps = {
-  {
-    name = 'golangci_lint_ls',
-  },
-  {
-    name = 'gopls',
-    lsp_opts = {
-      settings = {
-        gopls = {
-          analyses = {
-            unusedparams = true,
-          },
-          staticcheck = true,
-          gofumpt = true,
-          usePlaceholders = true,
-          completeUnimported = true,
-        },
-      },
-    }
-  },
-  {
-    name = 'jsonls',
-    config = {
-      format = {
-        enable = false,
-      },
-    },
-    lsp_opts = {
-      settings = {
-        json = {
-          schemas = require('schemastore').json.schemas(),
-          validate = {
-            enable = true,
-          },
-        },
-      },
-    }
-  },
-  {
-    name = 'tsserver',
-    config = {
-      format = {
-        enable = false,
-      }
-    },
-  },
-  {
-    name = 'pyright',
-    lsp_opts = {
-      settings = {
-        python = {
-          pythonPath = require('utils/python').python_path(),
-        },
-      },
-    },
-  },
-  {
-    name = 'lua_ls',
-    lsp_opts = {
-      settings = {
-        Lua = {
-          completion = {
-            callSnippet = "Replace"
-          }
-        }
-      }
-    }
-  },
-  {
-    name = 'rust_analyzer',
-    lsp_opts = {
-      settings = {
-        ['rust-analyzer'] = {},
-      },
-    }
-  },
-  {
-    name = 'yamlls',
-    config = {
-      format = {
-        enable = false,
-      },
-    },
-    lsp_opts = {
-      settings = {
-        yaml = {
-          schemaStore = {
-            -- You must disable built-in schemaStore support if you want to use
-            -- this plugin and its advanced options like `ignore`.
-            enable = false,
-            -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-            url = "",
-          },
-          schemas = require('schemastore').yaml.schemas({
-            extra = {
-              {
-                description = 'efm-langserver schema',
-                url = 'https://raw.githubusercontent.com/mattn/efm-langserver/master/schema.json',
-                fileMatch = { '**/efm-langserver/config.yaml', },
-                name = 'efm-langserver/config.yaml',
-              },
-            }
-          }),
-        },
-      },
-    }
-  },
-  {
-    name = 'terraformls',
-  },
-  {
-    -- LSP の起動がかなり遅いので注意
-    name = 'bashls',
-    config = {
-      format = {
-        enable = false,
-      },
-    },
-  },
-  {
-    name = 'dockerls',
-  },
-  -- additional config see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
-  {
-    name = 'eslint',
-  },
-  {
-    name = 'efm',
-    lsp_opts = {
-      init_options = {
-        documentFormatting = true,
-        documentRangeFormatting = true
-      },
-      filetypes = {
-        'javascript',
-        'javascriptreact',
-        'typescript',
-        'typescriptreact',
-        'yaml',
-        'json',
-        'html',
-        'css',
-        'markdown',
-        'sql',
-        'terraform',
-        'terraform-vars',
-        'sh',
-        'dockerfile',
-      },
-    },
-  },
-}
-
-local daps = {
-  {
-    name = 'delve',
-  },
-}
-
-local formatters = {
-  'prettierd',
-  'sql-formatter',
-  'sqlfmt',
-  'shfmt',
-}
-
-local linters = {
-  'sqlfluff',
-  'tflint',
-  'markdownlint',
-  'hadolint',
-}
+local tools = require('internal/tools')
 
 local setup_mason_tool_installer = function()
   local ensure_installed = {}
-  for _, v in ipairs(lsps) do
+  for _, v in ipairs(tools.lsps) do
     table.insert(ensure_installed, v.name)
   end
 
-  for _, v in ipairs(daps) do
+  for _, v in ipairs(tools.daps) do
     table.insert(ensure_installed, v.name)
   end
 
-  for _, v in ipairs(formatters) do
+  for _, v in ipairs(tools.formatters) do
     table.insert(ensure_installed, v)
   end
 
-  for _, v in ipairs(linters) do
+  for _, v in ipairs(tools.linters) do
     table.insert(ensure_installed, v)
   end
 
@@ -256,47 +72,6 @@ local on_attach_nvim_lspconfig_setup_format = function(args)
       callback = exec_format
     })
   end
-end
-
-local setup_lspconfig_auto_organize_import_on_save = function()
-  vim.api.nvim_create_augroup('lsp_auto_organize_import', {})
-  -- organize import for golang
-  -- see:
-  --   - https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim-imports
-  vim.api.nvim_create_autocmd('BufWritePre', {
-    group = 'lsp_auto_organize_import',
-    pattern = '*.go',
-    callback = function()
-      local params = vim.lsp.util.make_range_params()
-      params.context = { only = { "source.organizeImports" } }
-      local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
-      for cid, res in pairs(result or {}) do
-        for _, r in pairs(res.result or {}) do
-          if r.edit then
-            local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-            vim.lsp.util.apply_workspace_edit(r.edit, enc)
-          end
-        end
-      end
-    end
-  })
-
-  -- organize import for js and ts
-  -- import 順の変更で問題が出ること( import 順が変わることによる想定外の差分発生とか、インデントがずれるとか )が割とあるので一旦無効にする
-  -- see:
-  --   - https://www.reddit.com/r/neovim/comments/lwz8l7/how_to_use_tsservers_organize_imports_with_nvim/
-  --   - https://github.com/typescript-language-server/typescript-language-server#organize-imports
-  -- vim.api.nvim_create_autocmd('BufWritePre', {
-  --   group = 'lsp_auto_organize_import',
-  --   pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
-  --   callback = function()
-  --     local params = {
-  --       command = '_typescript.organizeImports',
-  --       arguments = { vim.api.nvim_buf_get_name(0) }
-  --     }
-  --     vim.lsp.buf.execute_command(params)
-  --   end
-  -- })
 end
 
 local setup_lspconfig_keymap = function()
@@ -385,13 +160,27 @@ local function setup_lspconfig_diagnostic()
   end
 end
 
+local function setup_lspconfig_buf_write_pre(buf_write_pre_configs)
+  local configs = buf_write_pre_configs or {}
+
+  vim.api.nvim_create_augroup('custom_lsp_buf_write_pre', {})
+
+  for _, config in ipairs(configs) do
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      group = 'custom_lsp_buf_write_pre',
+      pattern = config.pattern,
+      callback = config.callback,
+    })
+  end
+end
+
 local setup_lspconfig = function()
   require("neodev").setup()
 
   local lspconfig = require('lspconfig')
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-  for _, lsp in ipairs(lsps) do
+  for _, lsp in ipairs(tools.lsps) do
     local config = {
       capabilities = capabilities,
       on_attach = function(client, _)
@@ -401,6 +190,7 @@ local setup_lspconfig = function()
         --   - https://github.com/neovim/nvim-lspconfig/issues/2481
         client.server_capabilities.semanticTokensProvider = nil
         require('lsp_signature').on_attach()
+        setup_lspconfig_buf_write_pre(config.buf_write_pre or {})
         on_attach_nvim_lspconfig_setup_format({
           client = client,
           format = config.format,
@@ -416,7 +206,6 @@ local setup_lspconfig = function()
   end
 
   setup_lspconfig_keymap()
-  setup_lspconfig_auto_organize_import_on_save()
   setup_lspconfig_symbol_highlight()
   setup_lspconfig_diagnostic()
 end

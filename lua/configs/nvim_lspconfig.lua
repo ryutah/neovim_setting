@@ -174,6 +174,20 @@ local function setup_lspconfig_buf_write_pre(buf_write_pre_configs)
   end
 end
 
+local function setup_lspconfig_buf_write_post(buf_write_post_configs)
+  local configs = buf_write_post_configs or {}
+
+  vim.api.nvim_create_augroup('custom_lsp_buf_write_post', {})
+
+  for _, config in ipairs(configs) do
+    vim.api.nvim_create_autocmd('BufWritePost', {
+      group = 'custom_lsp_buf_write_post',
+      pattern = config.pattern,
+      callback = config.callback,
+    })
+  end
+end
+
 local setup_lspconfig = function()
   require("neodev").setup()
 
@@ -191,6 +205,7 @@ local setup_lspconfig = function()
         client.server_capabilities.semanticTokensProvider = nil
         require('lsp_signature').on_attach()
         setup_lspconfig_buf_write_pre(config.buf_write_pre or {})
+        setup_lspconfig_buf_write_post(config.buf_write_post or {})
         on_attach_nvim_lspconfig_setup_format({
           client = client,
           format = config.format,

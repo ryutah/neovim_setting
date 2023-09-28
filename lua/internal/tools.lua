@@ -11,6 +11,12 @@
 --            callback: function (required callback function),
 --          },
 --        },
+--        buf_write_post: {
+--          {
+--            pattern: string (required file pattern),
+--            callback: function (required callback function),
+--          },
+--        },
 --        format: {
 --          enable: boolean (optional, default: true),
 --        },
@@ -183,6 +189,17 @@ local lsps = {
   },
   {
     name = 'efm',
+    config = {
+      buf_write_post = {
+        {
+          pattern = '*.proto',
+          callback = function()
+            vim.fn.system('buf format -w ' .. vim.fn.expand('%:p'))
+            vim.cmd('edit!')
+          end
+        },
+      },
+    },
     lsp_opts = {
       init_options = {
         documentFormatting = true,
@@ -203,6 +220,7 @@ local lsps = {
         'terraform-vars',
         'sh',
         'dockerfile',
+        'proto',
       },
     },
   },
@@ -219,6 +237,7 @@ local formatters = {
   'sql-formatter',
   'sqlfmt',
   'shfmt',
+  'buf', -- also use as linter
 }
 
 local linters = {

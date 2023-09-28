@@ -110,11 +110,29 @@ tools:
 
   # refs
   #   - https://github.com/mattn/efm-langserver
-  dockerfile-hadolint: &dockerfile-hadolint
+  dockerfile_hadolint: &dockerfile_hadolint
     lint-command: "hadolint --no-color "
     lint-severity: 2
     lint-formats:
       - "%f:%l %m"
+
+  # sample error message
+  #   ::error file=proto/todo.proto,line=4,col=3,end::error file=proto/todo.proto::Files must have a package defined.Line=4,endColumn=3::syntax error: unexpected "string", expecting '{'
+  #    ::error file=proto/todo.proto::Files must have a package defined.
+  buf_lint: &buf_lint
+    prefix: buf
+    lint-stdin: false
+    lint-command: >
+      buf lint --error-format github-actions ${INPUT}
+    lint-formats:
+      - "::%totice file=%f,line=%l,col=%c,endLine=%e,endColumn=%k::%m"
+      - "::%tarning file=%f,line=%l,col=%c,endLine=%e,endColumn=%k::%m"
+      - "::%trror file=%f,line=%l,col=%c,endLine=%e,endColumn=%k::%m"
+      - "::%totice file=%f::%m"
+      - "::%tarning file=%f::%m"
+      - "::%trror file=%f::%m"
+    root-markers:
+      - buf.yaml
 
 languages:
   javascript:
@@ -150,4 +168,6 @@ languages:
   sh:
     - <<: *shfmt
   dockerfile:
-    - <<: *dockerfile-hadolint
+    - <<: *dockerfile_hadolint
+  proto:
+    - <<: *buf_lint

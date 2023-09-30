@@ -3,6 +3,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = {
     'comment',
     'dap_repl',
+    'markdown_inline',
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

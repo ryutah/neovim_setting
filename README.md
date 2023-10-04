@@ -29,6 +29,19 @@ My neovim configrations
 :Copilot setup
 ```
 
+## Other Configurations
+
+### Golang Remote Debug Config
+
+For debug remote golang app (like docker container application), change some configs for project.
+
+```sh
+# port number for dlv debugger.
+export GO_DELVE_PORT=38697
+# absolute path of project root path on remote server.
+export GO_SUBSTITUTE_PATH=/app
+```
+
 ## Tips
 
 ### .luarc.json

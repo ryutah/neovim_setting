@@ -2,7 +2,41 @@ local dap_go = require('dap-go')
 local dap = require('dap')
 local api = vim.api
 
+local function set_delve_port()
+  local port = os.getenv('GO_DELVE_PORT')
+  if (port == nil or port == '') then
+    port = '38697'
+  end
+  return port
+end
+
+local function set_substitute_path()
+  local path = os.getenv('GO_SUBSTITUTE_PATH')
+  if (path == nil or path == '') then
+    path = '/app'
+  end
+  return path
+end
+
 dap_go.setup()
+-- configurations to debug remote server (like docker container)
+-- see:
+--   https://github.com/mfussenegger/nvim-dap/issues/970
+--   https://github.com/mfussenegger/nvim-dap/discussions/660
+table.insert(dap.configurations.go, {
+  type = 'delve',
+  name = 'Attach remote',
+  mode = 'remote',
+  request = 'attach',
+  substitutePath = {
+    { from = '${workspaceFolder}', to = set_substitute_path() },
+  },
+})
+dap.adapters.delve = {
+  type = 'server',
+  host = 'localhost',
+  port = set_delve_port(),
+}
 require("nvim-dap-virtual-text").setup()
 require('nvim-dap-repl-highlights').setup()
 

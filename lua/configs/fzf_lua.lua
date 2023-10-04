@@ -20,6 +20,11 @@ fzf_lua.setup({
   btags = {
     ctags_autogen = true,
   },
+  commands = {
+    actions = {
+      ["ctrl-o"] = actions.ex_run_cr,
+    },
+  },
   actions = {
     files = {
       ["default"] = actions.file_edit,

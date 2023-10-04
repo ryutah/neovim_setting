@@ -37,9 +37,11 @@ For debug remote golang app (like docker container application), change some con
 
 ```sh
 # port number for dlv debugger.
-export GO_DELVE_PORT=38697
+export GO_DEBUG_DELVE_PORT=38697
+# absolute path of project root
+export GO_DEBUG_PROJECT_ROOT_DIR=$(pwd)
 # absolute path of project root path on remote server.
-export GO_SUBSTITUTE_PATH=/app
+export GO_DEBUG_SUBSTITUTE_PATH=/app
 ```
 
 ## Tips

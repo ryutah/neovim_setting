@@ -2,20 +2,28 @@ local dap_go = require('dap-go')
 local dap = require('dap')
 local api = vim.api
 
-local function set_delve_port()
-  local port = os.getenv('GO_DELVE_PORT')
+local function go_debug_set_delve_port()
+  local port = os.getenv('GO_DEBUG_DELVE_PORT')
   if (port == nil or port == '') then
     port = '38697'
   end
   return port
 end
 
-local function set_substitute_path()
-  local path = os.getenv('GO_SUBSTITUTE_PATH')
+local function go_debug_set_substitute_path()
+  local path = os.getenv('GO_DEBUG_SUBSTITUTE_PATH')
   if (path == nil or path == '') then
     path = '/app'
   end
   return path
+end
+
+local function go_debug_set_root_dir()
+  local root_dir = os.getenv('GO_DEBUG_PROJECT_ROOT_DIR')
+  if (root_dir == nil or root_dir == '') then
+    root_dir = '${workspaceFolder}'
+  end
+  return root_dir
 end
 
 dap_go.setup()
@@ -29,13 +37,13 @@ table.insert(dap.configurations.go, {
   mode = 'remote',
   request = 'attach',
   substitutePath = {
-    { from = '${workspaceFolder}', to = set_substitute_path() },
+    { from = go_debug_set_root_dir(), to = go_debug_set_substitute_path() },
   },
 })
 dap.adapters.delve = {
   type = 'server',
   host = 'localhost',
-  port = set_delve_port(),
+  port = go_debug_set_delve_port(),
 }
 require("nvim-dap-virtual-text").setup()
 require('nvim-dap-repl-highlights').setup()

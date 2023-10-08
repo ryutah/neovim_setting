@@ -22,6 +22,7 @@ local on_attach = function(bufnr)
   vim.keymap.set('n', 'l', api.node.open.edit, opts("Edit Or Open"))
   vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts("Close Directory"))
   vim.keymap.set('n', 'p', api.node.open.preview, opts("Close Directory"))
+  vim.keymap.set('n', 'P', api.fs.paste, opts("Paste"))
   vim.keymap.set('n', '<C-h>', api.node.navigate.parent_close, opts('Close Directory'))
   vim.keymap.set('n', '<C-s>', api.node.open.horizontal, opts('Open: Horizontal Split'))
 end

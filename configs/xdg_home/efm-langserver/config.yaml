@@ -9,8 +9,10 @@ tools:
   prettierd: &prettierd
     format-stdin: true
     # 追加 Option つけると .prettierrc とかの設定読み込まないので追加 Option はつけない
+    # INPUT をシングルクォートで囲まないと、() などを含むディレクトリ ( Next.js app router など ) で正しくファイル
+    # パスが認識されない
     format-command: >
-      prettierd ${INPUT}
+      prettierd '${INPUT}'
     root-markers:
       - .prettierrc
       - .prettierrc.json

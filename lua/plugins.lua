@@ -232,6 +232,14 @@ return require('packer').startup(function(use)
     'nvim-lua/plenary.nvim'
   }
 
+  use {
+    'toppair/peek.nvim',
+    run = 'deno task --quiet build:fast',
+    config = function()
+      require('configs/peek')
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end

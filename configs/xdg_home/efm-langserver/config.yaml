@@ -162,7 +162,7 @@ languages:
     - <<: *markdownlint
   sql:
     - <<: *sql_formatter
-    - <<: *sqlfluff
+    # - <<: *sqlfluff
   terraform:
     - <<: *tflint
   terraform-vars:

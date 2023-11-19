@@ -240,6 +240,13 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('configs/indent_blankline')
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end

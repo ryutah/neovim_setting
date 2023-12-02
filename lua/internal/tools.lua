@@ -53,9 +53,14 @@ local function tsserver_organize_import()
   vim.lsp.buf.execute_command(params)
 end
 
+local lspconfig = require('lspconfig')
+
 local lsps = {
   {
     name = 'golangci_lint_ls',
+    lsp_opts = {
+      root_dir = lspconfig.util.root_pattern('go.work', 'go.mod', '.git'),
+    }
   },
   {
     name = 'gopls',

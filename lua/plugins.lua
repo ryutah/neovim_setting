@@ -91,7 +91,11 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use 'editorconfig/editorconfig-vim'
+  use {
+    'editorconfig/editorconfig-vim',
+    -- NOTE: https://github.com/editorconfig/editorconfig-vim/commit/7eec46701ec7a954a6cb0b0e348ad7c13a893425 で正しく機能しなくなってるので、いったんバージョン固定
+    tag = 'v1.2.0',
+  }
 
   use {
     'nvim-tree/nvim-tree.lua',

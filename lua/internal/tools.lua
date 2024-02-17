@@ -226,6 +226,7 @@ local lsps = {
         'sh',
         'dockerfile',
         'proto',
+        'python',
       },
     },
   },
@@ -242,6 +243,7 @@ local formatters = {
   'sql-formatter',
   'sqlfmt',
   'shfmt',
+  'black',
   'buf', -- also use as linter
 }
 

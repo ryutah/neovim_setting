@@ -136,6 +136,11 @@ tools:
     root-markers:
       - buf.yaml
 
+  python-black: &python_black
+    format-stdin: true
+    format-command: >
+      black --quiet -
+
 languages:
   javascript:
     - <<: *prettierd
@@ -173,3 +178,5 @@ languages:
     - <<: *dockerfile_hadolint
   proto:
     - <<: *buf_lint
+  python:
+    - <<: *python_black

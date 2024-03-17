@@ -1,0 +1,6 @@
+dictionaryDefinitions:
+  - name: myWords
+    path: ./configs/cspell/dict.txt
+    addWords: true
+dictionaries:
+  - myWords

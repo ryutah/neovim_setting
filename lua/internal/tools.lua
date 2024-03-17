@@ -227,6 +227,7 @@ local lsps = {
         'dockerfile',
         'proto',
         'python',
+        'go',
       },
     },
   },
@@ -252,6 +253,7 @@ local linters = {
   'tflint',
   'markdownlint',
   'hadolint',
+  'cspell',
 }
 
 return (function()

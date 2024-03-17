@@ -1,4 +1,4 @@
-# chek :h errorformat to see linters format config
+# check :h errorformat to see linters format config
 
 version: 2
 root-markers:
@@ -140,6 +140,11 @@ tools:
     format-stdin: true
     format-command: >
       black --quiet -
+  cspell_lint: &cspell_lint
+    lint-command: cspell
+    lint-severity: 4
+    lint-formats:
+      - "%f:%l:%c - %m"
 
 languages:
   javascript:
@@ -180,3 +185,5 @@ languages:
     - <<: *buf_lint
   python:
     - <<: *python_black
+  =:
+    - <<: *cspell_lint

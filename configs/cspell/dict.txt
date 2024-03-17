@@ -1,0 +1,16 @@
+errorformat
+elif
+sqlfmt
+shfmt
+sqlfluff
+nocolor
+totice
+tarning
+trror
+tflint
+markdownlint
+aaabb
+markdownlintrc
+hadolint
+proto
+sqlc

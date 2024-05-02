@@ -1,6 +1,6 @@
 local fzf_lua = require('fzf-lua')
 
-vim.keymap.set('n', '<Leader><Leader><Leader>', require('fzf-lua.cmd').load_command, { silent = true, desc = 'fzf_lua commands' })
+vim.keymap.set('n', '<Leader><Leader><Leader>', require('fzf-lua.cmd').run_command, { silent = true, desc = 'fzf_lua commands' })
 vim.keymap.set('n', '<Leader><Leader>f', fzf_lua.files, { silent = true, desc = 'fzf_lua files' })
 vim.keymap.set('n', '<Leader><Leader>cm', fzf_lua.commands, { silent = true, desc = 'fzf_lua vim commands' })
 vim.keymap.set('n', '<Leader><Leader>b', fzf_lua.buffers, { silent = true, desc = 'fzf_lua buffers' })

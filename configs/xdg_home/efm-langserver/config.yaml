@@ -185,5 +185,6 @@ languages:
     - <<: *buf_lint
   python:
     - <<: *python_black
-  =:
-    - <<: *cspell_lint
+  # うっとおしいのでいらないかも、、、
+  # =:
+  #   - <<: *cspell_lint

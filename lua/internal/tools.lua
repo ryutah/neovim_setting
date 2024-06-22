@@ -245,6 +245,7 @@ local formatters = {
   'sqlfmt',
   'shfmt',
   'black',
+  'isort',
   'buf', -- also use as linter
 }
 
@@ -254,6 +255,7 @@ local linters = {
   'markdownlint',
   'hadolint',
   'cspell',
+  'flake8',
 }
 
 return (function()

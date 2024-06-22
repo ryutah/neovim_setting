@@ -140,6 +140,20 @@ tools:
     format-stdin: true
     format-command: >
       black --quiet -
+
+  python_isort: &python_isort
+    format-stdin: true
+    format-command: >
+      isort --profile black -
+
+  python_flake8: &python_flake8
+    lint-command: "flake8 --stdin-display-name ${INPUT} -"
+    lint-stdin: true
+    root-markers:
+      - .flake8
+    lint-formats:
+      - "%f:%l:%c: %m"
+
   cspell_lint: &cspell_lint
     lint-command: cspell
     lint-severity: 4
@@ -185,6 +199,8 @@ languages:
     - <<: *buf_lint
   python:
     - <<: *python_black
+    - <<: *python_isort
+    - <<: *python_flake8
   # うっとおしいのでいらないかも、、、
   # =:
   #   - <<: *cspell_lint

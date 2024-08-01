@@ -160,6 +160,17 @@ tools:
     lint-formats:
       - "%f:%l:%c - %m"
 
+  textlint: &textlint
+    lint-stdin: false
+    lint-ignore-exit-code: true
+    lint-severity: 4
+    lint-command: >
+      npx textlint --format unix ${INPUT}
+    lint-formats:
+      - "%f:%l:%c: %m"
+    root-markers:
+      - ".textlintrc.json"
+
 languages:
   javascript:
     - <<: *prettierd
@@ -184,6 +195,7 @@ languages:
   markdown:
     - <<: *prettierd
     - <<: *markdownlint
+    - <<: *textlint
   sql:
     - <<: *sql_formatter
     # - <<: *sqlfluff

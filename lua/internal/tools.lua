@@ -105,7 +105,7 @@ local lsps = {
     }
   },
   {
-    name = 'tsserver',
+    name = 'ts_ls',
     config = {
       format = {
         enable = false,

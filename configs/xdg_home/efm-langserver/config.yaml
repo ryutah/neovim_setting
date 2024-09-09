@@ -199,10 +199,11 @@ languages:
   sql:
     - <<: *sql_formatter
     # - <<: *sqlfluff
-  terraform:
-    - <<: *tflint
-  terraform-vars:
-    - <<: *tflint
+    # NOTE: めっちゃ重いのでいったんコメントアウト
+  # terraform:
+  #   - <<: *tflint
+  # terraform-vars:
+  #   - <<: *tflint
   sh:
     - <<: *shfmt
   dockerfile:

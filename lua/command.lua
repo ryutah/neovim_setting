@@ -17,9 +17,9 @@ local function get_latest_stable_plantuml_version()
 
   local versions = vim.json.decode(response.body)
   for _, value in ipairs(versions or {}) do
-    -- tag_name に snapshot が含まれていないものを返す
-    if not string.find(value.tag_name, 'snapshot') then
-      return value.name
+    -- jar ファイルが含まれる relase のみ対象とするために、tag_name に snapshot / relase が含まれていないものを返す
+    if not string.find(value.tag_name, 'snapshot') and not string.find(value.tag_name, 'native') then
+      return value.tag_name
     end
   end
 end
@@ -33,6 +33,7 @@ local function install_plantuml()
     latest_version,
     string.sub(latest_version, 2)
   )
+  vim.print(url)
 
   curl.get(url, {
     output = install_dir('plantuml.jar'),

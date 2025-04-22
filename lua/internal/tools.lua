@@ -57,6 +57,9 @@ local lspconfig = require('lspconfig')
 
 local lsps = {
   {
+    name = 'biome',
+  },
+  {
     name = 'golangci_lint_ls',
     lsp_opts = {
       root_dir = lspconfig.util.root_pattern('go.work', 'go.mod', '.git'),

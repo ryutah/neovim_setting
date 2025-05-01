@@ -172,6 +172,12 @@ tools:
       - ".textlintrc.json"
 
 languages:
+  yaml:
+    - <<: *prettierd
+  html:
+    - <<: *prettierd
+  css:
+    - <<: *prettierd
   markdown:
     - <<: *prettierd
     - <<: *markdownlint

@@ -3,7 +3,8 @@ local tools = require('internal/tools')
 local setup_mason_tool_installer = function()
   local ensure_installed = {}
   for _, v in ipairs(tools.lsps) do
-    table.insert(ensure_installed, v.name)
+    local name = v.alias_mason or v.name
+    table.insert(ensure_installed, name)
   end
 
   for _, v in ipairs(tools.daps) do

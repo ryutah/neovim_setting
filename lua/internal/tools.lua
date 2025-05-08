@@ -57,6 +57,10 @@ local lspconfig = require('lspconfig')
 
 local lsps = {
   {
+    name = 'astro',
+    alias_mason = 'astro-language-server'
+  },
+  {
     name = 'biome',
   },
   {

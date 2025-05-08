@@ -18,8 +18,17 @@ return require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
     requires = {
       'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      -- NOTE(ryutah): エラーが発生するため、いったんバージョンを固定
+      {
+        'williamboman/mason-lspconfig.nvim',
+        tag = 'v1.32.0',
+
+      },
+      {
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        commit = '299c77f264a9c9b7f30d0bdda91341ff756b53ca'
+      },
+      -- end
       'hrsh7th/cmp-nvim-lsp',
       'folke/neodev.nvim',
       'b0o/schemastore.nvim',

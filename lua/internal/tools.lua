@@ -263,6 +263,7 @@ local linters = {
   'hadolint',
   'cspell',
   'flake8',
+  'golangci-lint',
 }
 
 return (function()

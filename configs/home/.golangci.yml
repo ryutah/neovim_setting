@@ -1,3 +1,4 @@
+version: "2"
 linters:
   # default linters: https://golangci-lint.run/usage/linters/#enabled-by-default
   enable:
@@ -9,11 +10,8 @@ linters:
     - durationcheck
     - errchkjson
     - exhaustive
-    - exportloopref
     - goconst
 
-linters-settings:
-  exhaustive:
-    default-signifies-exhaustive: true
-  goconst:
-    ignore-tests: true
+  settings:
+    exhaustive:
+      default-signifies-exhaustive: true

@@ -23,6 +23,8 @@
 --      },
 --   }
 
+-- NOTE(ryutah): see below
+-- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-1801096383
 local function go_organize_import()
   local params = vim.lsp.util.make_range_params()
   params.context = { only = { "source.organizeImports" } }

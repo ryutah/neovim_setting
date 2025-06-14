@@ -15,27 +15,23 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-    'neovim/nvim-lspconfig',
+    'mason-org/mason-lspconfig.nvim',
     requires = {
-      'williamboman/mason.nvim',
-      -- NOTE(ryutah): エラーが発生するため、いったんバージョンを固定
-      {
-        'williamboman/mason-lspconfig.nvim',
-        tag = 'v1.32.0',
-
-      },
-      {
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
-        commit = '299c77f264a9c9b7f30d0bdda91341ff756b53ca'
-      },
-      -- end
-      'hrsh7th/cmp-nvim-lsp',
-      'folke/neodev.nvim',
-      'b0o/schemastore.nvim',
-      'ray-x/lsp_signature.nvim',
+      'mason-org/mason.nvim',
+      'neovim/nvim-lspconfig',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
+    config = require('configs.mason').setup,
+  }
+
+  use 'neovim/nvim-lspconfig'
+
+  use 'b0o/schemastore.nvim'
+
+  use {
+    'ray-x/lsp_signature.nvim',
     config = function()
-      require('configs/nvim_lspconfig')
+      require('lsp_signature').setup()
     end,
   }
 
@@ -102,8 +98,6 @@ return require('packer').startup(function(use)
 
   use {
     'editorconfig/editorconfig-vim',
-    -- NOTE: https://github.com/editorconfig/editorconfig-vim/commit/7eec46701ec7a954a6cb0b0e348ad7c13a893425 で正しく機能しなくなってるので、いったんバージョン固定
-    tag = 'v1.2.0',
   }
 
   use {

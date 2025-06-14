@@ -21,6 +21,3 @@ echo "create symbolic link for tool configs"
 
 # create symlink to home directory
 ls -A ${configs_dir}/home | xargs -I{} ln -sf ${configs_dir}/home/{} ${HOME}/{}
-
-# create symlink to config (xdg config) directory
-ls -A ${configs_dir}/xdg_home | xargs -I{} ln -sf ${configs_dir}/xdg_home/{} ${config_path}/{}

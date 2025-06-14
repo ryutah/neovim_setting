@@ -14,7 +14,7 @@ tab_width = 4
 # refs
 #   - https://github.com/editorconfig/editorconfig-core-go/blob/a82f420ac05062e83a7eee915157ff7ec5b58e96/.editorconfig
 #   - https://github.com/django/django/blob/aa4acc164d1247c0de515c959f7b09648b57dc42/.editorconfig
-[{Makefile,go.mod,go.sum,*.go,*.snippets}]
+[{Makefile,go.mod,go.sum,*.go,*.snippets.*.ts,*.ts,*.tsx,*.js,*.jsx,*.json}]
 indent_style = tab
 indent_size = 4
 

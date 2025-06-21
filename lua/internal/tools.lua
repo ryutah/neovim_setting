@@ -45,13 +45,13 @@ end
 -- see:
 --   - https://www.reddit.com/r/neovim/comments/lwz8l7/how_to_use_tsservers_organize_imports_with_nvim/
 --   - https://github.com/typescript-language-server/typescript-language-server#organize-imports
-local function tsserver_organize_import()
-  local params = {
-    command = '_typescript.organizeImports',
-    arguments = { vim.api.nvim_buf_get_name(0) }
-  }
-  vim.lsp.buf.execute_command(params)
-end
+-- local function tsserver_organize_import()
+--   local params = {
+--     command = '_typescript.organizeImports',
+--     arguments = { vim.api.nvim_buf_get_name(0) }
+--   }
+--   vim.lsp.buf.execute_command(params)
+-- end
 
 local lspconfig = require('lspconfig')
 

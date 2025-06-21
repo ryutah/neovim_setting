@@ -75,12 +75,21 @@ local on_attach_nvim_lspconfig_setup_format = function(args)
   end
 end
 
+local diagnostic = {
+  goto_prev = function()
+    return vim.diagnostic.jump({ count = -1, float = true })
+  end,
+  goto_next = function()
+    return vim.diagnostic.jump({ count = 1, float = true })
+  end,
+}
+
 local setup_lspconfig_keymap = function()
   -- Global mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
   vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+  vim.keymap.set('n', '[d', diagnostic.goto_prev)
+  vim.keymap.set('n', ']d', diagnostic.goto_next)
   vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
   vim.api.nvim_create_autocmd('LspAttach', {
@@ -119,7 +128,7 @@ local setup_lspconfig_symbol_highlight = function()
       local bufnr = args.buf
       local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-      if client.server_capabilities.documentHighlightProvider then
+      if client and client.server_capabilities.documentHighlightProvider then
         vim.cmd [[
           hi! LspReferenceRead cterm=bold ctermbg=red guifg=OrangeRed1
           hi! LspReferenceText cterm=bold ctermbg=red guifg=OrangeRed1

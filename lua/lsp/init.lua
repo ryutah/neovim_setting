@@ -3,6 +3,8 @@
 --- @field config vim.lsp.Config
 --- @field mason? string alieas name for mason.nvim package
 
+require('lsp.utils').setup()
+
 --- @type lsp.Lsp[]
 local lsps = {
   -- golang

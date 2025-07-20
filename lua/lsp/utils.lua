@@ -3,6 +3,14 @@
 --- @field on_pre_format? fun(client: vim.lsp.Client, bufnr: number) callback function to be called on BufWritePre
 --- @field lsp? vim.lsp.Config
 
+local group_name = 'lsp_on_attach'
+
+local function setup()
+  vim.api.nvim_create_augroup(group_name, {
+    clear = true,
+  })
+end
+
 local function format()
   vim.lsp.buf.format({ async = false })
 end
@@ -23,9 +31,9 @@ local function config(opts)
       --   - https://github.com/neovim/nvim-lspconfig/issues/2481
       client.server_capabilities.semanticTokensProvider = nil
 
-      local group_name = 'lsp_on_attach'
-      vim.api.nvim_create_augroup(group_name, {})
       vim.api.nvim_create_autocmd('BufWritePre', {
+        group = group_name,
+        buffer = bufnr,
         callback = function()
           if o.on_pre_format then
             o.on_pre_format(client, bufnr)
@@ -46,7 +54,10 @@ local function config(opts)
 end
 
 
-return {
-  config = config,
-  format = format,
-}
+return (function()
+  return {
+    setup = setup,
+    config = config,
+    format = format,
+  }
+end)()

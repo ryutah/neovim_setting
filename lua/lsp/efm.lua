@@ -97,6 +97,16 @@ local hadolint = {
 
 return require('lsp.utils').config({
   lsp = {
+    filetypes = {
+      'yaml',
+      'html',
+      'css',
+      'markdown',
+      'sql',
+      'sh',
+      'proto',
+      'dockerfile'
+    },
     init_options = {
       documentFormatting = true,
       documentRangeFormatting = true

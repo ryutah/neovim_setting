@@ -20,4 +20,4 @@ vim.opt.iskeyword:append("-")
 vim.opt.guicursor:append("c:ver10")
 vim.opt.undodir = vim.fn.stdpath("cache") .. "/undodir"
 vim.opt.diffopt = 'vertical'
-vim.opt.updatetime = 1000
+vim.opt.updatetime = 100

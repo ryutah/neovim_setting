@@ -9,8 +9,13 @@ local function python_path()
   return string.format('%s/bin/python', venv_dir)
 end
 
-return (function()
-  return {
-    python_path = python_path,
+return require('lsp.utils').config({
+  disable_format = true,
+  lsp = {
+    settings = {
+      python = {
+        pythonPath = python_path(),
+      },
+    },
   }
-end)()
+})

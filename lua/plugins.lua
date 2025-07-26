@@ -118,6 +118,9 @@ return require('packer').startup(function(use)
 
   use {
     'https://tpope.io/vim/commentary.git',
+    requires = {
+      { 'JoosepAlviste/nvim-ts-context-commentstring', },
+    },
     config = function()
       require('configs/commentary')
     end

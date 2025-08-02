@@ -11,6 +11,27 @@ local function setup()
   })
 end
 
+--- @param client vim.lsp.Client
+--- @param bufnr number
+--- @param cmd string[]
+local function code_action(client, bufnr, cmd)
+  local encoding = vim.opt.fileencoding:get()
+  local params = vim.lsp.util.make_range_params(0, encoding)
+
+  table.insert(params, {
+    context = { only = cmd },
+  })
+
+  local result = vim.lsp.client.request_sync(client, "textDocument/codeAction", params, 1000, bufnr) or {}
+
+  for _, r in pairs(result.result or {}) do
+    if r.edit then
+      local enc = client.offset_encoding or "utf-16"
+      vim.lsp.util.apply_workspace_edit(r.edit, enc)
+    end
+  end
+end
+
 local function format()
   vim.lsp.buf.format({ async = false })
 end
@@ -59,5 +80,6 @@ return (function()
     setup = setup,
     config = config,
     format = format,
+    code_action = code_action,
   }
 end)()

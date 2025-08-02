@@ -1,4 +1,13 @@
-return require('lsp.utils').config({
+local utils = require('lsp.utils')
+
+return utils.config({
+  --  missing field `context` ってエラーが出る
+  -- on_pre_format = function(client, bufnr)
+  --   utils.code_action(client, bufnr, {
+  --     "source.fixAll.biome",
+  --     "source.organizeImports",
+  --   })
+  -- end,
   -- NOTE: want to use local biome if available
   -- example: https://github.com/neovim/nvim-lspconfig/blob/7a88e3024a616e153b8760d64b3541e3a166c27f/lsp/biome.lua#L13
   lsp = {

@@ -62,6 +62,18 @@ local sql_formatter = {
   },
 }
 
+local sqlfluff = {
+  formatStdin = true,
+  formatCommand = "sqlfluff format -",
+  rootMarkers = {
+    ".sqlfluff",
+    "pyproject.toml",
+    "pep8.ini",
+    "tox.ini",
+    "setup.cfg",
+  },
+}
+
 local shfmt = {
   formatStdin = true,
   formatCommand = "shfmt -i 2",
@@ -122,7 +134,7 @@ return require('lsp.utils').config({
           markdownlint,
           textlint,
         },
-        sql = { sql_formatter },
+        sql = { sqlfluff },
         sh = { shfmt },
         proto = { buf_lint },
         dockerfile = { hadolint }

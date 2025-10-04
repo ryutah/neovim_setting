@@ -108,7 +108,7 @@ end
 local function setup_diagnostic()
   -- refs: https://smarttech101.com/nvim-lsp-diagnostics-keybindings-signs-virtual-texts
   vim.diagnostic.config({
-    virtual_lines = true,
+    virtual_lines = false, -- turn off because it is noisy
     float = true,
     signs = {
       text = {

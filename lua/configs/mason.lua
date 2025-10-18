@@ -2,6 +2,7 @@ local function setup()
   local ensure_installed = {
     -- daps
     'delve',
+    'debugpy',
 
     -- formatters
     'prettierd',

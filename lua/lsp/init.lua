@@ -92,6 +92,12 @@ local lsps = {
     lsp = 'efm',
     config = require('lsp.efm'),
   },
+
+  -- toml
+  {
+    lsp = 'taplo',
+    config = require('lsp.taplo'),
+  }
 }
 
 local function setup_lsps()

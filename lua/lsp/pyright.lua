@@ -2,6 +2,10 @@
 -- see:
 --   - https://kitagry.github.io/blog/programmings/2021/04/pyright-vim/
 local function python_path()
+  if vim.fn.isdirectory('.venv') ~= 0 then
+    return vim.fn.getcwd() .. '/.venv/bin/python'
+  end
+
   if not vim.fn.executable('poetry') then
     return ''
   end

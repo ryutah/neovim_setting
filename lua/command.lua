@@ -9,6 +9,8 @@ local function install_dir(arg)
   return base_dir .. arg
 end
 
+--- Get the latest stable PlantUML version from GitHub releases
+--- WARN: now this function always returns nil value.
 local function get_latest_stable_plantuml_version()
   local response = curl.get('https://api.github.com/repos/plantuml/plantuml/releases', {
     query = { per_page = 10 },

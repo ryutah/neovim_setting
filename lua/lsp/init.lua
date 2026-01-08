@@ -35,6 +35,12 @@ local lsps = {
     config = require('lsp.eslint'),
   },
 
+  -- deno
+  {
+    lsp = 'denols',
+    config = require('lsp.denols'),
+  },
+
   -- json
   {
     lsp = 'jsonls',

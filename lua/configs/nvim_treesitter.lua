@@ -1,39 +1,48 @@
-require('nvim-treesitter.configs').setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = {
-    'comment',
-    'markdown_inline',
-  },
+-- =============================================================================
+-- 1. nvim-treesitter (main ブランチ仕様) の設定
+-- =============================================================================
+local ts = require('nvim-treesitter')
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+-- パーサーの一括指定と自動インストール
+ts.install({
+  'comment',
+  'markdown_inline',
+})
 
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
+-- バッファ侵入時に未インストールのパーサーを自動追従させる設定
+require('nvim-treesitter.install').prefer_git = true
 
-  -- List of parsers to ignore installing (for "all")
-  ignore_install = {},
 
-  indent = {
-    enable = true,
-  },
+-- =============================================================================
+-- 2. ハイライト & インデントの有効化設定 (安全な pcall 方式)
+-- =============================================================================
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    local ft = vim.bo.filetype
 
-  highlight = {
-    enable = true,
-    -- example of disabled
-    -- disable = function(lang, bufnr) -- Disable in large C++ buffers
-    --   return lang == "cpp" and vim.api.nvim_buf_line_count(bufnr) > 50000
-    -- end,
-    disable = {},
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
+    -- 明確に不要な特殊バッファは事前に除外
+    if ft == "packer" or ft == "TelescopePrompt" or ft == "NvimTree" or ft == "fzf" then
+      return
+    end
 
+    local lang = vim.treesitter.language.get_lang(ft)
+    if lang then
+      -- 構文ハイライトを安全に開始 (エラーが出た場合はスキップする)
+      -- これにより、未知のファイルタイプで内部の assert が落ちるのを防ぎます
+      local success = pcall(vim.treesitter.start)
+
+      -- ハイライトの開始に成功した場合のみ、インデントなどの追加処理を行う
+      if success then
+        vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
+      end
+    end
+  end,
+})
+
+
+-- =============================================================================
+-- 3. nvim-treesitter-context の設定
+-- =============================================================================
 require('treesitter-context').setup({
   max_lines = 5,
 })

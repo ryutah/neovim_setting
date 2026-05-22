@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     requires = {
       'nvim-treesitter/nvim-treesitter-context',
     },
@@ -64,6 +65,9 @@ return require('packer').startup(function(use)
       require('configs/nvim_treesitter')
     end,
   }
+
+  -- nvim_treesitter で sqlx がサポートされていないようなので
+  use 'andres-lowrie/vim-sqlx'
 
   use 'sainnhe/everforest'
 

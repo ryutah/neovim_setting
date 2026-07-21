@@ -1,6 +1,6 @@
 require('base')
-require('plugins')
 require('keymap')
+require('plugins')
 require('command')
 require('colorscheme')
 require('lsp')

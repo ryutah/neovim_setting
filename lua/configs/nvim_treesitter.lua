@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
     local ft = vim.bo.filetype
 
     -- 明確に不要な特殊バッファは事前に除外
-    if ft == "packer" or ft == "TelescopePrompt" or ft == "NvimTree" or ft == "fzf" then
+    if ft == "packer" or ft == "lazy" or ft == "TelescopePrompt" or ft == "NvimTree" or ft == "fzf" then
       return
     end
 

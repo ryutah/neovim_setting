@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
     local ft = vim.bo.filetype
 
     -- 明確に不要な特殊バッファは事前に除外
-    if ft == "packer" or ft == "TelescopePrompt" or ft == "NvimTree" or ft == "fzf" then
+    if ft == "packer" or ft == "lazy" or ft == "TelescopePrompt" or ft == "NvimTree" or ft == "fzf" then
       return
     end
 
@@ -30,11 +30,10 @@ vim.api.nvim_create_autocmd("FileType", {
       -- 構文ハイライトを安全に開始 (エラーが出た場合はスキップする)
       -- これにより、未知のファイルタイプで内部の assert が落ちるのを防ぎます
       local success = pcall(vim.treesitter.start)
-
       -- ハイライトの開始に成功した場合のみ、インデントなどの追加処理を行う
-      if success then
-        vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
-      end
+      -- if success then
+      --   vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
+      -- end
     end
   end,
 })

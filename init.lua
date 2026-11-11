@@ -1,4 +1,5 @@
 require('base')
+require('filetype')
 require('keymap')
 require('plugins')
 require('command')
